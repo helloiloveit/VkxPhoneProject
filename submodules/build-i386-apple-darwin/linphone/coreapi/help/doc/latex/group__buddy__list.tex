@@ -1,0 +1,1413 @@
+\section{Managing Buddies and buddy list and presence}
+\label{group__buddy__list}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum {\bf \-\_\-\-Linphone\-Online\-Status} {\bf Linphone\-Online\-Status}
+\item 
+typedef struct \-\_\-\-Linphone\-Friend {\bf Linphone\-Friend}
+\item 
+typedef enum \\*
+{\bf Linphone\-Presence\-Basic\-Status} {\bf Linphone\-Presence\-Basic\-Status}
+\item 
+typedef enum \\*
+{\bf Linphone\-Presence\-Activity\-Type} {\bf Linphone\-Presence\-Activity\-Type}
+\item 
+typedef struct \\*
+{\bf \-\_\-\-Linphone\-Presence\-Model} {\bf Linphone\-Presence\-Model}
+\item 
+typedef struct \\*
+\-\_\-\-Linphone\-Presence\-Activity {\bf Linphone\-Presence\-Activity}
+\item 
+typedef struct \\*
+\-\_\-\-Linphone\-Presence\-Note {\bf Linphone\-Presence\-Note}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf Linphone\-Subscribe\-Policy} \{ \\*
+{\bf Linphone\-S\-P\-Wait}, 
+\\*
+{\bf Linphone\-S\-P\-Deny}, 
+\\*
+{\bf Linphone\-S\-P\-Accept}
+ \}
+\item 
+enum {\bf \-\_\-\-Linphone\-Online\-Status} \{ \\*
+{\bf Linphone\-Status\-Offline}, 
+\\*
+{\bf Linphone\-Status\-Online}, 
+\\*
+{\bf Linphone\-Status\-Busy}, 
+\\*
+{\bf Linphone\-Status\-Be\-Right\-Back}, 
+\\*
+{\bf Linphone\-Status\-Away}, 
+\\*
+{\bf Linphone\-Status\-On\-The\-Phone}, 
+\\*
+{\bf Linphone\-Status\-Out\-To\-Lunch}, 
+\\*
+{\bf Linphone\-Status\-Do\-Not\-Disturb}, 
+\\*
+{\bf Linphone\-Status\-Moved}, 
+\\*
+{\bf Linphone\-Status\-Alt\-Service}, 
+\\*
+{\bf Linphone\-Status\-Pending}, 
+\\*
+{\bf Linphone\-Status\-Vacation}
+ \}
+\item 
+enum {\bf Linphone\-Presence\-Basic\-Status} \{ \\*
+{\bf Linphone\-Presence\-Basic\-Status\-Open}, 
+\\*
+{\bf Linphone\-Presence\-Basic\-Status\-Closed}
+ \}
+\item 
+enum {\bf Linphone\-Presence\-Activity\-Type} \{ \\*
+{\bf Linphone\-Presence\-Activity\-Offline}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Online}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Appointment}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Away}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Breakfast}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Busy}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Dinner}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Holiday}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-In\-Transit}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Looking\-For\-Work}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Lunch}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Meal}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Meeting}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-On\-The\-Phone}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Other}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Performance}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Permanent\-Absence}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Playing}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Presentation}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Shopping}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Sleeping}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Spectator}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Steering}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Travel}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-T\-V}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Unknown}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Vacation}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Working}, 
+\\*
+{\bf Linphone\-Presence\-Activity\-Worship}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Friend} $\ast$ {\bf linphone\-\_\-friend\-\_\-new} ()
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Friend} $\ast$ {\bf linphone\-\_\-friend\-\_\-new\-\_\-with\-\_\-addr} (const char $\ast$addr)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void {\bf linphone\-\_\-friend\-\_\-destroy} ({\bf Linphone\-Friend} $\ast$lf)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int {\bf linphone\-\_\-friend\-\_\-set\-\_\-addr} ({\bf Linphone\-Friend} $\ast$fr, const {\bf Linphone\-Address} $\ast$address)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int {\bf linphone\-\_\-friend\-\_\-set\-\_\-name} ({\bf Linphone\-Friend} $\ast$lf, const char $\ast$name)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const \\*
+{\bf Linphone\-Address} $\ast$ {\bf linphone\-\_\-friend\-\_\-get\-\_\-address} (const {\bf Linphone\-Friend} $\ast$lf)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C bool\-\_\-t {\bf linphone\-\_\-friend\-\_\-subscribes\-\_\-enabled} (const {\bf Linphone\-Friend} $\ast$lf)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int {\bf linphone\-\_\-friend\-\_\-enable\-\_\-subscribes} ({\bf Linphone\-Friend} $\ast$fr, bool\-\_\-t val)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int {\bf linphone\-\_\-friend\-\_\-set\-\_\-inc\-\_\-subscribe\-\_\-policy} ({\bf Linphone\-Friend} $\ast$fr, {\bf Linphone\-Subscribe\-Policy} pol)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C \\*
+{\bf Linphone\-Subscribe\-Policy} {\bf linphone\-\_\-friend\-\_\-get\-\_\-inc\-\_\-subscribe\-\_\-policy} (const {\bf Linphone\-Friend} $\ast$lf)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void {\bf linphone\-\_\-friend\-\_\-edit} ({\bf Linphone\-Friend} $\ast$fr)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void {\bf linphone\-\_\-friend\-\_\-done} ({\bf Linphone\-Friend} $\ast$fr)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C \\*
+{\bf Linphone\-Online\-Status} {\bf linphone\-\_\-friend\-\_\-get\-\_\-status} (const {\bf Linphone\-Friend} $\ast$lf)
+\begin{DoxyCompactList}\small\item\em Get the status of a friend. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const \\*
+{\bf Linphone\-Presence\-Model} $\ast$ {\bf linphone\-\_\-friend\-\_\-get\-\_\-presence\-\_\-model} ({\bf Linphone\-Friend} $\ast$lf)
+\begin{DoxyCompactList}\small\item\em Get the presence information of a friend. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const char $\ast$ {\bf linphone\-\_\-online\-\_\-status\-\_\-to\-\_\-string} ({\bf Linphone\-Online\-Status} ss)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void {\bf linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-info} ({\bf Linphone\-Core} $\ast$lc, int minutes\-\_\-away, const char $\ast$alternative\-\_\-contact, {\bf Linphone\-Online\-Status} os)
+\begin{DoxyCompactList}\small\item\em Set my presence status. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void {\bf linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-model} ({\bf Linphone\-Core} $\ast$lc, {\bf Linphone\-Presence\-Model} $\ast$presence)
+\begin{DoxyCompactList}\small\item\em Set my presence status. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C \\*
+{\bf Linphone\-Online\-Status} {\bf linphone\-\_\-core\-\_\-get\-\_\-presence\-\_\-info} (const {\bf Linphone\-Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Get my presence status. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C \\*
+{\bf Linphone\-Presence\-Model} $\ast$ {\bf linphone\-\_\-core\-\_\-get\-\_\-presence\-\_\-model} (const {\bf Linphone\-Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Get my presence status. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void {\bf linphone\-\_\-core\-\_\-add\-\_\-friend} ({\bf Linphone\-Core} $\ast$lc, {\bf Linphone\-Friend} $\ast$fr)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void {\bf linphone\-\_\-core\-\_\-remove\-\_\-friend} ({\bf Linphone\-Core} $\ast$lc, {\bf Linphone\-Friend} $\ast$fr)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void {\bf linphone\-\_\-core\-\_\-reject\-\_\-subscriber} ({\bf Linphone\-Core} $\ast$lc, {\bf Linphone\-Friend} $\ast$lf)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const M\-S\-List $\ast$ {\bf linphone\-\_\-core\-\_\-get\-\_\-friend\-\_\-list} (const {\bf Linphone\-Core} $\ast$lc)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void {\bf linphone\-\_\-core\-\_\-notify\-\_\-all\-\_\-friends} ({\bf Linphone\-Core} $\ast$lc, {\bf Linphone\-Presence\-Model} $\ast$presence)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C \\*
+{\bf Linphone\-Presence\-Model} $\ast$ {\bf linphone\-\_\-presence\-\_\-model\-\_\-new} (void)
+\begin{DoxyCompactList}\small\item\em Creates a default presence model. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C \\*
+{\bf Linphone\-Presence\-Model} $\ast$ {\bf linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity} ({\bf Linphone\-Presence\-Activity\-Type} activity, const char $\ast$description)
+\begin{DoxyCompactList}\small\item\em Creates a presence model specifying an activity. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C \\*
+{\bf Linphone\-Presence\-Model} $\ast$ {\bf linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity\-\_\-and\-\_\-note} ({\bf Linphone\-Presence\-Activity\-Type} activity, const char $\ast$description, const char $\ast$note, const char $\ast$lang)
+\begin{DoxyCompactList}\small\item\em Creates a presence model specifying an activity and adding a note. \end{DoxyCompactList}\item 
+{\bf Linphone\-Presence\-Model} $\ast$ {\bf linphone\-\_\-presence\-\_\-model\-\_\-ref} ({\bf Linphone\-Presence\-Model} $\ast$model)
+\item 
+{\bf Linphone\-Presence\-Model} $\ast$ {\bf linphone\-\_\-presence\-\_\-model\-\_\-unref} ({\bf Linphone\-Presence\-Model} $\ast$model)
+\item 
+void {\bf linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-user\-\_\-data} ({\bf Linphone\-Presence\-Model} $\ast$model, void $\ast$user\-\_\-data)
+\item 
+void $\ast$ {\bf linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-user\-\_\-data} ({\bf Linphone\-Presence\-Model} $\ast$model)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C \\*
+{\bf Linphone\-Presence\-Basic\-Status} {\bf linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-basic\-\_\-status} (const {\bf Linphone\-Presence\-Model} $\ast$model)
+\begin{DoxyCompactList}\small\item\em Gets the basic status of a presence model. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C time\-\_\-t {\bf linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-timestamp} (const {\bf Linphone\-Presence\-Model} $\ast$model)
+\begin{DoxyCompactList}\small\item\em Gets the timestamp of a presence model. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C char $\ast$ {\bf linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-contact} (const {\bf Linphone\-Presence\-Model} $\ast$model)
+\begin{DoxyCompactList}\small\item\em Gets the contact of a presence model. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void {\bf linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-contact} ({\bf Linphone\-Presence\-Model} $\ast$model, const char $\ast$contact)
+\begin{DoxyCompactList}\small\item\em Sets the contact of a presence model. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C unsigned int {\bf linphone\-\_\-presence\-\_\-model\-\_\-nb\-\_\-activities} (const {\bf Linphone\-Presence\-Model} $\ast$model)
+\begin{DoxyCompactList}\small\item\em Gets the number of activities included in the presence model. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C \\*
+{\bf Linphone\-Presence\-Activity} $\ast$ {\bf linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-nth\-\_\-activity} (const {\bf Linphone\-Presence\-Model} $\ast$model, unsigned int idx)
+\begin{DoxyCompactList}\small\item\em Gets the nth activity of a presence model. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C \\*
+{\bf Linphone\-Presence\-Activity} $\ast$ {\bf linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-activity} (const {\bf Linphone\-Presence\-Model} $\ast$model)
+\begin{DoxyCompactList}\small\item\em Gets the first activity of a presence model (there is usually only one). \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int {\bf linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-activity} ({\bf Linphone\-Presence\-Model} $\ast$model, {\bf Linphone\-Presence\-Activity\-Type} activity, const char $\ast$description)
+\begin{DoxyCompactList}\small\item\em Sets the activity of a presence model (limits to only one activity). \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C \\*
+{\bf Linphone\-Presence\-Note} $\ast$ {\bf linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-note} (const {\bf Linphone\-Presence\-Model} $\ast$model, const char $\ast$lang)
+\begin{DoxyCompactList}\small\item\em Gets the first note of a presence model (there is usually only one). \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int {\bf linphone\-\_\-presence\-\_\-model\-\_\-add\-\_\-note} ({\bf Linphone\-Presence\-Model} $\ast$model, const char $\ast$note\-\_\-content, const char $\ast$lang)
+\begin{DoxyCompactList}\small\item\em Adds a note to a presence model. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int {\bf linphone\-\_\-presence\-\_\-model\-\_\-clear\-\_\-notes} ({\bf Linphone\-Presence\-Model} $\ast$model)
+\begin{DoxyCompactList}\small\item\em Clears all the notes of a presence model. \end{DoxyCompactList}\item 
+{\bf Linphone\-Presence\-Activity} $\ast$ {\bf linphone\-\_\-presence\-\_\-activity\-\_\-ref} ({\bf Linphone\-Presence\-Activity} $\ast$activity)
+\item 
+{\bf Linphone\-Presence\-Activity} $\ast$ {\bf linphone\-\_\-presence\-\_\-activity\-\_\-unref} ({\bf Linphone\-Presence\-Activity} $\ast$activity)
+\item 
+void {\bf linphone\-\_\-presence\-\_\-activity\-\_\-set\-\_\-user\-\_\-data} ({\bf Linphone\-Presence\-Activity} $\ast$activity, void $\ast$user\-\_\-data)
+\item 
+void $\ast$ {\bf linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-user\-\_\-data} ({\bf Linphone\-Presence\-Activity} $\ast$activity)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C char $\ast$ {\bf linphone\-\_\-presence\-\_\-activity\-\_\-to\-\_\-string} (const {\bf Linphone\-Presence\-Activity} $\ast$activity)
+\begin{DoxyCompactList}\small\item\em Gets the string representation of a presence activity. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C \\*
+{\bf Linphone\-Presence\-Activity\-Type} {\bf linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-type} (const {\bf Linphone\-Presence\-Activity} $\ast$activity)
+\begin{DoxyCompactList}\small\item\em Gets the activity type of a presence activity. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const char $\ast$ {\bf linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-description} (const {\bf Linphone\-Presence\-Activity} $\ast$activity)
+\begin{DoxyCompactList}\small\item\em Gets the description of a presence activity. \end{DoxyCompactList}\item 
+{\bf Linphone\-Presence\-Note} $\ast$ {\bf linphone\-\_\-presence\-\_\-note\-\_\-ref} ({\bf Linphone\-Presence\-Note} $\ast$note)
+\item 
+{\bf Linphone\-Presence\-Note} $\ast$ {\bf linphone\-\_\-presence\-\_\-note\-\_\-unref} ({\bf Linphone\-Presence\-Note} $\ast$note)
+\item 
+void {\bf linphone\-\_\-presence\-\_\-note\-\_\-set\-\_\-user\-\_\-data} ({\bf Linphone\-Presence\-Note} $\ast$note, void $\ast$user\-\_\-data)
+\item 
+void $\ast$ {\bf linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-user\-\_\-data} ({\bf Linphone\-Presence\-Note} $\ast$note)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const char $\ast$ {\bf linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-content} (const {\bf Linphone\-Presence\-Note} $\ast$note)
+\begin{DoxyCompactList}\small\item\em Gets the content of a presence note. \end{DoxyCompactList}\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const char $\ast$ {\bf linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-lang} (const {\bf Linphone\-Presence\-Note} $\ast$note)
+\begin{DoxyCompactList}\small\item\em Gets the language of a presence note. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+{\bfseries Buddies and buddy list} \par
+Each buddy is represented by a \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} object created by function \doxyref{linphone\-\_\-friend\-\_\-new()}{p.}{group__buddy__list_ga97cbc9a6c2668bde387ed83a665559c5}. Buddy configuration parameters like \doxyref{sip uri }{p.}{group__buddy__list_ga4b95bb01402026b8ffc7a7be9729af93} or \doxyref{status publication }{p.}{group__buddy__list_ga1bef7a3f4194c5a8084897af07dfc5fb} policy for this \doxyref{friend }{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} are configurable for each buddy. \par
+Here under a typical buddy creation\-: \par
+ 
+\begin{DoxyCode}
+LinphoneFriend* my\_friend=linphone_friend_new_with_addr(\textcolor{stringliteral}{"sip:joe@sip.linphone.org"}); \textcolor{comment}{/*creates friend
+       object for buddy joe*/}
+linphone_friend_enable_subscribes(my\_friend,TRUE); \textcolor{comment}{/*configure this friend to emit SUBSCRIBE message after
+       being added to LinphoneCore*/}
+linphone_friend_set_inc_subscribe_policy(my\_friend,LinphoneSPAccept); \textcolor{comment}{/* accept Incoming subscription
+       request for this friend*/}
+\end{DoxyCode}
+ \doxyref{friends }{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} status changes are reported by callback \doxyref{Linphone\-Core\-V\-Table.\-notify\-\_\-presence\-\_\-recv}{p.}{struct__LinphoneVTable_afedfc364c5b5193f10473cd47524400f} 
+\begin{DoxyCode}
+\textcolor{keyword}{static} \textcolor{keywordtype}{void} notify\_presence\_recv\_updated (\textcolor{keyword}{struct} \_LinphoneCore *lc,  
+      LinphoneFriend *\textcolor{keyword}{friend}) \{
+        \textcolor{keyword}{const} LinphoneAddress* friend\_address = linphone_friend_get_address(\textcolor{keyword}{friend});
+        printf(\textcolor{stringliteral}{"New state state [%s] for user id [%s] \(\backslash\)n"}
+                                ,linphone_online_status_to_string(
+      linphone_friend_get_status(\textcolor{keyword}{friend}))
+                                ,linphone_address_as_string (friend\_address));
+\}
+\end{DoxyCode}
+ \par
+Once created a buddy can be added to the buddy list using function \doxyref{linphone\-\_\-core\-\_\-add\-\_\-friend()}{p.}{group__buddy__list_gaf049534f1d2a76cbe4e62abed8e2c096} . Added friends will be notified about \doxyref{local status changes }{p.}{group__buddy__list_ga0a624a6e999108ee052b89e743698227} \par
+ Any subsequente modifications to \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} must be first started by a call to function \doxyref{linphone\-\_\-friend\-\_\-edit()}{p.}{group__buddy__list_ga4329c451eb96f1b5073990bb2212c52b} and validated by function \doxyref{linphone\-\_\-friend\-\_\-done()}{p.}{group__buddy__list_gae73b009008c6c6ec92ea3de71135d5f7} 
+\begin{DoxyCode}
+linphone_friend_edit(my\_friend); \textcolor{comment}{/* start editing friend */}
+linphone_friend_enable_subscribes(my\_friend,FALSE); \textcolor{comment}{/*disable subscription for this friend*/}
+linphone_friend_done(my\_friend); \textcolor{comment}{/*commit changes triggering an UNSUBSCRIBE message*/}
+\end{DoxyCode}
+
+
+{\bfseries  Publishing presence status } \par
+Local presence status can be changed using function \doxyref{linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-model()}{p.}{group__buddy__list_ga9b0cdc2b8ac83ec6db8ca9502e9c2972} .New status is propagated to all friends \doxyref{previously added }{p.}{group__buddy__list_gaf049534f1d2a76cbe4e62abed8e2c096} to \doxyref{Linphone\-Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a}.
+
+{\bfseries Handling incoming subscription request} \par
+ New incoming subscription requests are process according to \doxyref{the incoming subscription policy state }{p.}{group__buddy__list_ga1bef7a3f4194c5a8084897af07dfc5fb} for subscription initiated by \doxyref{members of the buddy list. }{p.}{group__buddy__list_gaf049534f1d2a76cbe4e62abed8e2c096} \par
+ For incoming request comming from an unknown buddy, the call back \doxyref{Linphone\-Core\-V\-Table.\-new\-\_\-subscription\-\_\-request}{p.}{struct__LinphoneVTable_ae66dffa2d5e6b3be881552cab3024ec2} is invoked.
+
+\par
+ A complete tutorial can be found at \-: \doxyref{Registration tutorial}{p.}{group__buddy__tutorials} 
+
+\subsection{Typedef Documentation}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Online\-Status@{Linphone\-Online\-Status}}
+\index{Linphone\-Online\-Status@{Linphone\-Online\-Status}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{Linphone\-Online\-Status}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf \-\_\-\-Linphone\-Online\-Status} {\bf Linphone\-Online\-Status}}\label{group__buddy__list_ga77d9418f55c2ad8f8c6627548b388d0d}
+Enum describing remote friend status \begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Use \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} and \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} instead \end{DoxyRefDesc}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Friend@{Linphone\-Friend}}
+\index{Linphone\-Friend@{Linphone\-Friend}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{Linphone\-Friend}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct \-\_\-\-Linphone\-Friend {\bf Linphone\-Friend}}\label{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522}
+Represents a buddy, all presence actions like subscription and status change notification are performed on this object \index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Basic\-Status@{Linphone\-Presence\-Basic\-Status}}
+\index{Linphone\-Presence\-Basic\-Status@{Linphone\-Presence\-Basic\-Status}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{Linphone\-Presence\-Basic\-Status}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf Linphone\-Presence\-Basic\-Status}  {\bf Linphone\-Presence\-Basic\-Status}}\label{group__buddy__list_ga968cd2a4c5bbd7158f2a413b0404e406}
+Basic status as defined in section 4.\-1.\-4 of R\-F\-C 3863 \index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Type@{Linphone\-Presence\-Activity\-Type}}
+\index{Linphone\-Presence\-Activity\-Type@{Linphone\-Presence\-Activity\-Type}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{Linphone\-Presence\-Activity\-Type}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf Linphone\-Presence\-Activity\-Type}  {\bf Linphone\-Presence\-Activity\-Type}}\label{group__buddy__list_gae54ca0c41df7bf86ecf2f4cd9e2f2fb7}
+Activities as defined in section 3.\-2 of R\-F\-C 4480 \index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Model@{Linphone\-Presence\-Model}}
+\index{Linphone\-Presence\-Model@{Linphone\-Presence\-Model}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{Linphone\-Presence\-Model}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \-\_\-\-Linphone\-Presence\-Model} {\bf Linphone\-Presence\-Model}}\label{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366}
+Presence model type holding information about the presence of a person. \index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity@{Linphone\-Presence\-Activity}}
+\index{Linphone\-Presence\-Activity@{Linphone\-Presence\-Activity}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{Linphone\-Presence\-Activity}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct \-\_\-\-Linphone\-Presence\-Activity {\bf Linphone\-Presence\-Activity}}\label{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244}
+Presence activity type holding information about a presence activity. \index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Note@{Linphone\-Presence\-Note}}
+\index{Linphone\-Presence\-Note@{Linphone\-Presence\-Note}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{Linphone\-Presence\-Note}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct \-\_\-\-Linphone\-Presence\-Note {\bf Linphone\-Presence\-Note}}\label{group__buddy__list_ga3e527842a46fdd3e4de342fe9b2b3b1d}
+Presence note type holding information about a presence note. 
+
+\subsection{Enumeration Type Documentation}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Subscribe\-Policy@{Linphone\-Subscribe\-Policy}}
+\index{Linphone\-Subscribe\-Policy@{Linphone\-Subscribe\-Policy}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{Linphone\-Subscribe\-Policy}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Linphone\-Subscribe\-Policy}}\label{group__buddy__list_ga542840b0e4c60ba1c700dcc75c8b3156}
+Enum controlling behavior for incoming subscription request. \par
+ Use by \doxyref{linphone\-\_\-friend\-\_\-set\-\_\-inc\-\_\-subscribe\-\_\-policy()}{p.}{group__buddy__list_ga1bef7a3f4194c5a8084897af07dfc5fb} \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Linphone\-S\-P\-Wait@{Linphone\-S\-P\-Wait}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-S\-P\-Wait@{Linphone\-S\-P\-Wait}}\item[{\em 
+Linphone\-S\-P\-Wait\label{group__buddy__list_gga542840b0e4c60ba1c700dcc75c8b3156a246385e012d66137817cb67f0cb789a7}
+}]Does not automatically accept an incoming subscription request. This policy implies that a decision has to be taken for each incoming subscription request notified by callback \doxyref{Linphone\-Core\-V\-Table.\-new\-\_\-subscription\-\_\-request}{p.}{struct__LinphoneVTable_ae66dffa2d5e6b3be881552cab3024ec2} \index{Linphone\-S\-P\-Deny@{Linphone\-S\-P\-Deny}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-S\-P\-Deny@{Linphone\-S\-P\-Deny}}\item[{\em 
+Linphone\-S\-P\-Deny\label{group__buddy__list_gga542840b0e4c60ba1c700dcc75c8b3156a94cf7013f58a5ad7ec8859afc3da9d72}
+}]Rejects incoming subscription request. \index{Linphone\-S\-P\-Accept@{Linphone\-S\-P\-Accept}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-S\-P\-Accept@{Linphone\-S\-P\-Accept}}\item[{\em 
+Linphone\-S\-P\-Accept\label{group__buddy__list_gga542840b0e4c60ba1c700dcc75c8b3156a876507f111b9ea7c5fb4eac01bac22dd}
+}]Automatically accepts a subscription request. \end{description}
+\end{Desc}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!\-\_\-\-Linphone\-Online\-Status@{\-\_\-\-Linphone\-Online\-Status}}
+\index{\-\_\-\-Linphone\-Online\-Status@{\-\_\-\-Linphone\-Online\-Status}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{\-\_\-\-Linphone\-Online\-Status}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-\_\-\-Linphone\-Online\-Status}}\label{group__buddy__list_ga1fe5b01157185e761475b82058697a34}
+Enum describing remote friend status \begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Use \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} and \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} instead \end{DoxyRefDesc}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Linphone\-Status\-Offline@{Linphone\-Status\-Offline}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Status\-Offline@{Linphone\-Status\-Offline}}\item[{\em 
+Linphone\-Status\-Offline\label{group__buddy__list_gga1fe5b01157185e761475b82058697a34af5aff8e160716b480e4f9f54a1892bb8}
+}]Offline \index{Linphone\-Status\-Online@{Linphone\-Status\-Online}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Status\-Online@{Linphone\-Status\-Online}}\item[{\em 
+Linphone\-Status\-Online\label{group__buddy__list_gga1fe5b01157185e761475b82058697a34ae254d925323f861f5752aa55abab5ecf}
+}]Online \index{Linphone\-Status\-Busy@{Linphone\-Status\-Busy}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Status\-Busy@{Linphone\-Status\-Busy}}\item[{\em 
+Linphone\-Status\-Busy\label{group__buddy__list_gga1fe5b01157185e761475b82058697a34a17ae05e1255b7df4d57221ac33c8d0ad}
+}]Busy \index{Linphone\-Status\-Be\-Right\-Back@{Linphone\-Status\-Be\-Right\-Back}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Status\-Be\-Right\-Back@{Linphone\-Status\-Be\-Right\-Back}}\item[{\em 
+Linphone\-Status\-Be\-Right\-Back\label{group__buddy__list_gga1fe5b01157185e761475b82058697a34a649069608e2156c725a1161c1c94cf17}
+}]Be right back \index{Linphone\-Status\-Away@{Linphone\-Status\-Away}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Status\-Away@{Linphone\-Status\-Away}}\item[{\em 
+Linphone\-Status\-Away\label{group__buddy__list_gga1fe5b01157185e761475b82058697a34a461c74c841b59ba7f934783cb5314ea4}
+}]Away \index{Linphone\-Status\-On\-The\-Phone@{Linphone\-Status\-On\-The\-Phone}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Status\-On\-The\-Phone@{Linphone\-Status\-On\-The\-Phone}}\item[{\em 
+Linphone\-Status\-On\-The\-Phone\label{group__buddy__list_gga1fe5b01157185e761475b82058697a34a7200babc21568ea6223679de1d1f0bfe}
+}]On the phone \index{Linphone\-Status\-Out\-To\-Lunch@{Linphone\-Status\-Out\-To\-Lunch}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Status\-Out\-To\-Lunch@{Linphone\-Status\-Out\-To\-Lunch}}\item[{\em 
+Linphone\-Status\-Out\-To\-Lunch\label{group__buddy__list_gga1fe5b01157185e761475b82058697a34ace958ac6ca2b03b8c6241942779095c4}
+}]Out to lunch \index{Linphone\-Status\-Do\-Not\-Disturb@{Linphone\-Status\-Do\-Not\-Disturb}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Status\-Do\-Not\-Disturb@{Linphone\-Status\-Do\-Not\-Disturb}}\item[{\em 
+Linphone\-Status\-Do\-Not\-Disturb\label{group__buddy__list_gga1fe5b01157185e761475b82058697a34a438498767839c0507236f1cd599cf220}
+}]Do not disturb \index{Linphone\-Status\-Moved@{Linphone\-Status\-Moved}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Status\-Moved@{Linphone\-Status\-Moved}}\item[{\em 
+Linphone\-Status\-Moved\label{group__buddy__list_gga1fe5b01157185e761475b82058697a34a2f5788314f1f2afd183fa114a2f4bd90}
+}]Moved in this sate, call can be redirected if an alternate contact address has been set using function \doxyref{linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-info()}{p.}{group__buddy__list_ga0a624a6e999108ee052b89e743698227} \index{Linphone\-Status\-Alt\-Service@{Linphone\-Status\-Alt\-Service}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Status\-Alt\-Service@{Linphone\-Status\-Alt\-Service}}\item[{\em 
+Linphone\-Status\-Alt\-Service\label{group__buddy__list_gga1fe5b01157185e761475b82058697a34abbcf317b3c6ffdabc976b3b5d9f1fd61}
+}]Using another messaging service \index{Linphone\-Status\-Pending@{Linphone\-Status\-Pending}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Status\-Pending@{Linphone\-Status\-Pending}}\item[{\em 
+Linphone\-Status\-Pending\label{group__buddy__list_gga1fe5b01157185e761475b82058697a34a034d77792b8e8bf3420946989aa41503}
+}]Pending \index{Linphone\-Status\-Vacation@{Linphone\-Status\-Vacation}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Status\-Vacation@{Linphone\-Status\-Vacation}}\item[{\em 
+Linphone\-Status\-Vacation\label{group__buddy__list_gga1fe5b01157185e761475b82058697a34ab5284645d9b56006e31ad074e944521f}
+}]Vacation \end{description}
+\end{Desc}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Basic\-Status@{Linphone\-Presence\-Basic\-Status}}
+\index{Linphone\-Presence\-Basic\-Status@{Linphone\-Presence\-Basic\-Status}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{Linphone\-Presence\-Basic\-Status}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Linphone\-Presence\-Basic\-Status}}\label{group__buddy__list_ga1bce4ac7547b3459c2815a5a38fab833}
+Basic status as defined in section 4.\-1.\-4 of R\-F\-C 3863 \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Linphone\-Presence\-Basic\-Status\-Open@{Linphone\-Presence\-Basic\-Status\-Open}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Basic\-Status\-Open@{Linphone\-Presence\-Basic\-Status\-Open}}\item[{\em 
+Linphone\-Presence\-Basic\-Status\-Open\label{group__buddy__list_gga1bce4ac7547b3459c2815a5a38fab833a6cb2287d4aa6ab6edf71faa60dee2bc1}
+}]This value means that the associated contact element, if any, is ready to accept communication. \index{Linphone\-Presence\-Basic\-Status\-Closed@{Linphone\-Presence\-Basic\-Status\-Closed}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Basic\-Status\-Closed@{Linphone\-Presence\-Basic\-Status\-Closed}}\item[{\em 
+Linphone\-Presence\-Basic\-Status\-Closed\label{group__buddy__list_gga1bce4ac7547b3459c2815a5a38fab833a4e18f5d7cb3e86bc7bde635d190a0175}
+}]This value means that the associated contact element, if any, is unable to accept communication. \end{description}
+\end{Desc}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Type@{Linphone\-Presence\-Activity\-Type}}
+\index{Linphone\-Presence\-Activity\-Type@{Linphone\-Presence\-Activity\-Type}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{Linphone\-Presence\-Activity\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Linphone\-Presence\-Activity\-Type}}\label{group__buddy__list_ga786b93f017c7572632243e1d493641ac}
+Activities as defined in section 3.\-2 of R\-F\-C 4480 \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Linphone\-Presence\-Activity\-Offline@{Linphone\-Presence\-Activity\-Offline}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Offline@{Linphone\-Presence\-Activity\-Offline}}\item[{\em 
+Linphone\-Presence\-Activity\-Offline\label{group__buddy__list_gga786b93f017c7572632243e1d493641acae6c23b48f5e845a1892985da5844aae3}
+}]This value is not defined in the R\-F\-C, it corresponds to no activity with a basic status of \char`\"{}closed\char`\"{}. \index{Linphone\-Presence\-Activity\-Online@{Linphone\-Presence\-Activity\-Online}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Online@{Linphone\-Presence\-Activity\-Online}}\item[{\em 
+Linphone\-Presence\-Activity\-Online\label{group__buddy__list_gga786b93f017c7572632243e1d493641aca005609d9063ce6807e4532e363d9801f}
+}]This value is not defined in the R\-F\-C, it corresponds to no activity with a basic status of \char`\"{}open\char`\"{}. \index{Linphone\-Presence\-Activity\-Appointment@{Linphone\-Presence\-Activity\-Appointment}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Appointment@{Linphone\-Presence\-Activity\-Appointment}}\item[{\em 
+Linphone\-Presence\-Activity\-Appointment\label{group__buddy__list_gga786b93f017c7572632243e1d493641acaac53282cdfa33de4b0cbcf0ed282673c}
+}]The person has a calendar appointment, without specifying exactly of what type. This activity is indicated if more detailed information is not available or the person chooses not to reveal more information. \index{Linphone\-Presence\-Activity\-Away@{Linphone\-Presence\-Activity\-Away}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Away@{Linphone\-Presence\-Activity\-Away}}\item[{\em 
+Linphone\-Presence\-Activity\-Away\label{group__buddy__list_gga786b93f017c7572632243e1d493641aca0df5a9a7bcae6ff52aeb8cc502a6e7af}
+}]The person is physically away from all interactive communication devices. \index{Linphone\-Presence\-Activity\-Breakfast@{Linphone\-Presence\-Activity\-Breakfast}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Breakfast@{Linphone\-Presence\-Activity\-Breakfast}}\item[{\em 
+Linphone\-Presence\-Activity\-Breakfast\label{group__buddy__list_gga786b93f017c7572632243e1d493641aca8cccbbdfd0909f4063199962642fa76b}
+}]The person is eating the first meal of the day, usually eaten in the morning. \index{Linphone\-Presence\-Activity\-Busy@{Linphone\-Presence\-Activity\-Busy}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Busy@{Linphone\-Presence\-Activity\-Busy}}\item[{\em 
+Linphone\-Presence\-Activity\-Busy\label{group__buddy__list_gga786b93f017c7572632243e1d493641aca9321362a809f958ee552068736d111c5}
+}]The person is busy, without further details. \index{Linphone\-Presence\-Activity\-Dinner@{Linphone\-Presence\-Activity\-Dinner}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Dinner@{Linphone\-Presence\-Activity\-Dinner}}\item[{\em 
+Linphone\-Presence\-Activity\-Dinner\label{group__buddy__list_gga786b93f017c7572632243e1d493641aca64c1f4795aa9eb80302356aedb81a7ea}
+}]The person is having his or her main meal of the day, eaten in the evening or at midday. \index{Linphone\-Presence\-Activity\-Holiday@{Linphone\-Presence\-Activity\-Holiday}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Holiday@{Linphone\-Presence\-Activity\-Holiday}}\item[{\em 
+Linphone\-Presence\-Activity\-Holiday\label{group__buddy__list_gga786b93f017c7572632243e1d493641aca73a8249fee86792494181a017c1aab65}
+}]This is a scheduled national or local holiday. \index{Linphone\-Presence\-Activity\-In\-Transit@{Linphone\-Presence\-Activity\-In\-Transit}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-In\-Transit@{Linphone\-Presence\-Activity\-In\-Transit}}\item[{\em 
+Linphone\-Presence\-Activity\-In\-Transit\label{group__buddy__list_gga786b93f017c7572632243e1d493641aca674f2624d3f77e5d7bbff99c75532081}
+}]The person is riding in a vehicle, such as a car, but not steering. \index{Linphone\-Presence\-Activity\-Looking\-For\-Work@{Linphone\-Presence\-Activity\-Looking\-For\-Work}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Looking\-For\-Work@{Linphone\-Presence\-Activity\-Looking\-For\-Work}}\item[{\em 
+Linphone\-Presence\-Activity\-Looking\-For\-Work\label{group__buddy__list_gga786b93f017c7572632243e1d493641acaf7a550b781668be23a8d1f1e277cace3}
+}]The person is looking for (paid) work. \index{Linphone\-Presence\-Activity\-Lunch@{Linphone\-Presence\-Activity\-Lunch}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Lunch@{Linphone\-Presence\-Activity\-Lunch}}\item[{\em 
+Linphone\-Presence\-Activity\-Lunch\label{group__buddy__list_gga786b93f017c7572632243e1d493641acadac59f1cbb3da20e7ce4549c0b63bc35}
+}]The person is eating his or her midday meal. \index{Linphone\-Presence\-Activity\-Meal@{Linphone\-Presence\-Activity\-Meal}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Meal@{Linphone\-Presence\-Activity\-Meal}}\item[{\em 
+Linphone\-Presence\-Activity\-Meal\label{group__buddy__list_gga786b93f017c7572632243e1d493641aca04bcb2b58b21093ee53fe1e5a465efa7}
+}]The person is scheduled for a meal, without specifying whether it is breakfast, lunch, or dinner, or some other meal. \index{Linphone\-Presence\-Activity\-Meeting@{Linphone\-Presence\-Activity\-Meeting}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Meeting@{Linphone\-Presence\-Activity\-Meeting}}\item[{\em 
+Linphone\-Presence\-Activity\-Meeting\label{group__buddy__list_gga786b93f017c7572632243e1d493641acad0584a79304edde96c86ee8a8a9b5b8c}
+}]The person is in an assembly or gathering of people, as for a business, social, or religious purpose. A meeting is a sub-\/class of an appointment. \index{Linphone\-Presence\-Activity\-On\-The\-Phone@{Linphone\-Presence\-Activity\-On\-The\-Phone}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-On\-The\-Phone@{Linphone\-Presence\-Activity\-On\-The\-Phone}}\item[{\em 
+Linphone\-Presence\-Activity\-On\-The\-Phone\label{group__buddy__list_gga786b93f017c7572632243e1d493641acae7a0ec14d541c65e32688be2f8d25678}
+}]The person is talking on the telephone. \index{Linphone\-Presence\-Activity\-Other@{Linphone\-Presence\-Activity\-Other}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Other@{Linphone\-Presence\-Activity\-Other}}\item[{\em 
+Linphone\-Presence\-Activity\-Other\label{group__buddy__list_gga786b93f017c7572632243e1d493641acaa91724dffdd8eb6c7eb0198ebe2b0c4d}
+}]The person is engaged in an activity with no defined representation. A string describing the activity in plain text S\-H\-O\-U\-L\-D be provided. \index{Linphone\-Presence\-Activity\-Performance@{Linphone\-Presence\-Activity\-Performance}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Performance@{Linphone\-Presence\-Activity\-Performance}}\item[{\em 
+Linphone\-Presence\-Activity\-Performance\label{group__buddy__list_gga786b93f017c7572632243e1d493641acadea924084148ce84d705c82a6c455749}
+}]A performance is a sub-\/class of an appointment and includes musical, theatrical, and cinematic performances as well as lectures. It is distinguished from a meeting by the fact that the person may either be lecturing or be in the audience, with a potentially large number of other people, making interruptions particularly noticeable. \index{Linphone\-Presence\-Activity\-Permanent\-Absence@{Linphone\-Presence\-Activity\-Permanent\-Absence}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Permanent\-Absence@{Linphone\-Presence\-Activity\-Permanent\-Absence}}\item[{\em 
+Linphone\-Presence\-Activity\-Permanent\-Absence\label{group__buddy__list_gga786b93f017c7572632243e1d493641acac73b9c5624dacd98dd82e4f5eb080fbc}
+}]The person will not return for the foreseeable future, e.\-g., because it is no longer working for the company. \index{Linphone\-Presence\-Activity\-Playing@{Linphone\-Presence\-Activity\-Playing}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Playing@{Linphone\-Presence\-Activity\-Playing}}\item[{\em 
+Linphone\-Presence\-Activity\-Playing\label{group__buddy__list_gga786b93f017c7572632243e1d493641acaceaa7d1bcdf294acf79112b0f9417c55}
+}]The person is occupying himself or herself in amusement, sport, or other recreation. \index{Linphone\-Presence\-Activity\-Presentation@{Linphone\-Presence\-Activity\-Presentation}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Presentation@{Linphone\-Presence\-Activity\-Presentation}}\item[{\em 
+Linphone\-Presence\-Activity\-Presentation\label{group__buddy__list_gga786b93f017c7572632243e1d493641acad8ecd3560e91b5570b7e70c4430acf5f}
+}]The person is giving a presentation, lecture, or participating in a formal round-\/table discussion. \index{Linphone\-Presence\-Activity\-Shopping@{Linphone\-Presence\-Activity\-Shopping}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Shopping@{Linphone\-Presence\-Activity\-Shopping}}\item[{\em 
+Linphone\-Presence\-Activity\-Shopping\label{group__buddy__list_gga786b93f017c7572632243e1d493641acaa1b7ce926994538c0e0400e21efdc764}
+}]The person is visiting stores in search of goods or services. \index{Linphone\-Presence\-Activity\-Sleeping@{Linphone\-Presence\-Activity\-Sleeping}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Sleeping@{Linphone\-Presence\-Activity\-Sleeping}}\item[{\em 
+Linphone\-Presence\-Activity\-Sleeping\label{group__buddy__list_gga786b93f017c7572632243e1d493641aca4c6efc460dee87eafc3c6a67ac40579b}
+}]The person is sleeping. \index{Linphone\-Presence\-Activity\-Spectator@{Linphone\-Presence\-Activity\-Spectator}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Spectator@{Linphone\-Presence\-Activity\-Spectator}}\item[{\em 
+Linphone\-Presence\-Activity\-Spectator\label{group__buddy__list_gga786b93f017c7572632243e1d493641acadb3dfc47cdd53c206cc2faa80610e4b8}
+}]The person is observing an event, such as a sports event. \index{Linphone\-Presence\-Activity\-Steering@{Linphone\-Presence\-Activity\-Steering}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Steering@{Linphone\-Presence\-Activity\-Steering}}\item[{\em 
+Linphone\-Presence\-Activity\-Steering\label{group__buddy__list_gga786b93f017c7572632243e1d493641aca352afafa21ff6c35bc0bdb069626e281}
+}]The person is controlling a vehicle, watercraft, or plane. \index{Linphone\-Presence\-Activity\-Travel@{Linphone\-Presence\-Activity\-Travel}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Travel@{Linphone\-Presence\-Activity\-Travel}}\item[{\em 
+Linphone\-Presence\-Activity\-Travel\label{group__buddy__list_gga786b93f017c7572632243e1d493641acaf82e7dd1b966a55aa5a3d794f971b556}
+}]The person is on a business or personal trip, but not necessarily in-\/transit. \index{Linphone\-Presence\-Activity\-T\-V@{Linphone\-Presence\-Activity\-T\-V}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-T\-V@{Linphone\-Presence\-Activity\-T\-V}}\item[{\em 
+Linphone\-Presence\-Activity\-T\-V\label{group__buddy__list_gga786b93f017c7572632243e1d493641acac2d34a10d4e4fd5ba52059d3650444e4}
+}]The person is watching television. \index{Linphone\-Presence\-Activity\-Unknown@{Linphone\-Presence\-Activity\-Unknown}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Unknown@{Linphone\-Presence\-Activity\-Unknown}}\item[{\em 
+Linphone\-Presence\-Activity\-Unknown\label{group__buddy__list_gga786b93f017c7572632243e1d493641acaf8b53708da5fce2089416dbc6d0e2059}
+}]The activity of the person is unknown. \index{Linphone\-Presence\-Activity\-Vacation@{Linphone\-Presence\-Activity\-Vacation}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Vacation@{Linphone\-Presence\-Activity\-Vacation}}\item[{\em 
+Linphone\-Presence\-Activity\-Vacation\label{group__buddy__list_gga786b93f017c7572632243e1d493641acac35db7f2c21627d7a7a3b211aa940d7b}
+}]A period of time devoted to pleasure, rest, or relaxation. \index{Linphone\-Presence\-Activity\-Working@{Linphone\-Presence\-Activity\-Working}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Working@{Linphone\-Presence\-Activity\-Working}}\item[{\em 
+Linphone\-Presence\-Activity\-Working\label{group__buddy__list_gga786b93f017c7572632243e1d493641aca2e1b3cf1344e6aef3b6364be947fe1c7}
+}]The person is engaged in, typically paid, labor, as part of a profession or job. \index{Linphone\-Presence\-Activity\-Worship@{Linphone\-Presence\-Activity\-Worship}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!Linphone\-Presence\-Activity\-Worship@{Linphone\-Presence\-Activity\-Worship}}\item[{\em 
+Linphone\-Presence\-Activity\-Worship\label{group__buddy__list_gga786b93f017c7572632243e1d493641acaefa940652209eaff7f5904a11b1b5989}
+}]The person is participating in religious rites. \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-friend\-\_\-new@{linphone\-\_\-friend\-\_\-new}}
+\index{linphone\-\_\-friend\-\_\-new@{linphone\-\_\-friend\-\_\-new}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-friend\-\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Friend}$\ast$ linphone\-\_\-friend\-\_\-new (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga97cbc9a6c2668bde387ed83a665559c5}
+Contructor \begin{DoxyReturn}{Returns}
+a new empty \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-friend\-\_\-new\-\_\-with\-\_\-addr@{linphone\-\_\-friend\-\_\-new\-\_\-with\-\_\-addr}}
+\index{linphone\-\_\-friend\-\_\-new\-\_\-with\-\_\-addr@{linphone\-\_\-friend\-\_\-new\-\_\-with\-\_\-addr}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-friend\-\_\-new\-\_\-with\-\_\-addr}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Friend}$\ast$ linphone\-\_\-friend\-\_\-new\-\_\-with\-\_\-addr (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{addr}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gaf5c0e0c2686e904ce95c2ea76959690f}
+Contructor same as \doxyref{linphone\-\_\-friend\-\_\-new()}{p.}{group__buddy__list_ga97cbc9a6c2668bde387ed83a665559c5} + \doxyref{linphone\-\_\-friend\-\_\-set\-\_\-addr()}{p.}{group__buddy__list_ga4b95bb01402026b8ffc7a7be9729af93} 
+\begin{DoxyParams}{Parameters}
+{\em addr} & a buddy address, must be a sip uri like sip\-:{\tt joe@sip.\-linphone.\-org} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a new \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} with \doxyref{address initialized }{p.}{group__buddy__list_gae2bca1120ee871189eb5bda73eb25c89} 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-friend\-\_\-destroy@{linphone\-\_\-friend\-\_\-destroy}}
+\index{linphone\-\_\-friend\-\_\-destroy@{linphone\-\_\-friend\-\_\-destroy}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-friend\-\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void linphone\-\_\-friend\-\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Friend} $\ast$}]{lf}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga81f7c2895b59c9690d79125755553a31}
+Destructor 
+\begin{DoxyParams}{Parameters}
+{\em lf} & \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} object \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-friend\-\_\-set\-\_\-addr@{linphone\-\_\-friend\-\_\-set\-\_\-addr}}
+\index{linphone\-\_\-friend\-\_\-set\-\_\-addr@{linphone\-\_\-friend\-\_\-set\-\_\-addr}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-friend\-\_\-set\-\_\-addr}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int linphone\-\_\-friend\-\_\-set\-\_\-addr (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Friend} $\ast$}]{fr, }
+\item[{const {\bf Linphone\-Address} $\ast$}]{address}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga4b95bb01402026b8ffc7a7be9729af93}
+set \doxyref{Linphone\-Address}{p.}{group__linphone__address_gaa017e66840f5ee578168bd469b6c3e91} for this friend 
+\begin{DoxyParams}{Parameters}
+{\em fr} & \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} object \\
+\hline
+{\em address} & \doxyref{Linphone\-Address}{p.}{group__linphone__address_gaa017e66840f5ee578168bd469b6c3e91} \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-friend\-\_\-set\-\_\-name@{linphone\-\_\-friend\-\_\-set\-\_\-name}}
+\index{linphone\-\_\-friend\-\_\-set\-\_\-name@{linphone\-\_\-friend\-\_\-set\-\_\-name}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-friend\-\_\-set\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int linphone\-\_\-friend\-\_\-set\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Friend} $\ast$}]{lf, }
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gad720c8b6ad53319f7ae4e7845fea9a20}
+set the display name for this friend 
+\begin{DoxyParams}{Parameters}
+{\em lf} & \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} object \\
+\hline
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-friend\-\_\-get\-\_\-address@{linphone\-\_\-friend\-\_\-get\-\_\-address}}
+\index{linphone\-\_\-friend\-\_\-get\-\_\-address@{linphone\-\_\-friend\-\_\-get\-\_\-address}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-friend\-\_\-get\-\_\-address}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const {\bf Linphone\-Address}$\ast$ linphone\-\_\-friend\-\_\-get\-\_\-address (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Friend} $\ast$}]{lf}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gae2bca1120ee871189eb5bda73eb25c89}
+get address of this friend 
+\begin{DoxyParams}{Parameters}
+{\em lf} & \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Linphone\-Address}{p.}{group__linphone__address_gaa017e66840f5ee578168bd469b6c3e91} 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-friend\-\_\-subscribes\-\_\-enabled@{linphone\-\_\-friend\-\_\-subscribes\-\_\-enabled}}
+\index{linphone\-\_\-friend\-\_\-subscribes\-\_\-enabled@{linphone\-\_\-friend\-\_\-subscribes\-\_\-enabled}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-friend\-\_\-subscribes\-\_\-enabled}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C bool\-\_\-t linphone\-\_\-friend\-\_\-subscribes\-\_\-enabled (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Friend} $\ast$}]{lf}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gac2f8362dca443bbc4ed5cd08a8ebc776}
+get subscription flag value 
+\begin{DoxyParams}{Parameters}
+{\em lf} & \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns true is subscription is activated for this friend 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-friend\-\_\-enable\-\_\-subscribes@{linphone\-\_\-friend\-\_\-enable\-\_\-subscribes}}
+\index{linphone\-\_\-friend\-\_\-enable\-\_\-subscribes@{linphone\-\_\-friend\-\_\-enable\-\_\-subscribes}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-friend\-\_\-enable\-\_\-subscribes}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int linphone\-\_\-friend\-\_\-enable\-\_\-subscribes (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Friend} $\ast$}]{fr, }
+\item[{bool\-\_\-t}]{val}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga9ce99392c00ad5b69627a4efb747dada}
+Configure \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} to subscribe to presence information 
+\begin{DoxyParams}{Parameters}
+{\em fr} & \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} object \\
+\hline
+{\em val} & if T\-R\-U\-E this friend will receive subscription message \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-friend\-\_\-set\-\_\-inc\-\_\-subscribe\-\_\-policy@{linphone\-\_\-friend\-\_\-set\-\_\-inc\-\_\-subscribe\-\_\-policy}}
+\index{linphone\-\_\-friend\-\_\-set\-\_\-inc\-\_\-subscribe\-\_\-policy@{linphone\-\_\-friend\-\_\-set\-\_\-inc\-\_\-subscribe\-\_\-policy}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-friend\-\_\-set\-\_\-inc\-\_\-subscribe\-\_\-policy}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int linphone\-\_\-friend\-\_\-set\-\_\-inc\-\_\-subscribe\-\_\-policy (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Friend} $\ast$}]{fr, }
+\item[{{\bf Linphone\-Subscribe\-Policy}}]{pol}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga1bef7a3f4194c5a8084897af07dfc5fb}
+Configure incoming subscription policy for this friend. 
+\begin{DoxyParams}{Parameters}
+{\em fr} & \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} object \\
+\hline
+{\em pol} & \doxyref{Linphone\-Subscribe\-Policy}{p.}{group__buddy__list_ga542840b0e4c60ba1c700dcc75c8b3156} policy to apply. \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-friend\-\_\-get\-\_\-inc\-\_\-subscribe\-\_\-policy@{linphone\-\_\-friend\-\_\-get\-\_\-inc\-\_\-subscribe\-\_\-policy}}
+\index{linphone\-\_\-friend\-\_\-get\-\_\-inc\-\_\-subscribe\-\_\-policy@{linphone\-\_\-friend\-\_\-get\-\_\-inc\-\_\-subscribe\-\_\-policy}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-friend\-\_\-get\-\_\-inc\-\_\-subscribe\-\_\-policy}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Subscribe\-Policy} linphone\-\_\-friend\-\_\-get\-\_\-inc\-\_\-subscribe\-\_\-policy (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Friend} $\ast$}]{lf}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gaed5c0371124e0aedc69dce0cc9ccdc0d}
+get current subscription policy for this \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} 
+\begin{DoxyParams}{Parameters}
+{\em lf} & \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Linphone\-Subscribe\-Policy}{p.}{group__buddy__list_ga542840b0e4c60ba1c700dcc75c8b3156} 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-friend\-\_\-edit@{linphone\-\_\-friend\-\_\-edit}}
+\index{linphone\-\_\-friend\-\_\-edit@{linphone\-\_\-friend\-\_\-edit}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-friend\-\_\-edit}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void linphone\-\_\-friend\-\_\-edit (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Friend} $\ast$}]{fr}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga4329c451eb96f1b5073990bb2212c52b}
+Starts editing a friend configuration.
+
+Because friend configuration must be consistent, applications M\-U\-S\-T call \doxyref{linphone\-\_\-friend\-\_\-edit()}{p.}{group__buddy__list_ga4329c451eb96f1b5073990bb2212c52b} before doing any attempts to modify friend configuration (such as \doxyref{address }{p.}{group__buddy__list_ga4b95bb01402026b8ffc7a7be9729af93} or \doxyref{subscription policy}{p.}{group__buddy__list_ga1bef7a3f4194c5a8084897af07dfc5fb} and so on). Once the modifications are done, then the application must call \doxyref{linphone\-\_\-friend\-\_\-done()}{p.}{group__buddy__list_gae73b009008c6c6ec92ea3de71135d5f7} to commit the changes. \index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-friend\-\_\-done@{linphone\-\_\-friend\-\_\-done}}
+\index{linphone\-\_\-friend\-\_\-done@{linphone\-\_\-friend\-\_\-done}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-friend\-\_\-done}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void linphone\-\_\-friend\-\_\-done (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Friend} $\ast$}]{fr}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gae73b009008c6c6ec92ea3de71135d5f7}
+Commits modification made to the friend configuration. 
+\begin{DoxyParams}{Parameters}
+{\em fr} & \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} object \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-friend\-\_\-get\-\_\-status@{linphone\-\_\-friend\-\_\-get\-\_\-status}}
+\index{linphone\-\_\-friend\-\_\-get\-\_\-status@{linphone\-\_\-friend\-\_\-get\-\_\-status}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-friend\-\_\-get\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Online\-Status} linphone\-\_\-friend\-\_\-get\-\_\-status (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Friend} $\ast$}]{lf}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gaee78c9026430bd0ca5d248822b6c5f72}
+
+
+Get the status of a friend. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lf} & A \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Linphone\-Online\-Status}{p.}{group__buddy__list_ga77d9418f55c2ad8f8c6627548b388d0d} 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Use \doxyref{linphone\-\_\-friend\-\_\-get\-\_\-presence\-\_\-model()}{p.}{group__buddy__list_gade4242042ae2c248673ee36e917312be} instead \end{DoxyRefDesc}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-friend\-\_\-get\-\_\-presence\-\_\-model@{linphone\-\_\-friend\-\_\-get\-\_\-presence\-\_\-model}}
+\index{linphone\-\_\-friend\-\_\-get\-\_\-presence\-\_\-model@{linphone\-\_\-friend\-\_\-get\-\_\-presence\-\_\-model}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-friend\-\_\-get\-\_\-presence\-\_\-model}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const {\bf Linphone\-Presence\-Model}$\ast$ linphone\-\_\-friend\-\_\-get\-\_\-presence\-\_\-model (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Friend} $\ast$}]{lf}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gade4242042ae2c248673ee36e917312be}
+
+
+Get the presence information of a friend. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lf} & A \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object, or N\-U\-L\-L if the friend do not have presence information (in which case he is considered offline) 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-online\-\_\-status\-\_\-to\-\_\-string@{linphone\-\_\-online\-\_\-status\-\_\-to\-\_\-string}}
+\index{linphone\-\_\-online\-\_\-status\-\_\-to\-\_\-string@{linphone\-\_\-online\-\_\-status\-\_\-to\-\_\-string}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-online\-\_\-status\-\_\-to\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const char$\ast$ linphone\-\_\-online\-\_\-status\-\_\-to\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Online\-Status}}]{ss}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga1e0c9c2d4d514a9bfcf5023f94e4797d}
+Return humain readable presence status 
+\begin{DoxyParams}{Parameters}
+{\em ss} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Use \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366}, \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} and \doxyref{linphone\-\_\-presence\-\_\-activity\-\_\-to\-\_\-string()}{p.}{group__buddy__list_ga409d7dde49d87e04167b3782a9e9d6aa} instead. \end{DoxyRefDesc}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-info@{linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-info}}
+\index{linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-info@{linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-info}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-info (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Core} $\ast$}]{lc, }
+\item[{int}]{minutes\-\_\-away, }
+\item[{const char $\ast$}]{alternative\-\_\-contact, }
+\item[{{\bf Linphone\-Online\-Status}}]{os}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga0a624a6e999108ee052b89e743698227}
+
+
+Set my presence status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & \doxyref{Linphone\-Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+\mbox{\tt in}  & {\em minutes\-\_\-away} & how long in away \\
+\hline
+\mbox{\tt in}  & {\em alternative\-\_\-contact} & sip uri used to redirect call in state \doxyref{Linphone\-Status\-Moved}{p.}{group__buddy__list_gga1fe5b01157185e761475b82058697a34a2f5788314f1f2afd183fa114a2f4bd90} \\
+\hline
+\mbox{\tt in}  & {\em os} & \doxyref{Linphone\-Online\-Status}{p.}{group__buddy__list_ga77d9418f55c2ad8f8c6627548b388d0d} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Use \doxyref{linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-model()}{p.}{group__buddy__list_ga9b0cdc2b8ac83ec6db8ca9502e9c2972} instead \end{DoxyRefDesc}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-model@{linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-model}}
+\index{linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-model@{linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-model}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-model}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void linphone\-\_\-core\-\_\-set\-\_\-presence\-\_\-model (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Core} $\ast$}]{lc, }
+\item[{{\bf Linphone\-Presence\-Model} $\ast$}]{presence}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga9b0cdc2b8ac83ec6db8ca9502e9c2972}
+
+
+Set my presence status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & \doxyref{Linphone\-Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+\mbox{\tt in}  & {\em presence} & \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-core\-\_\-get\-\_\-presence\-\_\-info@{linphone\-\_\-core\-\_\-get\-\_\-presence\-\_\-info}}
+\index{linphone\-\_\-core\-\_\-get\-\_\-presence\-\_\-info@{linphone\-\_\-core\-\_\-get\-\_\-presence\-\_\-info}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-core\-\_\-get\-\_\-presence\-\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Online\-Status} linphone\-\_\-core\-\_\-get\-\_\-presence\-\_\-info (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Core} $\ast$}]{lc}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga07ceb6349647d0b82c8160c8c0fbca5b}
+
+
+Get my presence status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & \doxyref{Linphone\-Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Linphone\-Online\-Status}{p.}{group__buddy__list_ga77d9418f55c2ad8f8c6627548b388d0d} 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Deprecated}
+\item[{\bf Deprecated}]Use \doxyref{linphone\-\_\-core\-\_\-get\-\_\-presence\-\_\-model()}{p.}{group__buddy__list_ga7b330c5163892d54f0d1dd337f8a21ef} instead \end{DoxyRefDesc}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-core\-\_\-get\-\_\-presence\-\_\-model@{linphone\-\_\-core\-\_\-get\-\_\-presence\-\_\-model}}
+\index{linphone\-\_\-core\-\_\-get\-\_\-presence\-\_\-model@{linphone\-\_\-core\-\_\-get\-\_\-presence\-\_\-model}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-core\-\_\-get\-\_\-presence\-\_\-model}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Presence\-Model}$\ast$ linphone\-\_\-core\-\_\-get\-\_\-presence\-\_\-model (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Core} $\ast$}]{lc}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga7b330c5163892d54f0d1dd337f8a21ef}
+
+
+Get my presence status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & \doxyref{Linphone\-Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object, or N\-U\-L\-L if no presence model has been set. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-core\-\_\-add\-\_\-friend@{linphone\-\_\-core\-\_\-add\-\_\-friend}}
+\index{linphone\-\_\-core\-\_\-add\-\_\-friend@{linphone\-\_\-core\-\_\-add\-\_\-friend}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-core\-\_\-add\-\_\-friend}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void linphone\-\_\-core\-\_\-add\-\_\-friend (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Core} $\ast$}]{lc, }
+\item[{{\bf Linphone\-Friend} $\ast$}]{fr}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gaf049534f1d2a76cbe4e62abed8e2c096}
+Add a friend to the current buddy list, if \doxyref{subscription attribute }{p.}{group__buddy__list_ga9ce99392c00ad5b69627a4efb747dada} is set, a S\-I\-P S\-U\-B\-S\-C\-R\-I\-B\-E message is sent. 
+\begin{DoxyParams}{Parameters}
+{\em lc} & \doxyref{Linphone\-Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+{\em fr} & \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} to add \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-core\-\_\-remove\-\_\-friend@{linphone\-\_\-core\-\_\-remove\-\_\-friend}}
+\index{linphone\-\_\-core\-\_\-remove\-\_\-friend@{linphone\-\_\-core\-\_\-remove\-\_\-friend}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-core\-\_\-remove\-\_\-friend}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void linphone\-\_\-core\-\_\-remove\-\_\-friend (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Core} $\ast$}]{lc, }
+\item[{{\bf Linphone\-Friend} $\ast$}]{fr}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga81601feca3b6994f9073ce21b360892c}
+remove a friend from the buddy list 
+\begin{DoxyParams}{Parameters}
+{\em lc} & \doxyref{Linphone\-Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+{\em fr} & \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} to add \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-core\-\_\-reject\-\_\-subscriber@{linphone\-\_\-core\-\_\-reject\-\_\-subscriber}}
+\index{linphone\-\_\-core\-\_\-reject\-\_\-subscriber@{linphone\-\_\-core\-\_\-reject\-\_\-subscriber}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-core\-\_\-reject\-\_\-subscriber}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void linphone\-\_\-core\-\_\-reject\-\_\-subscriber (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Core} $\ast$}]{lc, }
+\item[{{\bf Linphone\-Friend} $\ast$}]{lf}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga8514bbc22202bc4392e2e6e86d537dd1}
+Black list a friend. same as \doxyref{linphone\-\_\-friend\-\_\-set\-\_\-inc\-\_\-subscribe\-\_\-policy()}{p.}{group__buddy__list_ga1bef7a3f4194c5a8084897af07dfc5fb} with \doxyref{Linphone\-S\-P\-Deny}{p.}{group__buddy__list_gga542840b0e4c60ba1c700dcc75c8b3156a94cf7013f58a5ad7ec8859afc3da9d72} policy; 
+\begin{DoxyParams}{Parameters}
+{\em lc} & \doxyref{Linphone\-Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+{\em lf} & \doxyref{Linphone\-Friend}{p.}{group__buddy__list_ga2f0508bab6d8ded431ce8b1a679a1522} to add \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-core\-\_\-get\-\_\-friend\-\_\-list@{linphone\-\_\-core\-\_\-get\-\_\-friend\-\_\-list}}
+\index{linphone\-\_\-core\-\_\-get\-\_\-friend\-\_\-list@{linphone\-\_\-core\-\_\-get\-\_\-friend\-\_\-list}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-core\-\_\-get\-\_\-friend\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const M\-S\-List$\ast$ linphone\-\_\-core\-\_\-get\-\_\-friend\-\_\-list (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Core} $\ast$}]{lc}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga3b561f3077c8269723b6cccf9b98fff0}
+get Buddy list of Linphone\-Friend 
+\begin{DoxyParams}{Parameters}
+{\em lc} & \doxyref{Linphone\-Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-core\-\_\-notify\-\_\-all\-\_\-friends@{linphone\-\_\-core\-\_\-notify\-\_\-all\-\_\-friends}}
+\index{linphone\-\_\-core\-\_\-notify\-\_\-all\-\_\-friends@{linphone\-\_\-core\-\_\-notify\-\_\-all\-\_\-friends}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-core\-\_\-notify\-\_\-all\-\_\-friends}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void linphone\-\_\-core\-\_\-notify\-\_\-all\-\_\-friends (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Core} $\ast$}]{lc, }
+\item[{{\bf Linphone\-Presence\-Model} $\ast$}]{presence}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gab86bade3659ee6e6c41c0d64efc65829}
+notify all friends that have subscribed 
+\begin{DoxyParams}{Parameters}
+{\em lc} & \doxyref{Linphone\-Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+{\em os} & \doxyref{Linphone\-Online\-Status}{p.}{group__buddy__list_ga77d9418f55c2ad8f8c6627548b388d0d} to notify \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-new@{linphone\-\_\-presence\-\_\-model\-\_\-new}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-new@{linphone\-\_\-presence\-\_\-model\-\_\-new}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Presence\-Model}$\ast$ linphone\-\_\-presence\-\_\-model\-\_\-new (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gaea1a052bc99e103dd75ed9e1130d8553}
+
+
+Creates a default presence model. 
+
+\begin{DoxyReturn}{Returns}
+The created presence model, N\-U\-L\-L on error. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity}{p.}{group__buddy__list_ga5934aa9d0de82c2bdb44769a1a38f81b} 
+
+\doxyref{linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity\-\_\-and\-\_\-note}{p.}{group__buddy__list_ga5599fc47e33ebf88bead9281cf09caf9}
+\end{DoxySeeAlso}
+The created presence model is considered 'offline'. \index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity@{linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity@{linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Presence\-Model}$\ast$ linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Activity\-Type}}]{activity, }
+\item[{const char $\ast$}]{description}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga5934aa9d0de82c2bdb44769a1a38f81b}
+
+
+Creates a presence model specifying an activity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em activity} & The activity to set for the created presence model. \\
+\hline
+\mbox{\tt in}  & {\em description} & An additional description of the activity (mainly useful for the 'other' activity). Set it to N\-U\-L\-L to not add a description. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The created presence model, or N\-U\-L\-L if an error occured. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{linphone\-\_\-presence\-\_\-model\-\_\-new}{p.}{group__buddy__list_gaea1a052bc99e103dd75ed9e1130d8553} 
+
+\doxyref{linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity\-\_\-and\-\_\-note}{p.}{group__buddy__list_ga5599fc47e33ebf88bead9281cf09caf9}
+\end{DoxySeeAlso}
+The created presence model has the activity specified in the parameters. \index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity\-\_\-and\-\_\-note@{linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity\-\_\-and\-\_\-note}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity\-\_\-and\-\_\-note@{linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity\-\_\-and\-\_\-note}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity\-\_\-and\-\_\-note}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Presence\-Model}$\ast$ linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity\-\_\-and\-\_\-note (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Activity\-Type}}]{activity, }
+\item[{const char $\ast$}]{description, }
+\item[{const char $\ast$}]{note, }
+\item[{const char $\ast$}]{lang}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga5599fc47e33ebf88bead9281cf09caf9}
+
+
+Creates a presence model specifying an activity and adding a note. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em activity} & The activity to set for the created presence model. \\
+\hline
+\mbox{\tt in}  & {\em description} & An additional description of the activity (mainly useful for the 'other' activity). Set it to N\-U\-L\-L to not add a description. \\
+\hline
+\mbox{\tt in}  & {\em note} & An additional note giving additional information about the contact presence. \\
+\hline
+\mbox{\tt in}  & {\em lang} & The language the note is written in. It can be set to N\-U\-L\-L in order to not specify the language of the note. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The created presence model, or N\-U\-L\-L if an error occured. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\doxyref{linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity}{p.}{group__buddy__list_ga5934aa9d0de82c2bdb44769a1a38f81b} 
+
+\doxyref{linphone\-\_\-presence\-\_\-model\-\_\-new\-\_\-with\-\_\-activity\-\_\-and\-\_\-note}{p.}{group__buddy__list_ga5599fc47e33ebf88bead9281cf09caf9}
+\end{DoxySeeAlso}
+The created presence model has the activity and the note specified in the parameters. \index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-ref@{linphone\-\_\-presence\-\_\-model\-\_\-ref}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-ref@{linphone\-\_\-presence\-\_\-model\-\_\-ref}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-ref}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linphone\-Presence\-Model}$\ast$ linphone\-\_\-presence\-\_\-model\-\_\-ref (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Model} $\ast$}]{model}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga4717f8bfb975105b8c970bd0d18d19b8}
+Increase the reference count of the \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em model} & The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object for which the reference count is to be increased. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object with the increased reference count. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-unref@{linphone\-\_\-presence\-\_\-model\-\_\-unref}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-unref@{linphone\-\_\-presence\-\_\-model\-\_\-unref}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-unref}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linphone\-Presence\-Model}$\ast$ linphone\-\_\-presence\-\_\-model\-\_\-unref (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Model} $\ast$}]{model}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga8c6c14fe45f6941149ed3eb759db9a23}
+Decrease the reference count of the \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object and destroy it if it reaches 0. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em model} & The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object for which the reference count is to be decreased. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object if the reference count is still positive, N\-U\-L\-L if the object has been destroyed. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-user\-\_\-data@{linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-user\-\_\-data}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-user\-\_\-data@{linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-user\-\_\-data}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-user\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-user\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Model} $\ast$}]{model, }
+\item[{void $\ast$}]{user\-\_\-data}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga9f910786ce8e33b6ad4fbd36aaed8ed6}
+Sets the user data of a \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em model} & The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object for which to set the user data. \\
+\hline
+\mbox{\tt in}  & {\em user\-\_\-data} & A pointer to the user data to set. \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-user\-\_\-data@{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-user\-\_\-data}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-user\-\_\-data@{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-user\-\_\-data}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-user\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-user\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Model} $\ast$}]{model}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga75184b0acee483ad3cf39e2563ad5fc6}
+Gets the user data of a \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em model} & The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object for which to get the user data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the user data. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-basic\-\_\-status@{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-basic\-\_\-status}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-basic\-\_\-status@{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-basic\-\_\-status}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-basic\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Presence\-Basic\-Status} linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-basic\-\_\-status (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Presence\-Model} $\ast$}]{model}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga3f3d6226767ba0f7b2ada976fa10ecff}
+
+
+Gets the basic status of a presence model. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em model} & The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object to get the basic status from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxyref{Linphone\-Presence\-Basic\-Status}{p.}{group__buddy__list_ga968cd2a4c5bbd7158f2a413b0404e406} of the \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object given as parameter. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-timestamp@{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-timestamp}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-timestamp@{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-timestamp}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-timestamp}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C time\-\_\-t linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-timestamp (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Presence\-Model} $\ast$}]{model}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gac47695d15c778f4dd3dc9a52f0d949d9}
+
+
+Gets the timestamp of a presence model. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em model} & The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object to get the timestamp from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The timestamp of the \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object or -\/1 on error. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-contact@{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-contact}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-contact@{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-contact}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-contact}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C char$\ast$ linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-contact (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Presence\-Model} $\ast$}]{model}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gafdcf91919cb11c71ef56ef279723a73c}
+
+
+Gets the contact of a presence model. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em model} & The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object to get the contact from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a dynamically allocated string containing the contact, or N\-U\-L\-L if no contact is found.
+\end{DoxyReturn}
+The returned string is to be freed by calling ms\-\_\-free(). \index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-contact@{linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-contact}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-contact@{linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-contact}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-contact}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-contact (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Model} $\ast$}]{model, }
+\item[{const char $\ast$}]{contact}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gaff079e981396dbd71fc5ef258409f100}
+
+
+Sets the contact of a presence model. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em model} & The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object for which to set the contact. \\
+\hline
+\mbox{\tt in}  & {\em contact} & The contact string to set. \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-nb\-\_\-activities@{linphone\-\_\-presence\-\_\-model\-\_\-nb\-\_\-activities}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-nb\-\_\-activities@{linphone\-\_\-presence\-\_\-model\-\_\-nb\-\_\-activities}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-nb\-\_\-activities}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C unsigned int linphone\-\_\-presence\-\_\-model\-\_\-nb\-\_\-activities (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Presence\-Model} $\ast$}]{model}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gab8fe996a2d0a777c89f0bf15512d3482}
+
+
+Gets the number of activities included in the presence model. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em model} & The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object to get the number of activities from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of activities included in the \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-nth\-\_\-activity@{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-nth\-\_\-activity}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-nth\-\_\-activity@{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-nth\-\_\-activity}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-nth\-\_\-activity}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Presence\-Activity}$\ast$ linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-nth\-\_\-activity (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Presence\-Model} $\ast$}]{model, }
+\item[{unsigned int}]{idx}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga797f5918fa3deaec58096ffafb872433}
+
+
+Gets the nth activity of a presence model. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em model} & The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object to get the activity from. \\
+\hline
+\mbox{\tt in}  & {\em idx} & The index of the activity to get (the first activity having the index 0). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} object if successful, N\-U\-L\-L otherwise. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-activity@{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-activity}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-activity@{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-activity}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-activity}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Presence\-Activity}$\ast$ linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-activity (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Presence\-Model} $\ast$}]{model}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga4de25a71d06d1cef664585dcce4ff7fb}
+
+
+Gets the first activity of a presence model (there is usually only one). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em model} & The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object to get the activity from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} object if successful, N\-U\-L\-L otherwise. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-activity@{linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-activity}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-activity@{linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-activity}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-activity}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int linphone\-\_\-presence\-\_\-model\-\_\-set\-\_\-activity (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Model} $\ast$}]{model, }
+\item[{{\bf Linphone\-Presence\-Activity\-Type}}]{activity, }
+\item[{const char $\ast$}]{description}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga946448964c6b7c34acf67814486118dc}
+
+
+Sets the activity of a presence model (limits to only one activity). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em model} & The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object for which to set the activity. \\
+\hline
+\mbox{\tt in}  & {\em activity} & The \doxyref{Linphone\-Presence\-Activity\-Type}{p.}{group__buddy__list_gae54ca0c41df7bf86ecf2f4cd9e2f2fb7} to set for the model. \\
+\hline
+\mbox{\tt in}  & {\em description} & An additional description of the activity to set for the model. Can be N\-U\-L\-L if no additional description is to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, a value $<$ 0 in case of error. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-note@{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-note}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-note@{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-note}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-note}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Presence\-Note}$\ast$ linphone\-\_\-presence\-\_\-model\-\_\-get\-\_\-note (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Presence\-Model} $\ast$}]{model, }
+\item[{const char $\ast$}]{lang}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gad318075710fe38b69087b723cd39d357}
+
+
+Gets the first note of a presence model (there is usually only one). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em model} & The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object to get the note from. \\
+\hline
+\mbox{\tt in}  & {\em lang} & The language of the note to get. Can be N\-U\-L\-L to get a note that has no language specified or to get the first note whatever language it is written into. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a \doxyref{Linphone\-Presence\-Note}{p.}{group__buddy__list_ga3e527842a46fdd3e4de342fe9b2b3b1d} object if successful, N\-U\-L\-L otherwise. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-add\-\_\-note@{linphone\-\_\-presence\-\_\-model\-\_\-add\-\_\-note}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-add\-\_\-note@{linphone\-\_\-presence\-\_\-model\-\_\-add\-\_\-note}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-add\-\_\-note}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int linphone\-\_\-presence\-\_\-model\-\_\-add\-\_\-note (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Model} $\ast$}]{model, }
+\item[{const char $\ast$}]{note\-\_\-content, }
+\item[{const char $\ast$}]{lang}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga94a4146fc434c918587aef42e40b1b86}
+
+
+Adds a note to a presence model. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em model} & The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} object to add a note to. \\
+\hline
+\mbox{\tt in}  & {\em note\-\_\-content} & The note to be added to the presence model. \\
+\hline
+\mbox{\tt in}  & {\em lang} & The language of the note to be added. Can be N\-U\-L\-L if no language is to be specified for the note. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, a value $<$ 0 in case of error.
+\end{DoxyReturn}
+Only one note for each language can be set, so e.\-g. setting a note for the 'fr' language if there is only one will replace the existing one. \index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-model\-\_\-clear\-\_\-notes@{linphone\-\_\-presence\-\_\-model\-\_\-clear\-\_\-notes}}
+\index{linphone\-\_\-presence\-\_\-model\-\_\-clear\-\_\-notes@{linphone\-\_\-presence\-\_\-model\-\_\-clear\-\_\-notes}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-model\-\_\-clear\-\_\-notes}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int linphone\-\_\-presence\-\_\-model\-\_\-clear\-\_\-notes (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Model} $\ast$}]{model}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga63e6b04217c7991ca0a59a572ee0c8b2}
+
+
+Clears all the notes of a presence model. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em model} & The \doxyref{Linphone\-Presence\-Model}{p.}{group__buddy__list_gad98268f00fb29b50b22b3c3da566e366} for which to clear notes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, a value $<$ 0 in case of error. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-activity\-\_\-ref@{linphone\-\_\-presence\-\_\-activity\-\_\-ref}}
+\index{linphone\-\_\-presence\-\_\-activity\-\_\-ref@{linphone\-\_\-presence\-\_\-activity\-\_\-ref}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-activity\-\_\-ref}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linphone\-Presence\-Activity}$\ast$ linphone\-\_\-presence\-\_\-activity\-\_\-ref (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Activity} $\ast$}]{activity}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga0d394e0df2d9b43dec1dccefa9e83ca0}
+Increase the reference count of the \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em activity} & The \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} object for which the reference count is to be increased. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} object with the increased reference count. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-activity\-\_\-unref@{linphone\-\_\-presence\-\_\-activity\-\_\-unref}}
+\index{linphone\-\_\-presence\-\_\-activity\-\_\-unref@{linphone\-\_\-presence\-\_\-activity\-\_\-unref}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-activity\-\_\-unref}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linphone\-Presence\-Activity}$\ast$ linphone\-\_\-presence\-\_\-activity\-\_\-unref (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Activity} $\ast$}]{activity}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gac79612320aa2306460c1000657ea3261}
+Decrease the reference count of the \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} object and destroy it if it reaches 0. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em activity} & The \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} object for which the reference count is to be decreased. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} object if the reference count is still positive, N\-U\-L\-L if the object has been destroyed. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-activity\-\_\-set\-\_\-user\-\_\-data@{linphone\-\_\-presence\-\_\-activity\-\_\-set\-\_\-user\-\_\-data}}
+\index{linphone\-\_\-presence\-\_\-activity\-\_\-set\-\_\-user\-\_\-data@{linphone\-\_\-presence\-\_\-activity\-\_\-set\-\_\-user\-\_\-data}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-activity\-\_\-set\-\_\-user\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void linphone\-\_\-presence\-\_\-activity\-\_\-set\-\_\-user\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Activity} $\ast$}]{activity, }
+\item[{void $\ast$}]{user\-\_\-data}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga3b863746ebcc2201cebaad0eb6c4dca3}
+Sets the user data of a \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em activity} & The \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} object for which to set the user data. \\
+\hline
+\mbox{\tt in}  & {\em user\-\_\-data} & A pointer to the user data to set. \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-user\-\_\-data@{linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-user\-\_\-data}}
+\index{linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-user\-\_\-data@{linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-user\-\_\-data}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-user\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-user\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Activity} $\ast$}]{activity}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga0f448f299695b21e13ed38e7aa53e6ae}
+Gets the user data of a \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em activity} & The \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} object for which to get the user data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the user data. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-activity\-\_\-to\-\_\-string@{linphone\-\_\-presence\-\_\-activity\-\_\-to\-\_\-string}}
+\index{linphone\-\_\-presence\-\_\-activity\-\_\-to\-\_\-string@{linphone\-\_\-presence\-\_\-activity\-\_\-to\-\_\-string}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-activity\-\_\-to\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C char$\ast$ linphone\-\_\-presence\-\_\-activity\-\_\-to\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Presence\-Activity} $\ast$}]{activity}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga409d7dde49d87e04167b3782a9e9d6aa}
+
+
+Gets the string representation of a presence activity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em activity} & A pointer to the \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} object for which to get a string representation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer a dynamically allocated string representing the given activity.
+\end{DoxyReturn}
+The returned string is to be freed by calling ms\-\_\-free(). \index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-type@{linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-type}}
+\index{linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-type@{linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-type}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Presence\-Activity\-Type} linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-type (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Presence\-Activity} $\ast$}]{activity}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga6eded1f34ad13f26c802f2e50c8af5bc}
+
+
+Gets the activity type of a presence activity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em activity} & A pointer to the \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} for which to get the type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxyref{Linphone\-Presence\-Activity\-Type}{p.}{group__buddy__list_gae54ca0c41df7bf86ecf2f4cd9e2f2fb7} of the activity. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-description@{linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-description}}
+\index{linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-description@{linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-description}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-description}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const char$\ast$ linphone\-\_\-presence\-\_\-activity\-\_\-get\-\_\-description (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Presence\-Activity} $\ast$}]{activity}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gab7df041309e462365c6bb6e897116174}
+
+
+Gets the description of a presence activity. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em activity} & A pointer to the \doxyref{Linphone\-Presence\-Activity}{p.}{group__buddy__list_gadb1476058b69c4da5e94c7e0d55fd244} for which to get the description. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the description string of the presence activity, or N\-U\-L\-L if no description is specified. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-note\-\_\-ref@{linphone\-\_\-presence\-\_\-note\-\_\-ref}}
+\index{linphone\-\_\-presence\-\_\-note\-\_\-ref@{linphone\-\_\-presence\-\_\-note\-\_\-ref}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-note\-\_\-ref}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linphone\-Presence\-Note}$\ast$ linphone\-\_\-presence\-\_\-note\-\_\-ref (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Note} $\ast$}]{note}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga389302f58eace7638964db50381534c1}
+Increase the reference count of the \doxyref{Linphone\-Presence\-Note}{p.}{group__buddy__list_ga3e527842a46fdd3e4de342fe9b2b3b1d} object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em note} & The \doxyref{Linphone\-Presence\-Note}{p.}{group__buddy__list_ga3e527842a46fdd3e4de342fe9b2b3b1d} object for which the reference count is to be increased. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxyref{Linphone\-Presence\-Note}{p.}{group__buddy__list_ga3e527842a46fdd3e4de342fe9b2b3b1d} object with the increased reference count. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-note\-\_\-unref@{linphone\-\_\-presence\-\_\-note\-\_\-unref}}
+\index{linphone\-\_\-presence\-\_\-note\-\_\-unref@{linphone\-\_\-presence\-\_\-note\-\_\-unref}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-note\-\_\-unref}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linphone\-Presence\-Note}$\ast$ linphone\-\_\-presence\-\_\-note\-\_\-unref (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Note} $\ast$}]{note}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_gad69d2e96beb208c12bc5051f339efab6}
+Decrease the reference count of the \doxyref{Linphone\-Presence\-Note}{p.}{group__buddy__list_ga3e527842a46fdd3e4de342fe9b2b3b1d} object and destroy it if it reaches 0. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em note} & The \doxyref{Linphone\-Presence\-Note}{p.}{group__buddy__list_ga3e527842a46fdd3e4de342fe9b2b3b1d} object for which the reference count is to be decreased. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxyref{Linphone\-Presence\-Note}{p.}{group__buddy__list_ga3e527842a46fdd3e4de342fe9b2b3b1d} object if the reference count is still positive, N\-U\-L\-L if the object has been destroyed. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-note\-\_\-set\-\_\-user\-\_\-data@{linphone\-\_\-presence\-\_\-note\-\_\-set\-\_\-user\-\_\-data}}
+\index{linphone\-\_\-presence\-\_\-note\-\_\-set\-\_\-user\-\_\-data@{linphone\-\_\-presence\-\_\-note\-\_\-set\-\_\-user\-\_\-data}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-note\-\_\-set\-\_\-user\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void linphone\-\_\-presence\-\_\-note\-\_\-set\-\_\-user\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Note} $\ast$}]{note, }
+\item[{void $\ast$}]{user\-\_\-data}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga2e75d324522b43e4abe40bba2ff709df}
+Sets the user data of a \doxyref{Linphone\-Presence\-Note}{p.}{group__buddy__list_ga3e527842a46fdd3e4de342fe9b2b3b1d} object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em note} & The \doxyref{Linphone\-Presence\-Note}{p.}{group__buddy__list_ga3e527842a46fdd3e4de342fe9b2b3b1d} object for which to set the user data. \\
+\hline
+\mbox{\tt in}  & {\em user\-\_\-data} & A pointer to the user data to set. \\
+\hline
+\end{DoxyParams}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-user\-\_\-data@{linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-user\-\_\-data}}
+\index{linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-user\-\_\-data@{linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-user\-\_\-data}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-user\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-user\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Presence\-Note} $\ast$}]{note}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga6cc01fbae02e38b3df8f29c54a63c54a}
+Gets the user data of a \doxyref{Linphone\-Presence\-Note}{p.}{group__buddy__list_ga3e527842a46fdd3e4de342fe9b2b3b1d} object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em note} & The \doxyref{Linphone\-Presence\-Note}{p.}{group__buddy__list_ga3e527842a46fdd3e4de342fe9b2b3b1d} object for which to get the user data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the user data. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-content@{linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-content}}
+\index{linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-content@{linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-content}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-content}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const char$\ast$ linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-content (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Presence\-Note} $\ast$}]{note}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga0966d25f6295c6be6b736a6b3cfacdb8}
+
+
+Gets the content of a presence note. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em note} & A pointer to the \doxyref{Linphone\-Presence\-Note}{p.}{group__buddy__list_ga3e527842a46fdd3e4de342fe9b2b3b1d} for which to get the content. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the content of the presence note. 
+\end{DoxyReturn}
+\index{Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}!linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-lang@{linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-lang}}
+\index{linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-lang@{linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-lang}!Managing Buddies and buddy list and presence@{Managing Buddies and buddy list and presence}}
+\subsubsection[{linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-lang}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const char$\ast$ linphone\-\_\-presence\-\_\-note\-\_\-get\-\_\-lang (
+\begin{DoxyParamCaption}
+\item[{const {\bf Linphone\-Presence\-Note} $\ast$}]{note}
+\end{DoxyParamCaption}
+)}\label{group__buddy__list_ga101b22358ec966019be3ffcbbf1a5ec4}
+
+
+Gets the language of a presence note. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em note} & A pointer to the \doxyref{Linphone\-Presence\-Note}{p.}{group__buddy__list_ga3e527842a46fdd3e4de342fe9b2b3b1d} for which to get the language. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the language string of the presence note, or N\-U\-L\-L if no language is specified. 
+\end{DoxyReturn}

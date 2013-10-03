@@ -1,0 +1,35 @@
+utils.lo: \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/src/utils.c \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/typedef.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/4.2/include/stdint.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/stdint.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/codecParameters.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/bcg729/encoder.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/bcg729/decoder.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/basicOperationsMacros.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/fixedPointMacros.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/g729FixedPointMath.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/utils.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/codebooks.h
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/typedef.h:
+
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/4.2/include/stdint.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/stdint.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/codecParameters.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/bcg729/encoder.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/bcg729/decoder.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/basicOperationsMacros.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/fixedPointMacros.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/g729FixedPointMath.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/utils.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/codebooks.h:
