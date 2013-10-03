@@ -1184,8 +1184,8 @@
 			<string key="contacts_over~ipad.png">{352, 153}</string>
 			<string key="contacts_selected_landscape~ipad.png">{480, 171}</string>
 			<string key="contacts_selected~ipad.png">{352, 153}</string>
-			<string key="dialer_default.png">{128, 154}</string>
-			<string key="dialer_over.png">{128, 154}</string>
+			<string key="dialer_default.png">{64, 49}</string>
+			<string key="dialer_over.png">{64, 49}</string>
 			<string key="dialer_selected">{16, 16}</string>
 			<string key="history_default_landscape~ipad.png">{480, 171}</string>
 			<string key="history_default~ipad.png">{353, 153}</string>

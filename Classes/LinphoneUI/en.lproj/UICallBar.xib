@@ -2600,7 +2600,6 @@
 							<reference ref="264394465"/>
 							<reference ref="62185125"/>
 							<reference ref="542459126"/>
-							<reference ref="351323248"/>
 							<reference ref="99607181"/>
 							<reference ref="976589610"/>
 							<reference ref="1016105438"/>
@@ -2608,6 +2607,7 @@
 							<reference ref="688068563"/>
 							<reference ref="804009355"/>
 							<reference ref="107840392"/>
+							<reference ref="351323248"/>
 						</array>
 						<reference key="parent" ref="931774220"/>
 						<string key="objectName">buttons</string>
