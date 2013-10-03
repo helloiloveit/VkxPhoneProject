@@ -1,0 +1,202 @@
+relaxng.lo: \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/relaxng.c \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/libxml.h \
+  config.h include/libxml/xmlversion.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlexports.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/stdio.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/cdefs.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/_symbol_aliasing.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/_posix_availability.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/Availability.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/AvailabilityInternal.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/machine/_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/i386/_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/secure/_stdio.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/secure/_common.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/string.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/strings.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/secure/_string.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlmemory.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/threads.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/globals.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/parser.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/4.2/include/stdarg.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/tree.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlstring.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlregexp.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/dict.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/hash.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/valid.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlerror.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/list.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlautomata.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/entities.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/encoding.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlIO.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/SAX.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/stdlib.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/wait.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/signal.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/appleapiopts.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/machine/signal.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/i386/signal.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/i386/_structs.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/_structs.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/machine/_structs.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/mach/i386/_structs.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/resource.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/machine/endian.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/i386/endian.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/_endian.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/libkern/_OSByteOrder.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/libkern/i386/_OSByteOrder.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/alloca.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/machine/types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/i386/types.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xlink.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/SAX2.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/parserInternals.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/HTMLparser.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/chvalid.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/uri.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/relaxng.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlschemastypes.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/schemasInternals.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlschemas.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/elfgcchack.h
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/libxml.h:
+
+config.h:
+
+include/libxml/xmlversion.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlexports.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/stdio.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/cdefs.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/_symbol_aliasing.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/_posix_availability.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/Availability.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/AvailabilityInternal.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/_types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/_types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/machine/_types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/i386/_types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/secure/_stdio.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/secure/_common.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/string.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/strings.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/secure/_string.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlmemory.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/threads.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/globals.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/parser.h:
+
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/4.2/include/stdarg.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/tree.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlstring.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlregexp.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/dict.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/hash.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/valid.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlerror.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/list.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlautomata.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/entities.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/encoding.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlIO.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/SAX.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/stdlib.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/wait.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/signal.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/appleapiopts.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/machine/signal.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/i386/signal.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/i386/_structs.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/_structs.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/machine/_structs.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/mach/i386/_structs.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/resource.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/machine/endian.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/i386/endian.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/sys/_endian.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/libkern/_OSByteOrder.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/libkern/i386/_OSByteOrder.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/alloca.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/machine/types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/include/i386/types.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xlink.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/SAX2.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/parserInternals.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/HTMLparser.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/chvalid.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/uri.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/relaxng.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlschemastypes.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/schemasInternals.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/include/libxml/xmlschemas.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/libxml2/elfgcchack.h:

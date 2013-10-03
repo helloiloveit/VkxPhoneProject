@@ -1,0 +1,336 @@
+The target system is: Generic -  - i386
+The host system is: Darwin - 12.4.0 - i386
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc 
+Build flags: ;-arch;i386;;-isysroot;/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk;-miphoneos-version-min=4.0;-DTARGET_OS_IPHONE=1;-D__IOS;-fms-extensions
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/2.8.10.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/g++ 
+Build flags: ;-arch;i386;;-isysroot;/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk;-miphoneos-version-min=4.0;-DTARGET_OS_IPHONE=1;-D__IOS;-fms-extensions
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/2.8.10.2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp
+
+Run Build Command:/opt/local/bin/gmake "cmTryCompileExec907129805/fast"
+gmake[2]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec907129805.dir/build.make CMakeFiles/cmTryCompileExec907129805.dir/build
+gmake[3]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/cmake -E cmake_progress_report /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec907129805.dir/testCCompiler.c.obj
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc   -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions     -o CMakeFiles/cmTryCompileExec907129805.dir/testCCompiler.c.obj   -c /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec907129805
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec907129805.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc    -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions      CMakeFiles/cmTryCompileExec907129805.dir/testCCompiler.c.obj  -o cmTryCompileExec907129805  
+gmake[3]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+gmake[2]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp
+
+Run Build Command:/opt/local/bin/gmake "cmTryCompileExec3300541006/fast"
+gmake[2]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec3300541006.dir/build.make CMakeFiles/cmTryCompileExec3300541006.dir/build
+gmake[3]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/cmake -E cmake_progress_report /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3300541006.dir/CMakeCCompilerABI.c.obj
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc   -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions     -o CMakeFiles/cmTryCompileExec3300541006.dir/CMakeCCompilerABI.c.obj   -c /opt/local/share/cmake-2.8/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec3300541006
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3300541006.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc    -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions    -v CMakeFiles/cmTryCompileExec3300541006.dir/CMakeCCompilerABI.c.obj  -o cmTryCompileExec3300541006   
+Using built-in specs.
+Target: i686-apple-darwin11
+Configured with: /private/var/tmp/llvmgcc42/llvmgcc42-2336.11~182/src/configure --disable-checking --enable-werror --prefix=/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2 --mandir=/share/man --enable-languages=c,objc,c++,obj-c++ --program-prefix=llvm- --program-transform-name=/^[cg][^.-]*$/s/$/-4.2/ --with-slibdir=/usr/lib --build=i686-apple-darwin11 --enable-llvm=/private/var/tmp/llvmgcc42/llvmgcc42-2336.11~182/dst-llvmCore/Developer/usr/local --program-prefix=i686-apple-darwin11- --host=x86_64-apple-darwin11 --target=i686-apple-darwin11 --with-gxx-include-dir=/usr/include/c++/4.2.1
+Thread model: posix
+gcc version 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)
+ /Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/libexec/gcc/i686-apple-darwin11/4.2.1/collect2 -dynamic -arch i386 -iphoneos_version_min 4.0 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -weak_reference_mismatches non-weak -o cmTryCompileExec3300541006 -lcrt1.o -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/lib -L/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1 CMakeFiles/cmTryCompileExec3300541006.dir/CMakeCCompilerABI.c.obj -lgcc -lSystem
+gmake[3]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+gmake[2]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/opt/local/bin/gmake "cmTryCompileExec3300541006/fast"]
+  ignore line: [gmake[2]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp']
+  ignore line: [/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec3300541006.dir/build.make CMakeFiles/cmTryCompileExec3300541006.dir/build]
+  ignore line: [gmake[3]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp']
+  ignore line: [/opt/local/bin/cmake -E cmake_progress_report /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec3300541006.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc   -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions     -o CMakeFiles/cmTryCompileExec3300541006.dir/CMakeCCompilerABI.c.obj   -c /opt/local/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec3300541006]
+  ignore line: [/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3300541006.dir/link.txt --verbose=1]
+  ignore line: [/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc    -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions    -v CMakeFiles/cmTryCompileExec3300541006.dir/CMakeCCompilerABI.c.obj  -o cmTryCompileExec3300541006   ]
+  ignore line: [Using built-in specs.]
+  ignore line: [Target: i686-apple-darwin11]
+  ignore line: [Configured with: /private/var/tmp/llvmgcc42/llvmgcc42-2336.11~182/src/configure --disable-checking --enable-werror --prefix=/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2 --mandir=/share/man --enable-languages=c,objc,c++,obj-c++ --program-prefix=llvm- --program-transform-name=/^[cg][^.-]*$/s/$/-4.2/ --with-slibdir=/usr/lib --build=i686-apple-darwin11 --enable-llvm=/private/var/tmp/llvmgcc42/llvmgcc42-2336.11~182/dst-llvmCore/Developer/usr/local --program-prefix=i686-apple-darwin11- --host=x86_64-apple-darwin11 --target=i686-apple-darwin11 --with-gxx-include-dir=/usr/include/c++/4.2.1]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)]
+  link line: [ /Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/libexec/gcc/i686-apple-darwin11/4.2.1/collect2 -dynamic -arch i386 -iphoneos_version_min 4.0 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -weak_reference_mismatches non-weak -o cmTryCompileExec3300541006 -lcrt1.o -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/lib -L/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1 CMakeFiles/cmTryCompileExec3300541006.dir/CMakeCCompilerABI.c.obj -lgcc -lSystem]
+    arg [/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/libexec/gcc/i686-apple-darwin11/4.2.1/collect2] ==> ignore
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [i386] ==> ignore
+    arg [-iphoneos_version_min] ==> ignore
+    arg [4.0] ==> ignore
+    arg [-syslibroot] ==> ignore
+    arg [/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk] ==> ignore
+    arg [-weak_reference_mismatches] ==> ignore
+    arg [non-weak] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec3300541006] ==> ignore
+    arg [-lcrt1.o] ==> lib [crt1.o]
+    arg [-L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/lib] ==> dir [/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/lib]
+    arg [-L/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1] ==> dir [/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1]
+    arg [CMakeFiles/cmTryCompileExec3300541006.dir/CMakeCCompilerABI.c.obj] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lSystem] ==> lib [System]
+  remove lib [crt1.o]
+  remove lib [gcc]
+  remove lib [System]
+  collapse dir [/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/lib] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/lib]
+  collapse dir [/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1] ==> [/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1]
+  implicit libs: []
+  implicit dirs: [/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/lib;/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1]
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp
+
+Run Build Command:/opt/local/bin/gmake "cmTryCompileExec464444828/fast"
+gmake[2]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec464444828.dir/build.make CMakeFiles/cmTryCompileExec464444828.dir/build
+gmake[3]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/cmake -E cmake_progress_report /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec464444828.dir/testCXXCompiler.cxx.obj
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/g++    -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions     -o CMakeFiles/cmTryCompileExec464444828.dir/testCXXCompiler.cxx.obj -c /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec464444828
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec464444828.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/g++     -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions      CMakeFiles/cmTryCompileExec464444828.dir/testCXXCompiler.cxx.obj  -o cmTryCompileExec464444828  
+gmake[3]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+gmake[2]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp
+
+Run Build Command:/opt/local/bin/gmake "cmTryCompileExec3851052231/fast"
+gmake[2]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec3851052231.dir/build.make CMakeFiles/cmTryCompileExec3851052231.dir/build
+gmake[3]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/cmake -E cmake_progress_report /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3851052231.dir/CMakeCXXCompilerABI.cpp.obj
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/g++    -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions     -o CMakeFiles/cmTryCompileExec3851052231.dir/CMakeCXXCompilerABI.cpp.obj -c /opt/local/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec3851052231
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3851052231.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/g++     -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions    -v CMakeFiles/cmTryCompileExec3851052231.dir/CMakeCXXCompilerABI.cpp.obj  -o cmTryCompileExec3851052231   
+Using built-in specs.
+Target: i686-apple-darwin11
+Configured with: /private/var/tmp/llvmgcc42/llvmgcc42-2336.11~182/src/configure --disable-checking --enable-werror --prefix=/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2 --mandir=/share/man --enable-languages=c,objc,c++,obj-c++ --program-prefix=llvm- --program-transform-name=/^[cg][^.-]*$/s/$/-4.2/ --with-slibdir=/usr/lib --build=i686-apple-darwin11 --enable-llvm=/private/var/tmp/llvmgcc42/llvmgcc42-2336.11~182/dst-llvmCore/Developer/usr/local --program-prefix=i686-apple-darwin11- --host=x86_64-apple-darwin11 --target=i686-apple-darwin11 --with-gxx-include-dir=/usr/include/c++/4.2.1
+Thread model: posix
+gcc version 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)
+ /Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/libexec/gcc/i686-apple-darwin11/4.2.1/collect2 -dynamic -arch i386 -iphoneos_version_min 4.0 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -weak_reference_mismatches non-weak -o cmTryCompileExec3851052231 -lcrt1.o -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/lib -L/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1 CMakeFiles/cmTryCompileExec3851052231.dir/CMakeCXXCompilerABI.cpp.obj -lstdc++ -lgcc -lSystem
+gmake[3]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+gmake[2]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/opt/local/bin/gmake "cmTryCompileExec3851052231/fast"]
+  ignore line: [gmake[2]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp']
+  ignore line: [/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec3851052231.dir/build.make CMakeFiles/cmTryCompileExec3851052231.dir/build]
+  ignore line: [gmake[3]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp']
+  ignore line: [/opt/local/bin/cmake -E cmake_progress_report /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec3851052231.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/g++    -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions     -o CMakeFiles/cmTryCompileExec3851052231.dir/CMakeCXXCompilerABI.cpp.obj -c /opt/local/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec3851052231]
+  ignore line: [/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3851052231.dir/link.txt --verbose=1]
+  ignore line: [/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/g++     -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions    -v CMakeFiles/cmTryCompileExec3851052231.dir/CMakeCXXCompilerABI.cpp.obj  -o cmTryCompileExec3851052231   ]
+  ignore line: [Using built-in specs.]
+  ignore line: [Target: i686-apple-darwin11]
+  ignore line: [Configured with: /private/var/tmp/llvmgcc42/llvmgcc42-2336.11~182/src/configure --disable-checking --enable-werror --prefix=/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2 --mandir=/share/man --enable-languages=c,objc,c++,obj-c++ --program-prefix=llvm- --program-transform-name=/^[cg][^.-]*$/s/$/-4.2/ --with-slibdir=/usr/lib --build=i686-apple-darwin11 --enable-llvm=/private/var/tmp/llvmgcc42/llvmgcc42-2336.11~182/dst-llvmCore/Developer/usr/local --program-prefix=i686-apple-darwin11- --host=x86_64-apple-darwin11 --target=i686-apple-darwin11 --with-gxx-include-dir=/usr/include/c++/4.2.1]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)]
+  link line: [ /Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/libexec/gcc/i686-apple-darwin11/4.2.1/collect2 -dynamic -arch i386 -iphoneos_version_min 4.0 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -weak_reference_mismatches non-weak -o cmTryCompileExec3851052231 -lcrt1.o -L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/lib -L/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1 CMakeFiles/cmTryCompileExec3851052231.dir/CMakeCXXCompilerABI.cpp.obj -lstdc++ -lgcc -lSystem]
+    arg [/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/libexec/gcc/i686-apple-darwin11/4.2.1/collect2] ==> ignore
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [i386] ==> ignore
+    arg [-iphoneos_version_min] ==> ignore
+    arg [4.0] ==> ignore
+    arg [-syslibroot] ==> ignore
+    arg [/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk] ==> ignore
+    arg [-weak_reference_mismatches] ==> ignore
+    arg [non-weak] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec3851052231] ==> ignore
+    arg [-lcrt1.o] ==> lib [crt1.o]
+    arg [-L/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/lib] ==> dir [/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/lib]
+    arg [-L/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1] ==> dir [/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1]
+    arg [CMakeFiles/cmTryCompileExec3851052231.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lSystem] ==> lib [System]
+  remove lib [crt1.o]
+  remove lib [gcc]
+  remove lib [System]
+  collapse dir [/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/lib] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/lib]
+  collapse dir [/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1] ==> [/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1]
+  implicit libs: [stdc++]
+  implicit dirs: [/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/usr/lib;/Applications/Xcode.app/Contents/Developer/usr/llvm-gcc-4.2/lib/gcc/i686-apple-darwin11/4.2.1]
+
+
+Determining if files pthread.h exist passed with the following output:
+Change Dir: /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp
+
+Run Build Command:/opt/local/bin/gmake "cmTryCompileExec987435365/fast"
+gmake[2]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec987435365.dir/build.make CMakeFiles/cmTryCompileExec987435365.dir/build
+gmake[3]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/cmake -E cmake_progress_report /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec987435365.dir/CheckIncludeFiles.c.obj
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc   -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions     -o CMakeFiles/cmTryCompileExec987435365.dir/CheckIncludeFiles.c.obj   -c /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec987435365
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec987435365.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc    -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions      CMakeFiles/cmTryCompileExec987435365.dir/CheckIncludeFiles.c.obj  -o cmTryCompileExec987435365  
+gmake[3]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+gmake[2]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+
+
+Determining if the pthread_create exist passed with the following output:
+Change Dir: /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp
+
+Run Build Command:/opt/local/bin/gmake "cmTryCompileExec460677687/fast"
+gmake[2]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec460677687.dir/build.make CMakeFiles/cmTryCompileExec460677687.dir/build
+gmake[3]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/cmake -E cmake_progress_report /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec460677687.dir/CheckSymbolExists.c.obj
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc   -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions     -o CMakeFiles/cmTryCompileExec460677687.dir/CheckSymbolExists.c.obj   -c /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec460677687
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec460677687.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc    -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions      CMakeFiles/cmTryCompileExec460677687.dir/CheckSymbolExists.c.obj  -o cmTryCompileExec460677687  
+gmake[3]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+gmake[2]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+
+File /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if files openssl/bn.h exist passed with the following output:
+Change Dir: /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp
+
+Run Build Command:/opt/local/bin/gmake "cmTryCompileExec107627749/fast"
+gmake[2]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec107627749.dir/build.make CMakeFiles/cmTryCompileExec107627749.dir/build
+gmake[3]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/cmake -E cmake_progress_report /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec107627749.dir/CheckIncludeFiles.c.obj
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc   -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions   -I/opt/local/include    -o CMakeFiles/cmTryCompileExec107627749.dir/CheckIncludeFiles.c.obj   -c /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec107627749
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec107627749.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc    -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions      CMakeFiles/cmTryCompileExec107627749.dir/CheckIncludeFiles.c.obj  -o cmTryCompileExec107627749  
+gmake[3]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+gmake[2]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+
+
+Determining if files openssl/aes.h exist passed with the following output:
+Change Dir: /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp
+
+Run Build Command:/opt/local/bin/gmake "cmTryCompileExec845534179/fast"
+gmake[2]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec845534179.dir/build.make CMakeFiles/cmTryCompileExec845534179.dir/build
+gmake[3]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/cmake -E cmake_progress_report /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec845534179.dir/CheckIncludeFiles.c.obj
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc   -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions   -I/opt/local/include    -o CMakeFiles/cmTryCompileExec845534179.dir/CheckIncludeFiles.c.obj   -c /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec845534179
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec845534179.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc    -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions      CMakeFiles/cmTryCompileExec845534179.dir/CheckIncludeFiles.c.obj  -o cmTryCompileExec845534179  
+gmake[3]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+gmake[2]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+
+
+Determining if files openssl/sha.h exist passed with the following output:
+Change Dir: /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp
+
+Run Build Command:/opt/local/bin/gmake "cmTryCompileExec950672383/fast"
+gmake[2]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec950672383.dir/build.make CMakeFiles/cmTryCompileExec950672383.dir/build
+gmake[3]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/cmake -E cmake_progress_report /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec950672383.dir/CheckIncludeFiles.c.obj
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc   -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions   -I/opt/local/include    -o CMakeFiles/cmTryCompileExec950672383.dir/CheckIncludeFiles.c.obj   -c /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec950672383
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec950672383.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc    -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions      CMakeFiles/cmTryCompileExec950672383.dir/CheckIncludeFiles.c.obj  -o cmTryCompileExec950672383  
+gmake[3]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+gmake[2]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+
+
+Determining if files stdlib.h exist passed with the following output:
+Change Dir: /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp
+
+Run Build Command:/opt/local/bin/gmake "cmTryCompileExec168972125/fast"
+gmake[2]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec168972125.dir/build.make CMakeFiles/cmTryCompileExec168972125.dir/build
+gmake[3]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/cmake -E cmake_progress_report /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec168972125.dir/CheckIncludeFiles.c.obj
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc   -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions   -I/opt/local/include    -o CMakeFiles/cmTryCompileExec168972125.dir/CheckIncludeFiles.c.obj   -c /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec168972125
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec168972125.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc    -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions      CMakeFiles/cmTryCompileExec168972125.dir/CheckIncludeFiles.c.obj  -o cmTryCompileExec168972125  
+gmake[3]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+gmake[2]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+
+
+Determining if files string.h exist passed with the following output:
+Change Dir: /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp
+
+Run Build Command:/opt/local/bin/gmake "cmTryCompileExec1310401347/fast"
+gmake[2]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec1310401347.dir/build.make CMakeFiles/cmTryCompileExec1310401347.dir/build
+gmake[3]: Entering directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+/opt/local/bin/cmake -E cmake_progress_report /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1310401347.dir/CheckIncludeFiles.c.obj
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc   -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions   -I/opt/local/include    -o CMakeFiles/cmTryCompileExec1310401347.dir/CheckIncludeFiles.c.obj   -c /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec1310401347
+/opt/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1310401347.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc    -arch i386  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -miphoneos-version-min=4.0 -DTARGET_OS_IPHONE=1 -D__IOS -fms-extensions      CMakeFiles/cmTryCompileExec1310401347.dir/CheckIncludeFiles.c.obj  -o cmTryCompileExec1310401347  
+gmake[3]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+gmake[2]: Leaving directory `/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-i386-apple-darwin/externals/zrtpcpp/CMakeFiles/CMakeTmp'
+
+
