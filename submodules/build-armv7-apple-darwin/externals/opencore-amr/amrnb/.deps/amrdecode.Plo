@@ -1,0 +1,113 @@
+amrdecode.lo amrdecode.o:  \
+ /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/amrdecode.cpp \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/amrdecode.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/typedef.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base_macros.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/gsm_amr_typedefs.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/stdint.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/mode.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/frame_type_3gpp.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/include/pvamrnbdecoder_api.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/common/dec/include/pvgsmamrdecoderinterface.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/cnst.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/frame.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/sp_dec.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/dec_amr.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/dtx_dec.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/d_plsf.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/typedef.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/cnst.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/mode.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/get_const_tbls.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/gc_pred.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/c_g_aver.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/dtx_common_def.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/ec_gains.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/ph_disp.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/get_const_tbls.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/bgnscd.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/lsp_avg.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/pstfilt.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/preemph.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/agc.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/post_pro.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/wmf_to_ets.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/frame_type_3gpp.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/if2_to_ets.h
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/amrdecode.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/typedef.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base_macros.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/gsm_amr_typedefs.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/stdint.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/mode.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/frame_type_3gpp.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/include/pvamrnbdecoder_api.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/common/dec/include/pvgsmamrdecoderinterface.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/cnst.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/frame.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/sp_dec.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/dec_amr.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/dtx_dec.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/d_plsf.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/typedef.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/cnst.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/mode.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/get_const_tbls.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/gc_pred.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/c_g_aver.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/dtx_common_def.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/ec_gains.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/ph_disp.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/get_const_tbls.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/bgnscd.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/lsp_avg.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/pstfilt.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/preemph.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/agc.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/post_pro.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/wmf_to_ets.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/frame_type_3gpp.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/if2_to_ets.h:

@@ -1,0 +1,5 @@
+libbellesip_la-tunnel_wrapper.lo: \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//belle-sip/src/transports/tunnel_wrapper.cc \
+  ../config.h
+
+../config.h:

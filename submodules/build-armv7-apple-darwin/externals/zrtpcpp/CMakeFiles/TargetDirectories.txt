@@ -1,0 +1,5 @@
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-armv7-apple-darwin/externals/zrtpcpp/CMakeFiles/srcpackage.dir
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-armv7-apple-darwin/externals/zrtpcpp/CMakeFiles/srcpackage_local.dir
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-armv7-apple-darwin/externals/zrtpcpp/CMakeFiles/svncheck.dir
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-armv7-apple-darwin/externals/zrtpcpp/CMakeFiles/uninstall.dir
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build-armv7-apple-darwin/externals/zrtpcpp/src/CMakeFiles/zrtpcpp.dir

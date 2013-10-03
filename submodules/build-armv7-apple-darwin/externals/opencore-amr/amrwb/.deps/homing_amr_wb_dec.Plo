@@ -1,0 +1,41 @@
+homing_amr_wb_dec.lo homing_amr_wb_dec.o:  \
+ /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/homing_amr_wb_dec.cpp \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pv_amr_wb_type_defs.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/stdint.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder_cnst.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/include/pvamrwbdecoder_api.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/common/dec/include/pvgsmamrdecoderinterface.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder_basic_op.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/normalize_amr_wb.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder_basic_op_cequivalent.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/get_amr_wb_bits.h
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pv_amr_wb_type_defs.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/stdint.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder_cnst.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/include/pvamrwbdecoder_api.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/common/dec/include/pvgsmamrdecoderinterface.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder_basic_op.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/normalize_amr_wb.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/pvamrwbdecoder_basic_op_cequivalent.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_wb/dec/src/get_amr_wb_bits.h:
