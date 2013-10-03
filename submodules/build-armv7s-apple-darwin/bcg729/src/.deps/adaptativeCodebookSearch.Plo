@@ -1,0 +1,74 @@
+adaptativeCodebookSearch.lo: \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/src/adaptativeCodebookSearch.c \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/typedef.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/4.2/include/stdint.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/stdint.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/codecParameters.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/bcg729/encoder.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/bcg729/decoder.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/basicOperationsMacros.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/fixedPointMacros.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/utils.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/codebooks.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/string.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/sys/_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/sys/cdefs.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/sys/_symbol_aliasing.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/sys/_posix_availability.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/machine/_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/arm/_types.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/Availability.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/AvailabilityInternal.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/strings.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/secure/_string.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/secure/_common.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/adaptativeCodebookSearch.h
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/typedef.h:
+
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/4.2/include/stdint.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/stdint.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/codecParameters.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/bcg729/encoder.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/bcg729/decoder.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/basicOperationsMacros.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/fixedPointMacros.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/utils.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/codebooks.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/string.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/_types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/sys/_types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/sys/cdefs.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/sys/_symbol_aliasing.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/sys/_posix_availability.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/machine/_types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/arm/_types.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/Availability.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/AvailabilityInternal.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/strings.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/secure/_string.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/secure/_common.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//bcg729/include/adaptativeCodebookSearch.h:
