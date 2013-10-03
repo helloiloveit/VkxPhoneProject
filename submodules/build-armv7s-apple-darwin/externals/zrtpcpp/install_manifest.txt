@@ -1,0 +1,6 @@
+/Users/huyheo/Documents/Linphone/linphone-iphone/liblinphone-sdk/armv7s-apple-darwin/lib/pkgconfig/libzrtpcpp.pc
+/Users/huyheo/Documents/Linphone/linphone-iphone/liblinphone-sdk/armv7s-apple-darwin/lib/libzrtpcpp.a
+/Users/huyheo/Documents/Linphone/linphone-iphone/liblinphone-sdk/armv7s-apple-darwin/include/libzrtpcpp/ZrtpCodes.h
+/Users/huyheo/Documents/Linphone/linphone-iphone/liblinphone-sdk/armv7s-apple-darwin/include/libzrtpcpp/ZrtpConfigure.h
+/Users/huyheo/Documents/Linphone/linphone-iphone/liblinphone-sdk/armv7s-apple-darwin/include/libzrtpcpp/ZrtpCallback.h
+/Users/huyheo/Documents/Linphone/linphone-iphone/liblinphone-sdk/armv7s-apple-darwin/include/libzrtpcpp/ZrtpCWrapper.h

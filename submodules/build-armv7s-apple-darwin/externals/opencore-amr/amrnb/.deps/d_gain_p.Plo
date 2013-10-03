@@ -1,0 +1,29 @@
+d_gain_p.lo d_gain_p.o:  \
+ /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/dec/src/d_gain_p.cpp \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/d_gain_p.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/typedef.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base_macros.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/gsm_amr_typedefs.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/stdint.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/mode.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/typedef.h \
+  /Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/mode.h
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/d_gain_p.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/typedef.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base_macros.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/gsm_amr_typedefs.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/oscl/oscl_base.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/include/stdint.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/mode.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/typedef.h:
+
+/Users/huyheo/Documents/Linphone/linphone-iphone/submodules/build/..//externals/opencore-amr/opencore/codecs_v2/audio/gsm_amr/amr_nb/common/include/mode.h:
