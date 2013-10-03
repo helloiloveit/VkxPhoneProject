@@ -1,0 +1,318 @@
+\section{Subscriptions}
+\label{group__subscriptions}\index{Subscriptions@{Subscriptions}}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \\*
+{\bf \-\_\-\-Linphone\-Subscription\-Dir} {\bf Linphone\-Subscription\-Dir}
+\item 
+typedef void($\ast$ {\bf Linphone\-Event\-Incoming\-Notify\-Cb} )({\bf Linphone\-Core} $\ast$lc, Linphone\-Event $\ast$lev, const char $\ast$notified\-\_\-event, const {\bf Linphone\-Content} $\ast$body)
+\item 
+typedef void($\ast$ {\bf Linphone\-Subscription\-State\-Changed\-Cb} )({\bf Linphone\-Core} $\ast$lc, Linphone\-Event $\ast$lev, Linphone\-Subscription\-State state)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf \-\_\-\-Linphone\-Subscription\-Dir} 
+\item 
+enum {\bf \-\_\-\-Linphone\-Subscription\-State} \{ \\*
+{\bf Linphone\-Subscription\-None}, 
+\\*
+{\bf Linphone\-Subscription\-Outoing\-Init}, 
+\\*
+{\bf Linphone\-Subscription\-Incoming\-Received}, 
+\\*
+{\bf Linphone\-Subscription\-Pending}, 
+\\*
+{\bf Linphone\-Subscription\-Active}, 
+\\*
+{\bf Linphone\-Subscription\-Terminated}, 
+\\*
+{\bf Linphone\-Subscription\-Error}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C Linphone\-Event $\ast$ {\bf linphone\-\_\-core\-\_\-subscribe} ({\bf Linphone\-Core} $\ast$lc, const {\bf Linphone\-Address} $\ast$resource, const char $\ast$event, int expires, const {\bf Linphone\-Content} $\ast$body)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int {\bf linphone\-\_\-event\-\_\-update\-\_\-subscribe} (Linphone\-Event $\ast$lev, const {\bf Linphone\-Content} $\ast$body)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int {\bf linphone\-\_\-event\-\_\-accept\-\_\-subscription} (Linphone\-Event $\ast$lev)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int {\bf linphone\-\_\-event\-\_\-deny\-\_\-subscription} (Linphone\-Event $\ast$lev, {\bf Linphone\-Reason} reason)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int {\bf linphone\-\_\-event\-\_\-notify} (Linphone\-Event $\ast$lev, const {\bf Linphone\-Content} $\ast$body)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C Linphone\-Event $\ast$ {\bf linphone\-\_\-core\-\_\-publish} ({\bf Linphone\-Core} $\ast$lc, const {\bf Linphone\-Address} $\ast$resource, const char $\ast$event, int expires, const {\bf Linphone\-Content} $\ast$body)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int {\bf linphone\-\_\-event\-\_\-update\-\_\-publish} (Linphone\-Event $\ast$lev, const {\bf Linphone\-Content} $\ast$body)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Reason} {\bf linphone\-\_\-event\-\_\-get\-\_\-reason} (const Linphone\-Event $\ast$lev)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C \\*
+Linphone\-Subscription\-State {\bf linphone\-\_\-event\-\_\-get\-\_\-subscription\-\_\-state} (const Linphone\-Event $\ast$lev)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C \\*
+{\bf Linphone\-Subscription\-Dir} {\bf linphone\-\_\-event\-\_\-get\-\_\-subscription\-\_\-dir} (Linphone\-Event $\ast$lev)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void {\bf linphone\-\_\-event\-\_\-set\-\_\-user\-\_\-data} (Linphone\-Event $\ast$ev, void $\ast$up)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void $\ast$ {\bf linphone\-\_\-event\-\_\-get\-\_\-user\-\_\-data} (const Linphone\-Event $\ast$ev)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void {\bf linphone\-\_\-event\-\_\-terminate} (Linphone\-Event $\ast$lev)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C Linphone\-Event $\ast$ {\bf linphone\-\_\-event\-\_\-ref} (Linphone\-Event $\ast$lev)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void {\bf linphone\-\_\-event\-\_\-unref} (Linphone\-Event $\ast$lev)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const char $\ast$ {\bf linphone\-\_\-event\-\_\-get\-\_\-name} (const Linphone\-Event $\ast$lev)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const \\*
+{\bf Linphone\-Address} $\ast$ {\bf linphone\-\_\-event\-\_\-get\-\_\-from} (const Linphone\-Event $\ast$lev)
+\item 
+L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const \\*
+{\bf Linphone\-Address} $\ast$ {\bf linphone\-\_\-event\-\_\-get\-\_\-resource} (const Linphone\-Event $\ast$lev)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Typedef Documentation}
+\index{Subscriptions@{Subscriptions}!Linphone\-Subscription\-Dir@{Linphone\-Subscription\-Dir}}
+\index{Linphone\-Subscription\-Dir@{Linphone\-Subscription\-Dir}!Subscriptions@{Subscriptions}}
+\subsubsection[{Linphone\-Subscription\-Dir}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf \-\_\-\-Linphone\-Subscription\-Dir} {\bf Linphone\-Subscription\-Dir}}\label{group__subscriptions_ga317c5125e3a75ae35564895024cf24f9}
+Typedef alias for \-\_\-\-Linphone\-Subscription\-Dir \index{Subscriptions@{Subscriptions}!Linphone\-Event\-Incoming\-Notify\-Cb@{Linphone\-Event\-Incoming\-Notify\-Cb}}
+\index{Linphone\-Event\-Incoming\-Notify\-Cb@{Linphone\-Event\-Incoming\-Notify\-Cb}!Subscriptions@{Subscriptions}}
+\subsubsection[{Linphone\-Event\-Incoming\-Notify\-Cb}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ Linphone\-Event\-Incoming\-Notify\-Cb)({\bf Linphone\-Core} $\ast$lc, Linphone\-Event $\ast$lev, const char $\ast$notified\-\_\-event, const {\bf Linphone\-Content} $\ast$body)}\label{group__subscriptions_ga66462c25a12fbdc0972ce5d9a6fcd68f}
+Callback prototype for notifying the application about notification received from the network. \index{Subscriptions@{Subscriptions}!Linphone\-Subscription\-State\-Changed\-Cb@{Linphone\-Subscription\-State\-Changed\-Cb}}
+\index{Linphone\-Subscription\-State\-Changed\-Cb@{Linphone\-Subscription\-State\-Changed\-Cb}!Subscriptions@{Subscriptions}}
+\subsubsection[{Linphone\-Subscription\-State\-Changed\-Cb}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ Linphone\-Subscription\-State\-Changed\-Cb)({\bf Linphone\-Core} $\ast$lc, Linphone\-Event $\ast$lev, Linphone\-Subscription\-State state)}\label{group__subscriptions_ga4d95bfd6ab95f40f9182567fa27176aa}
+Callback prototype for notifying the application about changes of subscription states, including arrival of new subscriptions. 
+
+\subsection{Enumeration Type Documentation}
+\index{Subscriptions@{Subscriptions}!\-\_\-\-Linphone\-Subscription\-Dir@{\-\_\-\-Linphone\-Subscription\-Dir}}
+\index{\-\_\-\-Linphone\-Subscription\-Dir@{\-\_\-\-Linphone\-Subscription\-Dir}!Subscriptions@{Subscriptions}}
+\subsubsection[{\-\_\-\-Linphone\-Subscription\-Dir}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-\_\-\-Linphone\-Subscription\-Dir}}\label{group__subscriptions_ga952ed6766d10e5c40eb1c08027fd299e}
+Enum for subscription direction (incoming or outgoing). \index{Subscriptions@{Subscriptions}!\-\_\-\-Linphone\-Subscription\-State@{\-\_\-\-Linphone\-Subscription\-State}}
+\index{\-\_\-\-Linphone\-Subscription\-State@{\-\_\-\-Linphone\-Subscription\-State}!Subscriptions@{Subscriptions}}
+\subsubsection[{\-\_\-\-Linphone\-Subscription\-State}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-\_\-\-Linphone\-Subscription\-State}}\label{group__subscriptions_ga3f3f0721b654f5d9bf69451894c15fd2}
+Enum for subscription states. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Linphone\-Subscription\-None@{Linphone\-Subscription\-None}!Subscriptions@{Subscriptions}}\index{Subscriptions@{Subscriptions}!Linphone\-Subscription\-None@{Linphone\-Subscription\-None}}\item[{\em 
+Linphone\-Subscription\-None\label{group__subscriptions_gga3f3f0721b654f5d9bf69451894c15fd2aeca0ec22ff12067bd9678faafb78d2c5}
+}]Initial state, should not be used. \index{Linphone\-Subscription\-Outoing\-Init@{Linphone\-Subscription\-Outoing\-Init}!Subscriptions@{Subscriptions}}\index{Subscriptions@{Subscriptions}!Linphone\-Subscription\-Outoing\-Init@{Linphone\-Subscription\-Outoing\-Init}}\item[{\em 
+Linphone\-Subscription\-Outoing\-Init\label{group__subscriptions_gga3f3f0721b654f5d9bf69451894c15fd2a5fa1df55eb880c4ee72c0953ba87fdd2}
+}]An outgoing subcription was created \index{Linphone\-Subscription\-Incoming\-Received@{Linphone\-Subscription\-Incoming\-Received}!Subscriptions@{Subscriptions}}\index{Subscriptions@{Subscriptions}!Linphone\-Subscription\-Incoming\-Received@{Linphone\-Subscription\-Incoming\-Received}}\item[{\em 
+Linphone\-Subscription\-Incoming\-Received\label{group__subscriptions_gga3f3f0721b654f5d9bf69451894c15fd2a9da46101b075b3e234bb241110a56199}
+}]An incoming subcription is received \index{Linphone\-Subscription\-Pending@{Linphone\-Subscription\-Pending}!Subscriptions@{Subscriptions}}\index{Subscriptions@{Subscriptions}!Linphone\-Subscription\-Pending@{Linphone\-Subscription\-Pending}}\item[{\em 
+Linphone\-Subscription\-Pending\label{group__subscriptions_gga3f3f0721b654f5d9bf69451894c15fd2a49a83030925840824cbc1e4d8eb1dec2}
+}]Subscription is pending, waiting for user approval \index{Linphone\-Subscription\-Active@{Linphone\-Subscription\-Active}!Subscriptions@{Subscriptions}}\index{Subscriptions@{Subscriptions}!Linphone\-Subscription\-Active@{Linphone\-Subscription\-Active}}\item[{\em 
+Linphone\-Subscription\-Active\label{group__subscriptions_gga3f3f0721b654f5d9bf69451894c15fd2ab42d78d54f2780123a1f81b016e8c169}
+}]Subscription is accepted. \index{Linphone\-Subscription\-Terminated@{Linphone\-Subscription\-Terminated}!Subscriptions@{Subscriptions}}\index{Subscriptions@{Subscriptions}!Linphone\-Subscription\-Terminated@{Linphone\-Subscription\-Terminated}}\item[{\em 
+Linphone\-Subscription\-Terminated\label{group__subscriptions_gga3f3f0721b654f5d9bf69451894c15fd2a108eeeb7d2550850db7c64f6c064972a}
+}]Subscription is terminated normally \index{Linphone\-Subscription\-Error@{Linphone\-Subscription\-Error}!Subscriptions@{Subscriptions}}\index{Subscriptions@{Subscriptions}!Linphone\-Subscription\-Error@{Linphone\-Subscription\-Error}}\item[{\em 
+Linphone\-Subscription\-Error\label{group__subscriptions_gga3f3f0721b654f5d9bf69451894c15fd2a97811c7073b37718c9b1580b2c81ce97}
+}]Subscription encountered an error, indicated by \doxyref{linphone\-\_\-event\-\_\-get\-\_\-reason()}{p.}{group__subscriptions_gabfe150cfc0efdff8ca09341f88f85ee4} \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{Subscriptions@{Subscriptions}!linphone\-\_\-core\-\_\-subscribe@{linphone\-\_\-core\-\_\-subscribe}}
+\index{linphone\-\_\-core\-\_\-subscribe@{linphone\-\_\-core\-\_\-subscribe}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-core\-\_\-subscribe}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C Linphone\-Event$\ast$ linphone\-\_\-core\-\_\-subscribe (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Core} $\ast$}]{lc, }
+\item[{const {\bf Linphone\-Address} $\ast$}]{resource, }
+\item[{const char $\ast$}]{event, }
+\item[{int}]{expires, }
+\item[{const {\bf Linphone\-Content} $\ast$}]{body}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_ga91e3e2f066554101b49c045c3b7ba8ae}
+Create an outgoing subscription, specifying the destination resource, the event name, and an optional content body. If accepted, the subscription runs for a finite period, but is automatically renewed if not terminated before. 
+\begin{DoxyParams}{Parameters}
+{\em lc} & the \doxyref{Linphone\-Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} \\
+\hline
+{\em resource} & the destination resource \\
+\hline
+{\em event} & the event name \\
+\hline
+{\em expires} & the whished duration of the subscription \\
+\hline
+{\em body} & an optional body, may be N\-U\-L\-L. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a Linphone\-Event holding the context of the created subcription. 
+\end{DoxyReturn}
+\index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-update\-\_\-subscribe@{linphone\-\_\-event\-\_\-update\-\_\-subscribe}}
+\index{linphone\-\_\-event\-\_\-update\-\_\-subscribe@{linphone\-\_\-event\-\_\-update\-\_\-subscribe}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-update\-\_\-subscribe}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int linphone\-\_\-event\-\_\-update\-\_\-subscribe (
+\begin{DoxyParamCaption}
+\item[{Linphone\-Event $\ast$}]{lev, }
+\item[{const {\bf Linphone\-Content} $\ast$}]{body}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_ga456a85a7101559b7d5aca483daec185c}
+Update an outgoing subscription. 
+\begin{DoxyParams}{Parameters}
+{\em lev} & a Linphone\-Event \\
+\hline
+{\em body} & an optional body to include in the subscription update, may be N\-U\-L\-L. \\
+\hline
+\end{DoxyParams}
+\index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-accept\-\_\-subscription@{linphone\-\_\-event\-\_\-accept\-\_\-subscription}}
+\index{linphone\-\_\-event\-\_\-accept\-\_\-subscription@{linphone\-\_\-event\-\_\-accept\-\_\-subscription}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-accept\-\_\-subscription}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int linphone\-\_\-event\-\_\-accept\-\_\-subscription (
+\begin{DoxyParamCaption}
+\item[{Linphone\-Event $\ast$}]{lev}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_gac31ba881a90345db8a051e3995276b67}
+Accept an incoming subcription. \index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-deny\-\_\-subscription@{linphone\-\_\-event\-\_\-deny\-\_\-subscription}}
+\index{linphone\-\_\-event\-\_\-deny\-\_\-subscription@{linphone\-\_\-event\-\_\-deny\-\_\-subscription}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-deny\-\_\-subscription}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int linphone\-\_\-event\-\_\-deny\-\_\-subscription (
+\begin{DoxyParamCaption}
+\item[{Linphone\-Event $\ast$}]{lev, }
+\item[{{\bf Linphone\-Reason}}]{reason}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_gad8b41596e2594d98629d6c91cf3920fc}
+Deny an incoming subscription with given reason. \index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-notify@{linphone\-\_\-event\-\_\-notify}}
+\index{linphone\-\_\-event\-\_\-notify@{linphone\-\_\-event\-\_\-notify}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-notify}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int linphone\-\_\-event\-\_\-notify (
+\begin{DoxyParamCaption}
+\item[{Linphone\-Event $\ast$}]{lev, }
+\item[{const {\bf Linphone\-Content} $\ast$}]{body}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_ga3300c9108706116b49573f892ac3a050}
+Send a notification. 
+\begin{DoxyParams}{Parameters}
+{\em lev} & a \#\-Linphone\-Event corresponding to an incoming subscription previously received and accepted. \\
+\hline
+{\em body} & an optional body containing the actual notification data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, -\/1 otherwise. 
+\end{DoxyReturn}
+\index{Subscriptions@{Subscriptions}!linphone\-\_\-core\-\_\-publish@{linphone\-\_\-core\-\_\-publish}}
+\index{linphone\-\_\-core\-\_\-publish@{linphone\-\_\-core\-\_\-publish}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-core\-\_\-publish}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C Linphone\-Event$\ast$ linphone\-\_\-core\-\_\-publish (
+\begin{DoxyParamCaption}
+\item[{{\bf Linphone\-Core} $\ast$}]{lc, }
+\item[{const {\bf Linphone\-Address} $\ast$}]{resource, }
+\item[{const char $\ast$}]{event, }
+\item[{int}]{expires, }
+\item[{const {\bf Linphone\-Content} $\ast$}]{body}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_ga19eacf3dfa00cf61dbc6e2dae58fe32a}
+Publish an event. After expiry, the publication is refreshed unless it is terminated before. 
+\begin{DoxyParams}{Parameters}
+{\em lc} & the \doxyref{Linphone\-Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} \\
+\hline
+{\em resource} & the resource uri for the event \\
+\hline
+{\em event} & the event name \\
+\hline
+{\em expires} & the lifetime of the publication \\
+\hline
+{\em body} & the actual published data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the Linphone\-Event holding the context of the publish. 
+\end{DoxyReturn}
+\index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-update\-\_\-publish@{linphone\-\_\-event\-\_\-update\-\_\-publish}}
+\index{linphone\-\_\-event\-\_\-update\-\_\-publish@{linphone\-\_\-event\-\_\-update\-\_\-publish}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-update\-\_\-publish}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C int linphone\-\_\-event\-\_\-update\-\_\-publish (
+\begin{DoxyParamCaption}
+\item[{Linphone\-Event $\ast$}]{lev, }
+\item[{const {\bf Linphone\-Content} $\ast$}]{body}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_gafac13f74eb59554f94b17251ad07aea3}
+Update a publication. 
+\begin{DoxyParams}{Parameters}
+{\em lev} & the \#\-Linphone\-Event \\
+\hline
+{\em body} & the new data to be published \\
+\hline
+\end{DoxyParams}
+\index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-get\-\_\-reason@{linphone\-\_\-event\-\_\-get\-\_\-reason}}
+\index{linphone\-\_\-event\-\_\-get\-\_\-reason@{linphone\-\_\-event\-\_\-get\-\_\-reason}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-get\-\_\-reason}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Reason} linphone\-\_\-event\-\_\-get\-\_\-reason (
+\begin{DoxyParamCaption}
+\item[{const Linphone\-Event $\ast$}]{lev}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_gabfe150cfc0efdff8ca09341f88f85ee4}
+Return reason code (in case of error state reached). \index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-get\-\_\-subscription\-\_\-state@{linphone\-\_\-event\-\_\-get\-\_\-subscription\-\_\-state}}
+\index{linphone\-\_\-event\-\_\-get\-\_\-subscription\-\_\-state@{linphone\-\_\-event\-\_\-get\-\_\-subscription\-\_\-state}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-get\-\_\-subscription\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C Linphone\-Subscription\-State linphone\-\_\-event\-\_\-get\-\_\-subscription\-\_\-state (
+\begin{DoxyParamCaption}
+\item[{const Linphone\-Event $\ast$}]{lev}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_gac10edd8ec4a3baaade1792fdb3215c73}
+Get subscription state. If the event object was not created by a subscription mechanism, \doxyref{Linphone\-Subscription\-None}{p.}{group__subscriptions_gga3f3f0721b654f5d9bf69451894c15fd2aeca0ec22ff12067bd9678faafb78d2c5} is returned. \index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-get\-\_\-subscription\-\_\-dir@{linphone\-\_\-event\-\_\-get\-\_\-subscription\-\_\-dir}}
+\index{linphone\-\_\-event\-\_\-get\-\_\-subscription\-\_\-dir@{linphone\-\_\-event\-\_\-get\-\_\-subscription\-\_\-dir}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-get\-\_\-subscription\-\_\-dir}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C {\bf Linphone\-Subscription\-Dir} linphone\-\_\-event\-\_\-get\-\_\-subscription\-\_\-dir (
+\begin{DoxyParamCaption}
+\item[{Linphone\-Event $\ast$}]{lev}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_ga7f4c54ab5f34bcebf83a22a2d479ddfe}
+Get subscription direction. If the object wasn't created by a subscription mechanism, \#\-Linphone\-Subscription\-Invalid\-Dir is returned. \index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-set\-\_\-user\-\_\-data@{linphone\-\_\-event\-\_\-set\-\_\-user\-\_\-data}}
+\index{linphone\-\_\-event\-\_\-set\-\_\-user\-\_\-data@{linphone\-\_\-event\-\_\-set\-\_\-user\-\_\-data}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-set\-\_\-user\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void linphone\-\_\-event\-\_\-set\-\_\-user\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{Linphone\-Event $\ast$}]{ev, }
+\item[{void $\ast$}]{up}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_gae59366bd4272bd27da65c5ef8ec3cdd3}
+Set a user (application) pointer. \index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-get\-\_\-user\-\_\-data@{linphone\-\_\-event\-\_\-get\-\_\-user\-\_\-data}}
+\index{linphone\-\_\-event\-\_\-get\-\_\-user\-\_\-data@{linphone\-\_\-event\-\_\-get\-\_\-user\-\_\-data}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-get\-\_\-user\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void$\ast$ linphone\-\_\-event\-\_\-get\-\_\-user\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{const Linphone\-Event $\ast$}]{ev}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_gab1af69a03a9e8ed1dd096b9eb4763ff9}
+Retrieve user pointer. \index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-terminate@{linphone\-\_\-event\-\_\-terminate}}
+\index{linphone\-\_\-event\-\_\-terminate@{linphone\-\_\-event\-\_\-terminate}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-terminate}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void linphone\-\_\-event\-\_\-terminate (
+\begin{DoxyParamCaption}
+\item[{Linphone\-Event $\ast$}]{lev}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_gaf4b66d76c30ede597c6aaa761408a5e5}
+Terminate an incoming or outgoing subscription that was previously acccepted, or a previous publication. \index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-ref@{linphone\-\_\-event\-\_\-ref}}
+\index{linphone\-\_\-event\-\_\-ref@{linphone\-\_\-event\-\_\-ref}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-ref}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C Linphone\-Event$\ast$ linphone\-\_\-event\-\_\-ref (
+\begin{DoxyParamCaption}
+\item[{Linphone\-Event $\ast$}]{lev}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_ga17480fa7faac2015078c5a1a880fe7ef}
+Increase reference count. \index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-unref@{linphone\-\_\-event\-\_\-unref}}
+\index{linphone\-\_\-event\-\_\-unref@{linphone\-\_\-event\-\_\-unref}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-unref}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C void linphone\-\_\-event\-\_\-unref (
+\begin{DoxyParamCaption}
+\item[{Linphone\-Event $\ast$}]{lev}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_ga7d0470c88cf5b03d7e729629059feae7}
+Decrease reference count. \index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-get\-\_\-name@{linphone\-\_\-event\-\_\-get\-\_\-name}}
+\index{linphone\-\_\-event\-\_\-get\-\_\-name@{linphone\-\_\-event\-\_\-get\-\_\-name}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-get\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const char$\ast$ linphone\-\_\-event\-\_\-get\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{const Linphone\-Event $\ast$}]{lev}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_gae3aba521f5687e2f054df8adca228061}
+Get the name of the event as specified in the event package R\-F\-C. \index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-get\-\_\-from@{linphone\-\_\-event\-\_\-get\-\_\-from}}
+\index{linphone\-\_\-event\-\_\-get\-\_\-from@{linphone\-\_\-event\-\_\-get\-\_\-from}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-get\-\_\-from}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const {\bf Linphone\-Address}$\ast$ linphone\-\_\-event\-\_\-get\-\_\-from (
+\begin{DoxyParamCaption}
+\item[{const Linphone\-Event $\ast$}]{lev}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_gadde3b4c7119a2d3f63ab0638b2fa9470}
+Get the \char`\"{}from\char`\"{} address of the subscription. \index{Subscriptions@{Subscriptions}!linphone\-\_\-event\-\_\-get\-\_\-resource@{linphone\-\_\-event\-\_\-get\-\_\-resource}}
+\index{linphone\-\_\-event\-\_\-get\-\_\-resource@{linphone\-\_\-event\-\_\-get\-\_\-resource}!Subscriptions@{Subscriptions}}
+\subsubsection[{linphone\-\_\-event\-\_\-get\-\_\-resource}]{\setlength{\rightskip}{0pt plus 5cm}L\-I\-N\-P\-H\-O\-N\-E\-\_\-\-P\-U\-B\-L\-I\-C const {\bf Linphone\-Address}$\ast$ linphone\-\_\-event\-\_\-get\-\_\-resource (
+\begin{DoxyParamCaption}
+\item[{const Linphone\-Event $\ast$}]{lev}
+\end{DoxyParamCaption}
+)}\label{group__subscriptions_ga2e288848408427a5bbfe7f930c910cb2}
+Get the resource address of the subscription or publish. 

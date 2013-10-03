@@ -1,0 +1,250 @@
+.TH "Subscriptions" 3 "Wed Jul 31 2013" "Version 3.6.99" "liblinphone" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Subscriptions \- 
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum 
+.br
+\fB_LinphoneSubscriptionDir\fP \fBLinphoneSubscriptionDir\fP"
+.br
+.ti -1c
+.RI "typedef void(* \fBLinphoneEventIncomingNotifyCb\fP )(\fBLinphoneCore\fP *lc, LinphoneEvent *lev, const char *notified_event, const \fBLinphoneContent\fP *body)"
+.br
+.ti -1c
+.RI "typedef void(* \fBLinphoneSubscriptionStateChangedCb\fP )(\fBLinphoneCore\fP *lc, LinphoneEvent *lev, LinphoneSubscriptionState state)"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fB_LinphoneSubscriptionDir\fP "
+.br
+.ti -1c
+.RI "enum \fB_LinphoneSubscriptionState\fP { \fBLinphoneSubscriptionNone\fP, \fBLinphoneSubscriptionOutoingInit\fP, \fBLinphoneSubscriptionIncomingReceived\fP, \fBLinphoneSubscriptionPending\fP, \fBLinphoneSubscriptionActive\fP, \fBLinphoneSubscriptionTerminated\fP, \fBLinphoneSubscriptionError\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "LINPHONE_PUBLIC LinphoneEvent * \fBlinphone_core_subscribe\fP (\fBLinphoneCore\fP *lc, const \fBLinphoneAddress\fP *resource, const char *event, int expires, const \fBLinphoneContent\fP *body)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC int \fBlinphone_event_update_subscribe\fP (LinphoneEvent *lev, const \fBLinphoneContent\fP *body)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC int \fBlinphone_event_accept_subscription\fP (LinphoneEvent *lev)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC int \fBlinphone_event_deny_subscription\fP (LinphoneEvent *lev, \fBLinphoneReason\fP reason)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC int \fBlinphone_event_notify\fP (LinphoneEvent *lev, const \fBLinphoneContent\fP *body)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC LinphoneEvent * \fBlinphone_core_publish\fP (\fBLinphoneCore\fP *lc, const \fBLinphoneAddress\fP *resource, const char *event, int expires, const \fBLinphoneContent\fP *body)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC int \fBlinphone_event_update_publish\fP (LinphoneEvent *lev, const \fBLinphoneContent\fP *body)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC \fBLinphoneReason\fP \fBlinphone_event_get_reason\fP (const LinphoneEvent *lev)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC 
+.br
+LinphoneSubscriptionState \fBlinphone_event_get_subscription_state\fP (const LinphoneEvent *lev)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC 
+.br
+\fBLinphoneSubscriptionDir\fP \fBlinphone_event_get_subscription_dir\fP (LinphoneEvent *lev)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC void \fBlinphone_event_set_user_data\fP (LinphoneEvent *ev, void *up)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC void * \fBlinphone_event_get_user_data\fP (const LinphoneEvent *ev)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC void \fBlinphone_event_terminate\fP (LinphoneEvent *lev)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC LinphoneEvent * \fBlinphone_event_ref\fP (LinphoneEvent *lev)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC void \fBlinphone_event_unref\fP (LinphoneEvent *lev)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC const char * \fBlinphone_event_get_name\fP (const LinphoneEvent *lev)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC const 
+.br
+\fBLinphoneAddress\fP * \fBlinphone_event_get_from\fP (const LinphoneEvent *lev)"
+.br
+.ti -1c
+.RI "LINPHONE_PUBLIC const 
+.br
+\fBLinphoneAddress\fP * \fBlinphone_event_get_resource\fP (const LinphoneEvent *lev)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef enum \fB_LinphoneSubscriptionDir\fP \fBLinphoneSubscriptionDir\fP"
+Typedef alias for _LinphoneSubscriptionDir 
+.SS "typedef void(* LinphoneEventIncomingNotifyCb)(\fBLinphoneCore\fP *lc, LinphoneEvent *lev, const char *notified_event, const \fBLinphoneContent\fP *body)"
+Callback prototype for notifying the application about notification received from the network\&. 
+.SS "typedef void(* LinphoneSubscriptionStateChangedCb)(\fBLinphoneCore\fP *lc, LinphoneEvent *lev, LinphoneSubscriptionState state)"
+Callback prototype for notifying the application about changes of subscription states, including arrival of new subscriptions\&. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fB_LinphoneSubscriptionDir\fP"
+Enum for subscription direction (incoming or outgoing)\&. 
+.SS "enum \fB_LinphoneSubscriptionState\fP"
+Enum for subscription states\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneSubscriptionNone \fP\fP
+Initial state, should not be used\&. 
+.TP
+\fB\fILinphoneSubscriptionOutoingInit \fP\fP
+An outgoing subcription was created 
+.TP
+\fB\fILinphoneSubscriptionIncomingReceived \fP\fP
+An incoming subcription is received 
+.TP
+\fB\fILinphoneSubscriptionPending \fP\fP
+Subscription is pending, waiting for user approval 
+.TP
+\fB\fILinphoneSubscriptionActive \fP\fP
+Subscription is accepted\&. 
+.TP
+\fB\fILinphoneSubscriptionTerminated \fP\fP
+Subscription is terminated normally 
+.TP
+\fB\fILinphoneSubscriptionError \fP\fP
+Subscription encountered an error, indicated by \fBlinphone_event_get_reason()\fP 
+.SH "Function Documentation"
+.PP 
+.SS "LINPHONE_PUBLIC LinphoneEvent* linphone_core_subscribe (\fBLinphoneCore\fP *lc, const \fBLinphoneAddress\fP *resource, const char *event, intexpires, const \fBLinphoneContent\fP *body)"
+Create an outgoing subscription, specifying the destination resource, the event name, and an optional content body\&. If accepted, the subscription runs for a finite period, but is automatically renewed if not terminated before\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the \fBLinphoneCore\fP 
+.br
+\fIresource\fP the destination resource 
+.br
+\fIevent\fP the event name 
+.br
+\fIexpires\fP the whished duration of the subscription 
+.br
+\fIbody\fP an optional body, may be NULL\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a LinphoneEvent holding the context of the created subcription\&. 
+.RE
+.PP
+
+.SS "LINPHONE_PUBLIC int linphone_event_update_subscribe (LinphoneEvent *lev, const \fBLinphoneContent\fP *body)"
+Update an outgoing subscription\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlev\fP a LinphoneEvent 
+.br
+\fIbody\fP an optional body to include in the subscription update, may be NULL\&. 
+.RE
+.PP
+
+.SS "LINPHONE_PUBLIC int linphone_event_accept_subscription (LinphoneEvent *lev)"
+Accept an incoming subcription\&. 
+.SS "LINPHONE_PUBLIC int linphone_event_deny_subscription (LinphoneEvent *lev, \fBLinphoneReason\fPreason)"
+Deny an incoming subscription with given reason\&. 
+.SS "LINPHONE_PUBLIC int linphone_event_notify (LinphoneEvent *lev, const \fBLinphoneContent\fP *body)"
+Send a notification\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlev\fP a #LinphoneEvent corresponding to an incoming subscription previously received and accepted\&. 
+.br
+\fIbody\fP an optional body containing the actual notification data\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, -1 otherwise\&. 
+.RE
+.PP
+
+.SS "LINPHONE_PUBLIC LinphoneEvent* linphone_core_publish (\fBLinphoneCore\fP *lc, const \fBLinphoneAddress\fP *resource, const char *event, intexpires, const \fBLinphoneContent\fP *body)"
+Publish an event\&. After expiry, the publication is refreshed unless it is terminated before\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the \fBLinphoneCore\fP 
+.br
+\fIresource\fP the resource uri for the event 
+.br
+\fIevent\fP the event name 
+.br
+\fIexpires\fP the lifetime of the publication 
+.br
+\fIbody\fP the actual published data 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the LinphoneEvent holding the context of the publish\&. 
+.RE
+.PP
+
+.SS "LINPHONE_PUBLIC int linphone_event_update_publish (LinphoneEvent *lev, const \fBLinphoneContent\fP *body)"
+Update a publication\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlev\fP the #LinphoneEvent 
+.br
+\fIbody\fP the new data to be published 
+.RE
+.PP
+
+.SS "LINPHONE_PUBLIC \fBLinphoneReason\fP linphone_event_get_reason (const LinphoneEvent *lev)"
+Return reason code (in case of error state reached)\&. 
+.SS "LINPHONE_PUBLIC LinphoneSubscriptionState linphone_event_get_subscription_state (const LinphoneEvent *lev)"
+Get subscription state\&. If the event object was not created by a subscription mechanism, \fBLinphoneSubscriptionNone\fP is returned\&. 
+.SS "LINPHONE_PUBLIC \fBLinphoneSubscriptionDir\fP linphone_event_get_subscription_dir (LinphoneEvent *lev)"
+Get subscription direction\&. If the object wasn't created by a subscription mechanism, #LinphoneSubscriptionInvalidDir is returned\&. 
+.SS "LINPHONE_PUBLIC void linphone_event_set_user_data (LinphoneEvent *ev, void *up)"
+Set a user (application) pointer\&. 
+.SS "LINPHONE_PUBLIC void* linphone_event_get_user_data (const LinphoneEvent *ev)"
+Retrieve user pointer\&. 
+.SS "LINPHONE_PUBLIC void linphone_event_terminate (LinphoneEvent *lev)"
+Terminate an incoming or outgoing subscription that was previously acccepted, or a previous publication\&. 
+.SS "LINPHONE_PUBLIC LinphoneEvent* linphone_event_ref (LinphoneEvent *lev)"
+Increase reference count\&. 
+.SS "LINPHONE_PUBLIC void linphone_event_unref (LinphoneEvent *lev)"
+Decrease reference count\&. 
+.SS "LINPHONE_PUBLIC const char* linphone_event_get_name (const LinphoneEvent *lev)"
+Get the name of the event as specified in the event package RFC\&. 
+.SS "LINPHONE_PUBLIC const \fBLinphoneAddress\fP* linphone_event_get_from (const LinphoneEvent *lev)"
+Get the 'from' address of the subscription\&. 
+.SS "LINPHONE_PUBLIC const \fBLinphoneAddress\fP* linphone_event_get_resource (const LinphoneEvent *lev)"
+Get the resource address of the subscription or publish\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for liblinphone from the source code\&.
