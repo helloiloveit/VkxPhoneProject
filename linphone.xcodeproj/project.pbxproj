@@ -203,6 +203,17 @@
 		3A6C310917BE2EDF00702BC6 /* libsasl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C310617BE2EDE00702BC6 /* libsasl2.a */; };
 		3A6C310A17BE2EDF00702BC6 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C310717BE2EDE00702BC6 /* libssl.a */; };
 		3A6C310E17BE320400702BC6 /* ldapTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C310D17BE320400702BC6 /* ldapTest.m */; };
+		3A76EED017FEB2A1006AB8AB /* ConvertionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A76EECF17FEB2A1006AB8AB /* ConvertionHandler.m */; };
+		3A9B041817FD59BD003DBA64 /* history_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9B041717FD59BD003DBA64 /* history_default.png */; };
+		3A9B041E17FD5A6D003DBA64 /* chat_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9B041D17FD5A6D003DBA64 /* chat_over.png */; };
+		3A9B042017FD5A7A003DBA64 /* chat_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9B041F17FD5A7A003DBA64 /* chat_default.png */; };
+		3A9B042217FD5A96003DBA64 /* chat_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9B042117FD5A96003DBA64 /* chat_selected.png */; };
+		3A9B042F17FD63E4003DBA64 /* settings_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9B042E17FD63E3003DBA64 /* settings_default.png */; };
+		3AD27B8317FD67B6000BFD05 /* contacts_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD27B8217FD67B6000BFD05 /* contacts_over.png */; };
+		3AD27B8717FD6DC1000BFD05 /* contacts_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD27B8617FD6DC1000BFD05 /* contacts_default.png */; };
+		3AD27B8917FD6DCD000BFD05 /* contacts_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD27B8817FD6DCD000BFD05 /* contacts_over.png */; };
+		3AD27B8B17FD6E9E000BFD05 /* dialer_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD27B8A17FD6E9E000BFD05 /* dialer_default.png */; };
+		3AD27B8D17FD6ECC000BFD05 /* dialer_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD27B8C17FD6ECC000BFD05 /* dialer_over.png */; };
 		57B0E360173C010400A476B8 /* libpolarssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57B0E35F173C010400A476B8 /* libpolarssl.a */; };
 		57F005C415EE2CCF00914747 /* linphonerc in Resources */ = {isa = PBXBuildFile; fileRef = 57F005C315EE2CCF00914747 /* linphonerc */; };
 		57F005C515EE2CCF00914747 /* linphonerc in Resources */ = {isa = PBXBuildFile; fileRef = 57F005C315EE2CCF00914747 /* linphonerc */; };
@@ -411,7 +422,6 @@
 		D3432A71158A45AF001C6B0B /* led_inprogress.png in Resources */ = {isa = PBXBuildFile; fileRef = D3432A6F158A45AF001C6B0B /* led_inprogress.png */; };
 		D3432A73158A45AF001C6B0B /* led_disconnected.png in Resources */ = {isa = PBXBuildFile; fileRef = D3432A70158A45AF001C6B0B /* led_disconnected.png */; };
 		D347347A1580DDF1003C7B8C /* PhoneMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34734791580DDF1003C7B8C /* PhoneMainView.xib */; };
-		D347347E1580E5F8003C7B8C /* history_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D347347C1580E5F8003C7B8C /* history_default.png */; };
 		D347347F1580E5F8003C7B8C /* history_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D347347D1580E5F8003C7B8C /* history_selected.png */; };
 		D34BD61515C13B7B0070C209 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D32B6E2E15A5C0AC0033019F /* libsqlite3.dylib */; };
 		D34BD61815C13D0B0070C209 /* liblinphone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2211DB911475562600DEE054 /* liblinphone.a */; };
@@ -471,13 +481,10 @@
 		D34BD64F15C13DB60070C209 /* chat_bubble_incoming.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A8BB7715A6CC3200F96BE5 /* chat_bubble_incoming.png */; };
 		D34BD65015C13DB60070C209 /* chat_bubble_outgoing.9.png in Resources */ = {isa = PBXBuildFile; fileRef = D389363815A6D53200A3A3AA /* chat_bubble_outgoing.9.png */; };
 		D34BD65115C13DB60070C209 /* chat_bubble_outgoing.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A8BB7615A6CC3200F96BE5 /* chat_bubble_outgoing.png */; };
-		D34BD65215C13DB60070C209 /* chat_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327F11580FE3A00FA0D23 /* chat_default.png */; };
 		D34BD65315C13DB60070C209 /* chat_edit_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EA53FF159852080037DC6B /* chat_edit_default.png */; };
 		D34BD65415C13DB60070C209 /* chat_edit_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EA5400159852080037DC6B /* chat_edit_over.png */; };
 		D34BD65615C13DB60070C209 /* chat_ok_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B9A3DB15A58C440096EA4E /* chat_ok_default.png */; };
 		D34BD65715C13DB60070C209 /* chat_ok_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B9A3DC15A58C440096EA4E /* chat_ok_over.png */; };
-		D34BD65815C13DB60070C209 /* chat_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327FF158100E400FA0D23 /* chat_over.png */; };
-		D34BD65915C13DB60070C209 /* chat_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327F21580FE3A00FA0D23 /* chat_selected.png */; };
 		D34BD65A15C13DB60070C209 /* chat_send_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B9A3DD15A58C440096EA4E /* chat_send_default.png */; };
 		D34BD65B15C13DB60070C209 /* chat_send_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = D32B6E2315A5B2020033019F /* chat_send_disabled.png */; };
 		D34BD65C15C13DB60070C209 /* chat_send_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B9A3DE15A58C450096EA4E /* chat_send_over.png */; };
@@ -501,10 +508,8 @@
 		D34BD66F15C13DB60070C209 /* contacts_all_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D354980215875534000081D8 /* contacts_all_selected.png */; };
 		D34BD67015C13DB60070C209 /* contacts_back_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3119E7015B6A4710005D4A4 /* contacts_back_default.png */; };
 		D34BD67115C13DB60070C209 /* contacts_back_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D3119E7115B6A4710005D4A4 /* contacts_back_over.png */; };
-		D34BD67215C13DB60070C209 /* contacts_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327EB1580FE3A00FA0D23 /* contacts_default.png */; };
 		D34BD67315C13DB60070C209 /* contacts_linphone_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D354980515875534000081D8 /* contacts_linphone_default.png */; };
 		D34BD67415C13DB70070C209 /* contacts_linphone_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D354980415875534000081D8 /* contacts_linphone_selected.png */; };
-		D34BD67515C13DB70070C209 /* contacts_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327FC158100E400FA0D23 /* contacts_over.png */; };
 		D34BD67615C13DB70070C209 /* contacts_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327EC1580FE3A00FA0D23 /* contacts_selected.png */; };
 		D34BD67815C13DB70070C209 /* decline_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F83F761582253100336684 /* decline_default.png */; };
 		D34BD67915C13DB70070C209 /* decline_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F83F771582253100336684 /* decline_over.png */; };
@@ -518,8 +523,6 @@
 		D34BD68115C13DB70070C209 /* dialer_alt_default_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = D3C31A0B15BD8DED008ED271 /* dialer_alt_default_landscape.png */; };
 		D34BD68215C13DB70070C209 /* dialer_alt_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D36C43D0158F2F370048BA40 /* dialer_alt_over.png */; };
 		D34BD68315C13DB70070C209 /* dialer_alt_over_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = D3C31A0C15BD8DED008ED271 /* dialer_alt_over_landscape.png */; };
-		D34BD68415C13DB70070C209 /* dialer_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327ED1580FE3A00FA0D23 /* dialer_default.png */; };
-		D34BD68515C13DB70070C209 /* dialer_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327EE1580FE3A00FA0D23 /* dialer_over.png */; };
 		D34BD68615C13DB70070C209 /* dialer_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D3C2814A15A2D38D0098AA42 /* dialer_selected.png */; };
 		D34BD68715C13DB70070C209 /* field_background.png in Resources */ = {isa = PBXBuildFile; fileRef = D350F21715A43D3400149E54 /* field_background.png */; };
 		D34BD68815C13DB70070C209 /* hangup_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F83EFA158205A100336684 /* hangup_default.png */; };
@@ -530,7 +533,6 @@
 		D34BD68D15C13DB70070C209 /* header_incoming.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F26BFB15987083005F9CAB /* header_incoming.png */; };
 		D34BD68E15C13DB70070C209 /* history_all_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3ED3E9315872EF1006C0DE4 /* history_all_default.png */; };
 		D34BD68F15C13DB70070C209 /* history_all_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D3ED3E9215872EF1006C0DE4 /* history_all_selected.png */; };
-		D34BD69015C13DB70070C209 /* history_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D347347C1580E5F8003C7B8C /* history_default.png */; };
 		D34BD69115C13DB70070C209 /* history_details_add_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3157A8815B4466F00DD8C4C /* history_details_add_default.png */; };
 		D34BD69215C13DB70070C209 /* history_details_add_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D3157A8915B4466F00DD8C4C /* history_details_add_over.png */; };
 		D34BD69315C13DB70070C209 /* history_details_back_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3157A8E15B446CB00DD8C4C /* history_details_back_default.png */; };
@@ -626,7 +628,6 @@
 		D34BD6F015C13DB70070C209 /* security_ko.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D6A3A5159B0EFE005F692C /* security_ko.png */; };
 		D34BD6F115C13DB70070C209 /* security_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D6A3A7159B0EFE005F692C /* security_ok.png */; };
 		D34BD6F215C13DB70070C209 /* security_pending.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D6A3A6159B0EFE005F692C /* security_pending.png */; };
-		D34BD6F315C13DB70070C209 /* settings_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327EF1580FE3A00FA0D23 /* settings_default.png */; };
 		D34BD6F415C13DB70070C209 /* settings_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327FE158100E400FA0D23 /* settings_over.png */; };
 		D34BD6F515C13DB70070C209 /* settings_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327F01580FE3A00FA0D23 /* settings_selected.png */; };
 		D34BD6F615C13DB70070C209 /* setup_back_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D350F21315A43D3400149E54 /* setup_back_default.png */; };
@@ -881,18 +882,10 @@
 		D381881615FE3F7F00C3EDCA /* UIContactDetailsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D381881815FE3F7F00C3EDCA /* UIContactDetailsHeader.xib */; };
 		D381881915FE3FCA00C3EDCA /* InCallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D381881C15FE3FCA00C3EDCA /* InCallViewController.xib */; };
 		D381881A15FE3FCA00C3EDCA /* InCallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D381881C15FE3FCA00C3EDCA /* InCallViewController.xib */; };
-		D38327F31580FE3A00FA0D23 /* contacts_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327EB1580FE3A00FA0D23 /* contacts_default.png */; };
 		D38327F41580FE3A00FA0D23 /* contacts_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327EC1580FE3A00FA0D23 /* contacts_selected.png */; };
-		D38327F51580FE3A00FA0D23 /* dialer_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327ED1580FE3A00FA0D23 /* dialer_default.png */; };
-		D38327F61580FE3A00FA0D23 /* dialer_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327EE1580FE3A00FA0D23 /* dialer_over.png */; };
-		D38327F71580FE3A00FA0D23 /* settings_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327EF1580FE3A00FA0D23 /* settings_default.png */; };
 		D38327F81580FE3A00FA0D23 /* settings_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327F01580FE3A00FA0D23 /* settings_selected.png */; };
-		D38327F91580FE3A00FA0D23 /* chat_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327F11580FE3A00FA0D23 /* chat_default.png */; };
-		D38327FA1580FE3A00FA0D23 /* chat_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327F21580FE3A00FA0D23 /* chat_selected.png */; };
-		D3832800158100E400FA0D23 /* contacts_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327FC158100E400FA0D23 /* contacts_over.png */; };
 		D3832801158100E400FA0D23 /* history_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327FD158100E400FA0D23 /* history_over.png */; };
 		D3832802158100E400FA0D23 /* settings_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327FE158100E400FA0D23 /* settings_over.png */; };
-		D3832803158100E400FA0D23 /* chat_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D38327FF158100E400FA0D23 /* chat_over.png */; };
 		D3866C281608CA1600830F95 /* image_back_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3866C261608CA1600830F95 /* image_back_default.png */; };
 		D3866C291608CA1600830F95 /* image_back_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3866C261608CA1600830F95 /* image_back_default.png */; };
 		D3866C2A1608CA1600830F95 /* image_back_over.png in Resources */ = {isa = PBXBuildFile; fileRef = D3866C271608CA1600830F95 /* image_back_over.png */; };
@@ -1846,7 +1839,19 @@
 		3A6C310717BE2EDE00702BC6 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../iOSPorts/ports/security/openssl/build/Release-iphoneos/libssl.a"; sourceTree = "<group>"; };
 		3A6C310C17BE320400702BC6 /* ldapTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ldapTest.h; sourceTree = "<group>"; };
 		3A6C310D17BE320400702BC6 /* ldapTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ldapTest.m; sourceTree = "<group>"; };
+		3A76EECE17FEB2A1006AB8AB /* ConvertionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvertionHandler.h; sourceTree = "<group>"; };
+		3A76EECF17FEB2A1006AB8AB /* ConvertionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvertionHandler.m; sourceTree = "<group>"; };
 		3A83DEAB17AA315C00FE9A15 /* ConstantDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantDefinition.h; sourceTree = "<group>"; };
+		3A9B041717FD59BD003DBA64 /* history_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_default.png; sourceTree = "<group>"; };
+		3A9B041D17FD5A6D003DBA64 /* chat_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_over.png; sourceTree = "<group>"; };
+		3A9B041F17FD5A7A003DBA64 /* chat_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_default.png; sourceTree = "<group>"; };
+		3A9B042117FD5A96003DBA64 /* chat_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_selected.png; sourceTree = "<group>"; };
+		3A9B042E17FD63E3003DBA64 /* settings_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings_default.png; path = Resources/settings_default.png; sourceTree = "<group>"; };
+		3AD27B8217FD67B6000BFD05 /* contacts_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contacts_over.png; sourceTree = "<group>"; };
+		3AD27B8617FD6DC1000BFD05 /* contacts_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contacts_default.png; sourceTree = "<group>"; };
+		3AD27B8817FD6DCD000BFD05 /* contacts_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contacts_over.png; sourceTree = "<group>"; };
+		3AD27B8A17FD6E9E000BFD05 /* dialer_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dialer_default.png; sourceTree = "<group>"; };
+		3AD27B8C17FD6ECC000BFD05 /* dialer_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dialer_over.png; sourceTree = "<group>"; };
 		57B0E35F173C010400A476B8 /* libpolarssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpolarssl.a; path = "liblinphone-sdk/apple-darwin/lib/libpolarssl.a"; sourceTree = "<group>"; };
 		57F005C315EE2CCF00914747 /* linphonerc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = linphonerc; path = Resources/linphonerc; sourceTree = "<group>"; };
 		57F005C615EE2D9200914747 /* linphonerc-factory */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "linphonerc-factory"; path = "Resources/linphonerc-factory"; sourceTree = "<group>"; };
@@ -1994,7 +1999,6 @@
 		D3432A6F158A45AF001C6B0B /* led_inprogress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = led_inprogress.png; path = Resources/led_inprogress.png; sourceTree = "<group>"; };
 		D3432A70158A45AF001C6B0B /* led_disconnected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = led_disconnected.png; path = Resources/led_disconnected.png; sourceTree = "<group>"; };
 		D34734791580DDF1003C7B8C /* PhoneMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhoneMainView.xib; sourceTree = "<group>"; };
-		D347347C1580E5F8003C7B8C /* history_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = history_default.png; path = Resources/history_default.png; sourceTree = "<group>"; };
 		D347347D1580E5F8003C7B8C /* history_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = history_selected.png; path = Resources/history_selected.png; sourceTree = "<group>"; };
 		D34F6F9D1594D3FB0095705B /* InAppSettings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = InAppSettings.bundle; sourceTree = "<group>"; };
 		D350F20B15A43BB100149E54 /* WizardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WizardViewController.h; sourceTree = "<group>"; };
@@ -2178,18 +2182,10 @@
 		D381884C15FE448400C3EDCA /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/UIMainBar.xib; sourceTree = "<group>"; };
 		D381884D15FE448400C3EDCA /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = "fr.lproj/UIMainBar~ipad.xib"; sourceTree = "<group>"; };
 		D381885815FE44A700C3EDCA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Resources/fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		D38327EB1580FE3A00FA0D23 /* contacts_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contacts_default.png; path = Resources/contacts_default.png; sourceTree = "<group>"; };
 		D38327EC1580FE3A00FA0D23 /* contacts_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contacts_selected.png; path = Resources/contacts_selected.png; sourceTree = "<group>"; };
-		D38327ED1580FE3A00FA0D23 /* dialer_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dialer_default.png; path = Resources/dialer_default.png; sourceTree = "<group>"; };
-		D38327EE1580FE3A00FA0D23 /* dialer_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dialer_over.png; path = Resources/dialer_over.png; sourceTree = "<group>"; };
-		D38327EF1580FE3A00FA0D23 /* settings_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings_default.png; path = Resources/settings_default.png; sourceTree = "<group>"; };
 		D38327F01580FE3A00FA0D23 /* settings_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings_selected.png; path = Resources/settings_selected.png; sourceTree = "<group>"; };
-		D38327F11580FE3A00FA0D23 /* chat_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chat_default.png; path = Resources/chat_default.png; sourceTree = "<group>"; };
-		D38327F21580FE3A00FA0D23 /* chat_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chat_selected.png; path = Resources/chat_selected.png; sourceTree = "<group>"; };
-		D38327FC158100E400FA0D23 /* contacts_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = contacts_over.png; path = Resources/contacts_over.png; sourceTree = "<group>"; };
 		D38327FD158100E400FA0D23 /* history_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = history_over.png; path = Resources/history_over.png; sourceTree = "<group>"; };
 		D38327FE158100E400FA0D23 /* settings_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings_over.png; path = Resources/settings_over.png; sourceTree = "<group>"; };
-		D38327FF158100E400FA0D23 /* chat_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chat_over.png; path = Resources/chat_over.png; sourceTree = "<group>"; };
 		D3866C261608CA1600830F95 /* image_back_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_back_default.png; path = Resources/image_back_default.png; sourceTree = "<group>"; };
 		D3866C271608CA1600830F95 /* image_back_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_back_over.png; path = Resources/image_back_over.png; sourceTree = "<group>"; };
 		D389363715A6D53200A3A3AA /* chat_bubble_incoming.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chat_bubble_incoming.9.png; path = Resources/chat_bubble_incoming.9.png; sourceTree = "<group>"; };
@@ -2738,6 +2734,8 @@
 				D37DC6C01594AE1800B2A5EB /* LinphoneCoreSettingsStore.m */,
 				D3EA53FB159850E80037DC6B /* LinphoneManager.h */,
 				D3EA53FC159850E80037DC6B /* LinphoneManager.m */,
+				3A76EED117FEB2A7006AB8AB /* BasicConvertion */,
+				3A6C310F17BE320A00702BC6 /* ldapTest */,
 				2214EB7012F84668002A5394 /* LinphoneUI */,
 				D32B6E3515A5C2200033019F /* Model */,
 				D3F83F8C158229C500336684 /* PhoneMainView.h */,
@@ -2970,7 +2968,6 @@
 				2214EB7912F846B1002A5394 /* UICallButton.m */,
 				D36C43C4158F2E5A0048BA40 /* UICallCell.h */,
 				D36C43C5158F2E5A0048BA40 /* UICallCell.m */,
-				3A6C310F17BE320A00702BC6 /* ldapTest */,
 				D381881415FE3F0B00C3EDCA /* UICallCell.xib */,
 				22AA8AFF13D83F6300B30535 /* UICamSwitch.h */,
 				22AA8B0013D83F6300B30535 /* UICamSwitch.m */,
@@ -3478,7 +3475,6 @@
 				D3A8BB7615A6CC3200F96BE5 /* chat_bubble_outgoing.png */,
 				D3F5F8DA1609A86700D3DA1A /* chat_cancel_default.png */,
 				D3F5F8DB1609A86700D3DA1A /* chat_cancel_over.png */,
-				D38327F11580FE3A00FA0D23 /* chat_default.png */,
 				D3A74E6E15C69392001500B9 /* chat_default_landscape~ipad.png */,
 				D3A74E6F15C69392001500B9 /* chat_default~ipad.png */,
 				D3EA53FF159852080037DC6B /* chat_edit_default.png */,
@@ -3489,16 +3485,17 @@
 				2234C8E715EE2F7F00E18E83 /* chat_message_delivered.png */,
 				2234C8ED15EE744200E18E83 /* chat_message_inprogress.png */,
 				2234C8E815EE2F7F00E18E83 /* chat_message_not_delivered.png */,
+				3A9B041F17FD5A7A003DBA64 /* chat_default.png */,
+				3A9B041D17FD5A6D003DBA64 /* chat_over.png */,
+				3A9B042117FD5A96003DBA64 /* chat_selected.png */,
 				D3B9A3DB15A58C440096EA4E /* chat_ok_default.png */,
 				D3B9A3DC15A58C440096EA4E /* chat_ok_over.png */,
-				D38327FF158100E400FA0D23 /* chat_over.png */,
 				D3A74E7015C69392001500B9 /* chat_over_landscape~ipad.png */,
 				D3A74E7115C69392001500B9 /* chat_over~ipad.png */,
 				D3F5F8DC1609A86700D3DA1A /* chat_photo_default.png */,
 				D3F5F8DD1609A86700D3DA1A /* chat_photo_disabled.png */,
 				D3F5F8DE1609A86700D3DA1A /* chat_photo_over.png */,
 				D3F5F983160B1A0800D3DA1A /* chat_progressbar_background.png */,
-				D38327F21580FE3A00FA0D23 /* chat_selected.png */,
 				D3A74E7215C69392001500B9 /* chat_selected_landscape~ipad.png */,
 				D3A74E7315C69392001500B9 /* chat_selected~ipad.png */,
 				D3B9A3DD15A58C440096EA4E /* chat_send_default.png */,
@@ -3529,12 +3526,12 @@
 				D354980215875534000081D8 /* contacts_all_selected.png */,
 				D3119E7015B6A4710005D4A4 /* contacts_back_default.png */,
 				D3119E7115B6A4710005D4A4 /* contacts_back_over.png */,
-				D38327EB1580FE3A00FA0D23 /* contacts_default.png */,
 				D3A74E7615C69392001500B9 /* contacts_default_landscape~ipad.png */,
 				D3A74E7715C69392001500B9 /* contacts_default~ipad.png */,
+				3AD27B8617FD6DC1000BFD05 /* contacts_default.png */,
+				3AD27B8817FD6DCD000BFD05 /* contacts_over.png */,
 				D354980515875534000081D8 /* contacts_linphone_default.png */,
 				D354980415875534000081D8 /* contacts_linphone_selected.png */,
-				D38327FC158100E400FA0D23 /* contacts_over.png */,
 				D3A74E7815C69392001500B9 /* contacts_over_landscape~ipad.png */,
 				D3A74E7915C69392001500B9 /* contacts_over~ipad.png */,
 				D38327EC1580FE3A00FA0D23 /* contacts_selected.png */,
@@ -3567,11 +3564,11 @@
 				D3328643160B5BC300E6435D /* dialer_alt_disabled_landscape~ipad.png */,
 				D3328645160B5BC300E6435D /* dialer_alt_disabled~ipad.png */,
 				D36C43D0158F2F370048BA40 /* dialer_alt_over.png */,
+				3AD27B8A17FD6E9E000BFD05 /* dialer_default.png */,
+				3AD27B8C17FD6ECC000BFD05 /* dialer_over.png */,
 				D3C31A0C15BD8DED008ED271 /* dialer_alt_over_landscape.png */,
 				D339888F15C6DD1600CAF1E4 /* dialer_alt_over_landscape~ipad.png */,
 				D3A74E7F15C69392001500B9 /* dialer_alt_over~ipad.png */,
-				D38327ED1580FE3A00FA0D23 /* dialer_default.png */,
-				D38327EE1580FE3A00FA0D23 /* dialer_over.png */,
 				D3C2814A15A2D38D0098AA42 /* dialer_selected.png */,
 				D35E9208160CAA1F0023116B /* field_background.9.png */,
 				D35E91E9160CA0BD0023116B /* field_background.9@2x.png */,
@@ -3590,7 +3587,7 @@
 				D3F26BFB15987083005F9CAB /* header_incoming.png */,
 				D3ED3E9315872EF1006C0DE4 /* history_all_default.png */,
 				D3ED3E9215872EF1006C0DE4 /* history_all_selected.png */,
-				D347347C1580E5F8003C7B8C /* history_default.png */,
+				3A9B041717FD59BD003DBA64 /* history_default.png */,
 				D3A74E8215C69392001500B9 /* history_default_landscape~ipad.png */,
 				D3A74E8315C69392001500B9 /* history_default~ipad.png */,
 				D3F5F8E21609A86700D3DA1A /* history_delete_default.png */,
@@ -3704,6 +3701,7 @@
 				D3A74E8F15C69392001500B9 /* options_add_disabled~ipad.png */,
 				D3196D3115A321E2007FEEBA /* options_add_over.png */,
 				D3C31A1715BD8DED008ED271 /* options_add_over_landscape.png */,
+				3AD27B8217FD67B6000BFD05 /* contacts_over.png */,
 				D339889A15C6DD1600CAF1E4 /* options_add_over_landscape~ipad.png */,
 				D3A74E9015C69392001500B9 /* options_add_over~ipad.png */,
 				D3D6A3A8159B0EFE005F692C /* options_default.png */,
@@ -3789,9 +3787,9 @@
 				D3D6A3A5159B0EFE005F692C /* security_ko.png */,
 				D3D6A3A7159B0EFE005F692C /* security_ok.png */,
 				D3D6A3A6159B0EFE005F692C /* security_pending.png */,
-				D38327EF1580FE3A00FA0D23 /* settings_default.png */,
 				D3A74E9C15C69392001500B9 /* settings_default_landscape~ipad.png */,
 				D3A74E9D15C69392001500B9 /* settings_default~ipad.png */,
+				3A9B042E17FD63E3003DBA64 /* settings_default.png */,
 				D38327FE158100E400FA0D23 /* settings_over.png */,
 				D3A74E9E15C69392001500B9 /* settings_over_landscape~ipad.png */,
 				D3A74E9F15C69392001500B9 /* settings_over~ipad.png */,
@@ -3918,6 +3916,16 @@
 				3A6C310D17BE320400702BC6 /* ldapTest.m */,
 			);
 			name = ldapTest;
+			path = LinphoneUI;
+			sourceTree = "<group>";
+		};
+		3A76EED117FEB2A7006AB8AB /* BasicConvertion */ = {
+			isa = PBXGroup;
+			children = (
+				3A76EECE17FEB2A1006AB8AB /* ConvertionHandler.h */,
+				3A76EECF17FEB2A1006AB8AB /* ConvertionHandler.m */,
+			);
+			name = BasicConvertion;
 			sourceTree = "<group>";
 		};
 		D326483415887D4400930C67 /* Utils */ = {
@@ -4243,20 +4251,11 @@
 				70571E1A13FABCB000CDD3C2 /* rootca.pem in Resources */,
 				34A6ECEB14CF13CB00460C04 /* linphone_icon_72.png in Resources */,
 				D347347A1580DDF1003C7B8C /* PhoneMainView.xib in Resources */,
-				D347347E1580E5F8003C7B8C /* history_default.png in Resources */,
 				D347347F1580E5F8003C7B8C /* history_selected.png in Resources */,
-				D38327F31580FE3A00FA0D23 /* contacts_default.png in Resources */,
 				D38327F41580FE3A00FA0D23 /* contacts_selected.png in Resources */,
-				D38327F51580FE3A00FA0D23 /* dialer_default.png in Resources */,
-				D38327F61580FE3A00FA0D23 /* dialer_over.png in Resources */,
-				D38327F71580FE3A00FA0D23 /* settings_default.png in Resources */,
 				D38327F81580FE3A00FA0D23 /* settings_selected.png in Resources */,
-				D38327F91580FE3A00FA0D23 /* chat_default.png in Resources */,
-				D38327FA1580FE3A00FA0D23 /* chat_selected.png in Resources */,
-				D3832800158100E400FA0D23 /* contacts_over.png in Resources */,
 				D3832801158100E400FA0D23 /* history_over.png in Resources */,
 				D3832802158100E400FA0D23 /* settings_over.png in Resources */,
-				D3832803158100E400FA0D23 /* chat_over.png in Resources */,
 				D3F83F0C158205A100336684 /* micro_off_default.png in Resources */,
 				D3F83F0E158205A100336684 /* micro_off_over.png in Resources */,
 				D3F83F10158205A100336684 /* micro_on_default.png in Resources */,
@@ -4761,6 +4760,16 @@
 				1599106F16F746B2007BF52B /* routes_over_landscape.png in Resources */,
 				1599107116F746B2007BF52B /* routes_selected_landscape.png in Resources */,
 				3A307EFA17C1D58400512153 /* avatar.png in Resources */,
+				3A9B041817FD59BD003DBA64 /* history_default.png in Resources */,
+				3A9B041E17FD5A6D003DBA64 /* chat_over.png in Resources */,
+				3A9B042017FD5A7A003DBA64 /* chat_default.png in Resources */,
+				3A9B042217FD5A96003DBA64 /* chat_selected.png in Resources */,
+				3A9B042F17FD63E4003DBA64 /* settings_default.png in Resources */,
+				3AD27B8317FD67B6000BFD05 /* contacts_over.png in Resources */,
+				3AD27B8717FD6DC1000BFD05 /* contacts_default.png in Resources */,
+				3AD27B8917FD6DCD000BFD05 /* contacts_over.png in Resources */,
+				3AD27B8B17FD6E9E000BFD05 /* dialer_default.png in Resources */,
+				3AD27B8D17FD6ECC000BFD05 /* dialer_over.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4850,13 +4859,10 @@
 				D34BD64F15C13DB60070C209 /* chat_bubble_incoming.png in Resources */,
 				D34BD65015C13DB60070C209 /* chat_bubble_outgoing.9.png in Resources */,
 				D34BD65115C13DB60070C209 /* chat_bubble_outgoing.png in Resources */,
-				D34BD65215C13DB60070C209 /* chat_default.png in Resources */,
 				D34BD65315C13DB60070C209 /* chat_edit_default.png in Resources */,
 				D34BD65415C13DB60070C209 /* chat_edit_over.png in Resources */,
 				D34BD65615C13DB60070C209 /* chat_ok_default.png in Resources */,
 				D34BD65715C13DB60070C209 /* chat_ok_over.png in Resources */,
-				D34BD65815C13DB60070C209 /* chat_over.png in Resources */,
-				D34BD65915C13DB60070C209 /* chat_selected.png in Resources */,
 				D34BD65A15C13DB60070C209 /* chat_send_default.png in Resources */,
 				D34BD65B15C13DB60070C209 /* chat_send_disabled.png in Resources */,
 				D34BD65C15C13DB60070C209 /* chat_send_over.png in Resources */,
@@ -4880,10 +4886,8 @@
 				D34BD66F15C13DB60070C209 /* contacts_all_selected.png in Resources */,
 				D34BD67015C13DB60070C209 /* contacts_back_default.png in Resources */,
 				D34BD67115C13DB60070C209 /* contacts_back_over.png in Resources */,
-				D34BD67215C13DB60070C209 /* contacts_default.png in Resources */,
 				D34BD67315C13DB60070C209 /* contacts_linphone_default.png in Resources */,
 				D34BD67415C13DB70070C209 /* contacts_linphone_selected.png in Resources */,
-				D34BD67515C13DB70070C209 /* contacts_over.png in Resources */,
 				D34BD67615C13DB70070C209 /* contacts_selected.png in Resources */,
 				D34BD67815C13DB70070C209 /* decline_default.png in Resources */,
 				D34BD67915C13DB70070C209 /* decline_over.png in Resources */,
@@ -4897,8 +4901,6 @@
 				D34BD68115C13DB70070C209 /* dialer_alt_default_landscape.png in Resources */,
 				D34BD68215C13DB70070C209 /* dialer_alt_over.png in Resources */,
 				D34BD68315C13DB70070C209 /* dialer_alt_over_landscape.png in Resources */,
-				D34BD68415C13DB70070C209 /* dialer_default.png in Resources */,
-				D34BD68515C13DB70070C209 /* dialer_over.png in Resources */,
 				D34BD68615C13DB70070C209 /* dialer_selected.png in Resources */,
 				D34BD68715C13DB70070C209 /* field_background.png in Resources */,
 				D34BD68815C13DB70070C209 /* hangup_default.png in Resources */,
@@ -4909,7 +4911,6 @@
 				D34BD68D15C13DB70070C209 /* header_incoming.png in Resources */,
 				D34BD68E15C13DB70070C209 /* history_all_default.png in Resources */,
 				D34BD68F15C13DB70070C209 /* history_all_selected.png in Resources */,
-				D34BD69015C13DB70070C209 /* history_default.png in Resources */,
 				D34BD69115C13DB70070C209 /* history_details_add_default.png in Resources */,
 				D34BD69215C13DB70070C209 /* history_details_add_over.png in Resources */,
 				D34BD69315C13DB70070C209 /* history_details_back_default.png in Resources */,
@@ -5005,7 +5006,6 @@
 				D34BD6F015C13DB70070C209 /* security_ko.png in Resources */,
 				D34BD6F115C13DB70070C209 /* security_ok.png in Resources */,
 				D34BD6F215C13DB70070C209 /* security_pending.png in Resources */,
-				D34BD6F315C13DB70070C209 /* settings_default.png in Resources */,
 				D34BD6F415C13DB70070C209 /* settings_over.png in Resources */,
 				D34BD6F515C13DB70070C209 /* settings_selected.png in Resources */,
 				D34BD6F615C13DB70070C209 /* setup_back_default.png in Resources */,
@@ -5428,6 +5428,7 @@
 				D306459E1611EC2A00BB571E /* UILoadingImageView.m in Sources */,
 				D37E3ECD1619C27A0087659A /* CAAnimation+Blocks.m in Sources */,
 				3A6C310E17BE320400702BC6 /* ldapTest.m in Sources */,
+				3A76EED017FEB2A1006AB8AB /* ConvertionHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

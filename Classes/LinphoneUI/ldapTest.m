@@ -432,6 +432,24 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
                 };
                 ldap_memfree(attribute);
                 attribute = ldap_next_attribute(ld, entry, ber);
+            } else if(!strcmp(attribute, "departmentNumber")){
+                NSLog(@"department number ");
+                if ((vals = ldap_get_values_len(ld, entry, attribute)))
+                {
+                    
+                    
+                    for(i = 0; vals[i]; i++){
+                        NSString* data_str = [NSString stringWithFormat:@"%s" , vals[i]->bv_val];
+                        //[ou_list addObject:data_str];
+                        [user_dict setObject:data_str forKey:@"departmentNumber"];
+                        // NSLog(@"ou_list = %@",ou_list);
+                        
+                        
+                    }
+                    ldap_value_free_len(vals);
+                };
+                ldap_memfree(attribute);
+                attribute = ldap_next_attribute(ld, entry, ber);
             }else {
                 
                 if ((vals = ldap_get_values_len(ld, entry, attribute)))
@@ -637,7 +655,7 @@ NSArray * get_data_from_server(const char * caFile)
                        MY_LDAP_SCOPE,          // LDAP search scope
                        caFile
                        );
-    NSLog(@"temp = %@", temp);
+    DebugLog(@"List of Ou = %@", temp);
     
     
     
@@ -650,7 +668,7 @@ NSArray * get_data_from_server(const char * caFile)
         NSString * ou_str = [temp objectAtIndex:i ];
         //NSLog(@"ou_str = %@",ou_str);
         NSString * dn_str = [[NSString alloc] initWithFormat:@"ou=%@,ou=Users,dc=example,dc=com" ,ou_str];
-        NSLog(@"dn_str = %@", dn_str);
+        DebugLog(@"dn_str = %@", dn_str);
         NSArray * user_info = get_user_list(
                                             MY_LDAP_VERSION,        // LDAP protocol version
                                             MY_LDAP_URI,            // LDAP URI

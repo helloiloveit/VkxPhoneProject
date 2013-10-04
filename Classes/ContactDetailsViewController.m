@@ -19,7 +19,7 @@
 
 #import "ContactDetailsViewController.h"
 #import "PhoneMainView.h"
-
+#import "ConstantDefinition.h"
 @implementation ContactDetailsViewController
 
 @synthesize tableController;
@@ -27,6 +27,8 @@
 @synthesize editButton;
 @synthesize backButton;
 @synthesize cancelButton;
+@synthesize userRecord;
+
 
 
 static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef info, void *context);
@@ -56,7 +58,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 }
 
 
-#pragma mark - 
+#pragma mark -
 
 - (void)resetData {
     [self disableEdit:FALSE];
@@ -224,14 +226,36 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
      nil];
      */
     NSMutableDictionary *dict1 = [NSMutableDictionary dictionary];
-    [dict1 setObject:resultFromServer[@"mobile"] forKey:@"mobile"];
+    @try {
+        [dict1 setObject:resultFromServer[@"mobile"] forKey:@"departmentNumber"];
+    }
+    @catch (NSException *exception) {
+        [dict1 setObject:@"" forKey:@"mobile"];
+    }
+    @finally {
+    }
+
     NSMutableDictionary *dict2 = [NSMutableDictionary dictionary];
-    //[dict2 setObject:resultFromServer[@"homePhone"] forKey:@"homePhone"];
-    [dict2 setObject:@"1234567" forKey:@"homePhone"];
+    @try {
+        [dict2 setObject:resultFromServer[@"homePhone"] forKey:@"homePhone"];
+    }
+    @catch (NSException *exception) {
+        [dict2 setObject:@"" forKey:@"homePhone"];
+    }
+    @finally {
+    }
+
     NSMutableDictionary *dict3 = [NSMutableDictionary dictionary];
-    //[dict3 setObject:resultFromServer[@"mail"] forKey:@"mail"];
-    [dict3 setObject:@"test@mail.com" forKey:@"mail"];
-    
+    @try {
+        [dict3 setObject:resultFromServer[@"mail"] forKey:@"mail"];
+    }
+    @catch (NSException *exception) {
+        [dict3 setObject:@"" forKey:@"mail"];
+    }
+    @finally {
+    }
+
+
     
     NSArray  * myArray1 = [NSArray arrayWithObjects:dict1, dict2,  nil];
     
@@ -249,15 +273,30 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 }
 
 #ifdef LDAP_VER
-- (void)setContact:(NSArray *)contactInfo{
-    
-    self.userInfo = contactInfo;
+- (void)setContact:(ABRecordRef)acontact {
+    DebugLog(@"");
+    [LinphoneLogger logc:LinphoneLoggerLog format:"Set contact %p", acontact];
+    contact = NULL;
+    [self resetData];
+    contact = ABAddressBookGetPersonWithRecordID(addressBook, ABRecordGetRecordID(acontact));
+    [tableController setContact:contact];
+}
 
+
+- (void)setUserRecord:(NSDictionary *)data{
+    DebugLog(@"");
+    DebugLog(@"user record = %@", data);
+   // self.userRecord = data;
+//    self.userRecord = data;
+//        DebugLog(@"user record = %@", userRecord);
+    NSArray *temp = [self manipulateResultFromServer:data];
+    [tableController setUserManipulatedData:temp];
 }
 
 #else
 
 - (void)setContact:(ABRecordRef)acontact {
+    DebugLog(@"");
     [LinphoneLogger logc:LinphoneLoggerLog format:"Set contact %p", acontact];
     contact = NULL;
     [self resetData];
@@ -276,7 +315,9 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
                             @"nguyen mai huy" ?: [NSNull null], @"cn",
                             @"114" ?: [NSNull null], @"departmentNumber",
                             @"114" ?: [NSNull null], @"description",
-                            @"141" ?: [NSNull null], @"mobile",
+                            @"141" ?: [NSNull null], @"mobile1",
+                            @"1234567" ?: [NSNull null], @"homePhone",
+                            @"test@mail.com" ?: [NSNull null], @"mail",
                             @"114" ?: [NSNull null], @"objectclass",
                             @"Tran" ?: [NSNull null], @"sn",
                             @"tnanh" ?: [NSNull null], @"uid",
@@ -301,11 +342,16 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     [tableController.tableView setBackgroundColor:[UIColor clearColor]]; // Can't do it in Xib: issue with ios4
     [tableController.tableView setBackgroundView:nil]; // Can't do it in Xib: issue with ios4
     
-   // NSDictionary * resultFromServer = query_user_info(self.user_dict);
+    
+
+    
+    /*
     NSDictionary *resultFromServer = [self getReturnValueForTest];
     self.userManipulatedData  = [self manipulateResultFromServer:resultFromServer];
-    
-    tableController.userManipulatedData = self.userManipulatedData;
+     */
+    // set value for tableController
+    DebugLog(@"userRecord = %@", self.userRecord);
+    tableController.userManipulatedData = [self manipulateResultFromServer:self.userRecord];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

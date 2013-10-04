@@ -137,54 +137,13 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
     
     return user1;
 }
-- (NSArray *)manipulateResultFromServer: (NSDictionary *) resultFromServer{
-    //For test . server simulation
-    
-    
-    
-    
-    
-    /*
-     NSDictionary * resultFromServer = [[NSDictionary alloc] initWithObjectsAndKeys:
-     @"Mobile Phone" ?: [NSNull null], @"mobile",
-     @"Mobile Phone" ?: [NSNull null], @"mail",
-     @"Mobile Phone" ?: [NSNull null], @"homePhone",
-     @"Mobile Phone" ?: [NSNull null], @"jpegPhoto",
-     nil];
-     */
-    NSMutableDictionary *dict1 = [NSMutableDictionary dictionary];
-    [dict1 setObject:resultFromServer[@"mobile"] forKey:@"mobile"];
-    NSMutableDictionary *dict2 = [NSMutableDictionary dictionary];
-    //[dict2 setObject:resultFromServer[@"homePhone"] forKey:@"homePhone"];
-    [dict2 setObject:@"1234567" forKey:@"homePhone"];
-    NSMutableDictionary *dict3 = [NSMutableDictionary dictionary];
-    //[dict3 setObject:resultFromServer[@"mail"] forKey:@"mail"];
-    [dict3 setObject:@"test@mail.com" forKey:@"mail"];
-    
-    
-    NSArray  * myArray1 = [NSArray arrayWithObjects:dict1, dict2,  nil];
-    
-    NSArray  * myArray2 = [NSArray arrayWithObjects:dict3, nil];
-    
-    NSDictionary * unit1 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            myArray1 ?: [NSNull null], @"Mobile Phone",
-                            nil];
-    NSDictionary * unit2 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            myArray2 ?: [NSNull null], @"email",
-                            nil];
-    NSArray  * result = [NSArray arrayWithObjects:unit1, unit2 ,nil];
-    
-    return result;
-}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [headerController view]; // Force view load
     [footerController view]; // Force view load
-    
-  //  NSDictionary *resultFromServer = [self getReturnValueForTest];
-   // self.userManipulatedData  = [self manipulateResultFromServer:resultFromServer];
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -583,6 +542,7 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DebugLog(@"");
     static NSString *kCellId = @"ContactDetailsCell";
+    DebugLog(@" user data = %@", self.userManipulatedData);
     UIEditableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
     if (cell == nil) {
         cell = [[[UIEditableTableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:kCellId] autorelease];

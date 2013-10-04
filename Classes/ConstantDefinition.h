@@ -32,3 +32,4 @@
 
 
 #define LINPHONE_ADDRESS 0
+#define  LDAP_VER        1

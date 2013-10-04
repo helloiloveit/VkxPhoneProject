@@ -37,6 +37,8 @@
 
 @property (nonatomic, retain) NSDictionary *userInfo;
 @property (nonatomic, retain) NSArray *userManipulatedData;
+@property (nonatomic, retain) NSDictionary *userRecord;
+
 
 - (IBAction)onBackClick:(id)event;
 - (IBAction)onCancelClick:(id)event;
@@ -46,5 +48,6 @@
 - (void)newContact:(NSString*)address;
 - (void)editContact:(ABRecordRef)contact;
 - (void)editContact:(ABRecordRef)contact address:(NSString*)address;
+
 
 @end

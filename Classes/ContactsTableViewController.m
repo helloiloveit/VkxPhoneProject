@@ -23,12 +23,15 @@
 #import "PhoneMainView.h"
 #import "UACellBackgroundView.h"
 #import "UILinphone.h"
+
 #import "Utils.h"
 #import "ConstantDefinition.h"
+#import "ConvertionHandler.h"
 
 #import "ldapTest.h"
 
-#define LINPHONE_ADDRESS 0
+
+
 
 @implementation ContactsTableViewController
 
@@ -292,29 +295,10 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
         DebugLog(@"l2");
     }
 
-  //  DebugLog(@"dataArray = %@", [dataArray description]);
-    DebugLog(@"indexpath section %d", indexPath.section);
-    DebugLog(@"l3");
-    
-    DebugLog(@"dataArray = %@", [self.dataArray description]);
-    NSDictionary *dict = [self.dataArray objectAtIndex:indexPath.section ];
-    InfoLog(@"dict = %@",[dict description]);
-    NSArray *nameArray;
-    for (id key in dict)
-    {
-        nameArray = [dict objectForKey:key];
-        //InfoLog(@"nameArray = %@", nameArray);
-        //  NSString *cellValue = [nameArray objectAtIndex:indexPath.row];
-    }
-    //InfoLog(@"nameArray = %@", nameArray);
-    
-    
-    NSString *cellValue = [nameArray objectAtIndex:indexPath.row][@"cn"];
-    
+    NSString *cellValue = [ConvertionHandler returnUserRecord:dataArray atIndexPath:indexPath][@"cn"];
     DebugLog(@"cellValue = %@", cellValue);
     
-   cell.firstNameLabel.text = cellValue;
-   // cell.firstNameLabel.text = @"lllaa";
+    cell.firstNameLabel.text = cellValue;
     cell.lastNameLabel.text = nil;
     cell.avatarImage.image = [UIImage imageNamed:@"avatar.png"];
    // [cell setDataArray: dataArray];
@@ -376,11 +360,84 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 }
 #endif
 #ifdef LINPHONE_ADDRESS
+- (NSArray *)manipulateResultFromServer: (NSDictionary *) resultFromServer{
+    //For test . server simulation
+    
+    
+    
+    
+    
+    /*
+     NSDictionary * resultFromServer = [[NSDictionary alloc] initWithObjectsAndKeys:
+     @"Mobile Phone" ?: [NSNull null], @"mobile",
+     @"Mobile Phone" ?: [NSNull null], @"mail",
+     @"Mobile Phone" ?: [NSNull null], @"homePhone",
+     @"Mobile Phone" ?: [NSNull null], @"jpegPhoto",
+     nil];
+     */
+    NSMutableDictionary *dict1 = [NSMutableDictionary dictionary];
+    @try {
+        [dict1 setObject:resultFromServer[@"mobile"] forKey:@"departmentNumber"];
+    }
+    @catch (NSException *exception) {
+        [dict1 setObject:@"" forKey:@"mobile"];
+    }
+    @finally {
+    }
+    
+    NSMutableDictionary *dict2 = [NSMutableDictionary dictionary];
+    @try {
+        [dict2 setObject:resultFromServer[@"homePhone"] forKey:@"homePhone"];
+    }
+    @catch (NSException *exception) {
+        [dict2 setObject:@"" forKey:@"homePhone"];
+    }
+    @finally {
+    }
+    
+    NSMutableDictionary *dict3 = [NSMutableDictionary dictionary];
+    @try {
+        [dict3 setObject:resultFromServer[@"mail"] forKey:@"mail"];
+    }
+    @catch (NSException *exception) {
+        [dict3 setObject:@"" forKey:@"mail"];
+    }
+    @finally {
+    }
+    
+    
+    
+    NSArray  * myArray1 = [NSArray arrayWithObjects:dict1, dict2,  nil];
+    
+    NSArray  * myArray2 = [NSArray arrayWithObjects:dict3, nil];
+    
+    NSDictionary * unit1 = [[NSDictionary alloc] initWithObjectsAndKeys:
+                            myArray1 ?: [NSNull null], @"Mobile Phone",
+                            nil];
+    NSDictionary * unit2 = [[NSDictionary alloc] initWithObjectsAndKeys:
+                            myArray2 ?: [NSNull null], @"email",
+                            nil];
+    NSArray  * result = [NSArray arrayWithObjects:unit1, unit2 ,nil];
+    
+    return result;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Go to Contact details view
+    DebugLog(@"flag linphone_address = %d", LINPHONE_ADDRESS);
     ContactDetailsViewController *controller = DYNAMIC_CAST([[PhoneMainView instance] changeCurrentView:[ContactDetailsViewController compositeViewDescription] push:TRUE], ContactDetailsViewController);
     if(controller != nil) {
         DebugLog(@"");
+        
+        // set value for ContactDetailViewController accordingly
+        NSDictionary *userRecord = [ConvertionHandler returnUserRecord:dataArray atIndexPath:indexPath];
+        controller.userRecord = userRecord;
+    //   [controller setUserRecord:userRecord];
+        
+        DebugLog(@"user record = %@", controller.userRecord);
+      //  [controller.tableController.tableView reloadData ];
+
+    //    controller setContact2:;
         /*
         if([ContactSelection getSelectionMode] != ContactSelectionModeEdit) {
             [controller setContact:lPerson];
@@ -395,7 +452,6 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     OrderedDictionary *subDic = [addressBookMap objectForKey: [addressBookMap keyAtIndex: [indexPath section]]]; 
     ABRecordRef lPerson = [subDic objectForKey: [subDic keyAtIndex:[indexPath row]]];
-    
     // Go to Contact details view
     ContactDetailsViewController *controller = DYNAMIC_CAST([[PhoneMainView instance] changeCurrentView:[ContactDetailsViewController compositeViewDescription] push:TRUE], ContactDetailsViewController);
     if(controller != nil) {
