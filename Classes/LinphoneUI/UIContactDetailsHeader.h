@@ -30,6 +30,7 @@
 }
 
 @property (nonatomic, assign) ABRecordRef contact;
+@property (retain, nonatomic) IBOutlet UILabel *contactName;
     
 @property (nonatomic, retain) IBOutlet UILabel *addressLabel;
 @property (nonatomic, retain) IBOutlet UIImageView *avatarImage;

@@ -19,7 +19,9 @@
 
 #import "ContactDetailsViewController.h"
 #import "PhoneMainView.h"
+#import "ContactInfoHandler.h"
 #import "ConstantDefinition.h"
+
 @implementation ContactDetailsViewController
 
 @synthesize tableController;
@@ -210,71 +212,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 
 
 #pragma mark - Property Functions
-- (NSArray *)manipulateResultFromServer: (NSDictionary *) resultFromServer{
-    //For test . server simulation
-    
-    
-    
-    
-    
-    /*
-     NSDictionary * resultFromServer = [[NSDictionary alloc] initWithObjectsAndKeys:
-     @"Mobile Phone" ?: [NSNull null], @"mobile",
-     @"Mobile Phone" ?: [NSNull null], @"mail",
-     @"Mobile Phone" ?: [NSNull null], @"homePhone",
-     @"Mobile Phone" ?: [NSNull null], @"jpegPhoto",
-     nil];
-     */
-    NSMutableDictionary *dict1 = [NSMutableDictionary dictionary];
-    
- //   [dict1 setObject:resultFromServer[@"mobile"] forKey:@"departmentNumber"];
-    
-    @try {
-        [dict1 setObject:resultFromServer[@"departmentNumber"] forKey:@"mobile"];
-    }
-    @catch (NSException *exception) {
-        
-        [dict1 setObject:@"" forKey:@"mobile"];
-    }
-    @finally {
-    }
 
-    NSMutableDictionary *dict2 = [NSMutableDictionary dictionary];
-    @try {
-        [dict2 setObject:resultFromServer[@"homePhone"] forKey:@"homePhone"];
-    }
-    @catch (NSException *exception) {
-        [dict2 setObject:@"" forKey:@"homePhone"];
-    }
-    @finally {
-    }
-
-    NSMutableDictionary *dict3 = [NSMutableDictionary dictionary];
-    @try {
-        [dict3 setObject:resultFromServer[@"mail"] forKey:@"mail"];
-    }
-    @catch (NSException *exception) {
-        [dict3 setObject:@"" forKey:@"mail"];
-    }
-    @finally {
-    }
-
-
-    
-    NSArray  * myArray1 = [NSArray arrayWithObjects:dict1, dict2,  nil];
-    
-    NSArray  * myArray2 = [NSArray arrayWithObjects:dict3, nil];
-    
-    NSDictionary * unit1 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            myArray1 ?: [NSNull null], @"Mobile Phone",
-                            nil];
-    NSDictionary * unit2 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            myArray2 ?: [NSNull null], @"email",
-                            nil];
-    NSArray  * result = [NSArray arrayWithObjects:unit1, unit2 ,nil];
-    
-    return result;
-}
 
 #ifdef LDAP_VER
 - (void)setContact:(ABRecordRef)acontact {
@@ -292,9 +230,10 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     DebugLog(@"user record = %@", data);
    // self.userRecord = data;
 //    self.userRecord = data;
-//        DebugLog(@"user record = %@", userRecord);
-    NSArray *temp = [self manipulateResultFromServer:data];
+        DebugLog(@"user record = %@", userRecord);
+    NSDictionary *temp = [ContactInfoHandler manipulateResultFromServer:data];
     [tableController setUserManipulatedData:temp];
+    [tableController.tableView reloadData];
     
 }
 
@@ -355,8 +294,8 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     self.userManipulatedData  = [self manipulateResultFromServer:resultFromServer];
      */
     // set value for tableController
-    DebugLog(@"userRecord = %@", self.userRecord);
-    tableController.userManipulatedData = [self manipulateResultFromServer:self.userRecord];
+   // DebugLog(@"userRecord = %@", self.userRecord);
+  //  tableController.userManipulatedData = [self manipulateResultFromServer:self.userRecord];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

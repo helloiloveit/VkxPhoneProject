@@ -27,6 +27,8 @@
 #import "Utils.h"
 
 
+#import "limitFunctionForDevelopment.h"
+
 #import "ConstantDefinition.h"
 @interface Entry : NSObject
 
@@ -67,6 +69,8 @@ enum _ContactSections {
 };
 
 static const int contactSections[ContactSections_MAX] = {ContactSections_None, ContactSections_Number, ContactSections_Sip, ContactSections_Email};
+
+
 
 @synthesize footerController;
 @synthesize headerController;
@@ -143,7 +147,7 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
     [super viewDidLoad];
     [headerController view]; // Force view load
     [footerController view]; // Force view load
-
+     
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -528,21 +532,30 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
 #pragma mark - UITableViewDataSource Functions
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //    return [[self getSectionData:section] count];
-    return 1;
+
+
+    if (section == 0) {
+        return 2;
+    } else {
+        return 1;
+    } 
+
 }
 
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath  {
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    DebugLog(@"");
     static NSString *kCellId = @"ContactDetailsCell";
     DebugLog(@" user data = %@", self.userManipulatedData);
+    
+
+    
+    headerController.contactName.text = self.userManipulatedData[@"cn"][@"name"];
     UIEditableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
     if (cell == nil) {
         cell = [[[UIEditableTableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:kCellId] autorelease];
@@ -555,28 +568,34 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
         cell.selectedBackgroundView = selectedBackgroundView;
         [selectedBackgroundView setBackgroundColor:LINPHONE_TABLE_CELL_BACKGROUND_COLOR];
     }
-    NSDictionary *dict = [self.userManipulatedData objectAtIndex:indexPath.section ];
-    InfoLog(@"dict = %@",dict);
-    NSArray *nameArray;
-    for (id key in dict)
-    {
-        nameArray = [dict objectForKey:key];
+//    NSDictionary *dict = [self.userManipulatedData objectAtIndex:indexPath.section ];
+ //   InfoLog(@"dict = %@",dict);
+    
+    
+    if (indexPath.section == 0) {
+        NSArray *nameArray = self.userManipulatedData[@"Phone"] ;
+        
         InfoLog(@"nameArray = %@", nameArray);
-        //  NSString *cellValue = [nameArray objectAtIndex:indexPath.row];
-    }
-    InfoLog(@"nameArray = %@", nameArray);
-    
-    NSDictionary *dic_info = [nameArray objectAtIndex:indexPath.row];
-    
-    NSString * data;
-    for(id key in dic_info){
-        data = [dic_info objectForKey:key];
+        
+        NSDictionary *dic_info = [nameArray objectAtIndex:indexPath.row];
+        InfoLog(@"dic_info = %@ with row %d", dic_info,indexPath.row  );
+        NSString * data;
+        
+        for(id key in dic_info){
+            data = [dic_info objectForKey:key];
+            
+            [cell.textLabel setText:key];
+            [cell.detailTextLabel setText:data];
+        }
 
-        [cell.textLabel setText:key];
-        [cell.detailTextLabel setText:data];
+    } else if (indexPath.section == 1) {
+        cell.textLabel.text = @"mail";
+        cell.detailTextLabel.text = [self.userManipulatedData[@"email"] lastObject][@"mail"];
+        
+    } else if (indexPath.section == 2) {
+        cell.textLabel.text = @"Position: ";
+        cell.detailTextLabel.text = @" Hoan kiem , Ha Noi ";
     }
-
-    
     return cell;
 }
 
@@ -584,11 +603,17 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DebugLog(@"index path  = %d", indexPath.section);
     DebugLog(@" user data = %@", self.userManipulatedData);
-    NSDictionary *phoneDic = [self.userManipulatedData objectAtIndex:0];
-    NSArray *phoneInfo = phoneDic[@"Mobile Phone"];
-    NSDictionary *mobilePhoneDic = [phoneInfo objectAtIndex:0];
-    NSString *mobilePhoneInfo = mobilePhoneDic[@"mobile"];
-    DebugLog(@"mobile phone = %@", mobilePhoneInfo);
+
+
+    if (![limitFunctionForDevelopment limitUserClickableButton:indexPath]) {
+        return;
+    }
+    
+    NSArray * phoneInfo = self.userManipulatedData[@"Phone"];
+
+
+    NSString *mobilePhoneInfo = [phoneInfo objectAtIndex:indexPath.row][@"mobile"];
+
     NSString *dest=NULL;;
     dest = [FastAddressBook normalizeSipURI:[NSString stringWithString:(NSString*) mobilePhoneInfo]];
     DebugLog(@"dest = %@", [dest description]  );
@@ -692,10 +717,12 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
 }
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if(contactSections[section] == ContactSections_Number) {
-        return NSLocalizedString(@"Phone numbers", nil);
+    if (contactSections[section] == ContactSections_None){
+        return NSLocalizedString(@"Employee numbers", nil);
+    }else if (contactSections[section] == ContactSections_Number) {
+        return NSLocalizedString(@"Email", nil);
     } else if(contactSections[section] == ContactSections_Sip) {
-        return NSLocalizedString(@"SIP addresses", nil);
+        return NSLocalizedString(@"Location", nil);
     } else if(contactSections[section] == ContactSections_Email) {
         return NSLocalizedString(@"Email addresses", nil);
     }

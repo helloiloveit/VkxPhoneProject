@@ -198,6 +198,7 @@
 		34A6ECEB14CF13CB00460C04 /* linphone_icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = 34A6ECEA14CF13CB00460C04 /* linphone_icon_72.png */; };
 		3A307EFA17C1D58400512153 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A307EF917C1D58400512153 /* avatar.png */; };
 		3A47635F1802310100BA6F9A /* linphone_splashscreen-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A47635E1802310100BA6F9A /* linphone_splashscreen-568h@2x.png */; };
+		3A6ACEAF1802BA55009AEA9F /* ContactInfoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6ACEAE1802BA55009AEA9F /* ContactInfoHandler.m */; };
 		3A6C310317BE2EDE00702BC6 /* liblber.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C310017BE2D9900702BC6 /* liblber.a */; };
 		3A6C310417BE2EDE00702BC6 /* libldap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C30FE17BE2D9900702BC6 /* libldap.a */; };
 		3A6C310817BE2EDF00702BC6 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C310517BE2EDE00702BC6 /* libcrypto.a */; };
@@ -205,6 +206,7 @@
 		3A6C310A17BE2EDF00702BC6 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C310717BE2EDE00702BC6 /* libssl.a */; };
 		3A6C310E17BE320400702BC6 /* ldapTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C310D17BE320400702BC6 /* ldapTest.m */; };
 		3A76EED017FEB2A1006AB8AB /* ConvertionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A76EECF17FEB2A1006AB8AB /* ConvertionHandler.m */; };
+		3A8054781802C08200703BBC /* limitFunctionForDevelopment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8054771802C08200703BBC /* limitFunctionForDevelopment.m */; };
 		3A9B041817FD59BD003DBA64 /* history_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9B041717FD59BD003DBA64 /* history_default.png */; };
 		3A9B041E17FD5A6D003DBA64 /* chat_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9B041D17FD5A6D003DBA64 /* chat_over.png */; };
 		3A9B042017FD5A7A003DBA64 /* chat_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9B041F17FD5A7A003DBA64 /* chat_default.png */; };
@@ -1835,6 +1837,8 @@
 		34A6ECEA14CF13CB00460C04 /* linphone_icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = linphone_icon_72.png; path = Resources/linphone_icon_72.png; sourceTree = "<group>"; };
 		3A307EF917C1D58400512153 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 		3A47635E1802310100BA6F9A /* linphone_splashscreen-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linphone_splashscreen-568h@2x.png"; sourceTree = "<group>"; };
+		3A6ACEAD1802BA55009AEA9F /* ContactInfoHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactInfoHandler.h; sourceTree = "<group>"; };
+		3A6ACEAE1802BA55009AEA9F /* ContactInfoHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactInfoHandler.m; sourceTree = "<group>"; };
 		3A6C30F517BE2D9500702BC6 /* openldap.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openldap.xcodeproj; path = ../../iOSPorts/ports/database/openldap/openldap.xcodeproj; sourceTree = "<group>"; };
 		3A6C310517BE2EDE00702BC6 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../iOSPorts/ports/security/openssl/build/Release-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
 		3A6C310617BE2EDE00702BC6 /* libsasl2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsasl2.a; path = "../iOSPorts/ports/security/cyrus-sasl/build/Release-iphoneos/libsasl2.a"; sourceTree = "<group>"; };
@@ -1843,6 +1847,8 @@
 		3A6C310D17BE320400702BC6 /* ldapTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ldapTest.m; sourceTree = "<group>"; };
 		3A76EECE17FEB2A1006AB8AB /* ConvertionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvertionHandler.h; sourceTree = "<group>"; };
 		3A76EECF17FEB2A1006AB8AB /* ConvertionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvertionHandler.m; sourceTree = "<group>"; };
+		3A8054761802C08200703BBC /* limitFunctionForDevelopment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = limitFunctionForDevelopment.h; sourceTree = "<group>"; };
+		3A8054771802C08200703BBC /* limitFunctionForDevelopment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = limitFunctionForDevelopment.m; sourceTree = "<group>"; };
 		3A83DEAB17AA315C00FE9A15 /* ConstantDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantDefinition.h; sourceTree = "<group>"; };
 		3A9B041717FD59BD003DBA64 /* history_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history_default.png; sourceTree = "<group>"; };
 		3A9B041D17FD5A6D003DBA64 /* chat_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_over.png; sourceTree = "<group>"; };
@@ -2736,6 +2742,7 @@
 				D37DC6C01594AE1800B2A5EB /* LinphoneCoreSettingsStore.m */,
 				D3EA53FB159850E80037DC6B /* LinphoneManager.h */,
 				D3EA53FC159850E80037DC6B /* LinphoneManager.m */,
+				3A80547B1802C08600703BBC /* LimitFunctionForDevelopment */,
 				3A76EED117FEB2A7006AB8AB /* BasicConvertion */,
 				3A6C310F17BE320A00702BC6 /* ldapTest */,
 				2214EB7012F84668002A5394 /* LinphoneUI */,
@@ -3927,8 +3934,19 @@
 			children = (
 				3A76EECE17FEB2A1006AB8AB /* ConvertionHandler.h */,
 				3A76EECF17FEB2A1006AB8AB /* ConvertionHandler.m */,
+				3A6ACEAD1802BA55009AEA9F /* ContactInfoHandler.h */,
+				3A6ACEAE1802BA55009AEA9F /* ContactInfoHandler.m */,
 			);
 			name = BasicConvertion;
+			sourceTree = "<group>";
+		};
+		3A80547B1802C08600703BBC /* LimitFunctionForDevelopment */ = {
+			isa = PBXGroup;
+			children = (
+				3A8054761802C08200703BBC /* limitFunctionForDevelopment.h */,
+				3A8054771802C08200703BBC /* limitFunctionForDevelopment.m */,
+			);
+			name = LimitFunctionForDevelopment;
 			sourceTree = "<group>";
 		};
 		D326483415887D4400930C67 /* Utils */ = {
@@ -5433,6 +5451,8 @@
 				D37E3ECD1619C27A0087659A /* CAAnimation+Blocks.m in Sources */,
 				3A6C310E17BE320400702BC6 /* ldapTest.m in Sources */,
 				3A76EED017FEB2A1006AB8AB /* ConvertionHandler.m in Sources */,
+				3A6ACEAF1802BA55009AEA9F /* ContactInfoHandler.m in Sources */,
+				3A8054781802C08200703BBC /* limitFunctionForDevelopment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

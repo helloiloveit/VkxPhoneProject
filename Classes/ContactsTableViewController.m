@@ -108,115 +108,22 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     NSArray  * myArray3 = [NSArray arrayWithObjects:dict, dict2, nil];
     return myArray3;
 }
-#ifdef LINPHONE_ADDRESS
+
+
+
 - (void)loadData{
-    DebugLog(@"");
-    self.dataArray = get_data_from_server(NULL);
-    //self.dataArray = [self getArrayValue];
-     DebugLog(@"dataArray = %@", self.dataArray);
-    [self.tableView reloadData];
-}
-#else
-- (void)loadData {
-    [LinphoneLogger logc:LinphoneLoggerLog format:"Load contact list"];
-    @synchronized (addressBookMap) {
+    InfoLog(@"");
+
+    dispatch_queue_t fetchQ = dispatch_queue_create("Flickr Fetch", NULL);
+    dispatch_async(fetchQ, ^{
+        self.dataArray = get_data_from_server(NULL);
+        dispatch_async(dispatch_get_main_queue(), ^{
+           [self.tableView reloadData];     
+        });
         
-        // Reset Address book
-        [addressBookMap removeAllObjects];
-        
-        NSArray *lContacts = (NSArray *)ABAddressBookCopyArrayOfAllPeople(addressBook);
-        for (id lPerson in lContacts) {
-            BOOL add = true;
-            if([ContactSelection getSipFilter] || [ContactSelection getEmailFilter]) {
-                add = false;
-            }
-            if([ContactSelection getSipFilter]) {
-                ABMultiValueRef lMap = ABRecordCopyValue((ABRecordRef)lPerson, kABPersonInstantMessageProperty);
-                for(int i = 0; i < ABMultiValueGetCount(lMap); ++i) {
-                    CFDictionaryRef lDict = ABMultiValueCopyValueAtIndex(lMap, i);
-                    if(CFDictionaryContainsKey(lDict, kABPersonInstantMessageServiceKey)) {
-                        CFStringRef serviceKey = CFDictionaryGetValue(lDict, kABPersonInstantMessageServiceKey);
-						CFStringRef username = username=CFDictionaryGetValue(lDict, kABPersonInstantMessageUsernameKey);
-                        if(CFStringCompare((CFStringRef)[LinphoneManager instance].contactSipField, serviceKey, kCFCompareCaseInsensitive) == 0) {
-                            add = true;
-                        }  else {
-							add=false;
-						}
-                    }  else {
-						//check domain
-						LinphoneAddress* address = linphone_address_new([(NSString*)CFDictionaryGetValue(lDict,kABPersonInstantMessageUsernameKey) UTF8String]);
-						if (address) {
-							if ([[ContactSelection getSipFilter] compare:@"*" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-								add = true;
-							} else {
-								NSString* domain = [NSString stringWithCString:linphone_address_get_domain(address)
-																	  encoding:[NSString defaultCStringEncoding]];
-								add = [domain compare:[ContactSelection getSipFilter] options:NSCaseInsensitiveSearch] == NSOrderedSame;
-							}
-							linphone_address_destroy(address);
-						} else {
-                            add = false;
-                        }
-                    }
-                    CFRelease(lDict);
-                }
-            }
-            if ((add == false) && [ContactSelection getEmailFilter]) {
-                ABMultiValueRef lMap = ABRecordCopyValue((ABRecordRef)lPerson, kABPersonEmailProperty);
-                if (ABMultiValueGetCount(lMap) > 0) {
-                    add = true;
-                }
-            }
-            if(add) {
-                CFStringRef lFirstName = ABRecordCopyValue((ABRecordRef)lPerson, kABPersonFirstNameProperty);
-                CFStringRef lLocalizedFirstName = (lFirstName != nil)? ABAddressBookCopyLocalizedLabel(lFirstName): nil;
-                CFStringRef lLastName = ABRecordCopyValue((ABRecordRef)lPerson, kABPersonLastNameProperty);
-                CFStringRef lLocalizedLastName = (lLastName != nil)? ABAddressBookCopyLocalizedLabel(lLastName): nil;
-                CFStringRef lOrganization = ABRecordCopyValue((ABRecordRef)lPerson, kABPersonOrganizationProperty);
-                CFStringRef lLocalizedlOrganization = (lOrganization != nil)? ABAddressBookCopyLocalizedLabel(lOrganization): nil;
-                NSString *name = nil;
-                if(lLocalizedFirstName != nil && lLocalizedLastName != nil) {
-                    name=[NSString stringWithFormat:@"%@%@", [(NSString *)lLocalizedFirstName retain], [(NSString *)lLocalizedLastName retain]];
-                } else if(lLocalizedLastName != nil) {
-                    name=[NSString stringWithFormat:@"%@",[(NSString *)lLocalizedLastName retain]];
-                } else if(lLocalizedFirstName != nil) {
-                    name=[NSString stringWithFormat:@"%@",[(NSString *)lLocalizedFirstName retain]];
-                } else if(lLocalizedlOrganization != nil) {
-                    name=[NSString stringWithFormat:@"%@",[(NSString *)lLocalizedlOrganization retain]];
-                }
-                if(name != nil && [name length] > 0) {
-                    // Put in correct subDic
-                    NSString *firstChar = [[name substringToIndex:1] uppercaseString];
-                    if([firstChar characterAtIndex:0] < 'A' || [firstChar characterAtIndex:0] > 'Z') {
-                        firstChar = @"#";
-                    }
-                    OrderedDictionary *subDic =[addressBookMap objectForKey: firstChar];
-                    if(subDic == nil) {
-                        subDic = [[[OrderedDictionary alloc] init] autorelease];
-                        [addressBookMap insertObject:subDic forKey:firstChar selector:@selector(caseInsensitiveCompare:)];
-                    }
-                    [subDic insertObject:lPerson forKey:name selector:@selector(caseInsensitiveCompare:)];
-                }
-                if(lLocalizedlOrganization != nil)
-                    CFRelease(lLocalizedlOrganization);
-                if(lOrganization != nil)
-                    CFRelease(lOrganization);
-                if(lLocalizedLastName != nil)
-                    CFRelease(lLocalizedLastName);
-                if(lLastName != nil)
-                    CFRelease(lLastName);
-                if(lLocalizedFirstName != nil)
-                    CFRelease(lLocalizedFirstName);
-                if(lFirstName != nil)
-                    CFRelease(lFirstName);
-            }
-        }
-        if (lContacts) CFRelease(lContacts);
-    }
-    [self.tableView reloadData];
+    });
 }
 
-#endif
  
 static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef info, void *context) {
     ContactsTableViewController* controller = (ContactsTableViewController*)context;
@@ -360,67 +267,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 }
 #endif
 #ifdef LINPHONE_ADDRESS
-- (NSArray *)manipulateResultFromServer: (NSDictionary *) resultFromServer{
-    //For test . server simulation
-    
-    
-    
-    
-    
-    /*
-     NSDictionary * resultFromServer = [[NSDictionary alloc] initWithObjectsAndKeys:
-     @"Mobile Phone" ?: [NSNull null], @"mobile",
-     @"Mobile Phone" ?: [NSNull null], @"mail",
-     @"Mobile Phone" ?: [NSNull null], @"homePhone",
-     @"Mobile Phone" ?: [NSNull null], @"jpegPhoto",
-     nil];
-     */
-    NSMutableDictionary *dict1 = [NSMutableDictionary dictionary];
-    @try {
-        [dict1 setObject:resultFromServer[@"mobile"] forKey:@"departmentNumber"];
-    }
-    @catch (NSException *exception) {
-        [dict1 setObject:@"" forKey:@"mobile"];
-    }
-    @finally {
-    }
-    
-    NSMutableDictionary *dict2 = [NSMutableDictionary dictionary];
-    @try {
-        [dict2 setObject:resultFromServer[@"homePhone"] forKey:@"homePhone"];
-    }
-    @catch (NSException *exception) {
-        [dict2 setObject:@"" forKey:@"homePhone"];
-    }
-    @finally {
-    }
-    
-    NSMutableDictionary *dict3 = [NSMutableDictionary dictionary];
-    @try {
-        [dict3 setObject:resultFromServer[@"mail"] forKey:@"mail"];
-    }
-    @catch (NSException *exception) {
-        [dict3 setObject:@"" forKey:@"mail"];
-    }
-    @finally {
-    }
-    
-    
-    
-    NSArray  * myArray1 = [NSArray arrayWithObjects:dict1, dict2,  nil];
-    
-    NSArray  * myArray2 = [NSArray arrayWithObjects:dict3, nil];
-    
-    NSDictionary * unit1 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            myArray1 ?: [NSNull null], @"Mobile Phone",
-                            nil];
-    NSDictionary * unit2 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            myArray2 ?: [NSNull null], @"email",
-                            nil];
-    NSArray  * result = [NSArray arrayWithObjects:unit1, unit2 ,nil];
-    
-    return result;
-}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Go to Contact details view
@@ -432,19 +279,8 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
         // set value for ContactDetailViewController accordingly
         NSDictionary *userRecord = [ConvertionHandler returnUserRecord:dataArray atIndexPath:indexPath];
         controller.userRecord = userRecord;
-    //   [controller setUserRecord:userRecord];
-        
         DebugLog(@"user record = %@", controller.userRecord);
-      //  [controller.tableController.tableView reloadData ];
 
-    //    controller setContact2:;
-        /*
-        if([ContactSelection getSelectionMode] != ContactSelectionModeEdit) {
-            [controller setContact:lPerson];
-        } else {
-            [controller editContact:lPerson address:[ContactSelection getAddAddress]];
-        }
-         */
     }
     
 }

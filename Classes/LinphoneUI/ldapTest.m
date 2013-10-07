@@ -450,6 +450,24 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
                 };
                 ldap_memfree(attribute);
                 attribute = ldap_next_attribute(ld, entry, ber);
+            } else if(!strcmp(attribute, "mail")){
+                NSLog(@"mail ");
+                if ((vals = ldap_get_values_len(ld, entry, attribute)))
+                {
+                    
+                    
+                    for(i = 0; vals[i]; i++){
+                        NSString* data_str = [NSString stringWithFormat:@"%s" , vals[i]->bv_val];
+                        //[ou_list addObject:data_str];
+                        [user_dict setObject:data_str forKey:@"mail"];
+                        // NSLog(@"ou_list = %@",ou_list);
+                        
+                        
+                    }
+                    ldap_value_free_len(vals);
+                };
+                ldap_memfree(attribute);
+                attribute = ldap_next_attribute(ld, entry, ber);
             }else {
                 
                 if ((vals = ldap_get_values_len(ld, entry, attribute)))

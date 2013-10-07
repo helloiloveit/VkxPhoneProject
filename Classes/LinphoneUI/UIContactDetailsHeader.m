@@ -80,6 +80,7 @@
     
     [propertyList release];
     
+    [_contactName release];
     [super dealloc];
 }
 
@@ -360,4 +361,8 @@
     return TRUE;
 }
 
+- (void)viewDidUnload {
+    [self setContactName:nil];
+    [super viewDidUnload];
+}
 @end

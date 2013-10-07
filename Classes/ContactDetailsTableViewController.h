@@ -38,7 +38,7 @@
 @property (nonatomic, retain) IBOutlet UIContactDetailsFooter *footerController;
 
 
-@property (nonatomic, retain) NSArray *userManipulatedData;
+@property (nonatomic, retain) NSDictionary *userManipulatedData;
 
 - (BOOL)isValid;
 - (void)addSipField:(NSString*)address;
