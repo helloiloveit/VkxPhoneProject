@@ -26,6 +26,8 @@
 				<string>linphone_icon_57@2x.png</string>
 				<string>linphone_icon_72@2x.png</string>
 			</array>
+			<key>UIPrerenderedIcon</key>
+			<true/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
@@ -75,6 +77,8 @@
 	<string>linphone_splashscreen</string>
 	<key>UILaunchImageFile~iphone</key>
 	<string>linphone_splashscreen</string>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>wifi</string>

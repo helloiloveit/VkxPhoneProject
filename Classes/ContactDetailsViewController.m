@@ -226,10 +226,14 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
      nil];
      */
     NSMutableDictionary *dict1 = [NSMutableDictionary dictionary];
+    
+ //   [dict1 setObject:resultFromServer[@"mobile"] forKey:@"departmentNumber"];
+    
     @try {
-        [dict1 setObject:resultFromServer[@"mobile"] forKey:@"departmentNumber"];
+        [dict1 setObject:resultFromServer[@"departmentNumber"] forKey:@"mobile"];
     }
     @catch (NSException *exception) {
+        
         [dict1 setObject:@"" forKey:@"mobile"];
     }
     @finally {
@@ -291,6 +295,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 //        DebugLog(@"user record = %@", userRecord);
     NSArray *temp = [self manipulateResultFromServer:data];
     [tableController setUserManipulatedData:temp];
+    
 }
 
 #else

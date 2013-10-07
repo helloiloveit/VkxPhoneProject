@@ -197,6 +197,7 @@
 		344ABDF214850AE9007420B6 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 344ABDF014850AE9007420B6 /* libstdc++.6.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		34A6ECEB14CF13CB00460C04 /* linphone_icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = 34A6ECEA14CF13CB00460C04 /* linphone_icon_72.png */; };
 		3A307EFA17C1D58400512153 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A307EF917C1D58400512153 /* avatar.png */; };
+		3A47635F1802310100BA6F9A /* linphone_splashscreen-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A47635E1802310100BA6F9A /* linphone_splashscreen-568h@2x.png */; };
 		3A6C310317BE2EDE00702BC6 /* liblber.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C310017BE2D9900702BC6 /* liblber.a */; };
 		3A6C310417BE2EDE00702BC6 /* libldap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C30FE17BE2D9900702BC6 /* libldap.a */; };
 		3A6C310817BE2EDF00702BC6 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C310517BE2EDE00702BC6 /* libcrypto.a */; };
@@ -1833,6 +1834,7 @@
 		344ABDF014850AE9007420B6 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		34A6ECEA14CF13CB00460C04 /* linphone_icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = linphone_icon_72.png; path = Resources/linphone_icon_72.png; sourceTree = "<group>"; };
 		3A307EF917C1D58400512153 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
+		3A47635E1802310100BA6F9A /* linphone_splashscreen-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linphone_splashscreen-568h@2x.png"; sourceTree = "<group>"; };
 		3A6C30F517BE2D9500702BC6 /* openldap.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openldap.xcodeproj; path = ../../iOSPorts/ports/database/openldap/openldap.xcodeproj; sourceTree = "<group>"; };
 		3A6C310517BE2EDE00702BC6 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../iOSPorts/ports/security/openssl/build/Release-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
 		3A6C310617BE2EDE00702BC6 /* libsasl2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsasl2.a; path = "../iOSPorts/ports/security/cyrus-sasl/build/Release-iphoneos/libsasl2.a"; sourceTree = "<group>"; };
@@ -3310,6 +3312,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				3A47635E1802310100BA6F9A /* linphone_splashscreen-568h@2x.png */,
 				3A6C310517BE2EDE00702BC6 /* libcrypto.a */,
 				3A6C310617BE2EDE00702BC6 /* libsasl2.a */,
 				3A6C310717BE2EDE00702BC6 /* libssl.a */,
@@ -4770,6 +4773,7 @@
 				3AD27B8917FD6DCD000BFD05 /* contacts_over.png in Resources */,
 				3AD27B8B17FD6E9E000BFD05 /* dialer_default.png in Resources */,
 				3AD27B8D17FD6ECC000BFD05 /* dialer_over.png in Resources */,
+				3A47635F1802310100BA6F9A /* linphone_splashscreen-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
