@@ -62,13 +62,14 @@
 
 enum _ContactSections {
     ContactSections_None = 0,
+    ContactSessions_Message,
     ContactSections_Number,
     ContactSections_Sip,
     ContactSections_Email,
     ContactSections_MAX
 };
 
-static const int contactSections[ContactSections_MAX] = {ContactSections_None, ContactSections_Number, ContactSections_Sip, ContactSections_Email};
+static const int contactSections[ContactSections_MAX] = {ContactSections_None, ContactSessions_Message, ContactSections_Number, ContactSections_Sip, ContactSections_Email};
 
 
 
@@ -532,7 +533,7 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
 #pragma mark - UITableViewDataSource Functions
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -587,14 +588,17 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
             [cell.textLabel setText:key];
             [cell.detailTextLabel setText:data];
         }
-
     } else if (indexPath.section == 1) {
-        cell.textLabel.text = @"mail";
-        cell.detailTextLabel.text = [self.userManipulatedData[@"email"] lastObject][@"mail"];
+        cell.textLabel.text = @"";
+        cell.detailTextLabel.text = @"Send a message";
         
     } else if (indexPath.section == 2) {
-        cell.textLabel.text = @"Position: ";
-        cell.detailTextLabel.text = @" Hoan kiem , Ha Noi ";
+        cell.textLabel.text = @"";
+        cell.detailTextLabel.text = [self.userManipulatedData[@"email"] lastObject][@"mail"];
+        
+    } else if (indexPath.section == 3) {
+        cell.textLabel.text = @"";
+        cell.detailTextLabel.text = @" Hoan kiem , Ha Noi, Viet Name ";
     }
     return cell;
 }
@@ -619,6 +623,8 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
     DebugLog(@"dest = %@", [dest description]  );
     if(dest != nil) {
         NSString *displayName = [FastAddressBook getContactDisplayName:contact];
+        
+        /*
         if([ContactSelection getSelectionMode] != ContactSelectionModeMessage) {
             // Go to dialer view
             DialerViewController *controller = DYNAMIC_CAST([[PhoneMainView instance] changeCurrentView:[DialerViewController compositeViewDescription]], DialerViewController);
@@ -626,6 +632,20 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
                 [controller call:dest displayName:displayName];
             }
         } else {
+            // Go to Chat room view
+            [[PhoneMainView instance] popToView:[ChatViewController compositeViewDescription]]; // Got to Chat and push ChatRoom
+            ChatRoomViewController *controller = DYNAMIC_CAST([[PhoneMainView instance] changeCurrentView:[ChatRoomViewController compositeViewDescription] push:TRUE], ChatRoomViewController);
+            if(controller != nil) {
+                [controller setRemoteAddress:dest];
+            }
+        }*/
+        if ((indexPath.section == 0) && (indexPath.row == 0)) {
+            // Go to dialer view
+            DialerViewController *controller = DYNAMIC_CAST([[PhoneMainView instance] changeCurrentView:[DialerViewController compositeViewDescription]], DialerViewController);
+            if(controller != nil) {
+                [controller call:dest displayName:displayName];
+            }
+        } else if (indexPath.section == 1){
             // Go to Chat room view
             [[PhoneMainView instance] popToView:[ChatViewController compositeViewDescription]]; // Got to Chat and push ChatRoom
             ChatRoomViewController *controller = DYNAMIC_CAST([[PhoneMainView instance] changeCurrentView:[ChatRoomViewController compositeViewDescription] push:TRUE], ChatRoomViewController);
@@ -717,8 +737,11 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
 }
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
     if (contactSections[section] == ContactSections_None){
         return NSLocalizedString(@"Employee numbers", nil);
+    }else if (contactSections[section] == ContactSessions_Message) {
+        return NSLocalizedString(@"Message", nil);
     }else if (contactSections[section] == ContactSections_Number) {
         return NSLocalizedString(@"Email", nil);
     } else if(contactSections[section] == ContactSections_Sip) {

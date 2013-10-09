@@ -22,6 +22,7 @@
 
 #import <AddressBook/AddressBook.h>
 #import "UICompositeViewController.h"
+#import "ConstantDefinition.h"
 
 @interface HistoryDetailsViewController : UIViewController<UICompositeViewDelegate> {
     @private

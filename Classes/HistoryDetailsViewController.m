@@ -373,9 +373,11 @@ static UICompositeViewDescription *compositeDescription = nil;
 
 - (IBAction)onMessageClick:(id)event {
     LinphoneAddress* addr;
+  //  DebugLog(@"callLoc = %@", callLog);
 	addr=linphone_call_log_get_remote_address(callLog);
-    
+    DebugLog(@"callLoc = %@", addr);
     char* lAddress = linphone_address_as_string_uri_only(addr);
+    DebugLog(@"lAddresss = %s", lAddress);
     if(lAddress == NULL)
         return;
     

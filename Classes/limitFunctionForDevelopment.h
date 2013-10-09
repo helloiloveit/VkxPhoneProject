@@ -11,5 +11,9 @@
 @interface limitFunctionForDevelopment : NSObject
 
 
+
+// For Contact window
 + (Boolean) limitUserClickableButton: (NSIndexPath *) indexPath;
+
++ (void) limitUserClickableButton;
 @end

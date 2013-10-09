@@ -20,7 +20,7 @@
 #import <UIKit/UIKit.h>
 #import <XMLRPCConnectionDelegate.h>
 #import "UICompositeViewController.h"
-
+#import "limitFunctionForDevelopment.h"
 @interface WizardViewController : TPMultiLayoutViewController <UITextFieldDelegate, UICompositeViewDelegate, XMLRPCConnectionDelegate, UIGestureRecognizerDelegate> {
     @private
     UITextField *activeTextField;

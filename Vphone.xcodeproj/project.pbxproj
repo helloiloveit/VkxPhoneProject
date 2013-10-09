@@ -1470,7 +1470,7 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* LinphoneAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinphoneAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* LinphoneAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinphoneAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* linphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = linphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* Vphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		22058C70116E305000B08DDD /* linphone_icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = linphone_icon_57.png; path = Resources/linphone_icon_57.png; sourceTree = "<group>"; };
 		220FAC79107654FC0068D98F /* eX_call.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eX_call.h; sourceTree = "<group>"; };
@@ -1718,7 +1718,7 @@
 		22C7564A13265C6A007BC101 /* x509_vfy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509_vfy.h; sourceTree = "<group>"; };
 		22C7564B13265C6A007BC101 /* x509v3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
 		22D1B68012A3E0BE001AE361 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
-		22D8F187147548E2008C97DB /* linphone-no-gpl-thirdparties.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "linphone-no-gpl-thirdparties.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22D8F187147548E2008C97DB /* Vphone-no-gpl-thirdparties.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vphone-no-gpl-thirdparties.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E0A81B111C44E100B04932 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		22E0A81C111C44E100B04932 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		22E0A81D111C44E100B04932 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
@@ -1825,7 +1825,7 @@
 		22F9B0F11784711500E0212F /* upnp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = upnp.h; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		32CA4F630368D1EE00C91783 /* linphone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = linphone_Prefix.pch; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* Vphone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vphone_Prefix.pch; sourceTree = "<group>"; };
 		340751961506459A00B89C47 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		340751E5150F38FC00B89C47 /* UIVideoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIVideoButton.h; sourceTree = "<group>"; };
 		340751E6150F38FD00B89C47 /* UIVideoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIVideoButton.m; sourceTree = "<group>"; };
@@ -1868,7 +1868,7 @@
 		7066FC0B13E830E400EFC6DC /* libvpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvpx.a; path = "liblinphone-sdk/apple-darwin/lib/libvpx.a"; sourceTree = "<group>"; };
 		70E542F213E147E3002BA2C0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		70E542F413E147EB002BA2C0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		8D1107310486CEB800E47090 /* linphone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "linphone-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Vphone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Vphone-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		C90FAA7615AF54E6002091CB /* HistoryDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryDetailsViewController.h; sourceTree = "<group>"; };
 		C90FAA7715AF54E6002091CB /* HistoryDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryDetailsViewController.m; sourceTree = "<group>"; };
 		C9B3A6FD15B485DB006F52EE /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Utils/Utils.h; sourceTree = "<group>"; };
@@ -2768,8 +2768,8 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* linphone.app */,
-				22D8F187147548E2008C97DB /* linphone-no-gpl-thirdparties.app */,
+				1D6058910D05DD3D006BFB54 /* Vphone.app */,
+				22D8F187147548E2008C97DB /* Vphone-no-gpl-thirdparties.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3389,7 +3389,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32CA4F630368D1EE00C91783 /* linphone_Prefix.pch */,
+				32CA4F630368D1EE00C91783 /* Vphone_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
@@ -3628,7 +3628,7 @@
 				D3432A6F158A45AF001C6B0B /* led_inprogress.png */,
 				D37E3ECF1619DCC50087659A /* licenses.html */,
 				225CB2F911ABB76400628906 /* linphone-banner.png */,
-				8D1107310486CEB800E47090 /* linphone-Info.plist */,
+				8D1107310486CEB800E47090 /* Vphone-Info.plist */,
 				22058C70116E305000B08DDD /* linphone_icon_57.png */,
 				D33CF34815D3A03400CD4B85 /* linphone_icon_57@2x.png */,
 				34A6ECEA14CF13CB00460C04 /* linphone_icon_72.png */,
@@ -4136,9 +4136,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* linphone */ = {
+		1D6058900D05DD3D006BFB54 /* Vphone */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "linphone" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Vphone" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				D33CF34715D3985000CD4B85 /* ShellScript */,
@@ -4153,14 +4153,14 @@
 				D3554ED515CA79B900478841 /* PBXTargetDependency */,
 				D3B90E1B15C2CBC800F64F8C /* PBXTargetDependency */,
 			);
-			name = linphone;
+			name = Vphone;
 			productName = linphone;
-			productReference = 1D6058910D05DD3D006BFB54 /* linphone.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* Vphone.app */;
 			productType = "com.apple.product-type.application";
 		};
-		22D8F11D147548E2008C97DB /* linphone-no-gpl-thirdparties */ = {
+		22D8F11D147548E2008C97DB /* Vphone-no-gpl-thirdparties */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 22D8F182147548E2008C97DB /* Build configuration list for PBXNativeTarget "linphone-no-gpl-thirdparties" */;
+			buildConfigurationList = 22D8F182147548E2008C97DB /* Build configuration list for PBXNativeTarget "Vphone-no-gpl-thirdparties" */;
 			buildPhases = (
 				22D8F11E147548E2008C97DB /* Resources */,
 				D33CF35115D3AC9800CD4B85 /* ShellScript */,
@@ -4174,9 +4174,9 @@
 				D3554ED715CA79C000478841 /* PBXTargetDependency */,
 				D3B90E1D15C2CBCD00F64F8C /* PBXTargetDependency */,
 			);
-			name = "linphone-no-gpl-thirdparties";
+			name = "Vphone-no-gpl-thirdparties";
 			productName = linphone;
-			productReference = 22D8F187147548E2008C97DB /* linphone-no-gpl-thirdparties.app */;
+			productReference = 22D8F187147548E2008C97DB /* Vphone-no-gpl-thirdparties.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -4187,7 +4187,7 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "linphone" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Vphone" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -4218,8 +4218,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* linphone */,
-				22D8F11D147548E2008C97DB /* linphone-no-gpl-thirdparties */,
+				1D6058900D05DD3D006BFB54 /* Vphone */,
+				22D8F11D147548E2008C97DB /* Vphone-no-gpl-thirdparties */,
 			);
 		};
 /* End PBXProject section */
@@ -5861,7 +5861,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = linphone_Prefix.pch;
+				GCC_PREFIX_HEADER = Vphone_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					VIDEO_ENABLED,
 					HAVE_X264,
@@ -5875,7 +5875,7 @@
 					Classes/Utils/NinePatch/,
 					Classes/Utils/XMLRPC/,
 				);
-				INFOPLIST_FILE = "linphone-Info.plist";
+				INFOPLIST_FILE = "Vphone-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					"\"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins\"",
@@ -5884,7 +5884,7 @@
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = linphone;
+				PRODUCT_NAME = Vphone;
 				PROVISIONING_PROFILE = "0228C73A-EAF8-4AAD-8155-D271D870B9AD";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5929,7 +5929,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = linphone_Prefix.pch;
+				GCC_PREFIX_HEADER = Vphone_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					IN_LINPHONE,
 					VIDEO_ENABLED,
@@ -5943,7 +5943,7 @@
 					Classes/Utils/NinePatch/,
 					Classes/Utils/XMLRPC/,
 				);
-				INFOPLIST_FILE = "linphone-Info.plist";
+				INFOPLIST_FILE = "Vphone-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					"\"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins\"",
@@ -5952,7 +5952,7 @@
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = linphone;
+				PRODUCT_NAME = Vphone;
 				PROVISIONING_PROFILE = "0228C73A-EAF8-4AAD-8155-D271D870B9AD";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5988,7 +5988,7 @@
 					Classes/Utils/NinePatch/,
 					Classes/Utils/XMLRPC/,
 				);
-				INFOPLIST_FILE = "linphone-Info.plist";
+				INFOPLIST_FILE = "Vphone-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					"\"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins\"",
@@ -5997,7 +5997,7 @@
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "linphone-no-gpl-thirdparties";
+				PRODUCT_NAME = "Vphone-no-gpl-thirdparties";
 				SKIP_INSTALL = NO;
 			};
 			name = Debug;
@@ -6030,7 +6030,7 @@
 					Classes/Utils/NinePatch/,
 					Classes/Utils/XMLRPC/,
 				);
-				INFOPLIST_FILE = "linphone-Info.plist";
+				INFOPLIST_FILE = "Vphone-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					"\"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins\"",
@@ -6039,7 +6039,7 @@
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "linphone-no-gpl-thirdparties";
+				PRODUCT_NAME = "Vphone-no-gpl-thirdparties";
 				SKIP_INSTALL = NO;
 			};
 			name = Release;
@@ -6073,7 +6073,7 @@
 					Classes/Utils/NinePatch/,
 					Classes/Utils/XMLRPC/,
 				);
-				INFOPLIST_FILE = "linphone-Info.plist";
+				INFOPLIST_FILE = "Vphone-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					"\"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins\"",
@@ -6082,7 +6082,7 @@
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "linphone-no-gpl-thirdparties";
+				PRODUCT_NAME = "Vphone-no-gpl-thirdparties";
 				SKIP_INSTALL = NO;
 			};
 			name = Distribution;
@@ -6116,7 +6116,7 @@
 					Classes/Utils/NinePatch/,
 					Classes/Utils/XMLRPC/,
 				);
-				INFOPLIST_FILE = "linphone-Info.plist";
+				INFOPLIST_FILE = "Vphone-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					"\"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins\"",
@@ -6125,7 +6125,7 @@
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "linphone-no-gpl-thirdparties";
+				PRODUCT_NAME = "Vphone-no-gpl-thirdparties";
 				SKIP_INSTALL = NO;
 			};
 			name = DistributionAdhoc;
@@ -6166,7 +6166,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = linphone_Prefix.pch;
+				GCC_PREFIX_HEADER = Vphone_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					IN_LINPHONE,
 					VIDEO_ENABLED,
@@ -6180,7 +6180,7 @@
 					Classes/Utils/NinePatch/,
 					Classes/Utils/XMLRPC/,
 				);
-				INFOPLIST_FILE = "linphone-Info.plist";
+				INFOPLIST_FILE = "Vphone-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					"\"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins\"",
@@ -6189,7 +6189,7 @@
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = linphone;
+				PRODUCT_NAME = Vphone;
 				PROVISIONING_PROFILE = "0228C73A-EAF8-4AAD-8155-D271D870B9AD";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6233,7 +6233,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = linphone_Prefix.pch;
+				GCC_PREFIX_HEADER = Vphone_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					IN_LINPHONE,
 					VIDEO_ENABLED,
@@ -6247,7 +6247,7 @@
 					Classes/Utils/NinePatch/,
 					Classes/Utils/XMLRPC/,
 				);
-				INFOPLIST_FILE = "linphone-Info.plist";
+				INFOPLIST_FILE = "Vphone-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					"\"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins\"",
@@ -6256,7 +6256,7 @@
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = linphone;
+				PRODUCT_NAME = Vphone;
 				PROVISIONING_PROFILE = "0228C73A-EAF8-4AAD-8155-D271D870B9AD";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6290,7 +6290,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "linphone" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Vphone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
@@ -6301,7 +6301,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		22D8F182147548E2008C97DB /* Build configuration list for PBXNativeTarget "linphone-no-gpl-thirdparties" */ = {
+		22D8F182147548E2008C97DB /* Build configuration list for PBXNativeTarget "Vphone-no-gpl-thirdparties" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				22D8F183147548E2008C97DB /* Debug */,
@@ -6312,7 +6312,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "linphone" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Vphone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

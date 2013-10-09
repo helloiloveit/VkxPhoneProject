@@ -527,7 +527,8 @@ static UICompositeViewDescription *compositeDescription = nil;
 }
 
 - (IBAction)onCreateAccountClick:(id)sender {
-    [self changeView:createAccountView back:FALSE animation:TRUE];
+    [limitFunctionForDevelopment limitUserClickableButton];
+    //[self changeView:createAccountView back:FALSE animation:TRUE];
 }
 
 - (IBAction)onConnectAccountClick:(id)sender {
