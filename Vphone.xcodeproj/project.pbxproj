@@ -196,6 +196,9 @@
 		344ABDF114850AE9007420B6 /* libc++.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 344ABDEF14850AE9007420B6 /* libc++.1.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		344ABDF214850AE9007420B6 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 344ABDF014850AE9007420B6 /* libstdc++.6.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		34A6ECEB14CF13CB00460C04 /* linphone_icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = 34A6ECEA14CF13CB00460C04 /* linphone_icon_72.png */; };
+		3A2CBA01180651EF00353E6B /* chat_compose_message.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2CBA00180651EF00353E6B /* chat_compose_message.png */; };
+		3A2CBA05180662EE00353E6B /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2CBA04180662ED00353E6B /* call.png */; };
+		3A2CBA071806647300353E6B /* contact_list_call.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2CBA061806647300353E6B /* contact_list_call.png */; };
 		3A307EFA17C1D58400512153 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A307EF917C1D58400512153 /* avatar.png */; };
 		3A47635F1802310100BA6F9A /* linphone_splashscreen-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A47635E1802310100BA6F9A /* linphone_splashscreen-568h@2x.png */; };
 		3A6ACEAF1802BA55009AEA9F /* ContactInfoHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6ACEAE1802BA55009AEA9F /* ContactInfoHandler.m */; };
@@ -1835,6 +1838,9 @@
 		344ABDEF14850AE9007420B6 /* libc++.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.1.dylib"; path = "usr/lib/libc++.1.dylib"; sourceTree = SDKROOT; };
 		344ABDF014850AE9007420B6 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		34A6ECEA14CF13CB00460C04 /* linphone_icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = linphone_icon_72.png; path = Resources/linphone_icon_72.png; sourceTree = "<group>"; };
+		3A2CBA00180651EF00353E6B /* chat_compose_message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_compose_message.png; sourceTree = "<group>"; };
+		3A2CBA04180662ED00353E6B /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
+		3A2CBA061806647300353E6B /* contact_list_call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contact_list_call.png; sourceTree = "<group>"; };
 		3A307EF917C1D58400512153 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 		3A47635E1802310100BA6F9A /* linphone_splashscreen-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linphone_splashscreen-568h@2x.png"; sourceTree = "<group>"; };
 		3A6ACEAD1802BA55009AEA9F /* ContactInfoHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactInfoHandler.h; sourceTree = "<group>"; };
@@ -3000,6 +3006,7 @@
 				D38187F715FE354700C3EDCA /* UIContactDetailsFooter.xib */,
 				D37C639215AADDAE009D0BAC /* UIContactDetailsHeader.h */,
 				D37C639315AADDAE009D0BAC /* UIContactDetailsHeader.m */,
+				3A2CBA04180662ED00353E6B /* call.png */,
 				D381881815FE3F7F00C3EDCA /* UIContactDetailsHeader.xib */,
 				2248E90C12F7E4CF00220D9C /* UIDigitButton.h */,
 				2248E90D12F7E4CF00220D9C /* UIDigitButton.m */,
@@ -3504,6 +3511,7 @@
 				D3A74E7115C69392001500B9 /* chat_over~ipad.png */,
 				D3F5F8DC1609A86700D3DA1A /* chat_photo_default.png */,
 				D3F5F8DD1609A86700D3DA1A /* chat_photo_disabled.png */,
+				3A2CBA00180651EF00353E6B /* chat_compose_message.png */,
 				D3F5F8DE1609A86700D3DA1A /* chat_photo_over.png */,
 				D3F5F983160B1A0800D3DA1A /* chat_progressbar_background.png */,
 				D3A74E7215C69392001500B9 /* chat_selected_landscape~ipad.png */,
@@ -3539,6 +3547,7 @@
 				D3A74E7615C69392001500B9 /* contacts_default_landscape~ipad.png */,
 				D3A74E7715C69392001500B9 /* contacts_default~ipad.png */,
 				3AD27B8617FD6DC1000BFD05 /* contacts_default.png */,
+				3A2CBA061806647300353E6B /* contact_list_call.png */,
 				3AD27B8817FD6DCD000BFD05 /* contacts_over.png */,
 				D354980515875534000081D8 /* contacts_linphone_default.png */,
 				D354980415875534000081D8 /* contacts_linphone_selected.png */,
@@ -4792,6 +4801,9 @@
 				3AD27B8B17FD6E9E000BFD05 /* dialer_default.png in Resources */,
 				3AD27B8D17FD6ECC000BFD05 /* dialer_over.png in Resources */,
 				3A47635F1802310100BA6F9A /* linphone_splashscreen-568h@2x.png in Resources */,
+				3A2CBA01180651EF00353E6B /* chat_compose_message.png in Resources */,
+				3A2CBA05180662EE00353E6B /* call.png in Resources */,
+				3A2CBA071806647300353E6B /* contact_list_call.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
