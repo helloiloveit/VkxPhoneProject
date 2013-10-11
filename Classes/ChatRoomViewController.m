@@ -428,12 +428,14 @@ static void message_status(LinphoneChatMessage* msg,LinphoneChatMessageState sta
 #pragma mark - Event Functions
 
 - (void)coreUpdateEvent:(NSNotification*)notif {
+    DebugLog(@"");
     if(![LinphoneManager isLcReady]) {
         chatRoom = NULL;
     }
 }
 
 - (void)textReceivedEvent:(NSNotification *)notif {
+    DebugLog(@"");
     //LinphoneChatRoom *room = [[[notif userInfo] objectForKey:@"room"] pointerValue];
     //NSString *message = [[notif userInfo] objectForKey:@"message"];
     LinphoneAddress *from = [[[notif userInfo] objectForKey:@"from"] pointerValue];

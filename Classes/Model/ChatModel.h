@@ -18,7 +18,7 @@
  */ 
 
 #import <Foundation/Foundation.h>
-
+#import "ConstantDefinition.h"
 
 @interface ChatModel : NSObject {
     @private

@@ -201,6 +201,7 @@
 #pragma mark - 
 
 + (NSMutableArray *)listConversations {
+    DebugLog(@"");
     NSMutableArray *array = [NSMutableArray array];
     sqlite3* database = [[LinphoneManager instance] database];
     if(database == NULL) {

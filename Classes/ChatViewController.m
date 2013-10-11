@@ -60,6 +60,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    DebugLog(@"");
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(textReceivedEvent:) 
@@ -83,6 +84,7 @@
 #pragma mark - Event Functions
 
 - (void)textReceivedEvent:(NSNotification *)notif {
+    DebugLog(@"");
     [tableController loadData];
 }
 

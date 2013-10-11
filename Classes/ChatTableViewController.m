@@ -49,6 +49,7 @@
 #pragma mark - 
 
 - (void)loadData {
+    DebugLog(@"");
     if(data != nil)
         [data release];
     data = [[ChatModel listConversations] retain];

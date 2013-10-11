@@ -21,6 +21,7 @@
 #import <AddressBook/AddressBook.h>
 
 #import "OrderedDictionary.h"
+#import "alertHandler.h"
 
 @interface ContactsTableViewController : UITableViewController {
     @private

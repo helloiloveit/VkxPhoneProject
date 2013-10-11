@@ -116,7 +116,15 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 
     dispatch_queue_t fetchQ = dispatch_queue_create("Flickr Fetch", NULL);
     dispatch_async(fetchQ, ^{
-        self.dataArray = get_data_from_server(NULL);
+        @try {
+            
+            self.dataArray = get_data_from_server(NULL);
+        }
+        @catch (NSException * e) {
+            NSLog(@"Exception: %@", e);
+            [alertHandler contactListError];
+        }
+
         dispatch_async(dispatch_get_main_queue(), ^{
            [self.tableView reloadData];     
         });
@@ -162,16 +170,13 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     InfoLog(@"");
     
-    //Number of rows it should expect should be based on the section
-    /*
-     NSDictionary *dictionary = [dataArray objectAtIndex:section];
-     NSArray *array = [dictionary objectForKey:@"data"];
-     */
+
     
     NSDictionary *dict = [dataArray objectAtIndex:section ];
     NSArray *nameArray;
     DebugLog(@"dict = %@", dict);
     for (id key in dict)
+
         nameArray = [dict objectForKey:key];
     DebugLog(@"nameArray  count = %D",[nameArray count]);
     
