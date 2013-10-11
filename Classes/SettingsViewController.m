@@ -138,7 +138,7 @@
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kIASKPSToggleSwitchSpecifier];
 		cell.accessoryView = [[[IASKSwitchEx alloc] initWithFrame:CGRectMake(0, 0, 79, 27)] autorelease];
 		[((IASKSwitchEx*)cell.accessoryView) addTarget:self action:@selector(toggledValue:) forControlEvents:UIControlEventValueChanged];
-        [((IASKSwitchEx*)cell.accessoryView) setOnTintColor:LINPHONE_MAIN_COLOR];
+    //    [((IASKSwitchEx*)cell.accessoryView) setOnTintColor:LINPHONE_MAIN_COLOR];
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.minimumFontSize = kIASKMinimumFontSize;
         cell.detailTextLabel.minimumFontSize = kIASKMinimumFontSize;
@@ -347,7 +347,8 @@
     [viewController viewWillAppear:animated]; // Force view
     UILabel *labelTitleView = [[UILabel alloc] init];
     labelTitleView.backgroundColor = [UIColor clearColor];
-    labelTitleView.textColor = [UIColor colorWithRed:0x41/255.0f green:0x48/255.0f blue:0x4f/255.0f alpha:1.0];
+    //labelTitleView.textColor = [UIColor colorWithRed:0x41/255.0f green:0x48/255.0f blue:0x4f/255.0f alpha:1.0];
+    labelTitleView.textColor = [UIColor whiteColor];
     labelTitleView.shadowColor = [UIColor colorWithWhite:1.0 alpha:0.5];
     labelTitleView.font = [UIFont boldSystemFontOfSize:20];
     labelTitleView.shadowOffset = CGSizeMake(0,1);

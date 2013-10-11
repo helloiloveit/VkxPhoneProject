@@ -62,9 +62,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-	[linkLabel setText:NSLocalizedString(@"http://www.linphone.org", nil)];
+	[linkLabel setText:NSLocalizedString(@"http://www.vkx.com.vn", nil)];
 	[licenseLabel setText:NSLocalizedString(@"GNU General Public License V2 ", nil)];
-	[copyrightLabel setText:NSLocalizedString(@"© 2010-2012 Belledonne Communications ", nil)];
+	[copyrightLabel setText:NSLocalizedString(@"© VKX Ltd ", nil)];
 	
     [linkLabel addGestureRecognizer:linkTapGestureRecognizer];
     
