@@ -22,7 +22,15 @@
 #import "ContactInfoHandler.h"
 #import "ConstantDefinition.h"
 
-@implementation ContactDetailsViewController
+#import "MapAnnotation.h"
+#import "LinphoneAppDelegate.h"
+
+#define METERS_PER_MILE 1609.344
+
+@implementation ContactDetailsViewController{
+    CLLocationManager *locationManager;
+}
+
 
 @synthesize tableController;
 @synthesize contact;
@@ -31,7 +39,7 @@
 @synthesize cancelButton;
 @synthesize userRecord;
 
-
+@synthesize mapView;
 
 static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef info, void *context);
 
@@ -56,6 +64,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     [backButton release];
     [cancelButton release];
     
+    [mapView release];
     [super dealloc];
 }
 
@@ -296,6 +305,8 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     // set value for tableController
    // DebugLog(@"userRecord = %@", self.userRecord);
   //  tableController.userManipulatedData = [self manipulateResultFromServer:self.userRecord];
+    mapBack = FALSE;
+    [self appDelegate]._messageDelegate = self;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -329,7 +340,11 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     [super viewDidDisappear:animated];
     if ([[UIDevice currentDevice].systemVersion doubleValue] < 5.0) {
         [tableController viewDidDisappear:animated];
-    }  
+    }
+    mapBack = FALSE;
+    [[tableController tableView] setHidden:NO];
+    [mapView setHidden: YES];
+    [mapView setUserInteractionEnabled:NO];
 }
 
 
@@ -382,12 +397,18 @@ static UICompositeViewDescription *compositeDescription = nil;
 }
 
 - (IBAction)onBackClick:(id)event {
+    if (!mapBack){
     if([ContactSelection getSelectionMode] == ContactSelectionModeEdit) {
         [ContactSelection setSelectionMode:ContactSelectionModeNone];
     }
     [[PhoneMainView instance] popCurrentView];
+    } else {
+        mapBack = FALSE;
+        [[tableController tableView] setHidden:NO];
+        [mapView setHidden: YES];
+        [mapView setUserInteractionEnabled:NO];
+    }
 }
-
 - (IBAction)onEditClick:(id)event {
     if([tableController isEditing]) {
         if([tableController isValid]) {
@@ -413,4 +434,101 @@ static UICompositeViewDescription *compositeDescription = nil;
     }
 }
 
+#pragma mark - Map function;
+//delegate
+- (LinphoneAppDelegate *)appDelegate {
+	return (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+- (XMPPStream *)xmppStream {
+	return [[self appDelegate] xmppStream];
+}
+
+//end delegate
+
+-(IBAction)onMapClick:(id)sender
+{
+    /*to do:
+        * Remove Map button
+        * Change method name
+        * Add method to ContactDetailsDelegate
+        * Add method call to ContactDetailsTableViewController if indexPath.section == 3
+    */
+    
+    mapBack = TRUE;
+    [[tableController tableView] setHidden:YES];
+    [mapView setHidden: NO];
+    [mapView setUserInteractionEnabled:YES];
+    
+    //*start updating location
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.distanceFilter = 10;
+    
+    [locationManager startUpdatingLocation];
+    
+    ///////////
+    if ([[self appDelegate] connect]){
+        NSLog(@"connected");    
+    }
+    ////////////
+}
+
+
+-(void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    CLLocation *currentLocation = newLocation;
+    if (currentLocation != nil){
+        MapAnnotation *annotation = [[[MapAnnotation alloc] initWithCoordinate:currentLocation.coordinate] autorelease];
+        
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+        [mapView addAnnotation:annotation];
+        [mapView setRegion:viewRegion animated:YES];
+    }
+}
+
+-(void)newMessageReceived:(NSDictionary *)messageContent{
+    /* to do: change method in sync with data received
+     
+     */
+    
+    NSString *receivedData = [messageContent objectForKey:@"msg"];
+    NSArray *receivedDataArray = [receivedData componentsSeparatedByString:@"|"];
+    
+    NSLog(@"%d", [receivedDataArray count]);
+    if ([receivedDataArray count] !=6){
+        //error data format
+    }
+    else{
+        NSLog(@"%f", [[receivedDataArray objectAtIndex:3] doubleValue]);
+        NSLog(@"%f", [[receivedDataArray objectAtIndex:4] doubleValue]);
+    }
+    
+    NSString *latitude = @"32.3477832";
+    NSString *longtitude = @"55.2388921";
+    
+    CLLocation *currentLocation = [[CLLocation alloc]initWithLatitude:latitude.doubleValue longitude:longtitude.doubleValue];
+    
+    if (currentLocation != nil){
+        MapAnnotation *annotation = [[[MapAnnotation alloc] initWithCoordinate:currentLocation.coordinate] autorelease];
+        
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+        [mapView addAnnotation:annotation];
+        [mapView setRegion:viewRegion animated:YES];
+    }
+    
+    [locationManager stopUpdatingLocation];
+}
+
+
+- (void)viewDidUnload {
+    [self setMapView:nil];
+    [super viewDidUnload];
+}
 @end

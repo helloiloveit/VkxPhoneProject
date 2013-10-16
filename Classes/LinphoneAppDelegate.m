@@ -252,4 +252,105 @@
     [[LinphoneManager instance] setPushNotificationToken:nil];
 }
 
+#pragma mark - Location Server
+
+@synthesize xmppStream;
+@synthesize _messageDelegate;
+@synthesize _locationRequestDelegate;
+
+-(void) setupStream {
+    NSLog(@"setting up stream\n\n\n");
+    xmppStream = [[XMPPStream alloc] init];
+    [xmppStream setHostName:@"localhost"];
+    [xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    
+}
+
+-(void) goOnline{
+    XMPPPresence *presence = [XMPPPresence presence];
+    [[self xmppStream] sendElement:presence];
+}
+
+-(void) goOffline{
+    XMPPPresence *presence = [XMPPPresence presenceWithType:@"unavailable"];
+    [[self xmppStream] sendElement:presence];
+}
+
+-(BOOL) connect{
+    NSLog(@"Connecting");
+    [self setupStream];
+    NSString *jabberID = [[NSUserDefaults standardUserDefaults] stringForKey:@"userID"];
+    NSString *myPassword = [[NSUserDefaults standardUserDefaults] stringForKey:@"userPassword"];
+    
+    jabberID = @"ninhnb2@localhost";
+    myPassword = @"admin";
+    
+    if (![xmppStream isDisconnected]){
+        return YES;
+    }
+    if (jabberID ==nil || myPassword == nil){
+        return NO;
+    }
+    
+    [xmppStream setMyJID:[XMPPJID jidWithString:jabberID]];
+    password = myPassword;
+    NSError *error = nil;
+    
+    if (![xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error])
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Can't connect"]
+                                                           delegate:nil cancelButtonTitle:@"OK"
+                                                  otherButtonTitles: nil];
+        [alertView show];
+        return NO;
+    }
+    return YES;
+}
+
+-(void) disconnect{
+    [self goOffline];
+    [xmppStream disconnect];
+}
+
+
+-(void)xmppStreamDidConnect:(XMPPStream *)sender{
+    isOpen = YES;
+    NSError *error = nil;
+    [[self xmppStream] authenticateWithPassword:password error:&error];
+}
+
+-(void)xmppStreamDidAuthenticate:(XMPPStream *)sender{
+    [self goOnline];
+    NSLog(@"Stream authenticated");
+    [_locationRequestDelegate locationRequest];
+
+}
+
+-(void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message{
+    if ([[message elementForName:@"body"] stringValue] != nil)
+    {
+        NSString *msg = [[message elementForName:@"body"] stringValue];
+        NSString *from = [[message attributeForName:@"from"] stringValue];
+        NSMutableDictionary *m = [[NSMutableDictionary alloc] init];
+        [m setObject:msg forKey:@"msg"];
+        [m setObject:from forKey:@"sender"];
+        [_messageDelegate newMessageReceived:m];
+        [self disconnect];
+    }
+}
+
+-(void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence{
+    /*   NSString *presenceType = [presence type];
+     NSString *myUsername = [[sender myJID] user];
+     NSString *presenceFromUser = [[presence from] user];
+     
+     if (![presenceFromUser isEqualToString:myUsername]){
+     if ([presenceType isEqualToString:@"available"]){
+     [_chatDelegate newBuddyOnline:[NSString stringWithFormat:@"%@@%@", presenceFromUser, @"localhost"]];
+     }else if ([presenceType isEqualToString:@"unavailable"]){
+     [_chatDelegate buddyWentOffline:[NSString stringWithFormat:@"%@@%@", presenceFromUser, @"localhost"]];
+     }
+     }*/
+}
+
 @end

@@ -19,14 +19,18 @@
 
 #import <UIKit/UIKit.h>
 #import <AddressBook/AddressBook.h>
+#import <MapKit/MapKit.h>
 
 #import "UICompositeViewController.h"
 #import "UIToggleButton.h"
 #import "ContactDetailsTableViewController.h"
+#import "SMMessageDelegate.h"
+#import "XMPP.h"
 
-@interface ContactDetailsViewController : UIViewController<UICompositeViewDelegate, ContactDetailsDelegate> {
+@interface ContactDetailsViewController : UIViewController<UICompositeViewDelegate, ContactDetailsDelegate, CLLocationManagerDelegate, SMMessageDelegate> {
     ABAddressBookRef addressBook;
     BOOL inhibUpdate;
+    BOOL mapBack;
 }
 
 @property (nonatomic, assign) ABRecordRef contact;
@@ -34,6 +38,7 @@
 @property (nonatomic, retain) IBOutlet UIToggleButton *editButton;
 @property (nonatomic, retain) IBOutlet UIButton *backButton;
 @property (nonatomic, retain) IBOutlet UIButton *cancelButton;
+@property (retain, nonatomic) IBOutlet MKMapView *mapView;
 
 @property (nonatomic, retain) NSDictionary *userInfo;
 @property (nonatomic, retain) NSArray *userManipulatedData;

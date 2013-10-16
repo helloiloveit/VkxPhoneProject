@@ -20,8 +20,10 @@
 #import <UIKit/UIKit.h>
 #import <AddressBookUI/ABPeoplePickerNavigationController.h>
 
-
 #import "LinphoneCoreSettingsStore.h"
+#import "XMPP.h"
+#import "SMMessageDelegate.h"
+#import "LocationRequestDelegate.h"
 
 @interface UILinphoneWindow : UIWindow
 
@@ -33,11 +35,23 @@
     BOOL started;
 	int savedMaxCall;
 	
+    XMPPStream *xmppStream;
+    
+    NSString *password;
+    BOOL isOpen;
+    __weak NSObject <SMMessageDelegate> *_messageDelegate;
 }
 
 - (void)processRemoteNotification:(NSDictionary*)userInfo;
 
 @property (assign) BOOL started;
+
+@property (nonatomic, readonly) XMPPStream *xmppStream;
+@property (nonatomic, assign) id <SMMessageDelegate>  _messageDelegate;
+@property (nonatomic, assign) id <LocationRequestDelegate>  _locationRequestDelegate;
+
+-(BOOL) connect;
+-(void) disconnect;
 
 @end
 

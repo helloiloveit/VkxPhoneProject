@@ -30,6 +30,8 @@
 #import "limitFunctionForDevelopment.h"
 
 #import "ConstantDefinition.h"
+
+#import "LinphoneAppDelegate.h"
 @interface Entry : NSObject
 
 @property (assign) ABMultiValueIdentifier identifier;
@@ -148,6 +150,7 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
     [super viewDidLoad];
     [headerController view]; // Force view load
     [footerController view]; // Force view load
+    [self appDelegate]._locationRequestDelegate = self;
      
 }
 
@@ -879,4 +882,25 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
     return TRUE;
 }
 
+#pragma mark - Location request
+@synthesize xmppStream;
+
+- (LinphoneAppDelegate *)appDelegate {
+	return (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+- (XMPPStream *)xmppStream {
+	return [[self appDelegate] xmppStream];
+}
+
+-(void) locationRequest{
+    NSString *messageStr = @"position|get|";
+    // NSString *userID = [self.userManipulatedData[@"userID"] lastObject];
+    // NSString *messageStr = [@"position|get|" stringByAppendingString:userID];
+
+    XMPPMessage *msg = [[XMPPMessage alloc] initWithType:@"chat" to:[XMPPJID jidWithString:@"ninhnb@localhost"]];
+    [msg addBody:messageStr];
+    [self.xmppStream sendElement: msg];
+    NSLog(@"Message sent \n\n");
+}
 @end

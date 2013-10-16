@@ -25,11 +25,14 @@
 #import "UIContactDetailsHeader.h"
 #import "UIContactDetailsFooter.h"
 
-@interface ContactDetailsTableViewController : UITableViewController<ContactDetailsLabelViewDelegate, UITextFieldDelegate> {
+#import "XMPP.h"
+#import "LocationRequestDelegate.h"
+@interface ContactDetailsTableViewController : UITableViewController<ContactDetailsLabelViewDelegate, UITextFieldDelegate, LocationRequestDelegate> {
 @private
     NSMutableArray *dataCache;
     NSMutableArray *labelArray;
     NSIndexPath *editingIndexPath;
+    XMPPStream *xmppStream;
 }
 
 @property (nonatomic, assign) ABRecordRef contact;
@@ -43,5 +46,7 @@
 - (BOOL)isValid;
 - (void)addSipField:(NSString*)address;
 - (void)addEmailField:(NSString*)address;
+
+@property (nonatomic, readonly) XMPPStream *xmppStream;
 
 @end
