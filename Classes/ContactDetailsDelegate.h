@@ -21,5 +21,5 @@
 
 - (void)onRemove:(id)event;
 - (void)onModification:(id)event;
-
+- (void)showLocation;
 @end

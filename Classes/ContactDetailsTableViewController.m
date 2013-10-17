@@ -601,7 +601,8 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
         
     } else if (indexPath.section == 3) {
         cell.textLabel.text = @"";
-        cell.detailTextLabel.text = @" Hoan kiem , Ha Noi, Viet Name ";
+        cell.detailTextLabel.text = @" Updating .....";
+        [cell setUserInteractionEnabled:NO];
     }
     return cell;
 }
@@ -624,7 +625,7 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
     NSString *dest=NULL;;
     dest = [FastAddressBook normalizeSipURI:[NSString stringWithString:(NSString*) mobilePhoneInfo]];
     DebugLog(@"dest = %@", [dest description]  );
-    if(dest != nil) {
+   // if(dest != nil) {
         NSString *displayName = [FastAddressBook getContactDisplayName:contact];
         
         /*
@@ -655,9 +656,13 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
             if(controller != nil) {
                 [controller setRemoteAddress:dest];
             }
+        } else if (indexPath.section == 3){
+            // Go to Location view
+            [contactDetailsDelegate showLocation];
         }
-    }
-   }
+ //   }
+ // 
+}
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath  {
     [LinphoneUtils findAndResignFirstResponder:[self tableView]];

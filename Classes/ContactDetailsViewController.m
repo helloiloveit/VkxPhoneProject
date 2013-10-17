@@ -40,6 +40,7 @@
 @synthesize userRecord;
 
 @synthesize mapView;
+@synthesize receivedLocation;
 
 static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef info, void *context);
 
@@ -65,6 +66,10 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     [cancelButton release];
     
     [mapView release];
+    
+    [receivedLocation release];
+    [locationManager release];
+    
     [super dealloc];
 }
 
@@ -307,6 +312,8 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
   //  tableController.userManipulatedData = [self manipulateResultFromServer:self.userRecord];
     mapBack = FALSE;
     [self appDelegate]._messageDelegate = self;
+    
+    [[self appDelegate] connect];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -446,36 +453,6 @@ static UICompositeViewDescription *compositeDescription = nil;
 
 //end delegate
 
--(IBAction)onMapClick:(id)sender
-{
-    /*to do:
-        * Remove Map button
-        * Change method name
-        * Add method to ContactDetailsDelegate
-        * Add method call to ContactDetailsTableViewController if indexPath.section == 3
-    */
-    
-    mapBack = TRUE;
-    [[tableController tableView] setHidden:YES];
-    [mapView setHidden: NO];
-    [mapView setUserInteractionEnabled:YES];
-    
-    //*start updating location
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    locationManager.distanceFilter = 10;
-    
-    [locationManager startUpdatingLocation];
-    
-    ///////////
-    if ([[self appDelegate] connect]){
-        NSLog(@"connected");    
-    }
-    ////////////
-}
-
-
 -(void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
@@ -495,7 +472,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 
 -(void)newMessageReceived:(NSDictionary *)messageContent{
     /* to do: change method in sync with data received
-     
+        change location server name / account
      */
     
     NSString *receivedData = [messageContent objectForKey:@"msg"];
@@ -506,12 +483,33 @@ static UICompositeViewDescription *compositeDescription = nil;
         //error data format
     }
     else{
-        NSLog(@"%f", [[receivedDataArray objectAtIndex:3] doubleValue]);
-        NSLog(@"%f", [[receivedDataArray objectAtIndex:4] doubleValue]);
+        NSLog(@"%@", [[receivedDataArray objectAtIndex:3] stringValue]);
+        NSLog(@"%@", [[receivedDataArray objectAtIndex:4] stringValue]);
     }
+    [[[tableController tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]].detailTextLabel setText:@"Show"];
+    [[[tableController tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]] setUserInteractionEnabled:YES];
+/*
+    receivedLocation = [[CLLocation alloc] initWithLatitude:[[receivedDataArray objectAtIndex:3] doubleValue] longitude:[[receivedDataArray objectAtIndex:4] doubleValue]];*/
+}
+
+-(void) showLocation{
+    NSLog(@"Showing location");
+    mapBack = TRUE;
+    [[tableController tableView] setHidden:YES];
+    [mapView setHidden: NO];
+    [mapView setUserInteractionEnabled:YES];
     
-    NSString *latitude = @"32.3477832";
-    NSString *longtitude = @"55.2388921";
+    //*start updating location
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.distanceFilter = 10;
+    
+    [locationManager startUpdatingLocation];
+    
+    /*subtitude currentLocation with receivedLocation*/
+    NSString *latitude = @"21.0333";
+    NSString *longtitude = @"105.8500";
     
     CLLocation *currentLocation = [[CLLocation alloc]initWithLatitude:latitude.doubleValue longitude:longtitude.doubleValue];
     

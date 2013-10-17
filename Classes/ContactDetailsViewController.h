@@ -43,7 +43,7 @@
 @property (nonatomic, retain) NSDictionary *userInfo;
 @property (nonatomic, retain) NSArray *userManipulatedData;
 @property (nonatomic, retain) NSDictionary *userRecord;
-
+@property (nonatomic, retain) CLLocation *receivedLocation;
 
 - (IBAction)onBackClick:(id)event;
 - (IBAction)onCancelClick:(id)event;
