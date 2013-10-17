@@ -35,7 +35,7 @@
 - (void)dealloc {
     [remoteAddress release];
     [chatRoomDelegate release];
-    
+
     [super dealloc];
 }
 

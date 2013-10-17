@@ -384,7 +384,7 @@
 
 -(UITextAlignment)textAlignment
 {
-	return internalTextView.textAlignment;
+	return (UITextAlignment )internalTextView.textAlignment;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

@@ -18,4 +18,14 @@
     [alert show];
     [alert release];
 }
+
++ (void) UncofigureServer{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"opps"
+                                                    message:@"Please configure SIP server"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+}
 @end

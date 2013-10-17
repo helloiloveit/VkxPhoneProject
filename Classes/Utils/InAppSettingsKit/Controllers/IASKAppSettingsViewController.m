@@ -446,7 +446,9 @@ CGRect IASKCGRectSwap(CGRect rect);
 	if ((title = [self tableView:tableView titleForHeaderInSection:section])) {
 		CGSize size = [title sizeWithFont:[UIFont boldSystemFontOfSize:[UIFont labelFontSize]] 
 						constrainedToSize:CGSizeMake(tableView.frame.size.width - 2*kIASKHorizontalPaddingGroupTitles, INFINITY)
-							lineBreakMode:UILineBreakModeWordWrap];
+							//lineBreakMode:UILineBreakModeWordWrap];
+                            lineBreakMode:0];
+
 		return size.height+kIASKVerticalPaddingGroupTitles;
 	}
 	return 0;
