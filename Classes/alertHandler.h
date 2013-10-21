@@ -12,4 +12,5 @@
 
 
 + (void) contactListError;
++ (void) UncofigureServer;
 @end

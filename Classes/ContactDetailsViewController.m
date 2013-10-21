@@ -299,10 +299,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 
     [tableController.tableView setBackgroundColor:[UIColor clearColor]]; // Can't do it in Xib: issue with ios4
     [tableController.tableView setBackgroundView:nil]; // Can't do it in Xib: issue with ios4
-    
-    
-
-    
+        
     /*
     NSDictionary *resultFromServer = [self getReturnValueForTest];
     self.userManipulatedData  = [self manipulateResultFromServer:resultFromServer];
@@ -313,7 +310,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     mapBack = FALSE;
     [self appDelegate]._messageDelegate = self;
     
-    [[self appDelegate] connect];
+   
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -333,7 +330,9 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     }
     if ([[UIDevice currentDevice].systemVersion doubleValue] < 5.0) {
         [tableController viewWillAppear:animated];
-    }   
+    }
+    NSLog(@"Attempting to connect");
+    [[self appDelegate] connect];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -447,10 +446,6 @@ static UICompositeViewDescription *compositeDescription = nil;
 	return (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
-- (XMPPStream *)xmppStream {
-	return [[self appDelegate] xmppStream];
-}
-
 //end delegate
 
 -(void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
@@ -478,18 +473,21 @@ static UICompositeViewDescription *compositeDescription = nil;
     NSString *receivedData = [messageContent objectForKey:@"msg"];
     NSArray *receivedDataArray = [receivedData componentsSeparatedByString:@"|"];
     
-    NSLog(@"%d", [receivedDataArray count]);
     if ([receivedDataArray count] !=6){
         //error data format
     }
     else{
-        NSLog(@"%@", [[receivedDataArray objectAtIndex:3] stringValue]);
-        NSLog(@"%@", [[receivedDataArray objectAtIndex:4] stringValue]);
+        receivedLocation = [[CLLocation alloc] initWithLatitude:[[receivedDataArray objectAtIndex:3] doubleValue] longitude:[[receivedDataArray objectAtIndex:4] doubleValue]];
+        
+        NSLog(@"latitude: %f", receivedLocation.coordinate.latitude);
+        NSLog(@"longtitude: %f", receivedLocation.coordinate.longitude);
+        
     }
+    
+   // receivedLocation = [[CLLocation alloc] initWithLatitude:21.0333 longitude:105.8500];
     [[[tableController tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]].detailTextLabel setText:@"Show"];
     [[[tableController tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]] setUserInteractionEnabled:YES];
-/*
-    receivedLocation = [[CLLocation alloc] initWithLatitude:[[receivedDataArray objectAtIndex:3] doubleValue] longitude:[[receivedDataArray objectAtIndex:4] doubleValue]];*/
+
 }
 
 -(void) showLocation{
@@ -508,17 +506,21 @@ static UICompositeViewDescription *compositeDescription = nil;
     [locationManager startUpdatingLocation];
     
     /*subtitude currentLocation with receivedLocation*/
-    NSString *latitude = @"21.0333";
+/*    NSString *latitude = @"21.0333";
     NSString *longtitude = @"105.8500";
     
     CLLocation *currentLocation = [[CLLocation alloc]initWithLatitude:latitude.doubleValue longitude:longtitude.doubleValue];
-    
-    if (currentLocation != nil){
-        MapAnnotation *annotation = [[[MapAnnotation alloc] initWithCoordinate:currentLocation.coordinate] autorelease];
+*/
+    if (receivedLocation != nil){
+        MapAnnotation *annotation = [[[MapAnnotation alloc] initWithCoordinate:receivedLocation.coordinate] autorelease];
         
-        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+        MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(receivedLocation.coordinate, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
         [mapView addAnnotation:annotation];
         [mapView setRegion:viewRegion animated:YES];
+    }
+    else{
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to get location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [errorAlert show];
     }
     
     [locationManager stopUpdatingLocation];

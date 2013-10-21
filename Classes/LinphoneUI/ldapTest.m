@@ -36,10 +36,10 @@ void test_all_ldap(const char * caFile)
 */
    if (caFile)
    {
-      NSLog(@"setting ca file...");
+      DebugLog(@"setting ca file...");
       err = ldap_set_option(NULL, LDAP_OPT_X_TLS_CACERTFILE, (void *)caFile);
       if (err != LDAP_SUCCESS)
-         NSLog(@"ldap_set_option(): %s", ldap_err2string(err));
+         DebugLog(@"ldap_set_option(): %s", ldap_err2string(err));
    };
 
    test_simple_ldap(
@@ -70,57 +70,7 @@ void test_all_ldap(const char * caFile)
    };
  */
 /*
-   test_sasl_ldap(
-      MY_LDAP_VERSION,        // LDAP Protocol Version
-      MY_LDAP_URI,            // LDAP URI
-      MY_SASL_AUTHUSER,       // SASL User
-      MY_SASL_REALM,          // SASL Realm
-      MY_SASL_PASSWD,         // SASL password
-      "OTP",                  // SASL mechanism
-      MY_LDAP_BASEDN,         // LDAP Search Base DN
-      MY_LDAP_FILTER,         // LDAP Search Filter
-      MY_LDAP_SCOPE,          // LDAP Search Scope
-      caFile
-   );
 
-   test_sasl_ldap(
-      MY_LDAP_VERSION,        // LDAP Protocol Version
-      MY_LDAP_URI,            // LDAP URI
-      MY_SASL_AUTHUSER,       // SASL User
-      MY_SASL_REALM,          // SASL Realm
-      MY_SASL_PASSWD,         // SASL password
-      "NTLM",                 // SASL mechanism
-      MY_LDAP_BASEDN,         // LDAP Search Base DN
-      MY_LDAP_FILTER,         // LDAP Search Filter
-      MY_LDAP_SCOPE,          // LDAP Search Scope
-      caFile
-   );
-
-   test_sasl_ldap(
-      MY_LDAP_VERSION,        // LDAP Protocol Version
-      MY_LDAP_URI,            // LDAP URI
-      MY_SASL_AUTHUSER,       // SASL User
-      MY_SASL_REALM,          // SASL Realm
-      MY_SASL_PASSWD,         // SASL password
-      "DIGEST-MD5",           // SASL mechanism
-      MY_LDAP_BASEDN,         // LDAP Search Base DN
-      MY_LDAP_FILTER,         // LDAP Search Filter
-      MY_LDAP_SCOPE,          // LDAP Search Scope
-      caFile
-   );
-
-   test_sasl_ldap(
-      MY_LDAP_VERSION,        // LDAP Protocol Version
-      MY_LDAP_URI,            // LDAP URI
-      MY_SASL_AUTHUSER,       // SASL User
-      MY_SASL_REALM,          // SASL Realm
-      MY_SASL_PASSWD,         // SASL password
-      "CRAM-MD5",             // SASL mechanism
-      MY_LDAP_BASEDN,         // LDAP Search Base DN
-      MY_LDAP_FILTER,         // LDAP Search Filter
-      MY_LDAP_SCOPE,          // LDAP Search Scope
-      caFile
-   );
 */
    return;
 }
@@ -166,47 +116,47 @@ void test_simple_ldap(int version, const char * ldapURI, const char * bindDN,
    servercredp     = NULL;
    dn              = "cn=Directory Manager";
 
-   NSLog(@"attempting %s bind:", (caFile ? "TLS simple" : "simple"));
+   DebugLog(@"attempting %s bind:", (caFile ? "TLS simple" : "simple"));
    ldapURI = ldapURI ? ldapURI : "ldap://127.0.0.1";
-   NSLog(@"   initialzing LDAP (%s)...", ldapURI);
+   DebugLog(@"   initialzing LDAP (%s)...", ldapURI);
    err = ldap_initialize(&ld, ldapURI);
    if (err != LDAP_SUCCESS)
    {
-      NSLog(@"   ldap_initialize(): %s\n", ldap_err2string(err));
+      DebugLog(@"   ldap_initialize(): %s\n", ldap_err2string(err));
       return;
    };
 
    version = version ? version : LDAP_VERSION3;
-   NSLog(@"   setting protocol version %i...", version);
+   DebugLog(@"   setting protocol version %i...", version);
    err = ldap_set_option(ld, LDAP_OPT_PROTOCOL_VERSION, &version);
    if (err != LDAP_SUCCESS)
    {
-      NSLog(@"   ldap_set_option(): %s\n", ldap_err2string(err));
+      DebugLog(@"   ldap_set_option(): %s\n", ldap_err2string(err));
       ldap_unbind_ext_s(ld, NULL, NULL);
       return;
    };
 
    if (caFile)
    {
-     NSLog(@"   attempting to start TLS...");
+     DebugLog(@"   attempting to start TLS...");
       err = ldap_start_tls_s(ld, NULL, NULL);
       if (err == LDAP_SUCCESS)
       {
-         NSLog(@"   TLS established");
+         DebugLog(@"   TLS established");
       } else {
          ldap_get_option( ld, LDAP_OPT_DIAGNOSTIC_MESSAGE, (void*)&msg);
-         NSLog(@"   ldap_start_tls_s(): %s", ldap_err2string(err));
-         NSLog(@"   ssl/tls: %s", msg);
+         DebugLog(@"   ldap_start_tls_s(): %s", ldap_err2string(err));
+         DebugLog(@"   ssl/tls: %s", msg);
          ldap_memfree(msg);
       };
    };
 
-   NSLog(@"   Bind Data:");
-   NSLog(@"      Mech:    Simple");
-   NSLog(@"      DN:      %s", bindDN ? bindDN : "(NULL)");
-   NSLog(@"      Passwd:  %s", bindPW ? bindPW : "(NULL)");
+   DebugLog(@"   Bind Data:");
+   DebugLog(@"      Mech:    Simple");
+   DebugLog(@"      DN:      %s", bindDN ? bindDN : "(NULL)");
+   DebugLog(@"      Passwd:  %s", bindPW ? bindPW : "(NULL)");
 
-   NSLog(@"   binding to LDAP server...");
+   DebugLog(@"   binding to LDAP server...");
    cred.bv_val = bindPW ? strdup(bindPW) : NULL;
    cred.bv_len = bindPW ? (size_t) strlen("drowssap") : 0;
   // err = ldap_sasl_bind_s(ld, bindDN, LDAP_SASL_SIMPLE, &cred, NULL, NULL, &servercredp);
@@ -214,34 +164,34 @@ void test_simple_ldap(int version, const char * ldapURI, const char * bindDN,
      err = ldap_simple_bind_s_test(ld, NULL, NULL);
    if (err != LDAP_SUCCESS)
    {
-      NSLog(@"   ldap_sasl_bind_s(): %s", ldap_err2string(err));
+      DebugLog(@"   ldap_sasl_bind_s(): %s", ldap_err2string(err));
       ldap_unbind_ext_s(ld, NULL, NULL);
       return;
    };
 
-   NSLog(@"   initiating lookup...");
+   DebugLog(@"   initiating lookup...");
    //if ((err = ldap_search_ext_s(ld, baseDN, scope, filter, NULL, 0, NULL, NULL, NULL, -1, &res)))
     if ((err = ldap_search_ext_s(ld, "dc=wso3,dc=com", LDAP_SCOPE_SUBTREE, "(sn=*)", NULL, 0, NULL, NULL, NULL,0, &res)))
    {
-      NSLog(@"   ldap_search_ext_s(): %s", ldap_err2string(err));
+      DebugLog(@"   ldap_search_ext_s(): %s", ldap_err2string(err));
       ldap_unbind_ext_s(ld, NULL, NULL);
       return;
    };
 
-   NSLog(@"   checking for results...");
+   DebugLog(@"   checking for results...");
    if (!(ldap_count_entries(ld, res)))
    {
-      NSLog(@"   no entries found.");
+      DebugLog(@"   no entries found.");
       ldap_msgfree(res);
       ldap_unbind_ext_s(ld, NULL, NULL);
       return;
    };
-   NSLog(@"   %i entries found.", ldap_count_entries(ld, res));
+   DebugLog(@"   %i entries found.", ldap_count_entries(ld, res));
 
-   NSLog(@"   retrieving results...");
+   DebugLog(@"   retrieving results...");
    if (!(entry = ldap_first_entry(ld, res)))
    {
-      NSLog(@"   ldap_first_entry(): %s", ldap_err2string(err));
+      DebugLog(@"   ldap_first_entry(): %s", ldap_err2string(err));
       ldap_msgfree(res);
       ldap_unbind_ext_s(ld, NULL, NULL);
       return;
@@ -249,8 +199,8 @@ void test_simple_ldap(int version, const char * ldapURI, const char * bindDN,
 
    while(entry)
    {
-      NSLog(@" ");
-      NSLog(@"      dn: %s", ldap_get_dn(ld, entry));
+      DebugLog(@" ");
+      DebugLog(@"      dn: %s", ldap_get_dn(ld, entry));
 
       attribute = ldap_first_attribute(ld, entry, &ber);
       while(attribute)
@@ -258,7 +208,7 @@ void test_simple_ldap(int version, const char * ldapURI, const char * bindDN,
          if ((vals = ldap_get_values_len(ld, entry, attribute)))
          {
             for(i = 0; vals[i]; i++)
-               NSLog(@"      %s: %s", attribute, vals[i]->bv_val);
+               DebugLog(@"      %s: %s", attribute, vals[i]->bv_val);
             ldap_value_free_len(vals);
          };
          ldap_memfree(attribute);
@@ -268,9 +218,9 @@ void test_simple_ldap(int version, const char * ldapURI, const char * bindDN,
       // skip to the next entry
       entry = ldap_next_entry(ld, entry);
    };
-   NSLog(@" ");
+   DebugLog(@" ");
 
-   NSLog(@"   unbinding from LDAP server...");
+   DebugLog(@"   unbinding from LDAP server...");
    ldap_unbind_ext_s(ld, NULL, NULL);
 	
 	return;
@@ -297,85 +247,85 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
     
     dn              = "cn=Directory Manager";
     
-    NSLog(@"attempting %s bind:", (caFile ? "TLS simple" : "simple"));
+    DebugLog(@"attempting %s bind:", (caFile ? "TLS simple" : "simple"));
     ldapURI = ldapURI ? ldapURI : "ldap://127.0.0.1";
-    NSLog(@"   initialzing LDAP (%s)...", ldapURI);
+    DebugLog(@"   initialzing LDAP (%s)...", ldapURI);
     err = ldap_initialize(&ld, ldapURI);
     if (err != LDAP_SUCCESS)
     {
-        NSLog(@"   ldap_initialize(): %s\n", ldap_err2string(err));
+        DebugLog(@"   ldap_initialize(): %s\n", ldap_err2string(err));
         return NULL;
     };
     
     version = version ? version : LDAP_VERSION3;
-    NSLog(@"   setting protocol version %i...", version);
+    DebugLog(@"   setting protocol version %i...", version);
     err = ldap_set_option(ld, LDAP_OPT_PROTOCOL_VERSION, &version);
     if (err != LDAP_SUCCESS)
     {
-        NSLog(@"   ldap_set_option(): %s\n", ldap_err2string(err));
+        DebugLog(@"   ldap_set_option(): %s\n", ldap_err2string(err));
         ldap_unbind_ext_s(ld, NULL, NULL);
         return NULL ;
     };
     
     if (caFile)
     {
-        NSLog(@"   attempting to start TLS...");
+        DebugLog(@"   attempting to start TLS...");
         err = ldap_start_tls_s(ld, NULL, NULL);
         if (err == LDAP_SUCCESS)
         {
-            NSLog(@"   TLS established");
+            DebugLog(@"   TLS established");
         } else {
             ldap_get_option( ld, LDAP_OPT_DIAGNOSTIC_MESSAGE, (void*)&msg);
-            NSLog(@"   ldap_start_tls_s(): %s", ldap_err2string(err));
-            NSLog(@"   ssl/tls: %s", msg);
+            DebugLog(@"   ldap_start_tls_s(): %s", ldap_err2string(err));
+            DebugLog(@"   ssl/tls: %s", msg);
             ldap_memfree(msg);
         };
     };
     
-    NSLog(@"   Bind Data:");
-    NSLog(@"      Mech:    Simple");
-    NSLog(@"      DN:      %s", bindDN ? bindDN : "(NULL)");
-    NSLog(@"      Passwd:  %s", bindPW ? bindPW : "(NULL)");
+    DebugLog(@"   Bind Data:");
+    DebugLog(@"      Mech:    Simple");
+    DebugLog(@"      DN:      %s", bindDN ? bindDN : "(NULL)");
+    DebugLog(@"      Passwd:  %s", bindPW ? bindPW : "(NULL)");
     
-    NSLog(@"   binding to LDAP server...");
+    DebugLog(@"   binding to LDAP server...");
     cred.bv_val = bindPW ? strdup(bindPW) : NULL;
     cred.bv_len = bindPW ? (size_t) strlen("drowssap") : 0;
     //err = ldap_sasl_bind_s(ld, bindDN, LDAP_SASL_SIMPLE, &cred, NULL, NULL, &servercredp);
     err = ldap_simple_bind_s_test(ld, "Uid=admin,ou=system", bindPW);
     if (err != LDAP_SUCCESS)
     {
-        NSLog(@"   ldap_sasl_bind_s(): %s", ldap_err2string(err));
+        DebugLog(@"   ldap_sasl_bind_s(): %s", ldap_err2string(err));
         ldap_unbind_ext_s(ld, NULL, NULL);
         return NULL;
     } else {
-        NSLog(@" Success connect");
+        DebugLog(@" Success connect");
         
     }
     
-    NSLog(@"   initiating lookup...");
+    DebugLog(@"   initiating lookup...");
     //if ((err = ldap_search_ext_s(ld, baseDN, scope, filter, NULL, 0, NULL, NULL, NULL, -1, &res)))
     //if ((err = ldap_search_ext_s(ld, baseDN, LDAP_SCOPE_SUBTREE, "(sn=*)", NULL, 0, NULL, NULL, NULL,0, &res)))
     if ((err = ldap_search_ext_s(ld, baseDN, LDAP_SCOPE_SUBTREE, "(sn=*)", NULL, 0, NULL, NULL, NULL,0, &res)))
     {
-        NSLog(@"   ldap_search_ext_s(): %s", ldap_err2string(err));
+        DebugLog(@"   ldap_search_ext_s(): %s", ldap_err2string(err));
         ldap_unbind_ext_s(ld, NULL, NULL);
         return NULL;
     };
     
-    NSLog(@"   checking for results...");
+    DebugLog(@"   checking for results...");
     if (!(ldap_count_entries(ld, res)))
     {
-        NSLog(@"   no entries found.");
+        DebugLog(@"   no entries found.");
         ldap_msgfree(res);
         ldap_unbind_ext_s(ld, NULL, NULL);
         return NULL;
     };
-    NSLog(@"   %i entries found.", ldap_count_entries(ld, res));
+    DebugLog(@"   %i entries found.", ldap_count_entries(ld, res));
     
-    NSLog(@"   retrieving results...");
+    DebugLog(@"   retrieving results...");
     if (!(entry = ldap_first_entry(ld, res)))
     {
-        NSLog(@"   ldap_first_entry(): %s", ldap_err2string(err));
+        DebugLog(@"   ldap_first_entry(): %s", ldap_err2string(err));
         ldap_msgfree(res);
         ldap_unbind_ext_s(ld, NULL, NULL);
         return NULL;
@@ -385,8 +335,8 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
     //  NSMutableDictionary *user_dict = [NSMutableDictionary dictionary];
     while(entry)
     {
-        NSLog(@" ");
-        NSLog(@"      dn: %s", ldap_get_dn(ld, entry));
+        DebugLog(@" ");
+        DebugLog(@"      dn: %s", ldap_get_dn(ld, entry));
         NSMutableDictionary *user_dict = [NSMutableDictionary dictionary];
         
         NSString* data_str = [NSString stringWithFormat:@"%s" , ldap_get_dn(ld, entry)];
@@ -396,7 +346,7 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
         while(attribute)
         {
             if (!strcmp(attribute, "cn")  ) {
-                NSLog(@"cn here");
+                DebugLog(@"cn here");
                 if ((vals = ldap_get_values_len(ld, entry, attribute)))
                 {
                     
@@ -405,7 +355,7 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
                         NSString* data_str = [NSString stringWithFormat:@"%s" , vals[i]->bv_val];
                         //[ou_list addObject:data_str];
                         [user_dict setObject:data_str forKey:@"cn"];
-                        // NSLog(@"ou_list = %@",ou_list);
+                        // DebugLog(@"ou_list = %@",ou_list);
                         
                         
                     }
@@ -415,7 +365,7 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
                 attribute = ldap_next_attribute(ld, entry, ber);
             }
             else if(!strcmp(attribute, "uid")){
-                NSLog(@"uid here");
+                DebugLog(@"uid here");
                 if ((vals = ldap_get_values_len(ld, entry, attribute)))
                 {
                     
@@ -424,7 +374,7 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
                         NSString* data_str = [NSString stringWithFormat:@"%s" , vals[i]->bv_val];
                         //[ou_list addObject:data_str];
                         [user_dict setObject:data_str forKey:@"uid"];
-                        // NSLog(@"ou_list = %@",ou_list);
+                        // DebugLog(@"ou_list = %@",ou_list);
                         
                         
                     }
@@ -433,7 +383,7 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
                 ldap_memfree(attribute);
                 attribute = ldap_next_attribute(ld, entry, ber);
             } else if(!strcmp(attribute, "departmentNumber")){
-                NSLog(@"department number ");
+                DebugLog(@"department number ");
                 if ((vals = ldap_get_values_len(ld, entry, attribute)))
                 {
                     
@@ -442,7 +392,7 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
                         NSString* data_str = [NSString stringWithFormat:@"%s" , vals[i]->bv_val];
                         //[ou_list addObject:data_str];
                         [user_dict setObject:data_str forKey:@"departmentNumber"];
-                        // NSLog(@"ou_list = %@",ou_list);
+                        // DebugLog(@"ou_list = %@",ou_list);
                         
                         
                     }
@@ -451,7 +401,7 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
                 ldap_memfree(attribute);
                 attribute = ldap_next_attribute(ld, entry, ber);
             } else if(!strcmp(attribute, "mail")){
-                NSLog(@"mail ");
+                DebugLog(@"mail ");
                 if ((vals = ldap_get_values_len(ld, entry, attribute)))
                 {
                     
@@ -460,7 +410,7 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
                         NSString* data_str = [NSString stringWithFormat:@"%s" , vals[i]->bv_val];
                         //[ou_list addObject:data_str];
                         [user_dict setObject:data_str forKey:@"mail"];
-                        // NSLog(@"ou_list = %@",ou_list);
+                        // DebugLog(@"ou_list = %@",ou_list);
                         
                         
                     }
@@ -473,7 +423,7 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
                 if ((vals = ldap_get_values_len(ld, entry, attribute)))
                 {
                     for(i = 0; vals[i]; i++){
-                        NSLog(@"      %s: %s", attribute, vals[i]->bv_val);
+                        DebugLog(@"      %s: %s", attribute, vals[i]->bv_val);
                     }
                     ldap_value_free_len(vals);
                 };
@@ -485,11 +435,11 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
         // skip to the next entry
         entry = ldap_next_entry(ld, entry);
         [user_list addObject:user_dict];
-        NSLog(@"user_list = %@",user_list);
+        //DebugLog(@"user_list = %@",user_list);
     };
-    NSLog(@" ");
+    DebugLog(@" ");
     
-    NSLog(@"   unbinding from LDAP server...");
+    DebugLog(@"   unbinding from LDAP server...");
     ldap_unbind_ext_s(ld, NULL, NULL);
 	
 	return user_list;
@@ -515,47 +465,47 @@ NSArray * get_ou_list( int version, const char * ldapURI, const char * bindDN,
     servercredp     = NULL;
     dn              = "cn=Directory Manager";
     
-    NSLog(@"attempting %s bind:", (caFile ? "TLS simple" : "simple"));
+    InfoLog(@"attempting %s bind:", (caFile ? "TLS simple" : "simple"));
     ldapURI = ldapURI ? ldapURI : "ldap://127.0.0.1";
-    NSLog(@"   initialzing LDAP (%s)...", ldapURI);
+    DebugLog(@"   initialzing LDAP (%s)...", ldapURI);
     err = ldap_initialize(&ld, ldapURI);
     if (err != LDAP_SUCCESS)
     {
-        NSLog(@"   ldap_initialize(): %s\n", ldap_err2string(err));
+        DebugLog(@"   ldap_initialize(): %s\n", ldap_err2string(err));
         return NULL;
     };
     
     version = version ? version : LDAP_VERSION3;
-    NSLog(@"   setting protocol version %i...", version);
+    DebugLog(@"   setting protocol version %i...", version);
     err = ldap_set_option(ld, LDAP_OPT_PROTOCOL_VERSION, &version);
     if (err != LDAP_SUCCESS)
     {
-        NSLog(@"   ldap_set_option(): %s\n", ldap_err2string(err));
+        DebugLog(@"   ldap_set_option(): %s\n", ldap_err2string(err));
         ldap_unbind_ext_s(ld, NULL, NULL);
         return NULL ;
     };
     
     if (caFile)
     {
-        NSLog(@"   attempting to start TLS...");
+        DebugLog(@"   attempting to start TLS...");
         err = ldap_start_tls_s(ld, NULL, NULL);
         if (err == LDAP_SUCCESS)
         {
-            NSLog(@"   TLS established");
+            DebugLog(@"   TLS established");
         } else {
             ldap_get_option( ld, LDAP_OPT_DIAGNOSTIC_MESSAGE, (void*)&msg);
-            NSLog(@"   ldap_start_tls_s(): %s", ldap_err2string(err));
-            NSLog(@"   ssl/tls: %s", msg);
+            DebugLog(@"   ldap_start_tls_s(): %s", ldap_err2string(err));
+            DebugLog(@"   ssl/tls: %s", msg);
             ldap_memfree(msg);
         };
     };
     
-    NSLog(@"   Bind Data:");
-    NSLog(@"      Mech:    Simple");
-    NSLog(@"      DN:      %s", bindDN ? bindDN : "(NULL)");
-    NSLog(@"      Passwd:  %s", bindPW ? bindPW : "(NULL)");
+    DebugLog(@"   Bind Data:");
+    DebugLog(@"      Mech:    Simple");
+    DebugLog(@"      DN:      %s", bindDN ? bindDN : "(NULL)");
+    DebugLog(@"      Passwd:  %s", bindPW ? bindPW : "(NULL)");
     
-    NSLog(@"   binding to LDAP server...");
+    DebugLog(@"   binding to LDAP server...");
     cred.bv_val = bindPW ? strdup(bindPW) : NULL;
     cred.bv_len = bindPW ? (size_t) strlen("drowssap") : 0;
     //err = ldap_sasl_bind_s(ld, bindDN, LDAP_SASL_SIMPLE, &cred, NULL, NULL, &servercredp);
@@ -563,39 +513,39 @@ NSArray * get_ou_list( int version, const char * ldapURI, const char * bindDN,
     err = ldap_simple_bind_s_test(ld, "Uid=admin,ou=system", bindPW);
     if (err != LDAP_SUCCESS)
     {
-        NSLog(@"   ldap_sasl_bind_s(): %s", ldap_err2string(err));
+        InfoLog(@"   ldap_sasl_bind_s(): %s", ldap_err2string(err));
         ldap_unbind_ext_s(ld, NULL, NULL);
         return NULL;
     } else {
-        NSLog(@" Success connect");
+        InfoLog(@" Success connect");
         
     }
     
-    NSLog(@"   initiating lookup...");
+    DebugLog(@"   initiating lookup...");
     //if ((err = ldap_search_ext_s(ld, baseDN, scope, filter, NULL, 0, NULL, NULL, NULL, -1, &res)))
     //if ((err = ldap_search_ext_s(ld, bindDN, LDAP_SCOPE_SUBTREE, "(&(objectclass=organizationalunit))", NULL, 0, NULL, NULL, NULL,0, &res)))
     DebugLog(@"baseDN = %s", baseDN);
     if ((err = ldap_search_ext_s(ld, baseDN , LDAP_SCOPE_SUBTREE, "(&(objectclass=organizationalunit))", NULL, 0, NULL, NULL, NULL,0, &res)))
     {
-        NSLog(@"   ldap_search_ext_s(): %s", ldap_err2string(err));
+        DebugLog(@"   ldap_search_ext_s(): %s", ldap_err2string(err));
         ldap_unbind_ext_s(ld, NULL, NULL);
         return NULL;
     };
     
-    NSLog(@"   checking for results...");
+    DebugLog(@"   checking for results...");
     if (!(ldap_count_entries(ld, res)))
     {
-        NSLog(@"   no entries found.");
+        DebugLog(@"   no entries found.");
         ldap_msgfree(res);
         ldap_unbind_ext_s(ld, NULL, NULL);
         return NULL;
     };
-    NSLog(@"   %i entries found.", ldap_count_entries(ld, res));
+    DebugLog(@"   %i entries found.", ldap_count_entries(ld, res));
     
-    NSLog(@"   retrieving results...");
+    DebugLog(@"   retrieving results...");
     if (!(entry = ldap_first_entry(ld, res)))
     {
-        NSLog(@"   ldap_first_entry(): %s", ldap_err2string(err));
+        DebugLog(@"   ldap_first_entry(): %s", ldap_err2string(err));
         ldap_msgfree(res);
         ldap_unbind_ext_s(ld, NULL, NULL);
         return NULL;
@@ -605,13 +555,14 @@ NSArray * get_ou_list( int version, const char * ldapURI, const char * bindDN,
     
     while(entry)
     {
-        NSLog(@" ");
-        NSLog(@"      dn: %s", ldap_get_dn(ld, entry));
+        DebugLog(@" ");
+        DebugLog(@"      dn: %s", ldap_get_dn(ld, entry));
         
         attribute = ldap_first_attribute(ld, entry, &ber);
         while(attribute)
         {
             if (!strcmp(attribute, "ou")) {
+                
                 if ((vals = ldap_get_values_len(ld, entry, attribute)))
                 {
                     
@@ -622,9 +573,14 @@ NSArray * get_ou_list( int version, const char * ldapURI, const char * bindDN,
                          if (strcmp(vals[i]->bv_val, "Users")) {
                          [ou_list addObject:data_str];
                          }*/
-                        [ou_list addObject:data_str];
+                        const char *myChar = "Users";
+                        if (![data_str isEqualToString:[NSString stringWithUTF8String:myChar]]) {
+                             [ou_list addObject:data_str];
+                        }
+
+                       // [ou_list addObject:data_str];
                         
-                        NSLog(@"ou_list = %@",ou_list);
+                        DebugLog(@"ou_list = %@",ou_list);
                         
                         
                     }
@@ -637,7 +593,7 @@ NSArray * get_ou_list( int version, const char * ldapURI, const char * bindDN,
                 if ((vals = ldap_get_values_len(ld, entry, attribute)))
                 {
                     for(i = 0; vals[i]; i++){
-                        NSLog(@"      %s: %s", attribute, vals[i]->bv_val);
+                        DebugLog(@"      %s: %s", attribute, vals[i]->bv_val);
                     }
                     ldap_value_free_len(vals);
                 };
@@ -649,9 +605,9 @@ NSArray * get_ou_list( int version, const char * ldapURI, const char * bindDN,
         // skip to the next entry
         entry = ldap_next_entry(ld, entry);
     };
-    NSLog(@" ");
+    DebugLog(@" ");
     
-    NSLog(@"   unbinding from LDAP server...");
+    DebugLog(@"   unbinding from LDAP server...");
     ldap_unbind_ext_s(ld, NULL, NULL);
 	
 	return ou_list;
@@ -684,9 +640,9 @@ NSArray * get_data_from_server(const char * caFile)
     for(i=0;i<([temp count] -1);i++)
     {
         NSString * ou_str = [temp objectAtIndex:i ];
-        //NSLog(@"ou_str = %@",ou_str);
+        //DebugLog(@"ou_str = %@",ou_str);
         NSString * dn_str = [[NSString alloc] initWithFormat:@"ou=%@,ou=Users,dc=example,dc=com" ,ou_str];
-        DebugLog(@"dn_str = %@", dn_str);
+        DebugLog(@"Get Dn = %@", dn_str);
         NSArray * user_info = get_user_list(
                                             MY_LDAP_VERSION,        // LDAP protocol version
                                             MY_LDAP_URI,            // LDAP URI
@@ -701,7 +657,7 @@ NSArray * get_data_from_server(const char * caFile)
         [user_dict setObject:user_info forKey:ou_str];
         [result_array addObject:user_dict];
     }
-    NSLog(@"result_array = %@", result_array );
+    DebugLog(@"result_array = %@", result_array );
     return result_array;
 }
 

@@ -25,7 +25,6 @@
 #import "UIToggleButton.h"
 #import "ContactDetailsTableViewController.h"
 #import "SMMessageDelegate.h"
-#import "XMPP.h"
 
 @interface ContactDetailsViewController : UIViewController<UICompositeViewDelegate, ContactDetailsDelegate, CLLocationManagerDelegate, SMMessageDelegate> {
     ABAddressBookRef addressBook;
@@ -53,6 +52,5 @@
 - (void)newContact:(NSString*)address;
 - (void)editContact:(ABRecordRef)contact;
 - (void)editContact:(ABRecordRef)contact address:(NSString*)address;
-
 
 @end

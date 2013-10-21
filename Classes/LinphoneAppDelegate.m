@@ -296,20 +296,15 @@
     password = myPassword;
     NSError *error = nil;
     
-    if (![xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error])
-    {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Can't connect"]
-                                                           delegate:nil cancelButtonTitle:@"OK"
-                                                  otherButtonTitles: nil];
-        [alertView show];
-        return NO;
-    }
+   [xmppStream connectWithTimeout:20 error:&error];
+
     return YES;
 }
 
 -(void) disconnect{
     [self goOffline];
     [xmppStream disconnect];
+    NSLog(@"XMPPStream disconnected");
 }
 
 
@@ -324,6 +319,15 @@
     NSLog(@"Stream authenticated");
     [_locationRequestDelegate locationRequest];
 
+}
+
+- (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error{
+    if (error!=nil){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Connection Error"]
+                                                           delegate:nil cancelButtonTitle:@"OK"
+                                                  otherButtonTitles: nil];
+        [alertView show];
+    }
 }
 
 -(void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message{

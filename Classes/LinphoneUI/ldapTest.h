@@ -10,7 +10,7 @@
 
 #define MY_LDAP_VERSION    LDAP_VERSION3
 //#define MY_LDAP_URI        "ldap://localhost/"
-#define MY_LDAP_URI        "ldap://124.46.127.73/"
+#define MY_LDAP_URI        "ldap://124.46.127.179/"
 //#define MY_LDAP_BINDDN     "cn= admin, dc=wso3,dc=com"
 #define MY_LDAP_BINDDN     "Dc= Example, dc=0"
 //#define MY_LDAP_BINDPW     "maiphuong"
