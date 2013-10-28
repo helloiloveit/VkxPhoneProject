@@ -641,6 +641,16 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
             if(controller != nil) {
                 [controller setRemoteAddress:dest];
             }
+        } else if (indexPath.section ==2){
+            SendEmailViewController *controller = DYNAMIC_CAST([[PhoneMainView instance] changeCurrentView:[SendEmailViewController compositeViewDescription]], SendEmailViewController);
+            if(controller != nil) {
+                controller.sendToTextField.text = [self.userManipulatedData[@"email"] lastObject][@"mail"];
+                /*set value for sending account & server
+                controller.account =
+                controller.password =
+                controller.mailServer =
+                 */
+            }
         } else if (indexPath.section == 3){
             // Go to Location view
             [contactDetailsDelegate showLocation];

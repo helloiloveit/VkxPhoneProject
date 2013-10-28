@@ -276,7 +276,7 @@
     [[self xmppStream] sendElement:presence];
 }
 
--(BOOL) connect{
+-(BOOL) connect:(NSString *) data{
     NSLog(@"Connecting");
     [self setupStream];
     NSString *jabberID = [[NSUserDefaults standardUserDefaults] stringForKey:@"userID"];
@@ -297,7 +297,11 @@
     NSError *error = nil;
     
    [xmppStream connectWithTimeout:20 error:&error];
-
+    if (data == nil) {
+        isRequest = YES;
+    }else {
+        locationData = data;
+    }
     return YES;
 }
 
@@ -309,7 +313,6 @@
 
 
 -(void)xmppStreamDidConnect:(XMPPStream *)sender{
-    isOpen = YES;
     NSError *error = nil;
     [[self xmppStream] authenticateWithPassword:password error:&error];
 }
@@ -317,8 +320,21 @@
 -(void)xmppStreamDidAuthenticate:(XMPPStream *)sender{
     [self goOnline];
     NSLog(@"Stream authenticated");
-    [_locationRequestDelegate locationRequest];
-
+    if (isRequest){
+        [_locationRequestDelegate locationRequest];
+        isRequest = NO;
+    }
+    else{
+      
+        // NSString *userID = [self.userManipulatedData[@"userID"] lastObject];
+         NSString *messageStr = [@"position|send|" stringByAppendingString:locationData];
+        
+        XMPPMessage *msg = [[XMPPMessage alloc] initWithType:@"chat" to:[XMPPJID jidWithString:@"ninhnb@localhost"]];
+        [msg addBody:messageStr];
+        [self.xmppStream sendElement: msg];
+        NSLog(@"Message sent \n\n");
+        [self disconnect];
+    }
 }
 
 - (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error{
@@ -344,17 +360,7 @@
 }
 
 -(void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence{
-    /*   NSString *presenceType = [presence type];
-     NSString *myUsername = [[sender myJID] user];
-     NSString *presenceFromUser = [[presence from] user];
-     
-     if (![presenceFromUser isEqualToString:myUsername]){
-     if ([presenceType isEqualToString:@"available"]){
-     [_chatDelegate newBuddyOnline:[NSString stringWithFormat:@"%@@%@", presenceFromUser, @"localhost"]];
-     }else if ([presenceType isEqualToString:@"unavailable"]){
-     [_chatDelegate buddyWentOffline:[NSString stringWithFormat:@"%@@%@", presenceFromUser, @"localhost"]];
-     }
-     }*/
+
 }
 
 @end

@@ -276,4 +276,11 @@ static UICompositeViewDescription *compositeDescription = nil;
     [[PhoneMainView instance] popCurrentView];
 }
 
+- (IBAction)onMailClick:(id)sender {
+    NSLog(@"onMailclick");
+    NSURL *myURL = [NSURL URLWithString:@"mailto://ninhnb88@gmail.com"];
+    if (![[UIApplication sharedApplication] openURL:myURL]) {NSLog(@"error");};
+        NSLog(@"finished");
+}
+
 @end

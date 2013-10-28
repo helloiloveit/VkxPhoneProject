@@ -28,7 +28,7 @@
 #define METERS_PER_MILE 1609.344
 
 @implementation ContactDetailsViewController{
-    CLLocationManager *locationManager;
+
 }
 
 
@@ -68,8 +68,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     [mapView release];
     
     [receivedLocation release];
-    [locationManager release];
-    
+        
     [super dealloc];
 }
 
@@ -332,7 +331,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
         [tableController viewWillAppear:animated];
     }
     NSLog(@"Attempting to connect");
-    [[self appDelegate] connect];
+    [[self appDelegate] connect:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -498,12 +497,6 @@ static UICompositeViewDescription *compositeDescription = nil;
     [mapView setUserInteractionEnabled:YES];
     
     //*start updating location
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    locationManager.distanceFilter = 10;
-    
-    [locationManager startUpdatingLocation];
     
     /*subtitude currentLocation with receivedLocation*/
 /*    NSString *latitude = @"21.0333";
@@ -523,7 +516,7 @@ static UICompositeViewDescription *compositeDescription = nil;
         [errorAlert show];
     }
     
-    [locationManager stopUpdatingLocation];
+  //  [locationManager stopUpdatingLocation];
 }
 
 

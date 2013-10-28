@@ -12,7 +12,7 @@
 
 
 + (Boolean) limitUserClickableButton: (NSIndexPath *) indexPath{
-    if (((indexPath.section != 0)&&(indexPath.section != 1)&&(indexPath.section !=3) )  || (indexPath.row != 0) ) {
+    if (((indexPath.section != 0)&&(indexPath.section != 1)&&(indexPath.section !=2)&&(indexPath.section !=3) )  || (indexPath.row != 0) ) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry"
                                                         message:@"This function is not yet implemented. Pls come back later"
                                                        delegate:nil

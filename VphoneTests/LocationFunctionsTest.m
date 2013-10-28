@@ -9,9 +9,10 @@
 #import <XCTest/XCTest.h>
 #import "ContactDetailsViewController.h"
 #import <objc/runtime.h>
-#import "LinphoneAppDelegate.h"
 #import "SMMessageDelegate.h"
 #import "XMPP.h"
+#import "LocationRequestDelegate.h"
+#import "LinphoneAppDelegate.h"
 
 @interface LocationFunctionsTest : XCTestCase
 {
@@ -26,6 +27,11 @@
     UIButton *cancelButton;
     LinphoneAppDelegate *appDelegate;
     CLLocationManager *locationManager;
+
+    XMPPStream *xmppStream;
+    id <SMMessageDelegate> _messageDelegate;
+    id <LocationRequestDelegate> _locationRequestDelegate;
+    
 }
 
 @end
@@ -121,31 +127,39 @@
     XCTAssertTrue([viewController conformsToProtocol:@protocol(CLLocationManagerDelegate)], @"needs to conform to CLLocation protocol");
 }
 
--(void)testViewControllerAttemptToConnectToXMPPServer{
-    [viewController viewWillAppear:YES];
-    XCTAssertTrue(appDelegate.xmppStream.isConnecting, @"Should try to connect");
-}
-
 -(void)testTableViewControllerLoadDelegate{
     [tableViewController viewDidLoad];
     XCTAssertEqualObjects(appDelegate._locationRequestDelegate, tableViewController, @"TableViewController should load locationRequestDelegate");
 }
 
--(void)testViewControllerAssignReceivedLocation{
+#pragma mark - XMPP tests
+
+-(void)testViewControllerAttemptToConnectToXMPPServer{
+    [viewController viewWillAppear:YES];
+    XCTAssertTrue(appDelegate.xmppStream.isConnecting, @"Should try to connect");
+}
+
+-(void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message{
+    if ([[message elementForName:@"body"] stringValue] != nil)
+    {
+        NSString *msg = [[message elementForName:@"body"] stringValue];
+        NSMutableDictionary *m = [[NSMutableDictionary alloc] init];
+        [m setObject:msg forKey:@"msg"];
+        [appDelegate._messageDelegate newMessageReceived:m];
+    }
+}
+
+-(void)testReceivedAnswerFromLocationServer{
     
     NSString *messageStr = @"position|answer|1312|21.0333|105.8500|30-12-2013";
-    // NSString *userID = [self.userManipulatedData[@"userID"] lastObject];
-    // NSString *messageStr = [@"position|get|" stringByAppendingString:userID];
-    
-    XMPPMessage *rmsg = [[XMPPMessage alloc] initWithType:@"chat"];
-    [rmsg addBody:messageStr];
 
-    NSString *msg = [[rmsg elementForName:@"body"] stringValue];
-    NSMutableDictionary *m = [[NSMutableDictionary alloc] init];
-    [m setObject:msg forKey:@"msg"];
+    [viewController viewDidLoad];
     
-    [viewController newMessageReceived:m];
-    XCTAssertNotNil(viewController.receivedLocation, @"Received location should be assigned");
+    XMPPMessage *rmsg = [[XMPPMessage alloc] initWithType:@"chat" to:[XMPPJID jidWithString:@"ninhnb@localhost"]];
+    
+    [rmsg addBody:messageStr];
+    
+    [self xmppStream:xmppStream didReceiveMessage:rmsg];
 
     XCTAssertEqual(viewController.receivedLocation.coordinate.latitude, 21.0333, @"Should equal input value");
     XCTAssertEqual(viewController.receivedLocation.coordinate.longitude, 105.8500,@"Should equal input value");

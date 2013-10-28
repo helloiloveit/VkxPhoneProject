@@ -36,9 +36,9 @@
 	int savedMaxCall;
 	
     XMPPStream *xmppStream;
-    
+    BOOL isRequest;
     NSString *password;
-    BOOL isOpen;
+    NSString *locationData;
     __weak NSObject <SMMessageDelegate> *_messageDelegate;
 }
 
@@ -50,7 +50,7 @@
 @property (nonatomic, assign) id <SMMessageDelegate>  _messageDelegate;
 @property (nonatomic, assign) id <LocationRequestDelegate>  _locationRequestDelegate;
 
--(BOOL) connect;
+-(BOOL) connect:(NSString *) data;
 -(void) disconnect;
 
 @end

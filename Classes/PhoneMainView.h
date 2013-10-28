@@ -18,6 +18,7 @@
  */   
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 #import "LinphoneManager.h"
 #import "UICompositeViewController.h"
@@ -41,6 +42,8 @@
 #import "IncomingCallViewController.h"
 #import "ConsoleViewController.h"
 #import "ImageViewController.h"
+
+#import "SendEmailViewController.h"
 
 @interface PhoneMainView : UIViewController<IncomingCallViewDelegate>
 {
