@@ -230,6 +230,7 @@
 		6920D5C1180BD857004566FF /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6920D5BE180BD856004566FF /* libcrypto.a */; };
 		6920D5C2180BD857004566FF /* libsasl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6920D5BF180BD857004566FF /* libsasl2.a */; };
 		6920D5C3180BD857004566FF /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6920D5C0180BD857004566FF /* libssl.a */; };
+		6957B32118238E7D001BCF21 /* button_about.png in Resources */ = {isa = PBXBuildFile; fileRef = 6957B32018238E7C001BCF21 /* button_about.png */; };
 		698C3FDB1812251B00F69AEF /* LocationFunctionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 698C3FD91812251B00F69AEF /* LocationFunctionsTest.m */; };
 		69A88DD3180FE00600F5A4BC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A88DD2180FE00600F5A4BC /* XCTest.framework */; };
 		69B404B8181A131C00F3B4E6 /* libMailCore-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B404AF181A130500F3B4E6 /* libMailCore-ios.a */; };
@@ -1975,6 +1976,7 @@
 		6920D5BE180BD856004566FF /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../iOSPorts/ports/security/openssl/build/Release-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
 		6920D5BF180BD857004566FF /* libsasl2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsasl2.a; path = "../iOSPorts/ports/security/cyrus-sasl/build/Release-iphoneos/libsasl2.a"; sourceTree = "<group>"; };
 		6920D5C0180BD857004566FF /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../iOSPorts/ports/security/openssl/build/Release-iphoneos/libssl.a"; sourceTree = "<group>"; };
+		6957B32018238E7C001BCF21 /* button_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_about.png; path = Resources/button_about.png; sourceTree = SOURCE_ROOT; };
 		698C3FD91812251B00F69AEF /* LocationFunctionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationFunctionsTest.m; sourceTree = "<group>"; };
 		698C692618151EB4005DFA71 /* LocationRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationRequestDelegate.h; sourceTree = "<group>"; };
 		69A88DCC180FDD2100F5A4BC /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../iOSPorts/ports/security/openssl/build/Debug-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
@@ -3627,6 +3629,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6957B32018238E7C001BCF21 /* button_about.png */,
 				3A307EF917C1D58400512153 /* avatar.png */,
 				D3F83F741582253100336684 /* accept_default.png */,
 				D3D52A751614495300DEB00A /* accept_default_landscape~ipad.png */,
@@ -4873,6 +4876,7 @@
 				D38327F81580FE3A00FA0D23 /* settings_selected.png in Resources */,
 				D3832801158100E400FA0D23 /* history_over.png in Resources */,
 				D3832802158100E400FA0D23 /* settings_over.png in Resources */,
+				6957B32118238E7D001BCF21 /* button_about.png in Resources */,
 				D3F83F0C158205A100336684 /* micro_off_default.png in Resources */,
 				D3F83F0E158205A100336684 /* micro_off_over.png in Resources */,
 				D3F83F10158205A100336684 /* micro_on_default.png in Resources */,

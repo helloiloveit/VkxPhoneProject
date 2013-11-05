@@ -243,8 +243,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+   
+    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithImage:([UIImage imageNamed:@"button_about.png"]) style:UIBarButtonItemStyleBordered target:self action:@selector(onAboutClick:)];
     
-    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"About", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(onAboutClick:)];
+ //   UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"About", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(onAboutClick:)];
+   // buttoni
     self.navigationItem.rightBarButtonItem = buttonItem;
     [buttonItem release];
 }
@@ -286,7 +289,7 @@
 #pragma mark - Lifecycle Functions
 
 - (void)initUINavigationBarEx {
-    [self setTintColor:[LINPHONE_MAIN_COLOR adjustHue:5.0f/180.0f saturation:0.0f brightness:0.0f alpha:0.0f]];
+   // [self setTintColor:[LINPHONE_MAIN_COLOR adjustHue:5.0f/180.0f saturation:0.0f brightness:0.0f alpha:0.0f]];
 }
 
 - (id)init {
