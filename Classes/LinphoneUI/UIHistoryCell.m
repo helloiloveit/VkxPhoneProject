@@ -39,7 +39,7 @@
                                                             options:nil];
         
         if ([arrayOfViews count] >= 1) {
-            [self addSubview:[[arrayOfViews objectAtIndex:0] retain]];
+            [self addSubview:[arrayOfViews objectAtIndex:0]];
         }
         
         self->callLog = NULL;
@@ -47,14 +47,6 @@
     return self;
 }
 
-- (void) dealloc {
-    [detailsButton release];
-    [deleteButton release];
-    [addressLabel release];
-    [imageView release];
-    
-    [super dealloc];
-}
 
 
 #pragma mark - Action Functions

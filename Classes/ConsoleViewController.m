@@ -36,9 +36,7 @@
     // Remove observer
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    [logsView release];
     
-    [super dealloc];
 }
 
 #pragma mark - UICompositeViewDelegate Functions

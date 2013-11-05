@@ -70,20 +70,13 @@
     return self;
 }
 
-- (void)dealloc {
-    [name release];
-    [content release];
-    [stateBar release];
-    [tabBar release];
-    [super dealloc];
-}
 
 @end
 @interface UICompositeViewController ()
 
-@property (nonatomic, retain) UIViewController *stateBarViewController;
-@property (nonatomic, retain) UIViewController *tabBarViewController;
-@property (nonatomic, retain) UIViewController *contentViewController;
+@property (nonatomic, strong) UIViewController *stateBarViewController;
+@property (nonatomic, strong) UIViewController *tabBarViewController;
+@property (nonatomic, strong) UIViewController *contentViewController;
 
 @end
 
@@ -133,16 +126,9 @@
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    [self.stateBarViewController release];
-    [self.tabBarViewController release];
-    [self.contentViewController release];
-    
-    [contentView release];
-    [stateBarView release];
-    [tabBarView release];
-    [viewControllerCache release];
-    [viewTransition release];
-    [currentViewDescription release];
+    [self.stateBarViewController dealloc];
+    [self.tabBarViewController dealloc];
+    [self.contentViewController dealloc];
     
     [super dealloc];
 }
@@ -394,7 +380,7 @@
     if(name != nil) {
         controller = [viewControllerCache objectForKey:name];
         if(controller == nil) {
-            controller = [[[NSClassFromString(name) alloc] init] autorelease];
+            controller = [[NSClassFromString(name) alloc] init];
             [viewControllerCache setValue:controller forKey:name];
             [controller view]; // Load the view
         }
@@ -651,9 +637,6 @@
     }
     
     // Dealloc old view description
-    if(oldViewDescription != nil) {
-        [oldViewDescription release];
-    }
 }
 
 - (void) changeView:(UICompositeViewDescription *)description {
@@ -674,7 +657,7 @@
 }
 
 - (UIViewController *) getCurrentViewController {
-    return [[self.contentViewController retain] autorelease];
+    return self.contentViewController;
 }
 
 @end

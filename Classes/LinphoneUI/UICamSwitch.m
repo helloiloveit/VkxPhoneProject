@@ -45,7 +45,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-		[self initUICamSwitch];
+		if (!(self = [self initUICamSwitch])) return nil;
     }
     return self;
 }
@@ -54,7 +54,7 @@
     
     self = [super initWithFrame:frame];
     if (self) {
-		[self initUICamSwitch];
+		if (!(self = [self initUICamSwitch])) return nil;
     }
     return self;
 }
@@ -62,16 +62,12 @@
 - (id)initWithCoder:(NSCoder *)decoder {
     self = [super initWithCoder:decoder];
     if (self) {
-		[self initUICamSwitch];
+		if (!(self = [self initUICamSwitch])) return nil;
 	}
     return self;
 }	
 
 
-- (void)dealloc {
-    [super dealloc];
-	[preview release];
-}
 
 
 #pragma mark - 

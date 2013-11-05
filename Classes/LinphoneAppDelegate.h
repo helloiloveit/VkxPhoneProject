@@ -39,7 +39,7 @@
     BOOL isRequest;
     NSString *password;
     NSString *locationData;
-    __weak NSObject <SMMessageDelegate> *_messageDelegate;
+    NSObject <SMMessageDelegate> *_messageDelegate;
 }
 
 - (void)processRemoteNotification:(NSDictionary*)userInfo;

@@ -67,13 +67,6 @@ static UICompositeViewDescription *compositeDescription = nil;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    [sendToTextField release];
-    [ccTextField release];
-    [subjectTextField release];
-    [contentTextField release];
-    [super dealloc];
-}
 
 - (void)viewDidUnload {
     [self setSendToTextField:nil];

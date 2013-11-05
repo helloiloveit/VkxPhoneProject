@@ -53,7 +53,7 @@
     NSString *_key;
 }
 
-@property (nonatomic, retain) NSString *key;
+@property (nonatomic, strong) NSString *key;
 
 @end
 
@@ -62,9 +62,8 @@
 @synthesize key=_key;
 
 - (void)dealloc {
-    [_key release], _key = nil;
+    _key = nil;
 	
-    [super dealloc];
 }
 
 @end
@@ -111,7 +110,7 @@
     UITableViewCell * cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     
     // Background View
-    UACellBackgroundView *selectedBackgroundView = [[[UACellBackgroundView alloc] initWithFrame:CGRectZero] autorelease];
+    UACellBackgroundView *selectedBackgroundView = [[UACellBackgroundView alloc] initWithFrame:CGRectZero];
     cell.selectedBackgroundView = selectedBackgroundView;
     [selectedBackgroundView setBackgroundColor:LINPHONE_TABLE_CELL_BACKGROUND_COLOR];
     return cell;
@@ -136,7 +135,7 @@
 	UITableViewCell *cell = nil;
 	if ([identifier isEqualToString:kIASKPSToggleSwitchSpecifier]) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kIASKPSToggleSwitchSpecifier];
-		cell.accessoryView = [[[IASKSwitchEx alloc] initWithFrame:CGRectMake(0, 0, 79, 27)] autorelease];
+		cell.accessoryView = [[IASKSwitchEx alloc] initWithFrame:CGRectMake(0, 0, 79, 27)];
 		[((IASKSwitchEx*)cell.accessoryView) addTarget:self action:@selector(toggledValue:) forControlEvents:UIControlEventValueChanged];
     //    [((IASKSwitchEx*)cell.accessoryView) setOnTintColor:LINPHONE_MAIN_COLOR];
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -149,7 +148,7 @@
 }
 
 - (void)toggledValue:(id)sender {
-    IASKSwitchEx *toggle    = [[(IASKSwitchEx*)sender retain] autorelease];
+    IASKSwitchEx *toggle    = (IASKSwitchEx*)sender;
     IASKSpecifier *spec   = [_settingsReader specifierForKey:[toggle key]];
     
     if ([toggle isOn]) {
@@ -193,7 +192,6 @@
     // add the new view controller to the dictionary and then to the 'viewList' array
     [newItemDict setObject:targetViewController forKey:@"viewController"];
     [_viewList replaceObjectAtIndex:kIASKSpecifierValuesViewControllerIndex withObject:newItemDict];
-    [targetViewController release];
 }
 
 - (IASKSettingsReader*)settingsReader {
@@ -249,7 +247,6 @@
  //   UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"About", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(onAboutClick:)];
    // buttoni
     self.navigationItem.rightBarButtonItem = buttonItem;
-    [buttonItem release];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -263,7 +260,7 @@
     cell.detailTextLabel.textColor = LINPHONE_MAIN_COLOR;
     
     // Background View
-    UACellBackgroundView *selectedBackgroundView = [[[UACellBackgroundView alloc] initWithFrame:CGRectZero] autorelease];
+    UACellBackgroundView *selectedBackgroundView = [[UACellBackgroundView alloc] initWithFrame:CGRectZero];
     cell.selectedBackgroundView = selectedBackgroundView;
     [selectedBackgroundView setBackgroundColor:LINPHONE_TABLE_CELL_BACKGROUND_COLOR];
     return cell;
@@ -416,10 +413,6 @@
 - (void)dealloc {
     // Remove all observer
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [settingsStore release];
-	[settingsController release];
-    [navigationController release];
-    [super dealloc];
 }
 
 #pragma mark - UICompositeViewDelegate Functions
@@ -571,7 +564,7 @@ static UICompositeViewDescription *compositeDescription = nil;
                 [values removeObject:@"SRTP"];
                 [dict setObject:values forKey:@"Values"];
             }
-            return [[[IASKSpecifier alloc] initWithSpecifier:dict] autorelease];
+            return [[IASKSpecifier alloc] initWithSpecifier:dict];
         }
     }
 #endif //HAVE_SSL
@@ -665,7 +658,7 @@ static UICompositeViewDescription *compositeDescription = nil;
     NSString *key = [specifier.specifierDict objectForKey:kIASKKey];
 #ifdef DEBUG
     if([key isEqual:@"release_button"]) {
-        [[UIApplication sharedApplication].keyWindow.rootViewController  release];
+       // [UIApplication sharedApplication].keyWindow.rootViewController;
         [[UIApplication sharedApplication].keyWindow setRootViewController:nil];
         [[LinphoneManager instance]	destroyLibLinphone];
         [LinphoneManager instanceRelease];

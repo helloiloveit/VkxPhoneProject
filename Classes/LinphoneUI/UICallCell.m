@@ -35,8 +35,8 @@
         self->minimize = false;
         self->view = UICallCellOtherView_Avatar;
         self->call = acall;
-        image = [[UIImage imageNamed:@"avatar_unknown.png"] retain];
-        address = [@"Unknown" retain];
+        image = [UIImage imageNamed:@"avatar_unknown.png"];
+        address = @"Unknown";
         [self update];
     }
     return self;
@@ -82,12 +82,6 @@
     }
 }
 
-- (void)dealloc {
-    [address release];
-    [image release];
-    
-    [super dealloc];
-}
 
 @end
 
@@ -148,7 +142,7 @@
                                                             options:nil];
         
         if ([arrayOfViews count] >= 1) {
-            [self addSubview:[[arrayOfViews objectAtIndex:0] retain]];
+            [self addSubview:[arrayOfViews objectAtIndex:0]];
         }
         // Set selected+over background: IB lack !
         [pauseButton setImage:[UIImage imageNamed:@"call_state_pause_over.png"] 
@@ -192,49 +186,16 @@
                                                   object:nil];
     
     
-    [headerBackgroundImage release];
-    [headerBackgroundHighlightImage release];
     
-    [addressLabel release];
-    [stateLabel release];
-    [stateImage release];
-    [avatarImage release];
-    [pauseButton release];
-    [removeButton release];
     
-    [headerView release];
-    [avatarView release];
     
-    [audioStatsView release];
     
-    [audioCodecLabel release];
-    [audioCodecHeaderLabel release];
-    [audioUploadBandwidthLabel release];
-    [audioUploadBandwidthHeaderLabel release];
-    [audioDownloadBandwidthLabel release];
-    [audioDownloadBandwidthHeaderLabel release];
-    [audioIceConnectivityLabel release];
-    [audioIceConnectivityHeaderLabel release];
     
-    [videoStatsView release];
     
-    [videoCodecLabel release];
-    [videoCodecHeaderLabel release];
-    [videoUploadBandwidthLabel release];
-    [videoUploadBandwidthHeaderLabel release];
-    [videoDownloadBandwidthLabel release];
-    [videoDownloadBandwidthHeaderLabel release];
-    [videoIceConnectivityLabel release];
-    [videoIceConnectivityHeaderLabel release];
     
-    [otherView release];
     
-    [data release];
     
-    [detailsLeftSwipeGestureRecognizer release];
-    [detailsRightSwipeGestureRecognizer release];
     
-    [super dealloc];
 }
 
 
@@ -250,11 +211,10 @@
         return;
     }
     if(data != nil) {
-        [data release];
         data = nil;
     }
     if(adata != nil) {
-        data = [adata retain];
+        data = adata;
     }
 }
 

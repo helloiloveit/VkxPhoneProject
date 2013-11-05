@@ -45,7 +45,7 @@
 }
 
 - (void)dealloc {
-    [self.detailTextField release];
+    [self.detailTextField dealloc];
     [super dealloc];
 }
 

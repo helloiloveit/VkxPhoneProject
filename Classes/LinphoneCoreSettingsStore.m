@@ -35,11 +35,6 @@ extern void linphone_iphone_log_handler(int lev, const char *fmt, va_list args);
 	return self;
 }
 
-- (void)dealloc {
-	[dict release];
-	[changedDict release];
-	[super dealloc];
-}
 
 - (void)transformKeysToLinphoneCore {
 	//LinphoneCore *lc=[LinphoneManager getLc];
@@ -266,7 +261,6 @@ extern void linphone_iphone_log_handler(int lev, const char *fmt, va_list args);
     
 
 	
-	[changedDict release];
 	changedDict = [[NSMutableDictionary alloc] init];
     
     // Post event
@@ -674,7 +668,6 @@ extern void linphone_iphone_log_handler(int lev, const char *fmt, va_list args);
     // Force synchronize
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-	[changedDict release];
 	changedDict = [[NSMutableDictionary alloc] init];
     
     // Post event

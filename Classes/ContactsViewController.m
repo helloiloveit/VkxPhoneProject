@@ -41,11 +41,10 @@ static BOOL sEmailFilter = FALSE;
 
 + (void)setAddAddress:(NSString*)address {
     if(sAddAddress != nil) {
-        [sAddAddress release];
         sAddAddress= nil;
     }
     if(address != nil) {
-        sAddAddress = [address retain];
+        sAddAddress = address;
     }
 }
 
@@ -54,8 +53,7 @@ static BOOL sEmailFilter = FALSE;
 }
 
 + (void)setSipFilter:(NSString*)domain {
-    [sSipFilter release];
-	sSipFilter = [domain retain];
+	sSipFilter = domain;
 }
 
 + (NSString*)getSipFilter {
@@ -96,17 +94,6 @@ typedef enum _HistoryView {
     return [super initWithNibName:@"ContactsViewController" bundle:[NSBundle mainBundle]];
 }
 
-- (void)dealloc {
-    [tableController release];
-    [tableView release];
-    
-    [allButton release];
-    [linphoneButton release];
-    [backButton release];
-    [addButton release];
-    
-    [super dealloc];
-}
 
 #pragma mark - UICompositeViewDelegate Functions
 
@@ -163,7 +150,6 @@ static UICompositeViewDescription *compositeDescription = nil;
 											  cancelButtonTitle:NSLocalizedString(@"Continue",nil)
 											  otherButtonTitles:nil];
 		[error show];
-		[error release];
         [[PhoneMainView instance] changeCurrentView:[DialerViewController compositeViewDescription]];
     }
      

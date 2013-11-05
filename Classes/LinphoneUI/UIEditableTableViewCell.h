@@ -22,6 +22,6 @@
 @interface UIEditableTableViewCell : UITableViewCell {
 }
 
-@property (nonatomic, retain) IBOutlet UITextField *detailTextField;
+@property (nonatomic, strong) IBOutlet UITextField *detailTextField;
 
 @end

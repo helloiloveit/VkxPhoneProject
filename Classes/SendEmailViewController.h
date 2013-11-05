@@ -11,17 +11,17 @@
 
 @interface SendEmailViewController : UIViewController <UICompositeViewDelegate>
 
-@property (nonatomic, retain) NSString *account;
-@property (nonatomic, retain) NSString *password;
-@property (nonatomic, retain) NSString *sendTo;
-@property (nonatomic, retain) NSString *mailServer;
-@property (nonatomic, retain) NSString *subject;
-@property (nonatomic, retain) NSString *mailContent;
-@property (nonatomic, retain) NSArray *ccMailList;
+@property (nonatomic, strong) NSString *account;
+@property (nonatomic, strong) NSString *password;
+@property (nonatomic, strong) NSString *sendTo;
+@property (nonatomic, strong) NSString *mailServer;
+@property (nonatomic, strong) NSString *subject;
+@property (nonatomic, strong) NSString *mailContent;
+@property (nonatomic, strong) NSArray *ccMailList;
 
-@property (retain, nonatomic) IBOutlet UITextView *contentTextField;
-@property (retain, nonatomic) IBOutlet UITextField *sendToTextField;
-@property (retain, nonatomic) IBOutlet UITextField *ccTextField;
-@property (retain, nonatomic) IBOutlet UITextField *subjectTextField;
+@property (strong, nonatomic) IBOutlet UITextView *contentTextField;
+@property (strong, nonatomic) IBOutlet UITextField *sendToTextField;
+@property (strong, nonatomic) IBOutlet UITextField *ccTextField;
+@property (strong, nonatomic) IBOutlet UITextField *subjectTextField;
 
 @end

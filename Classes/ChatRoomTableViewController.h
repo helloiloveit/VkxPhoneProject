@@ -34,7 +34,7 @@
 }
 
 @property (nonatomic, copy) NSString *remoteAddress;
-@property (nonatomic, retain) id<ChatRoomDelegate> chatRoomDelegate;
+@property (nonatomic, strong) id<ChatRoomDelegate> chatRoomDelegate;
 
 - (void)addChatEntry:(ChatModel*)chat;
 - (void)scrollToBottom:(BOOL)animated;

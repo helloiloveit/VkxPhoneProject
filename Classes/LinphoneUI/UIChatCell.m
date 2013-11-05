@@ -42,25 +42,13 @@
                                                             options:nil];
         
         if ([arrayOfViews count] >= 1) {
-            [self addSubview:[[arrayOfViews objectAtIndex:0] retain]];
+            [self addSubview:[arrayOfViews objectAtIndex:0]];
         }
         [chatContentLabel setAdjustsFontSizeToFitWidth:TRUE]; // Auto shrink: IB lack!
     }
     return self;
 }
 
-- (void)dealloc {
-    [addressLabel release];
-    [chatContentLabel release];
-    [avatarImage release];
-    [deleteButton release];
-    [unreadMessageLabel release];
-    [unreadMessageView release];
-    
-    [chat release];
-    
-    [super dealloc];
-}
 
 
 #pragma mark - Property Funcitons
@@ -68,11 +56,8 @@
 - (void)setChat:(ChatModel *)achat {
     if(chat == achat)
         return;
-    if(chat != nil) {
-        [chat release];
-    }
     if(achat) {
-        chat = [achat retain];
+        chat = achat;
     }
     [self update];
 }

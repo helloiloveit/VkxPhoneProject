@@ -27,22 +27,22 @@
 @interface UIChatRoomCell : UITableViewCell {
 }
 
-@property (nonatomic, retain) ChatModel *chat;
-@property (nonatomic, retain) IBOutlet UIView *innerView;
-@property (nonatomic, retain) IBOutlet UIView *bubbleView;
-@property (nonatomic, retain) IBOutlet UIImageView* backgroundImage;
-@property (nonatomic, retain) IBOutlet UITextView *messageText;
-@property (nonatomic, retain) IBOutlet UILoadingImageView *messageImageView;
-@property (nonatomic, retain) IBOutlet UIButton *deleteButton;
-@property (nonatomic, retain) IBOutlet UILabel *dateLabel;
-@property (nonatomic, retain) IBOutlet UIImageView* statusImage;
-@property (nonatomic, retain) IBOutlet UIButton* downloadButton;
-@property (nonatomic, retain) IBOutlet UITapGestureRecognizer* imageTapGestureRecognizer;
+@property (nonatomic, strong) ChatModel *chat;
+@property (nonatomic, strong) IBOutlet UIView *innerView;
+@property (nonatomic, strong) IBOutlet UIView *bubbleView;
+@property (nonatomic, strong) IBOutlet UIImageView* backgroundImage;
+@property (nonatomic, strong) IBOutlet UITextView *messageText;
+@property (nonatomic, strong) IBOutlet UILoadingImageView *messageImageView;
+@property (nonatomic, strong) IBOutlet UIButton *deleteButton;
+@property (nonatomic, strong) IBOutlet UILabel *dateLabel;
+@property (nonatomic, strong) IBOutlet UIImageView* statusImage;
+@property (nonatomic, strong) IBOutlet UIButton* downloadButton;
+@property (nonatomic, strong) IBOutlet UITapGestureRecognizer* imageTapGestureRecognizer;
 
 - (id)initWithIdentifier:(NSString*)identifier;
 + (CGFloat)height:(ChatModel*)chat width:(int)width;
 
-@property (nonatomic, retain) id<ChatRoomDelegate> chatRoomDelegate;
+@property (nonatomic, strong) id<ChatRoomDelegate> chatRoomDelegate;
 
 - (IBAction)onDeleteClick:(id)event;
 - (IBAction)onDownloadClick:(id)event;

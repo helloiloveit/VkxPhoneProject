@@ -25,5 +25,5 @@
 	const char* currentCamId;
 	const char* nextCamId;
 }
-@property (nonatomic, retain) IBOutlet UIView* preview;
+@property (nonatomic, strong) IBOutlet UIView* preview;
 @end

@@ -32,12 +32,6 @@
 
 #pragma mark - Lifecycle Functions
 
-- (void)dealloc {
-    [remoteAddress release];
-    [chatRoomDelegate release];
-
-    [super dealloc];
-}
 
 #pragma mark - ViewController Functions
 
@@ -46,7 +40,6 @@
     [TUNinePatchCache flushCache]; // Clear cache
     if(data != nil) {
         [data removeAllObjects];
-        [data release];
         data = nil;
     }
 }
@@ -59,9 +52,8 @@
 - (void)loadData {
     if(data != nil) {
         [data removeAllObjects];
-        [data release];
     }
-    data = [[ChatModel listMessages:remoteAddress] retain];
+    data = [ChatModel listMessages:remoteAddress];
     [[self tableView] reloadData];
     [self scrollToLastUnread:false];
 }
@@ -133,9 +125,6 @@
 #pragma mark - Property Functions
 
 - (void)setRemoteAddress:(NSString *)aremoteAddress {
-    if(remoteAddress != nil) {
-        [remoteAddress release]; 
-    }
     self->remoteAddress = [aremoteAddress copy];
     [self loadData];
 }
@@ -155,7 +144,7 @@
     static NSString *kCellId = @"UIChatRoomCell";
     UIChatRoomCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
     if (cell == nil) {
-        cell = [[[UIChatRoomCell alloc] initWithIdentifier:kCellId] autorelease];
+        cell = [[UIChatRoomCell alloc] initWithIdentifier:kCellId];
     }
     
     [cell setChat:[data objectAtIndex:[indexPath row]]];

@@ -66,8 +66,5 @@ if (au!=0) [LinphoneLogger logc:LinphoneLoggerError format:"UIBluetoothButton er
 	return false;
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 @end

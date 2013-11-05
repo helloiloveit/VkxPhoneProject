@@ -38,7 +38,6 @@
     } else if(severity <= LinphoneLoggerFatal) {
         ms_fatal("%s", [str UTF8String]);
     }
-    [str release];
     va_end (args);
 }
 

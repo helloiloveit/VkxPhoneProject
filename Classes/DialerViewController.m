@@ -69,34 +69,12 @@
 }
 
 - (void)dealloc {
-	[addressField release];
-    [addContactButton release];
-    [backButton release];
-    [eraseButton release];
-	[callButton release];
-    [addCallButton release];
-    [transferButton release];
     
-	[oneButton release];
-	[twoButton release];
-	[threeButton release];
-	[fourButton release];
-	[fiveButton release];
-	[sixButton release];
-	[sevenButton release];
-	[eightButton release];
-	[nineButton release];
-	[starButton release];
-	[zeroButton release];
-	[sharpButton release];
     
-    [videoPreview release];
-    [videoCameraSwitch release];
     
     // Remove all observers
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-	[super dealloc];
 }
 
 

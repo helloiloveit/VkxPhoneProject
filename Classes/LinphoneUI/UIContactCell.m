@@ -40,20 +40,13 @@
                                                             options:nil];
     
         if ([arrayOfViews count] >= 1) {
-            [self addSubview:[[arrayOfViews objectAtIndex:0] retain]];
+            [self addSubview:[arrayOfViews objectAtIndex:0]];
         }
     }
     DebugLog(@"");
     return self;
 }
 
-- (void) dealloc {
-    [firstNameLabel release];
-    [lastNameLabel release];
-    [avatarImage release];
-    
-    [super dealloc];
-}
 
 
 #pragma mark - Property Functions

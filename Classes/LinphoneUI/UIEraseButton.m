@@ -55,10 +55,6 @@
     return self;
 }	
 
-- (void)dealloc {
-    [super dealloc];
-	[addressField release];
-}
 
 
 #pragma mark - Action Functions

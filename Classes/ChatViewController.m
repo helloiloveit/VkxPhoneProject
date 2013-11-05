@@ -37,11 +37,7 @@
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    [tableController release];
-    [editButton release];
-    [addressField release];
     
-    [super dealloc];
 }
 
 #pragma mark - ViewController Functions

@@ -31,11 +31,6 @@
 
 #pragma mark - Lifecycle Functions
 
-- (void)dealloc {
-    if(data != nil)
-        [data release];
-    [super dealloc];
-}
 
 
 #pragma mark - ViewController Functions 
@@ -50,9 +45,7 @@
 
 - (void)loadData {
     DebugLog(@"");
-    if(data != nil)
-        [data release];
-    data = [[ChatModel listConversations] retain];
+    data = [ChatModel listConversations];
     [[self tableView] reloadData];
 }
 
@@ -70,11 +63,11 @@
     static NSString *kCellId = @"UIChatCell";
     UIChatCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
     if (cell == nil) {
-        cell = [[[UIChatCell alloc] initWithIdentifier:kCellId] autorelease];
+        cell = [[UIChatCell alloc] initWithIdentifier:kCellId];
         
         
         // Background View
-        UACellBackgroundView *selectedBackgroundView = [[[UACellBackgroundView alloc] initWithFrame:CGRectZero] autorelease];
+        UACellBackgroundView *selectedBackgroundView = [[UACellBackgroundView alloc] initWithFrame:CGRectZero];
         cell.selectedBackgroundView = selectedBackgroundView;
         [selectedBackgroundView setBackgroundColor:LINPHONE_TABLE_CELL_BACKGROUND_COLOR];
     }

@@ -68,22 +68,6 @@ static UIFont *CELL_FONT = nil;
     return self;
 }
 
-- (void)dealloc {
-    [chatRoomDelegate release];
-    [backgroundImage release];
-    [innerView release];
-    [bubbleView release];
-    [messageText release];
-    [messageImageView release];
-    [deleteButton release];
-    [dateLabel release];
-    [statusImage release];
-    [chat release];
-    [downloadButton release];
-    [imageTapGestureRecognizer release];
-    
-    [super dealloc];
-}
 
 - (void)prepareForReuse {
     
@@ -95,12 +79,11 @@ static UIFont *CELL_FONT = nil;
 - (void)setChat:(ChatModel *)achat {
     if(chat != achat) {
 		if(chat != nil) {
-			[chat release];
 			chat = nil;
 		}
 		
 		if(achat != nil) {
-			chat = [achat retain];
+			chat = achat;
 		}
 	}
 	[self update];
@@ -162,7 +145,6 @@ static UIFont *CELL_FONT = nil;
     NSLocale *locale = [NSLocale currentLocale];
     [dateFormatter setLocale:locale];
     [dateLabel setText:[dateFormatter stringFromDate:[chat time]]];
-    [dateFormatter release];
 	if ([chat.state intValue] == LinphoneChatMessageStateInProgress) {
 		[statusImage setImage:[UIImage imageNamed:@"chat_message_inprogress.png"]];
 		statusImage.hidden = FALSE;

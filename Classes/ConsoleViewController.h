@@ -23,6 +23,6 @@
 @interface ConsoleViewController : UIViewController<UICompositeViewDelegate, UIWebViewDelegate> {
 }
 
-@property (nonatomic, retain) IBOutlet UIWebView* logsView;
+@property (nonatomic, strong) IBOutlet UIWebView* logsView;
 
 @end

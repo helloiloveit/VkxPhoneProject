@@ -28,26 +28,26 @@
     NSMutableArray *historyViews;
 }
 
-@property (nonatomic, retain) IBOutlet UIScrollView *contentView;
+@property (nonatomic, strong) IBOutlet UIScrollView *contentView;
 
-@property (nonatomic, retain) IBOutlet UIView *welcomeView;
-@property (nonatomic, retain) IBOutlet UIView *choiceView;
-@property (nonatomic, retain) IBOutlet UIView *createAccountView;
-@property (nonatomic, retain) IBOutlet UIView *connectAccountView;
-@property (nonatomic, retain) IBOutlet UIView *externalAccountView;
-@property (nonatomic, retain) IBOutlet UIView *validateAccountView;
+@property (nonatomic, strong) IBOutlet UIView *welcomeView;
+@property (nonatomic, strong) IBOutlet UIView *choiceView;
+@property (nonatomic, strong) IBOutlet UIView *createAccountView;
+@property (nonatomic, strong) IBOutlet UIView *connectAccountView;
+@property (nonatomic, strong) IBOutlet UIView *externalAccountView;
+@property (nonatomic, strong) IBOutlet UIView *validateAccountView;
 
-@property (nonatomic, retain) IBOutlet UIView *waitView;
+@property (nonatomic, strong) IBOutlet UIView *waitView;
 
-@property (nonatomic, retain) IBOutlet UIButton *backButton;
-@property (nonatomic, retain) IBOutlet UIButton *startButton;
-@property (nonatomic, retain) IBOutlet UIButton *createAccountButton;
-@property (nonatomic, retain) IBOutlet UIButton *connectAccountButton;
-@property (nonatomic, retain) IBOutlet UIButton *externalAccountButton;
+@property (nonatomic, strong) IBOutlet UIButton *backButton;
+@property (nonatomic, strong) IBOutlet UIButton *startButton;
+@property (nonatomic, strong) IBOutlet UIButton *createAccountButton;
+@property (nonatomic, strong) IBOutlet UIButton *connectAccountButton;
+@property (nonatomic, strong) IBOutlet UIButton *externalAccountButton;
 
-@property (nonatomic, retain) IBOutlet UIImageView *choiceViewLogoImageView;
+@property (nonatomic, strong) IBOutlet UIImageView *choiceViewLogoImageView;
 
-@property (nonatomic, retain) IBOutlet UITapGestureRecognizer *viewTapGestureRecognizer;
+@property (nonatomic, strong) IBOutlet UITapGestureRecognizer *viewTapGestureRecognizer;
 
 - (void)reset;
 
