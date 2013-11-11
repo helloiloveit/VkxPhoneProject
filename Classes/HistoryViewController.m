@@ -28,6 +28,7 @@
 @synthesize missedButton;
 @synthesize editButton;
 @synthesize deleteButton;
+@synthesize buttonEdit;
 
 typedef enum _HistoryView {
     History_All,
@@ -164,6 +165,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 }
 
 - (IBAction)onEditClick:(id) event {
+    buttonEdit.selected = ![tableController isEditing] ;
     [tableController setEditing:![tableController isEditing] animated:TRUE];
 	[deleteButton setHidden:![tableController isEditing]];
 }
@@ -177,4 +179,8 @@ static UICompositeViewDescription *compositeDescription = nil;
     }
 }
 
+- (void)viewDidUnload {
+    [self setButtonEdit:nil];
+    [super viewDidUnload];
+}
 @end

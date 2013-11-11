@@ -258,6 +258,33 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 
 #endif
 #ifdef LINPHONE_ADDRESS
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+
+    UIView* customView = [[[UIView alloc] initWithFrame:CGRectMake(0,0,300,60)] autorelease];
+    
+    // create image object
+    UIImage *myImage = [UIImage imageNamed:@"folder_icon.png"];;
+    
+    // create the label objects
+    UILabel *headerLabel = [[[UILabel alloc] initWithFrame:CGRectZero] autorelease];
+    headerLabel.backgroundColor = [UIColor clearColor];
+    headerLabel.font = [UIFont boldSystemFontOfSize:18];
+    headerLabel.frame = CGRectMake(40,2,200,20);
+    
+    NSDictionary *dict = [dataArray objectAtIndex:section ];
+    for (id key in dict)
+        headerLabel.text = key;
+    
+    // create the imageView with the image in it
+    UIImageView *imageView = [[[UIImageView alloc] initWithImage:myImage] autorelease];
+    imageView.frame = CGRectMake(3,2,30,18);
+    
+    customView.backgroundColor = [UIColor lightGrayColor];
+    [customView addSubview:imageView];
+    [customView addSubview:headerLabel];
+    return customView;
+}
+/*
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSDictionary *dict = [dataArray objectAtIndex:section ];
     NSString *tabInfo;
@@ -265,7 +292,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
         tabInfo = key;
     return tabInfo;
     
-}
+}*/
 #else
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
         return [addressBookMap keyAtIndex: section];

@@ -33,6 +33,7 @@
 @property (nonatomic, strong) IBOutlet UIButton* missedButton;
 @property (nonatomic, strong) IBOutlet UIToggleButton* editButton;
 @property (nonatomic, strong) IBOutlet UIButton* deleteButton;
+@property (retain, nonatomic) IBOutlet UIButton *buttonEdit;
 
 - (IBAction)onAllClick:(id) event;
 - (IBAction)onMissedClick:(id) event;

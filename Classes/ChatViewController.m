@@ -26,6 +26,7 @@
 @synthesize tableController;
 @synthesize editButton;
 @synthesize addressField;
+@synthesize buttonEdit;
 
 #pragma mark - Lifecycle Functions
 
@@ -131,7 +132,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 }
 
 - (IBAction)onEditClick:(id)event {
-    NSLog(@"edit click  ");
+    buttonEdit.selected = ![tableController isEditing];
     [tableController setEditing:![tableController isEditing] animated:TRUE];
 }
 
@@ -142,5 +143,9 @@ static UICompositeViewDescription *compositeDescription = nil;
     if ([[addressField text ]length]> 0) 
 		[self startChatRoom];
 	return YES;
+}
+- (void)viewDidUnload {
+[self setButtonEdit:nil];
+[super viewDidUnload];
 }
 @end

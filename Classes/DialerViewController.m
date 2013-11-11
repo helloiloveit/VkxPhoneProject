@@ -262,6 +262,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 }
 
 - (void)call:(NSString*)address {
+    //1040 _ 124.46.127.179
     NSString *displayName = nil;
     ABRecordRef contact = [[[LinphoneManager instance] fastAddressBook] getContact:address];
     if(contact) {

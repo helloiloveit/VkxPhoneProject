@@ -200,7 +200,6 @@
 		3A2CBA05180662EE00353E6B /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2CBA04180662ED00353E6B /* call.png */; };
 		3A2CBA071806647300353E6B /* contact_list_call.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A2CBA061806647300353E6B /* contact_list_call.png */; };
 		3A307EFA17C1D58400512153 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A307EF917C1D58400512153 /* avatar.png */; };
-		3A47635F1802310100BA6F9A /* linphone_splashscreen-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A47635E1802310100BA6F9A /* linphone_splashscreen-568h@2x.png */; };
 		3A5B20D5180F9ECD003862CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		3A5B20D6180F9ECD003862CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		3A5B20DC180F9ECD003862CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B20DA180F9ECD003862CE /* InfoPlist.strings */; };
@@ -232,6 +231,7 @@
 		6920D5C3180BD857004566FF /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6920D5C0180BD857004566FF /* libssl.a */; };
 		6957B32118238E7D001BCF21 /* button_about.png in Resources */ = {isa = PBXBuildFile; fileRef = 6957B32018238E7C001BCF21 /* button_about.png */; };
 		698C3FDB1812251B00F69AEF /* LocationFunctionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 698C3FD91812251B00F69AEF /* LocationFunctionsTest.m */; };
+		6990A9F41828C7FE00818F2E /* folder_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6990A9F31828C7FE00818F2E /* folder_icon.png */; };
 		69A88DD3180FE00600F5A4BC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A88DD2180FE00600F5A4BC /* XCTest.framework */; };
 		69B404B8181A131C00F3B4E6 /* libMailCore-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B404AF181A130500F3B4E6 /* libMailCore-ios.a */; };
 		69B404BC181A45E100F3B4E6 /* SendEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B404BA181A45E100F3B4E6 /* SendEmailViewController.m */; };
@@ -1942,7 +1942,6 @@
 		3A2CBA04180662ED00353E6B /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
 		3A2CBA061806647300353E6B /* contact_list_call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contact_list_call.png; sourceTree = "<group>"; };
 		3A307EF917C1D58400512153 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
-		3A47635E1802310100BA6F9A /* linphone_splashscreen-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linphone_splashscreen-568h@2x.png"; sourceTree = "<group>"; };
 		3A5B20D3180F9ECD003862CE /* VphoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VphoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5B20D9180F9ECD003862CE /* VphoneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VphoneTests-Info.plist"; sourceTree = "<group>"; };
 		3A5B20DB180F9ECD003862CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -1979,6 +1978,7 @@
 		6957B32018238E7C001BCF21 /* button_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_about.png; path = Resources/button_about.png; sourceTree = SOURCE_ROOT; };
 		698C3FD91812251B00F69AEF /* LocationFunctionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationFunctionsTest.m; sourceTree = "<group>"; };
 		698C692618151EB4005DFA71 /* LocationRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationRequestDelegate.h; sourceTree = "<group>"; };
+		6990A9F31828C7FE00818F2E /* folder_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = folder_icon.png; path = Resources/folder_icon.png; sourceTree = SOURCE_ROOT; };
 		69A88DCC180FDD2100F5A4BC /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../iOSPorts/ports/security/openssl/build/Debug-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
 		69A88DCD180FDD2100F5A4BC /* libsasl2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsasl2.a; path = "../iOSPorts/ports/security/cyrus-sasl/build/Debug-iphoneos/libsasl2.a"; sourceTree = "<group>"; };
 		69A88DCE180FDD2100F5A4BC /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../iOSPorts/ports/security/openssl/build/Debug-iphoneos/libssl.a"; sourceTree = "<group>"; };
@@ -2924,6 +2924,7 @@
 				D38187BC15FE342200C3EDCA /* ContactDetailsViewController.xib */,
 				D3549814158761CF000081D8 /* ContactsTableViewController.h */,
 				D3549815158761D0000081D8 /* ContactsTableViewController.m */,
+				6990A9F31828C7FE00818F2E /* folder_icon.png */,
 				D35497FB15875372000081D8 /* ContactsViewController.h */,
 				D35497FC15875372000081D8 /* ContactsViewController.m */,
 				D38187C015FE342800C3EDCA /* ContactsViewController.xib */,
@@ -3552,7 +3553,6 @@
 				6920D5BE180BD856004566FF /* libcrypto.a */,
 				6920D5BF180BD857004566FF /* libsasl2.a */,
 				6920D5C0180BD857004566FF /* libssl.a */,
-				3A47635E1802310100BA6F9A /* linphone_splashscreen-568h@2x.png */,
 				15017E6F1773578400784ACB /* libxml2.a */,
 				57B0E35F173C010400A476B8 /* libpolarssl.a */,
 				223CA7E416D9255800EF1BEC /* libantlr3c.a */,
@@ -5065,6 +5065,7 @@
 				D3128FF115AABE4E00A2147A /* contact_back_over.png in Resources */,
 				D3128FF315AABE4E00A2147A /* contact_edit_default.png in Resources */,
 				D3128FF515AABE4E00A2147A /* contact_edit_over.png in Resources */,
+				6990A9F41828C7FE00818F2E /* folder_icon.png in Resources */,
 				D37C638E15AAD251009D0BAC /* contact_number_over.png in Resources */,
 				D37C639015AAD251009D0BAC /* contact_number.png in Resources */,
 				D381881515FE3F7F00C3EDCA /* UIContactDetailsHeader.xib in Resources */,
@@ -5391,7 +5392,6 @@
 				3AD27B8717FD6DC1000BFD05 /* contacts_default.png in Resources */,
 				3AD27B8B17FD6E9E000BFD05 /* dialer_default.png in Resources */,
 				3AD27B8D17FD6ECC000BFD05 /* dialer_over.png in Resources */,
-				3A47635F1802310100BA6F9A /* linphone_splashscreen-568h@2x.png in Resources */,
 				3A2CBA01180651EF00353E6B /* chat_compose_message.png in Resources */,
 				3A2CBA05180662EE00353E6B /* call.png in Resources */,
 				3A2CBA071806647300353E6B /* contact_list_call.png in Resources */,

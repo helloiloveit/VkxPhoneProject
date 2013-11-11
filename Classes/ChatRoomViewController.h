@@ -56,6 +56,8 @@
 @property (nonatomic, retain) IBOutlet UIProgressView* imageTransferProgressBar;
 @property (nonatomic, retain) IBOutlet UIView* transferView;
 @property (nonatomic, retain) IBOutlet UIView* waitView;
+@property (retain, nonatomic) IBOutlet UIButton *buttonEdit;
+
 
 - (IBAction)onBackClick:(id)event;
 - (IBAction)onEditClick:(id)event;
