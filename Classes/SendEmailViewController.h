@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UICompositeViewController.h"
 
-@interface SendEmailViewController : UIViewController <UICompositeViewDelegate>
+@interface SendEmailViewController : UIViewController <UICompositeViewDelegate,UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSString *account;
 @property (nonatomic, strong) NSString *password;
@@ -23,5 +23,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *sendToTextField;
 @property (strong, nonatomic) IBOutlet UITextField *ccTextField;
 @property (strong, nonatomic) IBOutlet UITextField *subjectTextField;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *sendIndicator;
+@property (strong, nonatomic) IBOutlet UIButton *sendButton;
 
 @end

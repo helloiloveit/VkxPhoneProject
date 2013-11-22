@@ -20,6 +20,7 @@
 @synthesize account, password, sendTo, mailServer, subject;
 @synthesize mailContent, ccMailList;
 @synthesize sendToTextField, ccTextField, subjectTextField, contentTextField;
+@synthesize sendIndicator, sendButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,6 +60,12 @@ static UICompositeViewDescription *compositeDescription = nil;
     contentTextField.layer.borderWidth =1;
     contentTextField.layer.borderColor = [[UIColor blackColor] CGColor];
     // Do any additional setup after loading the view from its nib.
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,19 +83,53 @@ static UICompositeViewDescription *compositeDescription = nil;
     [super viewDidUnload];
 }
 
+-(void)dismissKeyboard {
+    [contentTextField resignFirstResponder];
+    [sendToTextField resignFirstResponder];
+    [ccTextField resignFirstResponder];
+    [subjectTextField resignFirstResponder];
+}
+
 - (IBAction)sendEmail:(id)sender {
+    sendButton.userInteractionEnabled = NO;
     sendTo = sendToTextField.text;
     subject = subjectTextField.text;
     ccMailList = [ccTextField.text componentsSeparatedByString:@";"];
     mailContent = contentTextField.text;
+    
+    if ( sendTo == nil || [sendTo isEqualToString:@""]){
+        sendButton.userInteractionEnabled = YES;
+        UIAlertView* error = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Address missing",nil)
+														message:NSLocalizedString(@"Address field is empty. Please enter a valid email adress",nil)
+													   delegate:nil
+											  cancelButtonTitle:NSLocalizedString(@"OK",nil)
+											  otherButtonTitles:nil];
+		[error show];
+        return;
+    }
+    
+    if (mailContent == nil || [mailContent isEqualToString:@""]){
+        sendButton.userInteractionEnabled = YES;
+        UIAlertView* error = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Empty text mail",nil)
+														message:NSLocalizedString(@"You're sending an empty text mail. Are you sure?",nil)
+													   delegate:self
+											  cancelButtonTitle:NSLocalizedString(@"Cancel",nil)
+                                              otherButtonTitles:@"OK", nil];
+        [error show];
+        return;
+    }
     [self sendEmail:sendTo cc:ccMailList withSubject:subject content:mailContent];
 }
 
 -(void) sendEmail: (NSString *)toAccount cc:(NSArray *)ccList withSubject:(NSString *)wSubject content:(NSString *)content
 {
-    toAccount = @"ninhnb88@gmail.com";
-    wSubject = @"test message";
+    
+   // toAccount = @"ninhnb88@gmail.com";
+   // wSubject = @"test message";
    // content = @"test test test";
+  
+    [sendIndicator startAnimating];
+    sendIndicator.hidden =NO;
     
     MCOSMTPSession *session = [[MCOSMTPSession alloc] init];
     [session setHostname:mailServer];
@@ -119,13 +160,20 @@ static UICompositeViewDescription *compositeDescription = nil;
     MCOSMTPSendOperation *sendOperation = [session sendOperationWithData:rfc882Data];
     [sendOperation start:^(NSError *error){
         if (error){
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email" message:@"sending failed" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [sendIndicator stopAnimating];
+            sendIndicator.hidden =YES;
+            sendButton.userInteractionEnabled = YES;
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email" message:@"sending failed" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alert show];
+            return;
         }
         else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email" message:@"Mail sent" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [sendIndicator stopAnimating];
+            sendIndicator.hidden =YES;
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email" message:@"Mail sent" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alert show];
         }
+        sendButton.userInteractionEnabled = YES;
     }];
 
 }
@@ -135,4 +183,20 @@ static UICompositeViewDescription *compositeDescription = nil;
     contentTextField.text = nil;
     [[PhoneMainView instance] changeCurrentView:[ContactsViewController compositeViewDescription]];
 }
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+   
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+        if([title isEqualToString:@"Cancel"])
+        {
+            NSLog(@"Sending canceled");
+        }
+        else if([title isEqualToString:@"OK"])
+        {
+            [self sendEmail:sendTo cc:ccMailList withSubject:subject content:mailContent];
+        }
+    
+}
+
+
 @end

@@ -57,6 +57,11 @@
     [super dealloc];
 }
 
++ (MCOIMAPSearchExpression *) searchAll
+{
+    return MCO_TO_OBJC(mailcore::IMAPSearchExpression::searchAll());
+}
+
 + (MCOIMAPSearchExpression *) searchFrom:(NSString *)value
 {
     return MCO_TO_OBJC(mailcore::IMAPSearchExpression::searchFrom([value mco_mcString]));
@@ -80,6 +85,11 @@
 + (MCOIMAPSearchExpression *) searchHeader:(NSString *)header value:(NSString *)value
 {
     return MCO_TO_OBJC(mailcore::IMAPSearchExpression::searchHeader([header mco_mcString], [value mco_mcString]));
+}
+
++ (MCOIMAPSearchExpression *) searchGmailThreadID:(uint64_t)number
+{
+    return MCO_TO_OBJC(mailcore::IMAPSearchExpression::searchGmailThreadID(number));
 }
 
 + (MCOIMAPSearchExpression *) searchAnd:(MCOIMAPSearchExpression *)expression other:(MCOIMAPSearchExpression *)other

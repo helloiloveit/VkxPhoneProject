@@ -161,12 +161,14 @@ namespace mailcore {
     };
     
     enum IMAPSearchKind {
+        IMAPSearchKindAll,
         IMAPSearchKindNone,
         IMAPSearchKindFrom,
         IMAPSearchKindRecipient,
         IMAPSearchKindSubject,
         IMAPSearchKindContent,
         IMAPSearchKindHeader,
+        IMAPSearchKindGmailThreadID,
         IMAPSearchKindOr,
         IMAPSearchKindAnd,
     };
@@ -227,7 +229,8 @@ namespace mailcore {
         IMAPMessageRenderingTypeHTML,
         IMAPMessageRenderingTypeHTMLBody,
         IMAPMessageRenderingTypePlainText,
-        IMAPMessageRenderingTypePlainTextBody
+        IMAPMessageRenderingTypePlainTextBody,
+        IMAPMessageRenderingTypePlainTextBodyAndStripWhitespace,
     };
 }
 

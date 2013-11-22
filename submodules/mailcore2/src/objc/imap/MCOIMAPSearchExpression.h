@@ -16,6 +16,16 @@
 #import <MailCore/MCOConstants.h>
 
 @interface MCOIMAPSearchExpression : NSObject
+
+/** 
+ Creates a search expression that returns all UIDS for the mailbox
+
+ Example:
+    
+    MCOIMAPSearchExpression * expr = [MCOIMAPSearchExpression searchAll]
+*/
++ (MCOIMAPSearchExpression *) searchAll;
+
 /**
  Creates a search expression that matches the sender of an email.
 
@@ -60,6 +70,15 @@
      MCOIMAPSearchExpression * expr = [MCOIMAPSearchExpression searchHeader:@"List-Id" value:@"shoes"]
 **/
 + (MCOIMAPSearchExpression *) searchHeader:(NSString *)header value:(NSString *)value;
+
+/**
+ Creates a search expression that matches emails with the given gmail thread id
+ 
+ Example:
+ 
+ MCOIMAPSearchExpression * expr = [MCOIMAPSearchExpression searchGmailThreadID:aThreadID]
+ */
++ (MCOIMAPSearchExpression *) searchGmailThreadID:(uint64_t)number;
 
 /**
  Creates a search expression that's a disjunction of two search expressions.

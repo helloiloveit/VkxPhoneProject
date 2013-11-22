@@ -263,10 +263,13 @@ static UICompositeViewDescription *compositeDescription = nil;
 }
 
 - (IBAction)onMailClick:(id)sender {
+    
+    DYNAMIC_CAST([[PhoneMainView instance] changeCurrentView:[SendEmailViewController compositeViewDescription]], SendEmailViewController);
+    /*
     NSLog(@"onMailclick");
     NSURL *myURL = [NSURL URLWithString:@"mailto://ninhnb88@gmail.com"];
     if (![[UIApplication sharedApplication] openURL:myURL]) {NSLog(@"error");};
-        NSLog(@"finished");
+        NSLog(@"finished");*/
 }
 
 @end

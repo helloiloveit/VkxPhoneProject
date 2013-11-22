@@ -315,7 +315,6 @@ static UICompositeViewDescription *compositeDescription = nil;
 }
 
 static void message_status(LinphoneChatMessage* msg,LinphoneChatMessageState state,void* ud) {
-    NSLog(@"Status change \n\n\n");
 	ChatRoomViewController* thiz = (ChatRoomViewController*)ud;
 	ChatModel *chat = (ChatModel *)linphone_chat_message_get_user_data(msg); 
 	[LinphoneLogger log:LinphoneLoggerLog 
@@ -331,7 +330,6 @@ static void message_status(LinphoneChatMessage* msg,LinphoneChatMessageState sta
 }
 
 - (BOOL)sendMessage:(NSString *)message withExterlBodyUrl:(NSURL*)externalUrl withInternalUrl:(NSURL*)internalUrl {
-    NSLog(@"SENDING \n\n\n");
     if(![LinphoneManager isLcReady]) {
         [LinphoneLogger logc:LinphoneLoggerWarning format:"Cannot send message: Linphone core not ready"];
         return FALSE;
@@ -517,7 +515,6 @@ static void message_status(LinphoneChatMessage* msg,LinphoneChatMessageState sta
 }
 
 - (IBAction)onEditClick:(id)event {
-
     buttonEdit.selected = ![tableController isEditing];
     [tableController setEditing:![tableController isEditing] animated:TRUE];
     [messageField resignFirstResponder];
@@ -824,7 +821,7 @@ static void message_status(LinphoneChatMessage* msg,LinphoneChatMessageState sta
 }
 
 - (void)viewDidUnload {
-[self setButtonEdit:nil];
-[super viewDidUnload];
+    [self setButtonEdit:nil];
+    [super viewDidUnload];
 }
 @end
