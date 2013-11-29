@@ -30,7 +30,7 @@
 
 #import "ldapTest.h"
 
-
+#import "ContactInfoHandler.h"
 
 
 @implementation ContactsTableViewController
@@ -213,6 +213,11 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     cell.firstNameLabel.text = cellValue;
     cell.lastNameLabel.text = nil;
     cell.avatarImage.image = [UIImage imageNamed:@"avatar.png"];
+    
+    [cell.callButton addTarget:self action:@selector(onCallClick:) forControlEvents:UIControlEventTouchUpInside];
+    cell.callButton.tag = indexPath.section;
+    cell.callButton.titleLabel.tag = indexPath.row;
+    
    // [cell setDataArray: dataArray];
     return cell;
 }
@@ -279,7 +284,8 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     UIImageView *imageView = [[[UIImageView alloc] initWithImage:myImage] autorelease];
     imageView.frame = CGRectMake(3,2,30,18);
     
-    customView.backgroundColor = [UIColor lightGrayColor];
+    customView.backgroundColor = [UIColor colorWithWhite:0.8f alpha:1.0f];
+                                  //lightGrayColor];
     [customView addSubview:imageView];
     [customView addSubview:headerLabel];
     return customView;
@@ -342,4 +348,17 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     return UITableViewCellEditingStyleNone;
 }
 
+- (void) onCallClick: (id) sender{
+    UIButton *button = (UIButton *) sender;
+    NSDictionary *userRecord = [ConvertionHandler returnUserRecord:dataArray
+                                                       atIndexPath:[NSIndexPath indexPathForRow:button.titleLabel.tag
+                                                                                inSection:button.tag]];
+    NSDictionary *temp = [ContactInfoHandler manipulateResultFromServer:userRecord];
+    NSLog(@"calling FMC number %@  contact = %@", [temp[@"Phone"] objectAtIndex:0][@"mobile"],
+                                                        userRecord[@"cn"]);
+
+    [[LinphoneManager instance] call:[temp[@"Phone"] objectAtIndex:0][@"mobile"]
+                                displayName:userRecord[@"cn"]
+                                transfer:NO];
+}
 @end

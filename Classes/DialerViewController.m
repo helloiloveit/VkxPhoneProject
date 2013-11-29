@@ -165,6 +165,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 	[sharpButton   setDigit:'#'];
     
     [addressField setAdjustsFontSizeToFitWidth:TRUE]; // Not put it in IB: issue with placeholder size
+    [addressField setText:@""];
     
     if([LinphoneManager runningOnIpad]) {
         if ([LinphoneManager instance].frontCamId != nil) {
@@ -324,4 +325,7 @@ static UICompositeViewDescription *compositeDescription = nil;
     }
 }
 
+- (void) textFieldDidBeginEditing:(UITextField *)textField{
+    [textField resignFirstResponder];
+}
 @end

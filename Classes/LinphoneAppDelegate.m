@@ -339,7 +339,7 @@
 
 - (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error{
     if (error!=nil){
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Connection Error"]
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Location server" message:[NSString stringWithFormat:@"Connection error"]
                                                            delegate:nil cancelButtonTitle:@"OK"
                                                   otherButtonTitles: nil];
         [alertView show];

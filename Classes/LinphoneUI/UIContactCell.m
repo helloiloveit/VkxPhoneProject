@@ -29,6 +29,7 @@
 @synthesize avatarImage;
 //@synthesize contact;
 @synthesize dataArray;
+@synthesize callButton;
 
 #pragma mark - Lifecycle Functions
 
