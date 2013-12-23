@@ -231,6 +231,9 @@
 		6920D5C3180BD857004566FF /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6920D5C0180BD857004566FF /* libssl.a */; };
 		6957B32118238E7D001BCF21 /* button_about.png in Resources */ = {isa = PBXBuildFile; fileRef = 6957B32018238E7C001BCF21 /* button_about.png */; };
 		698C3FDB1812251B00F69AEF /* LocationFunctionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 698C3FD91812251B00F69AEF /* LocationFunctionsTest.m */; };
+		698E198F1867F0A8000153BE /* Favorites-button-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 698E198C1867F0A8000153BE /* Favorites-button-disabled.png */; };
+		698E19901867F0A8000153BE /* Favorites-button-over.png in Resources */ = {isa = PBXBuildFile; fileRef = 698E198D1867F0A8000153BE /* Favorites-button-over.png */; };
+		698E19911867F0A8000153BE /* Favorites-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 698E198E1867F0A8000153BE /* Favorites-button.png */; };
 		6990A9F41828C7FE00818F2E /* folder_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6990A9F31828C7FE00818F2E /* folder_icon.png */; };
 		6992CEC81830E665009F9665 /* CallNMessagesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6992CEC71830E665009F9665 /* CallNMessagesTest.m */; };
 		6992E4051839CD63007B0595 /* MUCRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6992E4031839CD63007B0595 /* MUCRoomViewController.m */; };
@@ -1982,6 +1985,9 @@
 		6957B32018238E7C001BCF21 /* button_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_about.png; path = Resources/button_about.png; sourceTree = SOURCE_ROOT; };
 		698C3FD91812251B00F69AEF /* LocationFunctionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationFunctionsTest.m; sourceTree = "<group>"; };
 		698C692618151EB4005DFA71 /* LocationRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationRequestDelegate.h; sourceTree = "<group>"; };
+		698E198C1867F0A8000153BE /* Favorites-button-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Favorites-button-disabled.png"; path = "Resources/Favorites-button-disabled.png"; sourceTree = "<group>"; };
+		698E198D1867F0A8000153BE /* Favorites-button-over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Favorites-button-over.png"; path = "Resources/Favorites-button-over.png"; sourceTree = "<group>"; };
+		698E198E1867F0A8000153BE /* Favorites-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Favorites-button.png"; path = "Resources/Favorites-button.png"; sourceTree = "<group>"; };
 		6990A9F31828C7FE00818F2E /* folder_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = folder_icon.png; path = Resources/folder_icon.png; sourceTree = SOURCE_ROOT; };
 		6992CEC71830E665009F9665 /* CallNMessagesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallNMessagesTest.m; sourceTree = "<group>"; };
 		6992E4021839CD63007B0595 /* MUCRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCRoomViewController.h; sourceTree = "<group>"; };
@@ -3643,6 +3649,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				698E198C1867F0A8000153BE /* Favorites-button-disabled.png */,
+				698E198D1867F0A8000153BE /* Favorites-button-over.png */,
+				698E198E1867F0A8000153BE /* Favorites-button.png */,
 				6990A9F31828C7FE00818F2E /* folder_icon.png */,
 				6957B32018238E7C001BCF21 /* button_about.png */,
 				3A307EF917C1D58400512153 /* avatar.png */,
@@ -4924,6 +4933,7 @@
 				D3F83F5C1582223B00336684 /* numpad_six_default.png in Resources */,
 				D3F83F5E1582223B00336684 /* numpad_six_over.png in Resources */,
 				D3F83F601582223B00336684 /* numpad_seven_default.png in Resources */,
+				698E198F1867F0A8000153BE /* Favorites-button-disabled.png in Resources */,
 				D3F83F621582223B00336684 /* numpad_seven_over.png in Resources */,
 				D3F83F641582223B00336684 /* numpad_eight_default.png in Resources */,
 				D3F83F661582223B00336684 /* numpad_eight_over.png in Resources */,
@@ -5075,6 +5085,7 @@
 				D3A8BB8315A6CC3200F96BE5 /* setup_start_disabled.png in Resources */,
 				D389363915A6D53200A3A3AA /* chat_bubble_incoming.9.png in Resources */,
 				D389363B15A6D53200A3A3AA /* chat_bubble_outgoing.9.png in Resources */,
+				698E19911867F0A8000153BE /* Favorites-button.png in Resources */,
 				D3D14E7C15A711700074A527 /* avatar_shadow_small.png in Resources */,
 				D38187B915FE342200C3EDCA /* ContactDetailsViewController.xib in Resources */,
 				D3128FEF15AABE4E00A2147A /* contact_back_default.png in Resources */,
@@ -5404,6 +5415,7 @@
 				3A9B041E17FD5A6D003DBA64 /* chat_over.png in Resources */,
 				3A9B042017FD5A7A003DBA64 /* chat_default.png in Resources */,
 				3A9B042217FD5A96003DBA64 /* chat_selected.png in Resources */,
+				698E19901867F0A8000153BE /* Favorites-button-over.png in Resources */,
 				3A9B042F17FD63E4003DBA64 /* settings_default.png in Resources */,
 				3AD27B8317FD67B6000BFD05 /* contacts_over.png in Resources */,
 				3AD27B8717FD6DC1000BFD05 /* contacts_default.png in Resources */,
