@@ -150,7 +150,6 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
     [super viewDidLoad];
     [headerController view]; // Force view load
     [footerController view]; // Force view load
-    [self appDelegate]._locationRequestDelegate = self;
      
 }
 
@@ -655,6 +654,7 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
             // Go to Location view
             [contactDetailsDelegate showLocation];
         }
+     [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
  //   }
  // 
 }
@@ -898,7 +898,7 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
     // NSString *userID = [self.userManipulatedData[@"userID"] lastObject];
     // NSString *messageStr = [@"position|get|" stringByAppendingString:userID];
 
-    XMPPMessage *msg = [[XMPPMessage alloc] initWithType:@"chat" to:[XMPPJID jidWithString:@"ninhnb@localhost"]];
+    XMPPMessage *msg = [[XMPPMessage alloc] initWithType:@"chat" to:[XMPPJID jidWithString:@"1045@124.46.127.179"]];
     [msg addBody:messageStr];
     [self.xmppStream sendElement: msg];
     NSLog(@"Message sent \n\n");

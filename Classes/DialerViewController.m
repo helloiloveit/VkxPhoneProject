@@ -245,7 +245,7 @@ static UICompositeViewDescription *compositeDescription = nil;
             [addCallButton setHidden:true];
             [callButton setHidden:false];
             [backButton setHidden:true];
-            [addContactButton setHidden:false];
+        //    [addContactButton setHidden:false];
             [transferButton setHidden:true];
         }
     }
@@ -311,13 +311,13 @@ static UICompositeViewDescription *compositeDescription = nil;
 
 - (IBAction)onAddressChange: (id)sender {
     if([[addressField text] length] > 0) {
-        [addContactButton setEnabled:TRUE];
+      //  [addContactButton setEnabled:TRUE];
         [eraseButton setEnabled:TRUE];
         [callButton setEnabled:TRUE];
         [addCallButton setEnabled:TRUE];
         [transferButton setEnabled:TRUE];
     } else {
-        [addContactButton setEnabled:FALSE];
+     //   [addContactButton setEnabled:FALSE];
         [eraseButton setEnabled:FALSE];
         [callButton setEnabled:FALSE];
         [addCallButton setEnabled:FALSE];

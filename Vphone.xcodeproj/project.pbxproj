@@ -231,10 +231,11 @@
 		6920D5C3180BD857004566FF /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6920D5C0180BD857004566FF /* libssl.a */; };
 		6957B32118238E7D001BCF21 /* button_about.png in Resources */ = {isa = PBXBuildFile; fileRef = 6957B32018238E7C001BCF21 /* button_about.png */; };
 		698C3FDB1812251B00F69AEF /* LocationFunctionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 698C3FD91812251B00F69AEF /* LocationFunctionsTest.m */; };
+		698E198F1867F0A8000153BE /* Favorites-button-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 698E198C1867F0A8000153BE /* Favorites-button-disabled.png */; };
+		698E19901867F0A8000153BE /* Favorites-button-over.png in Resources */ = {isa = PBXBuildFile; fileRef = 698E198D1867F0A8000153BE /* Favorites-button-over.png */; };
+		698E19911867F0A8000153BE /* Favorites-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 698E198E1867F0A8000153BE /* Favorites-button.png */; };
 		6990A9F41828C7FE00818F2E /* folder_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6990A9F31828C7FE00818F2E /* folder_icon.png */; };
 		6992CEC81830E665009F9665 /* CallNMessagesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6992CEC71830E665009F9665 /* CallNMessagesTest.m */; };
-		6992E4051839CD63007B0595 /* MUCRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6992E4031839CD63007B0595 /* MUCRoomViewController.m */; };
-		6992E4061839CD63007B0595 /* MUCRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6992E4041839CD63007B0595 /* MUCRoomViewController.xib */; };
 		6992E4231839F9D3007B0595 /* libMailCore-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6992E41C1839F9B3007B0595 /* libMailCore-ios.a */; };
 		69A88DD3180FE00600F5A4BC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A88DD2180FE00600F5A4BC /* XCTest.framework */; };
 		69B404BC181A45E100F3B4E6 /* SendEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B404BA181A45E100F3B4E6 /* SendEmailViewController.m */; };
@@ -281,7 +282,6 @@
 		69C8E604180BF481007C4B3F /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C8E603180BF481007C4B3F /* MapAnnotation.m */; };
 		69C8E606180BF720007C4B3F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C8E605180BF720007C4B3F /* MapKit.framework */; };
 		69C8E609180BFC9B007C4B3F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C8E608180BFC9B007C4B3F /* CoreLocation.framework */; };
-		69ECD391183A1E2E0099A48F /* MUCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ECD390183A1E2E0099A48F /* MUCTableViewController.m */; };
 		70571E1A13FABCB000CDD3C2 /* rootca.pem in Resources */ = {isa = PBXBuildFile; fileRef = 70571E1913FABCB000CDD3C2 /* rootca.pem */; };
 		7066FC0C13E830E400EFC6DC /* libvpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7066FC0B13E830E400EFC6DC /* libvpx.a */; };
 		70E542F313E147E3002BA2C0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E542F213E147E3002BA2C0 /* OpenGLES.framework */; };
@@ -1982,11 +1982,11 @@
 		6957B32018238E7C001BCF21 /* button_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_about.png; path = Resources/button_about.png; sourceTree = SOURCE_ROOT; };
 		698C3FD91812251B00F69AEF /* LocationFunctionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationFunctionsTest.m; sourceTree = "<group>"; };
 		698C692618151EB4005DFA71 /* LocationRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationRequestDelegate.h; sourceTree = "<group>"; };
+		698E198C1867F0A8000153BE /* Favorites-button-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Favorites-button-disabled.png"; path = "Resources/Favorites-button-disabled.png"; sourceTree = "<group>"; };
+		698E198D1867F0A8000153BE /* Favorites-button-over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Favorites-button-over.png"; path = "Resources/Favorites-button-over.png"; sourceTree = "<group>"; };
+		698E198E1867F0A8000153BE /* Favorites-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Favorites-button.png"; path = "Resources/Favorites-button.png"; sourceTree = "<group>"; };
 		6990A9F31828C7FE00818F2E /* folder_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = folder_icon.png; path = Resources/folder_icon.png; sourceTree = SOURCE_ROOT; };
 		6992CEC71830E665009F9665 /* CallNMessagesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallNMessagesTest.m; sourceTree = "<group>"; };
-		6992E4021839CD63007B0595 /* MUCRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCRoomViewController.h; sourceTree = "<group>"; };
-		6992E4031839CD63007B0595 /* MUCRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCRoomViewController.m; sourceTree = "<group>"; };
-		6992E4041839CD63007B0595 /* MUCRoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MUCRoomViewController.xib; sourceTree = "<group>"; };
 		6992E40F1839F76A007B0595 /* mailcore2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mailcore2.xcodeproj; path = "submodules/mailcore2/build-mac/mailcore2.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		69A88DCC180FDD2100F5A4BC /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../iOSPorts/ports/security/openssl/build/Debug-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
 		69A88DCD180FDD2100F5A4BC /* libsasl2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsasl2.a; path = "../iOSPorts/ports/security/cyrus-sasl/build/Debug-iphoneos/libsasl2.a"; sourceTree = "<group>"; };
@@ -2081,8 +2081,6 @@
 		69C8E605180BF720007C4B3F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		69C8E607180BFA14007C4B3F /* SMMessageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMessageDelegate.h; sourceTree = "<group>"; };
 		69C8E608180BFC9B007C4B3F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		69ECD38F183A1E2E0099A48F /* MUCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUCTableViewController.h; sourceTree = "<group>"; };
-		69ECD390183A1E2E0099A48F /* MUCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUCTableViewController.m; sourceTree = "<group>"; };
 		70571E1913FABCB000CDD3C2 /* rootca.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = rootca.pem; path = Resources/rootca.pem; sourceTree = "<group>"; };
 		7066FC0B13E830E400EFC6DC /* libvpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvpx.a; path = "liblinphone-sdk/apple-darwin/lib/libvpx.a"; sourceTree = "<group>"; };
 		70E542F213E147E3002BA2C0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -2910,11 +2908,6 @@
 				22E0A81C111C44E100B04932 /* AboutViewController.m */,
 				22E0A81B111C44E100B04932 /* AboutViewController.xib */,
 				3A83DEAB17AA315C00FE9A15 /* ConstantDefinition.h */,
-				69ECD38F183A1E2E0099A48F /* MUCTableViewController.h */,
-				69ECD390183A1E2E0099A48F /* MUCTableViewController.m */,
-				6992E4021839CD63007B0595 /* MUCRoomViewController.h */,
-				6992E4031839CD63007B0595 /* MUCRoomViewController.m */,
-				6992E4041839CD63007B0595 /* MUCRoomViewController.xib */,
 				D32B6E2715A5BC430033019F /* ChatRoomTableViewController.h */,
 				D32B6E2815A5BC430033019F /* ChatRoomTableViewController.m */,
 				D3F795D315A582800077328B /* ChatRoomViewController.h */,
@@ -3643,6 +3636,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				698E198C1867F0A8000153BE /* Favorites-button-disabled.png */,
+				698E198D1867F0A8000153BE /* Favorites-button-over.png */,
+				698E198E1867F0A8000153BE /* Favorites-button.png */,
 				6990A9F31828C7FE00818F2E /* folder_icon.png */,
 				6957B32018238E7C001BCF21 /* button_about.png */,
 				3A307EF917C1D58400512153 /* avatar.png */,
@@ -4757,6 +4753,9 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = 4V6GY32353;
+					};
 					3A5B20D2180F9ECD003862CE = {
 						TestTargetID = 1D6058900D05DD3D006BFB54;
 					};
@@ -4924,6 +4923,7 @@
 				D3F83F5C1582223B00336684 /* numpad_six_default.png in Resources */,
 				D3F83F5E1582223B00336684 /* numpad_six_over.png in Resources */,
 				D3F83F601582223B00336684 /* numpad_seven_default.png in Resources */,
+				698E198F1867F0A8000153BE /* Favorites-button-disabled.png in Resources */,
 				D3F83F621582223B00336684 /* numpad_seven_over.png in Resources */,
 				D3F83F641582223B00336684 /* numpad_eight_default.png in Resources */,
 				D3F83F661582223B00336684 /* numpad_eight_over.png in Resources */,
@@ -5075,6 +5075,7 @@
 				D3A8BB8315A6CC3200F96BE5 /* setup_start_disabled.png in Resources */,
 				D389363915A6D53200A3A3AA /* chat_bubble_incoming.9.png in Resources */,
 				D389363B15A6D53200A3A3AA /* chat_bubble_outgoing.9.png in Resources */,
+				698E19911867F0A8000153BE /* Favorites-button.png in Resources */,
 				D3D14E7C15A711700074A527 /* avatar_shadow_small.png in Resources */,
 				D38187B915FE342200C3EDCA /* ContactDetailsViewController.xib in Resources */,
 				D3128FEF15AABE4E00A2147A /* contact_back_default.png in Resources */,
@@ -5339,7 +5340,6 @@
 				D3328648160B5BC300E6435D /* dialer_alt_disabled_landscape~ipad.png in Resources */,
 				D332864A160B5BC300E6435D /* dialer_alt_disabled.png in Resources */,
 				D332864C160B5BC300E6435D /* dialer_alt_disabled~ipad.png in Resources */,
-				6992E4061839CD63007B0595 /* MUCRoomViewController.xib in Resources */,
 				D354944C160B615A0027E44E /* linphone_splashscreen.png in Resources */,
 				D354944E160B615A0027E44E /* linphone_splashscreen@2x.png in Resources */,
 				D38F46F2160C5CC8002D4C4A /* linphone_splashscreen-568h@2x.png in Resources */,
@@ -5404,6 +5404,7 @@
 				3A9B041E17FD5A6D003DBA64 /* chat_over.png in Resources */,
 				3A9B042017FD5A7A003DBA64 /* chat_default.png in Resources */,
 				3A9B042217FD5A96003DBA64 /* chat_selected.png in Resources */,
+				698E19901867F0A8000153BE /* Favorites-button-over.png in Resources */,
 				3A9B042F17FD63E4003DBA64 /* settings_default.png in Resources */,
 				3AD27B8317FD67B6000BFD05 /* contacts_over.png in Resources */,
 				3AD27B8717FD6DC1000BFD05 /* contacts_default.png in Resources */,
@@ -6005,7 +6006,6 @@
 				340751E7150F38FD00B89C47 /* UIVideoButton.m in Sources */,
 				34216F401547EBCD00EA9777 /* VideoZoomHandler.m in Sources */,
 				D3F83EEC1582021700336684 /* InCallViewController.m in Sources */,
-				69ECD391183A1E2E0099A48F /* MUCTableViewController.m in Sources */,
 				D3F83F8E15822ABE00336684 /* PhoneMainView.m in Sources */,
 				D3ED3E871586291E006C0DE4 /* UIMainBar.m in Sources */,
 				D3ED3EA71587334E006C0DE4 /* HistoryTableViewController.m in Sources */,
@@ -6076,7 +6076,6 @@
 				D3ED40191602172200BF332B /* HPGrowingTextView.m in Sources */,
 				D3ED401B1602172200BF332B /* HPTextViewInternal.m in Sources */,
 				D37EE162160377D7003608A6 /* DTActionSheet.m in Sources */,
-				6992E4051839CD63007B0595 /* MUCRoomViewController.m in Sources */,
 				D374D3FD16071762003D25FF /* ImageSharing.m in Sources */,
 				D35E91F4160CA10B0023116B /* UILinphoneTextField.m in Sources */,
 				D35E91F8160CA4FF0023116B /* UILinphoneButton.m in Sources */,
@@ -6556,7 +6555,8 @@
 				ARCHS = armv7;
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Le Anh Tuan (495Y4X2XY3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_FRAMEWORKS_DIR)";
@@ -6581,6 +6581,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "Vphone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					"\"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins\"",
@@ -6605,7 +6606,7 @@
 					"-lxml2",
 				);
 				PRODUCT_NAME = Vphone;
-				PROVISIONING_PROFILE = "0228C73A-EAF8-4AAD-8155-D271D870B9AD";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = ../iOSPorts/include/;
@@ -6643,7 +6644,8 @@
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Le Anh Tuan (495Y4X2XY3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_FRAMEWORKS_DIR)";
@@ -6668,6 +6670,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "Vphone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					"\"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins\"",
@@ -6692,7 +6695,7 @@
 					"-lxml2",
 				);
 				PRODUCT_NAME = Vphone;
-				PROVISIONING_PROFILE = "0228C73A-EAF8-4AAD-8155-D271D870B9AD";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -6899,7 +6902,8 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Le Anh Tuan (495Y4X2XY3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_FRAMEWORKS_DIR)";
@@ -6924,6 +6928,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "Vphone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					"\"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins\"",
@@ -6948,7 +6953,7 @@
 					"-lxml2",
 				);
 				PRODUCT_NAME = Vphone;
-				PROVISIONING_PROFILE = "0228C73A-EAF8-4AAD-8155-D271D870B9AD";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -6985,7 +6990,8 @@
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Le Anh Tuan (495Y4X2XY3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_FRAMEWORKS_DIR)";
@@ -7010,6 +7016,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "Vphone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(BUILT_PRODUCTS_DIR)",
 					"\"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins\"",
@@ -7034,7 +7041,7 @@
 					"-lxml2",
 				);
 				PRODUCT_NAME = Vphone;
-				PROVISIONING_PROFILE = "0228C73A-EAF8-4AAD-8155-D271D870B9AD";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

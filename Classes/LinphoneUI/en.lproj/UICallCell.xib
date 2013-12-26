@@ -91,7 +91,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Audio" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="95" userLabel="audioLabel">
-                                    <rect key="frame" x="10.000000000000007" y="21" width="300" height="21"/>
+                                    <rect key="frame" x="9.9999999999998863" y="21" width="300" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <accessibility key="accessibilityConfiguration" label="Audio section"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
@@ -162,7 +162,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10.0 KB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="94" userLabel="audioDownloadBandwidthLabel">
-                                            <rect key="frame" x="190" y="0.0" width="110.00000000000001" height="21"/>
+                                            <rect key="frame" x="190" y="0.0" width="110" height="21"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration" label="Video upload bandwidth">
                                                 <accessibilityTraits key="traits" none="YES"/>
@@ -206,7 +206,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Video" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="101" userLabel="videoLabel">
-                                    <rect key="frame" x="10.000000000000007" y="21" width="300" height="21"/>
+                                    <rect key="frame" x="9.9999999999998863" y="21" width="300" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <accessibility key="accessibilityConfiguration" label="Video section"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
@@ -277,7 +277,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10.0 KB/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="109" userLabel="videoDownloadBandwidthLabel">
-                                            <rect key="frame" x="190" y="0.0" width="110.00000000000001" height="21"/>
+                                            <rect key="frame" x="190" y="0.0" width="110" height="21"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration" label="Audio download bandwidth">
                                                 <accessibilityTraits key="traits" none="YES"/>
@@ -331,7 +331,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <label opaque="NO" autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="left" text="0102030405" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="17" userLabel="addressLabel">
+                        <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" text="0102030405" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="17" userLabel="addressLabel">
                             <rect key="frame" x="10" y="0.0" width="206" height="51"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <accessibility key="accessibilityConfiguration" label="Contact's name">
@@ -421,6 +421,6 @@
         <image name="call_state_pause_default.png" width="43" height="50"/>
         <image name="call_state_play_default.png" width="43" height="46"/>
         <image name="call_state_play_over.png" width="43" height="46"/>
-        <image name="cell_call_first.png" width="640" height="125"/>
+        <image name="cell_call_first.png" width="320" height="88"/>
     </resources>
 </document>
