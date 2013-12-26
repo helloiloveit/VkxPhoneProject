@@ -20,6 +20,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioServices.h>
 
+#import "LinphoneAppDelegate.h"
 #import "PhoneMainView.h"
 #import "Utils.h"
 #import "DTActionSheet.h"
@@ -387,10 +388,10 @@ static PhoneMainView* phoneMainViewInstance=nil;
                                          locationManager.location.coordinate.latitude,
                                          locationManager.location.coordinate.longitude,
                                          dateString];
-            [appDelegate xmppLocationReport:currentLocation];
+            [appDelegate connect:currentLocation];
        //     [locationManager stopUpdatingLocation];
             
-            [NSThread sleepForTimeInterval:1800];
+            [NSThread sleepForTimeInterval:600];
         }
     });*/
     //end reporting GPS location

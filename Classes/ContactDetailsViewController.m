@@ -330,10 +330,8 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     if ([[UIDevice currentDevice].systemVersion doubleValue] < 5.0) {
         [tableController viewWillAppear:animated];
     }
-    [tableController locationRequest];
-    
-   // NSLog(@"Attempting to connect");
-   // [[self appDelegate] connect:nil];
+    NSLog(@"Attempting to connect");
+    [[self appDelegate] connect:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

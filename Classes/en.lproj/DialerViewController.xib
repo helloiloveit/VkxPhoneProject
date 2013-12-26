@@ -227,17 +227,7 @@
                     <rect key="frame" x="0.0" y="305" width="320" height="69"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="y5l-Bj-9hx" userLabel="favouritesButton">
-                            <rect key="frame" x="0.0" y="-1" width="105" height="69"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" backgroundImage="Favorites-button.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="disabled" backgroundImage="Favorites-button-disabled.png"/>
-                            <state key="highlighted" backgroundImage="Favorites-button-over.png"/>
-                        </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="222" userLabel="addContactButton">
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="222" userLabel="addContactButton">
                             <rect key="frame" x="0.0" y="-1" width="105" height="69"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <accessibility key="accessibilityConfiguration" label="Add to contact"/>
@@ -329,9 +319,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Favorites-button-disabled.png" width="213" height="138"/>
-        <image name="Favorites-button-over.png" width="213" height="138"/>
-        <image name="Favorites-button.png" width="213" height="138"/>
         <image name="add_call_default.png" width="213" height="138"/>
         <image name="add_call_disabled.png" width="213" height="138"/>
         <image name="add_call_over.png" width="213" height="138"/>

@@ -557,31 +557,6 @@ static void linphone_iphone_transfer_state_changed(LinphoneCore* lc, LinphoneCal
                           [NSString stringWithUTF8String:message], @"message", 
                           nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:kLinphoneRegistrationUpdate object:self userInfo:dict];
- /*
-    LinphoneAppDelegate *appDelegate = (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
-   // if (appDelegate.xmppStream != nil) [appDelegate disconnect];
-    
-    if (![appDelegate.xmppStream isConnected]){
-    
-    //XMPP connect
-    //NSLog(@" identity = %@", [[NSString stringWithUTF8String:linphone_core_get_identity(lc)] substringFromIndex:4]);
-    LinphoneAuthInfo *ai;
-    const MSList *elem=linphone_core_get_auth_info_list([LinphoneManager getLc]);
-    if (elem && (ai=(LinphoneAuthInfo*)elem->data)){
-        NSString *username = [NSString stringWithUTF8String:linphone_auth_info_get_username(ai)];
-        NSString *password = [NSString stringWithUTF8String:linphone_auth_info_get_passwd(ai)];
-        
-        
-        LinphoneAddress* linphoneAddress = linphone_address_new(linphone_core_get_identity([LinphoneManager getLc]));
-        NSString *server = [NSString stringWithUTF8String:linphone_address_get_domain(linphoneAddress)];
-        NSLog(@" server = %@", server);
-        
-        NSString *info = [NSString stringWithFormat:@"%@|%@|%@", username, password, server];
-        
-        [appDelegate connect:info];
-        //end xmpp connect
-    }
-    }*/
 }
 
 static void linphone_iphone_registration_state(LinphoneCore *lc, LinphoneProxyConfig* cfg, LinphoneRegistrationState state,const char* message) {
@@ -604,15 +579,7 @@ static void linphone_iphone_registration_state(LinphoneCore *lc, LinphoneProxyCo
     if (linphone_chat_message_get_external_body_url(msg)) {
 		[chat setMessage:[NSString stringWithUTF8String:linphone_chat_message_get_external_body_url(msg)]];
 	} else {
-        NSString *message =[NSString stringWithUTF8String:linphone_chat_message_get_text(msg)];
-        
-        if ([message rangeOfString:@"|"].location != NSNotFound)
-        {
-            NSString *message2 = [[message substringFromIndex: [message rangeOfString:@"|"].location +1] substringFromIndex:[[message substringFromIndex: [message rangeOfString:@"|"].location +1] rangeOfString:@"|"].location +1];
-            message = message2;
-        }
-        [chat setMessage:message];
-	//	[chat setMessage:[NSString stringWithUTF8String:linphone_chat_message_get_text(msg)]];
+		[chat setMessage:[NSString stringWithUTF8String:linphone_chat_message_get_text(msg)]];
     }
 	[chat setDirection:[NSNumber numberWithInt:1]];
     [chat setTime:[NSDate dateWithTimeIntervalSince1970:linphone_chat_message_get_time(msg)]];

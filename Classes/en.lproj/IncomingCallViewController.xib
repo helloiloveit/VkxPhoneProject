@@ -50,11 +50,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" image="avatar_shadow.png" id="18" userLabel="avatarShadowImage">
-                            <rect key="frame" x="0.0" y="128" width="320" height="262"/>
+                            <rect key="frame" x="0.0" y="96" width="320" height="262"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" image="avatar_unknown.png" id="19" userLabel="avatarImage">
-                            <rect key="frame" x="80" y="144" width="160" height="170"/>
+                            <rect key="frame" x="80" y="113" width="160" height="170"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <accessibility key="accessibilityConfiguration" label="Contact's avatar">
                                 <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
@@ -68,33 +68,33 @@
                     <rect key="frame" x="0.0" y="383" width="320" height="77"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" id="7" userLabel="acceptButton">
+                        <view hidden="YES" userInteractionEnabled="NO" tag="-1" contentMode="scaleToFill" id="5" userLabel="mask">
+                            <rect key="frame" x="0.0" y="10" width="320" height="67"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
+                        <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7" userLabel="acceptButton">
                             <rect key="frame" x="0.0" y="0.0" width="160" height="77"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                             <accessibility key="accessibilityConfiguration" label="Accept"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" title="Accept" backgroundImage="accept_default.png">
+                            <state key="normal" backgroundImage="accept_default.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <state key="highlighted" title="Accept" backgroundImage="accept_over.png"/>
+                            <state key="highlighted" backgroundImage="accept_over.png"/>
                             <connections>
                                 <action selector="onAcceptClick:" destination="-1" eventType="touchUpInside" id="15"/>
                             </connections>
                         </button>
-                        <view hidden="YES" userInteractionEnabled="NO" tag="-1" contentMode="scaleToFill" id="5" userLabel="mask">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        </view>
-                        <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" id="6" userLabel="declineButton">
+                        <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6" userLabel="declineButton">
                             <rect key="frame" x="160" y="0.0" width="160" height="77"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                             <accessibility key="accessibilityConfiguration" label="Decline"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" title="Decline" backgroundImage="decline_default.png">
+                            <state key="normal" backgroundImage="decline_default.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <state key="highlighted" title="Decline" backgroundImage="decline_over.png"/>
+                            <state key="highlighted" backgroundImage="decline_over.png"/>
                             <connections>
                                 <action selector="onDeclineClick:" destination="-1" eventType="touchUpInside" id="16"/>
                             </connections>
@@ -107,11 +107,11 @@
         </view>
     </objects>
     <resources>
-        <image name="accept_default.png" width="213" height="138"/>
-        <image name="accept_over.png" width="213" height="138"/>
+        <image name="accept_default.png" width="320" height="154"/>
+        <image name="accept_over.png" width="320" height="154"/>
         <image name="avatar_shadow.png" width="640" height="523"/>
         <image name="avatar_unknown.png" width="320" height="339"/>
-        <image name="cell_call_first.png" width="320" height="88"/>
+        <image name="cell_call_first.png" width="640" height="125"/>
         <image name="decline_default.png" width="320" height="154"/>
         <image name="decline_over.png" width="320" height="154"/>
         <image name="header_incoming.png" width="640" height="135"/>

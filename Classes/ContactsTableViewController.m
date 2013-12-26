@@ -178,7 +178,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     for (id key in dict)
 
         nameArray = [dict objectForKey:key];
-  //  DebugLog(@"nameArray  count = %D",[nameArray count]);
+    DebugLog(@"nameArray  count = %D",[nameArray count]);
     
 
     return [nameArray count];

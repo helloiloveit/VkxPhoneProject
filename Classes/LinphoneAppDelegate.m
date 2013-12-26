@@ -256,15 +256,15 @@
 
 @synthesize xmppStream;
 @synthesize _messageDelegate;
-//@synthesize _locationRequestDelegate;
-/*
+@synthesize _locationRequestDelegate;
+
 -(void) setupStream {
     NSLog(@"setting up stream\n\n\n");
     xmppStream = [[XMPPStream alloc] init];
-    [xmppStream setHostName:@"124.46.127.179"];
+    [xmppStream setHostName:@"localhost"];
     [xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
     
-}*/
+}
 
 -(void) goOnline{
     XMPPPresence *presence = [XMPPPresence presence];
@@ -278,23 +278,12 @@
 
 -(BOOL) connect:(NSString *) data{
     NSLog(@"Connecting");
-   // [self setupStream];
+    [self setupStream];
     NSString *jabberID = [[NSUserDefaults standardUserDefaults] stringForKey:@"userID"];
     NSString *myPassword = [[NSUserDefaults standardUserDefaults] stringForKey:@"userPassword"];
     
-    NSString *server = [[data componentsSeparatedByString:@"|"] objectAtIndex:2];
-    
-    myPassword = [[data componentsSeparatedByString:@"|"] objectAtIndex:1];
-    jabberID = [[[data componentsSeparatedByString:@"|"] objectAtIndex:0] stringByAppendingString:[@"@" stringByAppendingString:server]];
-    
-    //jabberID = @"1040@124.46.127.179";
-    //myPassword = @"1040";
-    
-    NSLog(@"Setting up stream\n\n\n");
-    xmppStream = [[XMPPStream alloc] init];
-    [xmppStream setHostName:server];
-    
-    [xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    jabberID = @"ninhnb2@localhost";
+    myPassword = @"admin";
     
     if (![xmppStream isDisconnected]){
         return YES;
@@ -304,15 +293,15 @@
     }
     
     [xmppStream setMyJID:[XMPPJID jidWithString:jabberID]];
-    password = [myPassword copy];
+    password = myPassword;
     NSError *error = nil;
     
    [xmppStream connectWithTimeout:20 error:&error];
-   /* if (data == nil) {
+    if (data == nil) {
         isRequest = YES;
     }else {
         locationData = data;
-    }*/
+    }
     return YES;
 }
 
@@ -331,9 +320,6 @@
 -(void)xmppStreamDidAuthenticate:(XMPPStream *)sender{
     [self goOnline];
     NSLog(@"Stream authenticated");
-    
-    /*//old location
-     
     if (isRequest){
         [_locationRequestDelegate locationRequest];
         isRequest = NO;
@@ -343,22 +329,17 @@
         // NSString *userID = [self.userManipulatedData[@"userID"] lastObject];
          NSString *messageStr = [@"position|send|" stringByAppendingString:locationData];
         
-        XMPPMessage *msg = [[XMPPMessage alloc] initWithType:@"chat" to:[XMPPJID jidWithString:@"1045@124.46.127.179"]];
+        XMPPMessage *msg = [[XMPPMessage alloc] initWithType:@"chat" to:[XMPPJID jidWithString:@"ninhnb@localhost"]];
         [msg addBody:messageStr];
         [self.xmppStream sendElement: msg];
-      //  NSLog(@"Message sent \n\n");
-      //  [self disconnect];
-   
+        NSLog(@"Message sent \n\n");
+        [self disconnect];
     }
-    //end old location
-    */
 }
 
 - (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error{
     if (error!=nil){
-        NSLog(@"error =   %@",[error localizedDescription]);
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"XMPP server"
-                                                            message:[NSString stringWithFormat:@"Connection error: disconnected unexpectedly"]
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Location server" message:[NSString stringWithFormat:@"Connection error"]
                                                            delegate:nil cancelButtonTitle:@"OK"
                                                   otherButtonTitles: nil];
         [alertView show];
@@ -368,18 +349,13 @@
 -(void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message{
     if ([[message elementForName:@"body"] stringValue] != nil)
     {
-        if ([[[message elementForName:@"body"] stringValue] hasPrefix:@"position|"])
-        {
-            NSString *msg = [[message elementForName:@"body"] stringValue];
-            NSString *from = [[message attributeForName:@"from"] stringValue];
-            NSMutableDictionary *m = [[NSMutableDictionary alloc] init];
-            [m setObject:msg forKey:@"msg"];
-            [m setObject:from forKey:@"sender"];
-            [_messageDelegate newMessageReceived:m];
-        }
-        else if ([[[message elementForName:@"body"] stringValue] hasPrefix:@"chat|"])
-        {
-        }
+        NSString *msg = [[message elementForName:@"body"] stringValue];
+        NSString *from = [[message attributeForName:@"from"] stringValue];
+        NSMutableDictionary *m = [[NSMutableDictionary alloc] init];
+        [m setObject:msg forKey:@"msg"];
+        [m setObject:from forKey:@"sender"];
+        [_messageDelegate newMessageReceived:m];
+        [self disconnect];
     }
 }
 
@@ -387,16 +363,4 @@
 
 }
 
-- (void)xmppStream:(XMPPStream *)sender willSecureWithSettings:(NSMutableDictionary *)settings
-{
-    [settings setObject:[NSNumber numberWithBool:YES] forKey:(NSString *)kCFStreamSSLAllowsAnyRoot];
-}
-
--(void)xmppLocationReport:(NSString *) locationData {
-    
-    NSString *messageStr = [@"position|send|" stringByAppendingString:locationData];
-    XMPPMessage *msg = [[XMPPMessage alloc] initWithType:@"chat" to:[XMPPJID jidWithString:@"1045@124.46.127.179"]];
-    [msg addBody:messageStr];
-    [self.xmppStream sendElement: msg];
-}
 @end
