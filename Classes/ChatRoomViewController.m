@@ -360,6 +360,18 @@ static void message_status(LinphoneChatMessage* msg,LinphoneChatMessageState sta
     [tableController scrollToBottom:TRUE];
     [chat release];
     
+    LinphoneAuthInfo *ai;
+    const MSList *elem=linphone_core_get_auth_info_list([LinphoneManager getLc]);
+    if (elem && (ai=(LinphoneAuthInfo*)elem->data)){
+        LinphoneAddress* linphoneAddress = linphone_core_interpret_url([LinphoneManager getLc], [remoteAddress UTF8String]);
+        
+        NSString *to = [NSString stringWithUTF8String:linphone_address_get_username(linphoneAddress)];
+        NSString *from = [@"," stringByAppendingString:[NSString stringWithUTF8String:linphone_auth_info_get_username(ai)]];
+        NSString *prefix = [[[@"chat|" stringByAppendingString:to] stringByAppendingString:from] stringByAppendingString:@"|"];
+        message = [prefix stringByAppendingString:message];
+    }
+    else return FALSE;
+    
     LinphoneChatMessage* msg = linphone_chat_room_create_message(chatRoom, [message UTF8String]);
 	linphone_chat_message_set_user_data(msg, [chat retain]);
     if(externalUrl) {

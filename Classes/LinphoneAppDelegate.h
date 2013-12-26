@@ -23,7 +23,6 @@
 #import "LinphoneCoreSettingsStore.h"
 #import "XMPP.h"
 #import "SMMessageDelegate.h"
-#import "LocationRequestDelegate.h"
 
 @interface UILinphoneWindow : UIWindow
 
@@ -38,7 +37,6 @@
     XMPPStream *xmppStream;
     BOOL isRequest;
     NSString *password;
-    NSString *locationData;
     NSObject <SMMessageDelegate> *_messageDelegate;
 }
 
@@ -48,10 +46,12 @@
 
 @property (nonatomic, readonly) XMPPStream *xmppStream;
 @property (nonatomic, assign) id <SMMessageDelegate>  _messageDelegate;
-@property (nonatomic, assign) id <LocationRequestDelegate>  _locationRequestDelegate;
+//@property (nonatomic, assign) id <LocationRequestDelegate>  _locationRequestDelegate;
 
 -(BOOL) connect:(NSString *) data;
 -(void) disconnect;
+
+-(void) xmppLocationReport:(NSString *)locationData;
 
 @end
 

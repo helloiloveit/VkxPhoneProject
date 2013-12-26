@@ -33,6 +33,7 @@
 #import "Utils.h"
 
 #include "linphonecore.h"
+#import "LinphoneAppDelegate.h"
 
 extern const char *const LINPHONERC_APPLICATION_KEY;
 
