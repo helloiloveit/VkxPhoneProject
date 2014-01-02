@@ -1340,6 +1340,39 @@ static void audioRouteChangeListenerCallback (
         LinphoneAddress* linphoneAddress = linphone_address_new(linphone_core_get_identity(theLinphoneCore));
 		linphone_proxy_config_normalize_number(proxyCfg,[address cStringUsingEncoding:[NSString defaultCStringEncoding]],normalizedUserName,sizeof(normalizedUserName));
         linphone_address_set_username(linphoneAddress, normalizedUserName);
+        
+        displayName = [[self appDelegate]._contactDelegate getUserDataDict: normalizedUserName];
+/*
+        NSString* address = nil;
+        if(linphoneAddress != NULL) {
+                NSLog(@"user = %s", linphone_address_get_username(linphoneAddress));
+            BOOL useLinphoneAddress = true;
+            // contact name
+            char* lAddress = linphone_address_as_string_uri_only(linphoneAddress);
+            if(lAddress) {
+                address = [NSString stringWithUTF8String:lAddress];
+                NSLog(@"address = %s", lAddress);
+                NSString *normalizedSipAddress = [FastAddressBook normalizeSipURI:address];
+                
+                NSLog(@" call normalizedSipAddress = %@", normalizedSipAddress);
+                ABRecordRef contact = [[[LinphoneManager instance] fastAddressBook] getContact:normalizedSipAddress];
+                if(contact) {
+                    NSLog(@"contact");
+                    displayName = [FastAddressBook getContactDisplayName:contact];
+                    NSLog(@"displayName = %@", displayName);
+                    useLinphoneAddress = false;
+                }
+                ms_free(lAddress);
+            }
+            if(useLinphoneAddress) {
+                const char* lDisplayName = linphone_address_get_display_name(linphoneAddress);
+                if (lDisplayName)
+                    displayName = [NSString stringWithUTF8String:lDisplayName];
+                
+            }
+        }
+        
+        NSLog(@"displayName = %@", displayName);*/
         if(displayName!=nil) {
             linphone_address_set_display_name(linphoneAddress, [displayName cStringUsingEncoding:[NSString defaultCStringEncoding]]);
         }
@@ -1560,5 +1593,20 @@ static void audioRouteChangeListenerCallback (
 		}
 	}
 	return filter;
+}
+
+#pragma mark contactList
+-(void) userNumberAndName: (char *) number{
+    
+    [[self appDelegate]._contactDelegate getUserDataDict: number];
+ //   LinphoneAppDelegate *appDelegate = (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+ //   NSMutableDictionary *userInfo = tableController.userArray;
+//    NSLog(@"user info = %@", userInfo);
+
+}
+
+- (LinphoneAppDelegate *)appDelegate {
+	return (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 @end

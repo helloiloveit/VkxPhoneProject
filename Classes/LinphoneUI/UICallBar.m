@@ -296,10 +296,10 @@
         }
         [conferenceButton setEnabled:enabled];
     } else {
-        if([pauseButton isHidden]) {
+      /*  if([pauseButton isHidden]) {
             [pauseButton setHidden:false];
             [conferenceButton setHidden:true];
-        }
+        }*/
     }
 
     // Disable transfert in conference
@@ -450,7 +450,7 @@
 
 - (void)showSpeaker {
     if (![LinphoneManager runningOnIpad]) {
-        [speakerButton setHidden:FALSE];
+    //    [speakerButton setHidden:FALSE];
         [routesButton setHidden:TRUE];
     }
 }

@@ -898,7 +898,12 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
     // NSString *userID = [self.userManipulatedData[@"userID"] lastObject];
     // NSString *messageStr = [@"position|get|" stringByAppendingString:userID];
 
-    XMPPMessage *msg = [[XMPPMessage alloc] initWithType:@"chat" to:[XMPPJID jidWithString:@"1045@124.46.127.179"]];
+    LinphoneAddress* linphoneAddress = linphone_address_new(linphone_core_get_identity([LinphoneManager getLc]));
+    NSString *server = [NSString stringWithUTF8String:linphone_address_get_domain(linphoneAddress)];
+    NSString *locationServer = [@"1045@" stringByAppendingString:server];
+   
+    
+    XMPPMessage *msg = [[XMPPMessage alloc] initWithType:@"chat" to:[XMPPJID jidWithString:locationServer]];
     [msg addBody:messageStr];
     [self.xmppStream sendElement: msg];
     NSLog(@"Message sent \n\n");

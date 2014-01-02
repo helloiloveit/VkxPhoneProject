@@ -345,9 +345,9 @@
             [stateImage setHidden:false];
             [pauseButton setHidden:true];
         } else {
-            [stateImage setHidden:true];
+       /*     [stateImage setHidden:true];
             [pauseButton setHidden:false];
-            [pauseButton update];
+            [pauseButton update];*/
         }
         [removeButton setHidden:true];
         if(firstCell) {

@@ -22,8 +22,9 @@
 
 #import "OrderedDictionary.h"
 #import "alertHandler.h"
+#import "ContactAddressDelegate.h"
 
-@interface ContactsTableViewController : UITableViewController {
+@interface ContactsTableViewController : UITableViewController <ContactAddressDelegate>{
     @private
     OrderedDictionary* addressBookMap;
     NSMutableDictionary* avatarMap;
@@ -37,5 +38,5 @@
 
 @property (nonatomic, retain) NSArray *dataArray;
 - (void)loadData;
-
+- (NSString *) getUserDataDict: (char *) number;
 @end

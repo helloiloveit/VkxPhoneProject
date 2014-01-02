@@ -34,6 +34,7 @@
 
 #include "linphonecore.h"
 #import "LinphoneAppDelegate.h"
+#import "ContactsTableViewController.h"
 
 extern const char *const LINPHONERC_APPLICATION_KEY;
 

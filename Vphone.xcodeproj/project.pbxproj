@@ -238,6 +238,7 @@
 		6992CEC81830E665009F9665 /* CallNMessagesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6992CEC71830E665009F9665 /* CallNMessagesTest.m */; };
 		6992E4231839F9D3007B0595 /* libMailCore-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6992E41C1839F9B3007B0595 /* libMailCore-ios.a */; };
 		69A88DD3180FE00600F5A4BC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A88DD2180FE00600F5A4BC /* XCTest.framework */; };
+		69AE6FE0186BEDF100E2279D /* incall_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 69AE6FDF186BEDF100E2279D /* incall_background.png */; };
 		69B404BC181A45E100F3B4E6 /* SendEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B404BA181A45E100F3B4E6 /* SendEmailViewController.m */; };
 		69B404BD181A45E100F3B4E6 /* SendEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69B404BB181A45E100F3B4E6 /* SendEmailViewController.xib */; };
 		69C8E5D1180BE9A9007C4B3F /* XMPPAnonymousAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C8E570180BE9A8007C4B3F /* XMPPAnonymousAuthentication.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -1979,6 +1980,7 @@
 		6920D5BE180BD856004566FF /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../iOSPorts/ports/security/openssl/build/Release-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
 		6920D5BF180BD857004566FF /* libsasl2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsasl2.a; path = "../iOSPorts/ports/security/cyrus-sasl/build/Release-iphoneos/libsasl2.a"; sourceTree = "<group>"; };
 		6920D5C0180BD857004566FF /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../iOSPorts/ports/security/openssl/build/Release-iphoneos/libssl.a"; sourceTree = "<group>"; };
+		6947B5C71872C7B100812321 /* ContactAddressDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContactAddressDelegate.h; path = ../ContactAddressDelegate.h; sourceTree = "<group>"; };
 		6957B32018238E7C001BCF21 /* button_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_about.png; path = Resources/button_about.png; sourceTree = SOURCE_ROOT; };
 		698C3FD91812251B00F69AEF /* LocationFunctionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationFunctionsTest.m; sourceTree = "<group>"; };
 		698C692618151EB4005DFA71 /* LocationRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationRequestDelegate.h; sourceTree = "<group>"; };
@@ -1992,6 +1994,7 @@
 		69A88DCD180FDD2100F5A4BC /* libsasl2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsasl2.a; path = "../iOSPorts/ports/security/cyrus-sasl/build/Debug-iphoneos/libsasl2.a"; sourceTree = "<group>"; };
 		69A88DCE180FDD2100F5A4BC /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../iOSPorts/ports/security/openssl/build/Debug-iphoneos/libssl.a"; sourceTree = "<group>"; };
 		69A88DD2180FE00600F5A4BC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		69AE6FDF186BEDF100E2279D /* incall_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = incall_background.png; path = Resources/incall_background.png; sourceTree = "<group>"; };
 		69B404B9181A45E100F3B4E6 /* SendEmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendEmailViewController.h; sourceTree = "<group>"; };
 		69B404BA181A45E100F3B4E6 /* SendEmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendEmailViewController.m; sourceTree = "<group>"; };
 		69B404BB181A45E100F3B4E6 /* SendEmailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendEmailViewController.xib; sourceTree = "<group>"; };
@@ -3636,6 +3639,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				69AE6FDF186BEDF100E2279D /* incall_background.png */,
 				698E198C1867F0A8000153BE /* Favorites-button-disabled.png */,
 				698E198D1867F0A8000153BE /* Favorites-button-over.png */,
 				698E198E1867F0A8000153BE /* Favorites-button.png */,
@@ -4487,6 +4491,7 @@
 			children = (
 				69C8E608180BFC9B007C4B3F /* CoreLocation.framework */,
 				69C8E605180BF720007C4B3F /* MapKit.framework */,
+				6947B5C71872C7B100812321 /* ContactAddressDelegate.h */,
 				698C692618151EB4005DFA71 /* LocationRequestDelegate.h */,
 				69C8E607180BFA14007C4B3F /* SMMessageDelegate.h */,
 				69C8E602180BF481007C4B3F /* MapAnnotation.h */,
@@ -5166,6 +5171,7 @@
 				D3A74EC015C69392001500B9 /* back_disabled~ipad.png in Resources */,
 				D3A74EC215C69392001500B9 /* back_over~ipad.png in Resources */,
 				D3A74EC415C69392001500B9 /* background_top~ipad.png in Resources */,
+				69AE6FE0186BEDF100E2279D /* incall_background.png in Resources */,
 				D3A74EC615C69392001500B9 /* backspace_default~ipad.png in Resources */,
 				D3A74EC815C69392001500B9 /* backspace_disabled~ipad.png in Resources */,
 				D3A74ECA15C69392001500B9 /* backspace_over~ipad.png in Resources */,

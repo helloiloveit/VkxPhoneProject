@@ -256,6 +256,7 @@
 
 @synthesize xmppStream;
 @synthesize _messageDelegate;
+@synthesize _contactDelegate;
 //@synthesize _locationRequestDelegate;
 /*
 -(void) setupStream {
@@ -393,9 +394,12 @@
 }
 
 -(void)xmppLocationReport:(NSString *) locationData {
+    LinphoneAddress* linphoneAddress = linphone_address_new(linphone_core_get_identity([LinphoneManager getLc]));
+    NSString *server = [NSString stringWithUTF8String:linphone_address_get_domain(linphoneAddress)];
+    NSString *locationServer = [@"1045@" stringByAppendingString:server];
     
     NSString *messageStr = [@"position|send|" stringByAppendingString:locationData];
-    XMPPMessage *msg = [[XMPPMessage alloc] initWithType:@"chat" to:[XMPPJID jidWithString:@"1045@124.46.127.179"]];
+    XMPPMessage *msg = [[XMPPMessage alloc] initWithType:@"chat" to:[XMPPJID jidWithString:locationServer]];
     [msg addBody:messageStr];
     [self.xmppStream sendElement: msg];
 }

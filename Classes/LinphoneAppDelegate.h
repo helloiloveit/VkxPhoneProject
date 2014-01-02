@@ -23,6 +23,7 @@
 #import "LinphoneCoreSettingsStore.h"
 #import "XMPP.h"
 #import "SMMessageDelegate.h"
+#import "ContactAddressDelegate.h"
 
 @interface UILinphoneWindow : UIWindow
 
@@ -46,6 +47,7 @@
 
 @property (nonatomic, readonly) XMPPStream *xmppStream;
 @property (nonatomic, assign) id <SMMessageDelegate>  _messageDelegate;
+@property (nonatomic, assign) id <ContactAddressDelegate>  _contactDelegate;
 //@property (nonatomic, assign) id <LocationRequestDelegate>  _locationRequestDelegate;
 
 -(BOOL) connect:(NSString *) data;

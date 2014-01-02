@@ -65,6 +65,11 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     return self;
 }	
 
+-(void) viewDidLoad{
+    [super viewDidLoad];
+    [self appDelegate]._contactDelegate = self;
+}
+
 - (void)dealloc {
     ABAddressBookUnregisterExternalChangeCallback(addressBook, sync_address_book, self);
     CFRelease(addressBook);
@@ -361,4 +366,90 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
                                 displayName:userRecord[@"cn"]
                                 transfer:NO];
 }
+
+-(NSString *) getUserDataDict: (char *) number{
+    NSString *userNumber = [NSString stringWithUTF8String: number];
+    NSMutableDictionary *phoneRecord = [[NSMutableDictionary alloc] init];
+    int section = [dataArray count];
+    
+    for (int i = 0; i < section; i++){
+        
+        NSDictionary *dict = [dataArray objectAtIndex:i ];
+        NSArray *nameArray;
+        
+        for (id key in dict)
+            nameArray = [dict objectForKey:key];
+        
+        int row =[nameArray count];
+        
+        for (int j = 0; j <row; j++)
+        {
+            NSDictionary *userRecord = [nameArray objectAtIndex:j];
+            NSDictionary *temp = [self manipulateResultFromServer:userRecord];
+            
+            [phoneRecord setValue:temp[@"Phone"] forKey:userRecord[@"cn"]];
+            
+            if ( [[temp[@"Phone"] objectAtIndex:0] [@"mobile"] isEqualToString:userNumber]
+                || [[temp[@"Phone"] objectAtIndex:1] [@"home"] isEqualToString:userNumber]) {
+               return userRecord[@"cn"];
+            }
+        }
+    }
+   return userNumber;
+}
+
+- (NSDictionary *)manipulateResultFromServer: (NSDictionary *) resultFromServer{
+    
+    NSMutableDictionary *dict1 = [NSMutableDictionary dictionary];
+    @try {
+        [dict1 setObject:resultFromServer[@"departmentNumber"] forKey:@"mobile"];
+    }
+    @catch (NSException *exception) {
+        
+        [dict1 setObject:@"" forKey:@"mobile"];
+    }
+    @finally {
+    }
+    
+    NSMutableDictionary *dict2 = [NSMutableDictionary dictionary];
+    @try {
+        [dict2 setObject:resultFromServer[@"homePhone"] forKey:@"home"];
+    }
+    @catch (NSException *exception) {
+        [dict2 setObject:@"043 8511432" forKey:@"home"];
+    }
+    @finally {
+    }
+
+    
+    
+    NSMutableDictionary *dict_name = [NSMutableDictionary dictionary];
+    
+    @try {
+        [dict_name setObject:resultFromServer[@"cn"] forKey:@"name"];
+    }
+    @catch (NSException *exception) {
+        
+        [dict_name setObject:@"" forKey:@"name"];
+    }
+    @finally {
+    }
+    
+    NSArray  * myArray1 = [NSArray arrayWithObjects:dict1, dict2, nil];
+    
+    
+    
+    NSDictionary * result = [[NSDictionary alloc] initWithObjectsAndKeys:
+                             myArray1 ?: [NSNull null], @"Phone",
+                             dict_name ?: [NSNull null], @"cn",
+                             nil];
+    
+    
+    return result;
+}
+
+- (LinphoneAppDelegate *)appDelegate {
+	return (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
 @end

@@ -53,8 +53,8 @@ static UICompositeViewDescription *compositeDescription = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    account = @"ninhnb88@gmail.com";
-    password = @"ninhnb001";
+    account = @"vphonedev@gmail.com";
+    password = @"vkx114401";
     mailServer = @"smtp.gmail.com";
     
     contentTextField.layer.borderWidth =1;
@@ -163,7 +163,7 @@ static UICompositeViewDescription *compositeDescription = nil;
             [sendIndicator stopAnimating];
             sendIndicator.hidden =YES;
             sendButton.userInteractionEnabled = YES;
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email" message:@"sending failed" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alert show];
             return;
         }

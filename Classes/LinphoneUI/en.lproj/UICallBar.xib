@@ -306,6 +306,10 @@
                     <rect key="frame" x="0.0" y="325" width="320" height="135"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="incall_background.png" id="eem-n4-4Pa">
+                            <rect key="frame" x="0.0" y="66" width="334" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <imageView hidden="YES" userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" image="callbar_left_padding.png" id="146" userLabel="leftPadding">
                             <rect key="frame" x="-44" y="-8" width="44" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -929,6 +933,7 @@
         <image name="hangup_default_landscape.png" width="180" height="163"/>
         <image name="hangup_over.png" width="60" height="60"/>
         <image name="hangup_over_landscape.png" width="180" height="163"/>
+        <image name="incall_background.png" width="320" height="88"/>
         <image name="micro_off_default.png" width="160" height="134"/>
         <image name="micro_off_default_landscape.png" width="130" height="163"/>
         <image name="micro_off_disabled.png" width="160" height="134"/>
