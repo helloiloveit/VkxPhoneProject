@@ -335,7 +335,6 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
     //  NSMutableDictionary *user_dict = [NSMutableDictionary dictionary];
     while(entry)
     {
-        DebugLog(@" ");
         DebugLog(@"      dn: %s", ldap_get_dn(ld, entry));
         NSMutableDictionary *user_dict = [NSMutableDictionary dictionary];
         
@@ -437,14 +436,231 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
         [user_list addObject:user_dict];
         //DebugLog(@"user_list = %@",user_list);
     };
-    DebugLog(@" ");
+
     
     DebugLog(@"   unbinding from LDAP server...");
     ldap_unbind_ext_s(ld, NULL, NULL);
 	
 	return user_list;
 }
+/*
+//Get Category List
+NSArray * get_business_category_list( int version, const char * ldapURI, const char * bindDN,
+                      const char * bindPW, const char * baseDN, const char * filter, int scope,
+                      const char * caFile)
+{
+    int              i;
+    int              err;
+    char           * msg;
+    char           * attribute;
+    LDAP           * ld;
+    BerValue         cred;
+    BerValue       * servercredp;
+    BerElement     * ber;
+    const char     * dn;
+    LDAPMessage    * res;
+    LDAPMessage    * entry;
+    struct berval ** vals;
+    vals            = NULL;
+    servercredp     = NULL;
+    dn              = "cn=Directory Manager";
+    
+    InfoLog(@"attempting %s bind:", (caFile ? "TLS simple" : "simple"));
+    ldapURI = ldapURI ? ldapURI : "ldap://127.0.0.1";
+    DebugLog(@"   initialzing LDAP (%s)...", ldapURI);
+    err = ldap_initialize(&ld, ldapURI);
+    if (err != LDAP_SUCCESS)
+    {
+        DebugLog(@"   ldap_initialize(): %s\n", ldap_err2string(err));
+        return NULL;
+    };
+    
+    version = version ? version : LDAP_VERSION3;
+    DebugLog(@"   setting protocol version %i...", version);
+    err = ldap_set_option(ld, LDAP_OPT_PROTOCOL_VERSION, &version);
+    if (err != LDAP_SUCCESS)
+    {
+        DebugLog(@"   ldap_set_option(): %s\n", ldap_err2string(err));
+        ldap_unbind_ext_s(ld, NULL, NULL);
+        return NULL ;
+    };
+    
+    if (caFile)
+    {
+        DebugLog(@"   attempting to start TLS...");
+        err = ldap_start_tls_s(ld, NULL, NULL);
+        if (err == LDAP_SUCCESS)
+        {
+            DebugLog(@"   TLS established");
+        } else {
+            ldap_get_option( ld, LDAP_OPT_DIAGNOSTIC_MESSAGE, (void*)&msg);
+            DebugLog(@"   ldap_start_tls_s(): %s", ldap_err2string(err));
+            DebugLog(@"   ssl/tls: %s", msg);
+            ldap_memfree(msg);
+        };
+    };
+    
+    DebugLog(@"   Bind Data:");
+    DebugLog(@"      Mech:    Simple");
+    DebugLog(@"      DN:      %s", bindDN ? bindDN : "(NULL)");
+    DebugLog(@"      Passwd:  %s", bindPW ? bindPW : "(NULL)");
+    
+    DebugLog(@"   binding to LDAP server...");
+    cred.bv_val = bindPW ? strdup(bindPW) : NULL;
+    cred.bv_len = bindPW ? (size_t) strlen("drowssap") : 0;
+    //err = ldap_sasl_bind_s(ld, bindDN, LDAP_SASL_SIMPLE, &cred, NULL, NULL, &servercredp);
+    // err = ldap_simple_bind_s(ld, NULL, NULL);
+    err = ldap_simple_bind_s_test(ld, "Uid=admin,ou=system", bindPW);
+    if (err != LDAP_SUCCESS)
+    {
+        InfoLog(@"   ldap_sasl_bind_s(): %s", ldap_err2string(err));
+        ldap_unbind_ext_s(ld, NULL, NULL);
+        return NULL;
+    } else {
+        InfoLog(@" Success connect");
+        
+    }
+    
+    DebugLog(@"   initiating lookup...");
+    //if ((err = ldap_search_ext_s(ld, baseDN, scope, filter, NULL, 0, NULL, NULL, NULL, -1, &res)))
+    //if ((err = ldap_search_ext_s(ld, bindDN, LDAP_SCOPE_SUBTREE, "(&(objectclass=organizationalunit))", NULL, 0, NULL, NULL, NULL,0, &res)))
+    DebugLog(@"baseDN = %s", baseDN);
+    if ((err = ldap_search_ext_s(ld, baseDN , LDAP_SCOPE_SUBTREE, "(&(objectclass=organizationalunit))", NULL, 0, NULL, NULL, NULL,0, &res)))
+   // if ((err = ldap_search_ext_s(ld, baseDN , LDAP_SCOPE_SUBTREE, "(&(objectclass=businessCategory))", NULL, 0, NULL, NULL, NULL,0, &res)))
+    {
+        DebugLog(@"   ldap_search_ext_s(): %s", ldap_err2string(err));
+        ldap_unbind_ext_s(ld, NULL, NULL);
+        return NULL;
+    };
+    
+    DebugLog(@"   checking for results...");
+    if (!(ldap_count_entries(ld, res)))
+    {
+        DebugLog(@"   no entries found.");
+        ldap_msgfree(res);
+        ldap_unbind_ext_s(ld, NULL, NULL);
+        return NULL;
+    };
+    DebugLog(@"   %i entries found.", ldap_count_entries(ld, res));
+    
+    DebugLog(@"   retrieving results...");
+    if (!(entry = ldap_first_entry(ld, res)))
+    {
+        DebugLog(@"   ldap_first_entry(): %s", ldap_err2string(err));
+        ldap_msgfree(res);
+        ldap_unbind_ext_s(ld, NULL, NULL);
+        return NULL;
+    };
+    
+    NSMutableArray * ou_list = [NSMutableArray array];
 
+    NSMutableDictionary *ouAndCaContainter =[[NSMutableDictionary alloc] initWithObjectsAndKeys:
+     @"" ?: [NSNull null], @"ou",
+     @""?: [NSNull null], @"busiCa",
+     nil];
+    
+    while(entry)
+    {
+        DebugLog(@"      dn: %s", ldap_get_dn(ld, entry));
+        
+        attribute = ldap_first_attribute(ld, entry, &ber);
+        while(attribute)
+        {
+            if (!strcmp(attribute, "ou")) {
+                
+                if ((vals = ldap_get_values_len(ld, entry, attribute)))
+                {
+                    
+                    
+                    for(i = 0; vals[i]; i++){
+                        NSString* data_str = [NSString stringWithFormat:@"%s" , vals[i]->bv_val];
+ 
+                    //     if (strcmp(vals[i]->bv_val, "Users")) {
+                    //     [ou_list addObject:data_str];
+                    //     }
+                        const char *myChar = "Users";
+                        if (![data_str isEqualToString:[NSString stringWithUTF8String:myChar]]) {
+                         //   [ou_list addObject:data_str];
+                            //add data to dictionary
+                            NSLog(@"data str = %@", data_str);
+                            [ouAndCaContainter setValue:data_str forKey:@"ou"];
+                        }
+                        
+                        // [ou_list addObject:data_str];
+                        
+                        DebugLog(@"After add OU ouAndCaContainter = %@",ouAndCaContainter);
+                        
+                        
+                    }
+                    ldap_value_free_len(vals);
+                };
+                ldap_memfree(attribute);
+                attribute = ldap_next_attribute(ld, entry, ber);
+            } else if (!strcmp(attribute, "businessCategory")) {
+                
+                if ((vals = ldap_get_values_len(ld, entry, attribute)))
+                {
+                    
+                    
+                    for(i = 0; vals[i]; i++){
+                        NSString* data_str = [NSString stringWithFormat:@"%s" , vals[i]->bv_val];
+ 
+                    //     if (strcmp(vals[i]->bv_val, "Users")) {
+                    //     [ou_list addObject:data_str];
+                    //     }
+                        const char *myChar = "Users";
+                        if (![data_str isEqualToString:[NSString stringWithUTF8String:myChar]]) {
+                            //[ou_list addObject:data_str];
+                            [ouAndCaContainter setValue:data_str forKey:@"busiCa"];
+                        }
+                        
+                        // [ou_list addObject:data_str];
+                        
+                        DebugLog(@"after add BUSCA ouAndCaContainter = %@",ouAndCaContainter);
+                        
+                        
+                    }
+                    ldap_value_free_len(vals);
+                };
+                ldap_memfree(attribute);
+                attribute = ldap_next_attribute(ld, entry, ber);
+            } else {
+                
+                if ((vals = ldap_get_values_len(ld, entry, attribute)))
+                {
+                    for(i = 0; vals[i]; i++){
+                        DebugLog(@"      %s: %s", attribute, vals[i]->bv_val);
+                    }
+                    ldap_value_free_len(vals);
+                };
+                ldap_memfree(attribute);
+                attribute = ldap_next_attribute(ld, entry, ber);
+            }
+        };
+        
+        // skip to the next entry
+        entry = ldap_next_entry(ld, entry);
+        //add ouAndCaContainer to data list
+        NSDictionary *tempDic = [ouAndCaContainter copy];
+        [ou_list addObject:tempDic];
+        DebugLog(@"List of Ou&Ca = %@",ou_list);
+        //reset value of Containter
+        [ouAndCaContainter setValue:@"" forKey:@"busiCa"];
+        [ouAndCaContainter setValue:@"" forKey:@"ou"];
+
+    };
+    
+    DebugLog(@"   unbinding from LDAP server...");
+    ldap_unbind_ext_s(ld, NULL, NULL);
+	
+	return ou_list;
+}
+
+
+
+
+//Get Ou List
+*/
 NSArray * get_ou_list( int version, const char * ldapURI, const char * bindDN,
                       const char * bindPW, const char * baseDN, const char * filter, int scope,
                       const char * caFile)
@@ -619,6 +835,22 @@ NSArray * get_data_from_server(const char * caFile)
     NSArray *temp;
     float i=0;
     NSString * dn_init = @"ou=Users,dc=example,dc=com";
+    /*
+    temp = get_business_category_list(
+                                      MY_LDAP_VERSION,        // LDAP protocol version
+                                      MY_LDAP_URI,            // LDAP URI
+                                      MY_LDAP_BINDDN,         // LDAP bind DN
+                                      MY_LDAP_BINDPW,         // LDAP bind password
+                                      [dn_init UTF8String],         // LDAP search base DN
+                                      MY_LDAP_FILTER,         // LDAP search filter
+                                      MY_LDAP_SCOPE,          // LDAP search scope
+                                      caFile
+                                      );
+    DebugLog(@"List of business category = %@", temp);
+    
+    */
+    
+ 
     temp = get_ou_list(
                        MY_LDAP_VERSION,        // LDAP protocol version
                        MY_LDAP_URI,            // LDAP URI
@@ -654,6 +886,9 @@ NSArray * get_data_from_server(const char * caFile)
                                             caFile
                                             );
         NSMutableDictionary *user_dict = [NSMutableDictionary dictionary];
+        if (user_info == nil) {
+            user_info = @[];
+        }
         [user_dict setObject:user_info forKey:ou_str];
         [result_array addObject:user_dict];
     }

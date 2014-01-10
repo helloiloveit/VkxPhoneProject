@@ -131,6 +131,11 @@ static UICompositeViewDescription *compositeDescription = nil;
     [sendIndicator startAnimating];
     sendIndicator.hidden =NO;
     
+    NSLog(@"from account = %@", account);
+    NSLog(@"from passw = %@", password);
+    NSLog(@"type = %@", mailServer);
+    NSLog(@"to account = %@", toAccount);
+    
     MCOSMTPSession *session = [[MCOSMTPSession alloc] init];
     [session setHostname:mailServer];
     [session setPort:465];
@@ -163,14 +168,22 @@ static UICompositeViewDescription *compositeDescription = nil;
             [sendIndicator stopAnimating];
             sendIndicator.hidden =YES;
             sendButton.userInteractionEnabled = YES;
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:[error localizedDescription]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles: nil];
             [alert show];
             return;
         }
         else {
             [sendIndicator stopAnimating];
             sendIndicator.hidden =YES;
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email" message:@"Mail sent" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email"
+                                                            message:@"Mail sent"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles: nil];
             [alert show];
         }
         sendButton.userInteractionEnabled = YES;

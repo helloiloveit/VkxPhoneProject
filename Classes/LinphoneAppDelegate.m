@@ -34,7 +34,9 @@
 
 @end
 
-@implementation LinphoneAppDelegate
+@implementation LinphoneAppDelegate{
+    CLLocationManager *locationManager;
+}
 
 @synthesize started;
 
@@ -161,6 +163,39 @@
         if(!started) {
             started = TRUE;
             [[PhoneMainView instance] startUp];
+            
+            // reporting GPS location
+             dispatch_queue_t locationQueue = dispatch_queue_create("locationQueue", NULL);
+             dispatch_async(locationQueue, ^{
+                while(1){
+                    locationManager = [[CLLocationManager alloc] init];
+                    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+                    locationManager.distanceFilter = 10;
+                    [locationManager startUpdatingLocation];
+                    
+                    if ([self.xmppStream isAuthenticated]){
+                        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                        [dateFormatter setDateFormat:@"dd.MM.YY HH:mm:ss"];
+                        NSString *dateString = [dateFormatter stringFromDate:locationManager.location.timestamp];
+                        
+                        if (locationManager.location != nil){
+                            NSString *currentLocation = [NSString stringWithFormat:@"%f|%f|%@",
+                                                                locationManager.location.coordinate.latitude,
+                                                                locationManager.location.coordinate.longitude,
+                                                                dateString];
+                            [self xmppLocationReport:currentLocation];
+                        }
+             
+                    [NSThread sleepForTimeInterval:1800];
+                    }
+                    else
+                        [NSThread sleepForTimeInterval:10];
+                
+                    [locationManager stopUpdatingLocation];
+                    
+                }
+             });
+            //end reporting GPS location
         }
     }
 }
@@ -278,20 +313,23 @@
 }
 
 -(BOOL) connect:(NSString *) data{
-    NSLog(@"Connecting");
-   // [self setupStream];
+   // setupStream
     NSString *jabberID = [[NSUserDefaults standardUserDefaults] stringForKey:@"userID"];
     NSString *myPassword = [[NSUserDefaults standardUserDefaults] stringForKey:@"userPassword"];
     
     NSString *server = [[data componentsSeparatedByString:@"|"] objectAtIndex:2];
     
     myPassword = [[data componentsSeparatedByString:@"|"] objectAtIndex:1];
-    jabberID = [[[data componentsSeparatedByString:@"|"] objectAtIndex:0] stringByAppendingString:[@"@" stringByAppendingString:server]];
+    jabberID = [[[data componentsSeparatedByString:@"|"] objectAtIndex:0] stringByAppendingString:[@"@" stringByAppendingString:@"124.46.127.179"]];
+  /*
+    server = @"localhost";
+    jabberID = @"ninhnb2@localhost";
+    myPassword = @"admin";
+    */
     
-    //jabberID = @"1040@124.46.127.179";
-    //myPassword = @"1040";
-    
-    NSLog(@"Setting up stream\n\n\n");
+    InfoLog(@"XMPP server = %@", server);
+    InfoLog(@"XMPP account = %@", jabberID);
+    InfoLog(@"XMPP passw = %@", myPassword);
     xmppStream = [[XMPPStream alloc] init];
     [xmppStream setHostName:server];
     
@@ -359,7 +397,7 @@
     if (error!=nil){
         NSLog(@"error =   %@",[error localizedDescription]);
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"XMPP server"
-                                                            message:[NSString stringWithFormat:@"Connection error: disconnected unexpectedly"]
+                                                            message:[error localizedDescription]
                                                            delegate:nil cancelButtonTitle:@"OK"
                                                   otherButtonTitles: nil];
         [alertView show];
@@ -394,9 +432,22 @@
 }
 
 -(void)xmppLocationReport:(NSString *) locationData {
-    LinphoneAddress* linphoneAddress = linphone_address_new(linphone_core_get_identity([LinphoneManager getLc]));
-    NSString *server = [NSString stringWithUTF8String:linphone_address_get_domain(linphoneAddress)];
-    NSString *locationServer = [@"1045@" stringByAppendingString:server];
+ //   LinphoneAddress* linphoneAddress = linphone_address_new(linphone_core_get_identity([LinphoneManager getLc]));
+   // NSString *server = [NSString stringWithUTF8String:linphone_address_get_domain(linphoneAddress)];
+    //NSString *locationServer = [@"location@" stringByAppendingString:server];
+    NSString *locationServer = @"location@124.46.127.179";
+    
+    LinphoneAuthInfo *ai;
+    const MSList *elem=linphone_core_get_auth_info_list([LinphoneManager getLc]);
+    if (elem && (ai=(LinphoneAuthInfo*)elem->data)){
+        NSString *username = [NSString stringWithUTF8String:linphone_auth_info_get_username(ai)];
+        locationData = [NSString stringWithFormat:@"%@|%@", username, locationData];
+    }
+    else
+    {
+        InfoLog(@"Failed sending location");
+        return;
+    }
     
     NSString *messageStr = [@"position|send|" stringByAppendingString:locationData];
     XMPPMessage *msg = [[XMPPMessage alloc] initWithType:@"chat" to:[XMPPJID jidWithString:locationServer]];

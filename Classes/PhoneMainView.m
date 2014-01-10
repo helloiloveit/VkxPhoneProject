@@ -27,9 +27,7 @@
 
 static PhoneMainView* phoneMainViewInstance=nil;
 
-@implementation PhoneMainView{
-    CLLocationManager *locationManager;
-}
+@implementation PhoneMainView
 
 @synthesize mainViewController;
 @synthesize currentView;
@@ -366,34 +364,6 @@ static PhoneMainView* phoneMainViewInstance=nil;
         }
     }
     
-    // reporting GPS location
-  /*  LinphoneAppDelegate *appDelegate = (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
-    dispatch_queue_t locationQueue = dispatch_queue_create("locationQueue", NULL);
-    dispatch_async(locationQueue, ^{
-        while(1){
-            
-            NSLog(@"loaded \n\n\n\n\n\n:");
-            locationManager = [[CLLocationManager alloc] init];
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-            locationManager.distanceFilter = 10;
-            [locationManager startUpdatingLocation];
-            
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"dd.MM.YY HH:mm:ss"];
-            NSString *dateString = [dateFormatter stringFromDate:locationManager.location.timestamp];
-            NSLog(@"%@", dateString);
-            
-            NSString *currentLocation = [NSString stringWithFormat:@"%f|%f|%@",
-                                         locationManager.location.coordinate.latitude,
-                                         locationManager.location.coordinate.longitude,
-                                         dateString];
-            [appDelegate xmppLocationReport:currentLocation];
-       //     [locationManager stopUpdatingLocation];
-            
-            [NSThread sleepForTimeInterval:1800];
-        }
-    });*/
-    //end reporting GPS location
     
     [self updateApplicationBadgeNumber]; // Update Badge at startup
 }

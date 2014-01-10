@@ -28,7 +28,6 @@
     LinphoneAppDelegate *appDelegate;
     CLLocationManager *locationManager;
 
-    XMPPStream *xmppStream;
     id <SMMessageDelegate> _messageDelegate;
     id <LocationRequestDelegate> _locationRequestDelegate;
     
@@ -159,7 +158,7 @@
     
     [rmsg addBody:messageStr];
     
-    [self xmppStream:xmppStream didReceiveMessage:rmsg];
+    [self xmppStream:[appDelegate xmppStream] didReceiveMessage:rmsg];
 
     XCTAssertEqual(viewController.receivedLocation.coordinate.latitude, 21.0333, @"Should equal input value");
     XCTAssertEqual(viewController.receivedLocation.coordinate.longitude, 105.8500,@"Should equal input value");

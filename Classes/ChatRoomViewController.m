@@ -300,6 +300,9 @@ static UICompositeViewDescription *compositeDescription = nil;
     remoteAddress = [normalizedSipAddress retain];
     
     // Display name
+    
+    displayName = [[self appDelegate]._contactDelegate getUserDataDict:(char *)linphone_address_get_username(linphoneAddress)];
+   
     if(displayName == nil) {
         displayName = [NSString stringWithUTF8String:linphone_address_get_username(linphoneAddress)];
     }
@@ -835,5 +838,9 @@ static void message_status(LinphoneChatMessage* msg,LinphoneChatMessageState sta
 - (void)viewDidUnload {
     [self setButtonEdit:nil];
     [super viewDidUnload];
+}
+
+- (LinphoneAppDelegate *)appDelegate {
+	return (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 @end

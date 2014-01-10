@@ -370,6 +370,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 -(NSString *) getUserDataDict: (char *) number{
     NSString *userNumber = [NSString stringWithUTF8String: number];
     NSMutableDictionary *phoneRecord = [[NSMutableDictionary alloc] init];
+    if (dataArray == nil) return userNumber;
     int section = [dataArray count];
     
     for (int i = 0; i < section; i++){

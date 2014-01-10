@@ -86,6 +86,7 @@
     }
     
     // Display name
+    displayName = [[self appDelegate]._contactDelegate getUserDataDict:(char *)linphone_address_get_username(linphoneAddress)];
     if(displayName == nil) {
         displayName = [NSString stringWithUTF8String:linphone_address_get_username(linphoneAddress)];
     }
@@ -150,4 +151,7 @@
     }
 }
 
+- (LinphoneAppDelegate *)appDelegate {
+	return (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
 @end

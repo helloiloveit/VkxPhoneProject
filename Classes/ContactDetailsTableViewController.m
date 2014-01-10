@@ -589,6 +589,7 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
             
             [cell.textLabel setText:key];
             [cell.detailTextLabel setText:data];
+            cell.textLabel.textAlignment = NSTextAlignmentLeft;
         }
     } else if (indexPath.section == 1) {
         cell.textLabel.text = @"";
@@ -763,7 +764,11 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
 
     if(section == ContactSections_None) {
         return [UIContactDetailsHeader height:[headerController isEditing]];
-    } else {
+    } else if (section == ContactSessions_Message)
+    {
+        return 30;
+    } else
+    {
         // Hide section if nothing in it
         /*
         if([[self getSectionData:section] count] > 0)
@@ -883,7 +888,6 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
 }
 
 #pragma mark - Location request
-@synthesize xmppStream;
 
 - (LinphoneAppDelegate *)appDelegate {
 	return (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -893,16 +897,23 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
 	return [[self appDelegate] xmppStream];
 }
 
--(void) locationRequest{
-    NSString *messageStr = @"position|get|";
-    // NSString *userID = [self.userManipulatedData[@"userID"] lastObject];
-    // NSString *messageStr = [@"position|get|" stringByAppendingString:userID];
+-(void) locationRequest: (NSDictionary *) data{
+    if (![self.xmppStream isConnected]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"XMPP server"
+                                                            message:@"XMPP not connected"
+                                                           delegate:nil cancelButtonTitle:@"OK"
+                                                  otherButtonTitles: nil];
+        [alertView show];
+        return;
+    }
+    NSString *userID = [data[@"Phone"] objectAtIndex:0][@"mobile"];
+    NSString *messageStr = [@"position|get|" stringByAppendingString:userID];
 
-    LinphoneAddress* linphoneAddress = linphone_address_new(linphone_core_get_identity([LinphoneManager getLc]));
-    NSString *server = [NSString stringWithUTF8String:linphone_address_get_domain(linphoneAddress)];
-    NSString *locationServer = [@"1045@" stringByAppendingString:server];
-   
-    
+ //   LinphoneAddress* linphoneAddress = linphone_address_new(linphone_core_get_identity([LinphoneManager getLc]));
+ //   NSString *server = [NSString stringWithUTF8String:linphone_address_get_domain(linphoneAddress)];
+ //   NSString *locationServer = [@"1045@" stringByAppendingString:server];
+
+    NSString *locationServer = @"location@124.46.127.179";
     XMPPMessage *msg = [[XMPPMessage alloc] initWithType:@"chat" to:[XMPPJID jidWithString:locationServer]];
     [msg addBody:messageStr];
     [self.xmppStream sendElement: msg];

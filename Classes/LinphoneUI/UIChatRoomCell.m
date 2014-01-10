@@ -128,7 +128,82 @@ static UIFont *CELL_FONT = nil;
         
         [messageImageView setHidden:FALSE];
         [downloadButton setHidden:TRUE];
-    } else {
+    } else if ([[[chat message] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqual:(@"x(")])
+    {
+        [messageText setHidden:TRUE];
+        [messageImageView setImage:[UIImage imageNamed:@"emo_angry.PNG"]];
+        [messageImageView setHidden:FALSE];
+        [downloadButton setHidden:TRUE];
+        
+    } else if ([[[chat message] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqual:(@":>")]) {
+        [messageText setHidden:TRUE];
+        [messageImageView setImage:[UIImage imageNamed:@"emo_blush.PNG"]];
+        [messageImageView setHidden:FALSE];
+        [downloadButton setHidden:TRUE];
+        
+    } else if ([[[chat message] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqual:(@":-/")]) {
+        [messageText setHidden:TRUE];
+        [messageImageView setImage:[UIImage imageNamed:@"emo_confused.PNG"]];
+        [messageImageView setHidden:FALSE];
+        [downloadButton setHidden:TRUE];
+        
+    } else if ([[[chat message] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqual:(@"B-)")]) {
+        [messageText setHidden:TRUE];
+        [messageImageView setImage:[UIImage imageNamed:@"emo_cool.PNG"]];
+        [messageImageView setHidden:FALSE];
+        [downloadButton setHidden:TRUE];
+        
+    } else if ([[[chat message] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqual:(@":((")]) {
+        [messageText setHidden:TRUE];
+        [messageImageView setImage:[UIImage imageNamed:@"emo_cry.PNG"]];
+        [messageImageView setHidden:FALSE];
+        [downloadButton setHidden:TRUE];
+        
+    } else if ([[[chat message] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqual:(@":))")]) {
+        [messageText setHidden:TRUE];
+        [messageImageView setImage:[UIImage imageNamed:@"emo_laugh.PNG"]];
+        [messageImageView setHidden:FALSE];
+        [downloadButton setHidden:TRUE];
+        
+    } else if ([[[chat message] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqual:(@":x")]) {
+        [messageText setHidden:TRUE];
+        [messageImageView setImage:[UIImage imageNamed:@"emo_love.PNG"]];
+        [messageImageView setHidden:FALSE];
+        [downloadButton setHidden:TRUE];
+        
+    } else if ([[[chat message] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqual:(@":(")]) {
+        [messageText setHidden:TRUE];
+        [messageImageView setImage:[UIImage imageNamed:@"emo_sad.PNG"]];
+        [messageImageView setHidden:FALSE];
+        [downloadButton setHidden:TRUE];
+        
+    } else if ([[[chat message] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqual:(@":-o")]) {
+        [messageText setHidden:TRUE];
+        [messageImageView setImage:[UIImage imageNamed:@"emo_shock.PNG"]];
+        [messageImageView setHidden:FALSE];
+        [downloadButton setHidden:TRUE];
+        
+    } else if ([[[chat message] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqual:(@":)")]) {
+        [messageText setHidden:TRUE];
+        [messageImageView setImage:[UIImage imageNamed:@"emo_smile.PNG"]];
+        [messageImageView setHidden:FALSE];
+        [downloadButton setHidden:TRUE];
+        
+    } else if ([[[chat message] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqual:(@":h")]) {
+        [messageText setHidden:TRUE];
+        [messageImageView setImage:[UIImage imageNamed:@"emo_sweat.PNG"]];
+        [messageImageView setHidden:FALSE];
+        [downloadButton setHidden:TRUE];
+        
+    } else if ([[[chat message] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqual:(@":s")]) {
+        [messageText setHidden:TRUE];
+        [messageImageView setImage:[UIImage imageNamed:@"emo_tired.PNG"]];
+        [messageImageView setHidden:FALSE];
+        [downloadButton setHidden:TRUE];
+        
+    }
+    else
+    {
         [messageText setHidden:FALSE];
         [messageText setText:[chat message]];
         

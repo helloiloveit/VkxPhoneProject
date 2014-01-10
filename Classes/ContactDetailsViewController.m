@@ -246,6 +246,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
         DebugLog(@"user record = %@", userRecord);
     NSDictionary *temp = [ContactInfoHandler manipulateResultFromServer:data];
     [tableController setUserManipulatedData:temp];
+    [tableController locationRequest:temp];
     [tableController.tableView reloadData];
     
 }
@@ -330,7 +331,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     if ([[UIDevice currentDevice].systemVersion doubleValue] < 5.0) {
         [tableController viewWillAppear:animated];
     }
-    [tableController locationRequest];
+  //  [tableController locationRequest];
     
    // NSLog(@"Attempting to connect");
    // [[self appDelegate] connect:nil];
@@ -474,7 +475,7 @@ static UICompositeViewDescription *compositeDescription = nil;
     NSString *receivedData = [messageContent objectForKey:@"msg"];
     NSArray *receivedDataArray = [receivedData componentsSeparatedByString:@"|"];
     
-    if ([receivedDataArray count] !=6){
+    if ([receivedDataArray count] !=5){
         //error data format
     }
     else{

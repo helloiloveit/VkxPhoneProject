@@ -270,6 +270,18 @@
     [[PhoneMainView instance] changeCurrentView:[AboutViewController compositeViewDescription] push:TRUE];
 }
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section !=0) return 0;
+    return 6;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section !=0) {
+        return [[UIView alloc] initWithFrame:CGRectZero];
+    }
+    return nil;
+}
+
 @end
 
 

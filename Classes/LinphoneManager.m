@@ -546,10 +546,34 @@ static void linphone_iphone_transfer_state_changed(LinphoneCore* lc, LinphoneCal
 #pragma mark - Registration State Functions
 
 - (void)onRegister:(LinphoneCore *)lc cfg:(LinphoneProxyConfig*) cfg state:(LinphoneRegistrationState) state message:(const char*) message {
+   
+    LinphoneAppDelegate *appDelegate = (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     [LinphoneLogger logc:LinphoneLoggerLog format:"NEW REGISTRATION STATE: '%s' (message: '%s')", linphone_registration_state_to_string(state), message];
 	if (state==LinphoneRegistrationOk)
+    {
 		[LinphoneManager instance]->stopWaitingRegisters=TRUE;
     
+        //   XMPP connect
+        if (![appDelegate.xmppStream isConnected]){
+
+            LinphoneAuthInfo *ai;
+            const MSList *elem=linphone_core_get_auth_info_list([LinphoneManager getLc]);
+            if (elem && (ai=(LinphoneAuthInfo*)elem->data)){
+                NSString *username = [NSString stringWithUTF8String:linphone_auth_info_get_username(ai)];
+                NSString *password = [NSString stringWithUTF8String:linphone_auth_info_get_passwd(ai)];
+                
+                LinphoneAddress* linphoneAddress = linphone_address_new(linphone_core_get_identity([LinphoneManager getLc]));
+                NSString *server = [NSString stringWithUTF8String:linphone_address_get_domain(linphoneAddress)];
+                
+                NSString *info = [NSString stringWithFormat:@"%@|%@|%@", username, password, server];
+                
+                [appDelegate connect:info];
+                //end xmpp connect
+            }
+        }
+    }
+    else if ([appDelegate.xmppStream isConnected]) [appDelegate disconnect];
     // Post event
     NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:
                           [NSNumber numberWithInt:state], @"state", 
@@ -557,31 +581,6 @@ static void linphone_iphone_transfer_state_changed(LinphoneCore* lc, LinphoneCal
                           [NSString stringWithUTF8String:message], @"message", 
                           nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:kLinphoneRegistrationUpdate object:self userInfo:dict];
- /*
-    LinphoneAppDelegate *appDelegate = (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
-   // if (appDelegate.xmppStream != nil) [appDelegate disconnect];
-    
-    if (![appDelegate.xmppStream isConnected]){
-    
-    //XMPP connect
-    //NSLog(@" identity = %@", [[NSString stringWithUTF8String:linphone_core_get_identity(lc)] substringFromIndex:4]);
-    LinphoneAuthInfo *ai;
-    const MSList *elem=linphone_core_get_auth_info_list([LinphoneManager getLc]);
-    if (elem && (ai=(LinphoneAuthInfo*)elem->data)){
-        NSString *username = [NSString stringWithUTF8String:linphone_auth_info_get_username(ai)];
-        NSString *password = [NSString stringWithUTF8String:linphone_auth_info_get_passwd(ai)];
-        
-        
-        LinphoneAddress* linphoneAddress = linphone_address_new(linphone_core_get_identity([LinphoneManager getLc]));
-        NSString *server = [NSString stringWithUTF8String:linphone_address_get_domain(linphoneAddress)];
-        NSLog(@" server = %@", server);
-        
-        NSString *info = [NSString stringWithFormat:@"%@|%@|%@", username, password, server];
-        
-        [appDelegate connect:info];
-        //end xmpp connect
-    }
-    }*/
 }
 
 static void linphone_iphone_registration_state(LinphoneCore *lc, LinphoneProxyConfig* cfg, LinphoneRegistrationState state,const char* message) {

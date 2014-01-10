@@ -224,6 +224,18 @@
 		57F005C915EE2D9200914747 /* linphonerc-factory in Resources */ = {isa = PBXBuildFile; fileRef = 57F005C615EE2D9200914747 /* linphonerc-factory */; };
 		57F005CA15EE2D9200914747 /* linphonerc-factory~ipad in Resources */ = {isa = PBXBuildFile; fileRef = 57F005C715EE2D9200914747 /* linphonerc-factory~ipad */; };
 		57F005CB15EE2D9200914747 /* linphonerc-factory~ipad in Resources */ = {isa = PBXBuildFile; fileRef = 57F005C715EE2D9200914747 /* linphonerc-factory~ipad */; };
+		69176860187BE02500A56983 /* emo_angry.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 69176853187BE02500A56983 /* emo_angry.PNG */; };
+		69176861187BE02500A56983 /* emo_blush.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 69176854187BE02500A56983 /* emo_blush.PNG */; };
+		69176862187BE02500A56983 /* emo_confused.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 69176855187BE02500A56983 /* emo_confused.PNG */; };
+		69176863187BE02500A56983 /* emo_cool.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 69176856187BE02500A56983 /* emo_cool.PNG */; };
+		69176864187BE02500A56983 /* emo_cry.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 69176857187BE02500A56983 /* emo_cry.PNG */; };
+		69176865187BE02500A56983 /* emo_laugh.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 69176858187BE02500A56983 /* emo_laugh.PNG */; };
+		69176866187BE02500A56983 /* emo_love.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 69176859187BE02500A56983 /* emo_love.PNG */; };
+		69176867187BE02500A56983 /* emo_sad.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 6917685A187BE02500A56983 /* emo_sad.PNG */; };
+		69176868187BE02500A56983 /* emo_shock.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 6917685B187BE02500A56983 /* emo_shock.PNG */; };
+		69176869187BE02500A56983 /* emo_smile.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 6917685C187BE02500A56983 /* emo_smile.PNG */; };
+		6917686A187BE02500A56983 /* emo_sweat.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 6917685D187BE02500A56983 /* emo_sweat.PNG */; };
+		6917686B187BE02500A56983 /* emo_tired.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 6917685E187BE02500A56983 /* emo_tired.PNG */; };
 		6920D5B6180BD83B004566FF /* liblber.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C310017BE2D9900702BC6 /* liblber.a */; };
 		6920D5B7180BD83B004566FF /* libldap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C30FE17BE2D9900702BC6 /* libldap.a */; };
 		6920D5C1180BD857004566FF /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6920D5BE180BD856004566FF /* libcrypto.a */; };
@@ -1977,6 +1989,18 @@
 		57F005C315EE2CCF00914747 /* linphonerc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = linphonerc; path = Resources/linphonerc; sourceTree = "<group>"; };
 		57F005C615EE2D9200914747 /* linphonerc-factory */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "linphonerc-factory"; path = "Resources/linphonerc-factory"; sourceTree = "<group>"; };
 		57F005C715EE2D9200914747 /* linphonerc-factory~ipad */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "linphonerc-factory~ipad"; path = "Resources/linphonerc-factory~ipad"; sourceTree = "<group>"; };
+		69176853187BE02500A56983 /* emo_angry.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emo_angry.PNG; sourceTree = "<group>"; };
+		69176854187BE02500A56983 /* emo_blush.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emo_blush.PNG; sourceTree = "<group>"; };
+		69176855187BE02500A56983 /* emo_confused.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emo_confused.PNG; sourceTree = "<group>"; };
+		69176856187BE02500A56983 /* emo_cool.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emo_cool.PNG; sourceTree = "<group>"; };
+		69176857187BE02500A56983 /* emo_cry.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emo_cry.PNG; sourceTree = "<group>"; };
+		69176858187BE02500A56983 /* emo_laugh.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emo_laugh.PNG; sourceTree = "<group>"; };
+		69176859187BE02500A56983 /* emo_love.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emo_love.PNG; sourceTree = "<group>"; };
+		6917685A187BE02500A56983 /* emo_sad.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emo_sad.PNG; sourceTree = "<group>"; };
+		6917685B187BE02500A56983 /* emo_shock.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emo_shock.PNG; sourceTree = "<group>"; };
+		6917685C187BE02500A56983 /* emo_smile.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emo_smile.PNG; sourceTree = "<group>"; };
+		6917685D187BE02500A56983 /* emo_sweat.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emo_sweat.PNG; sourceTree = "<group>"; };
+		6917685E187BE02500A56983 /* emo_tired.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emo_tired.PNG; sourceTree = "<group>"; };
 		6920D5BE180BD856004566FF /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../iOSPorts/ports/security/openssl/build/Release-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
 		6920D5BF180BD857004566FF /* libsasl2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsasl2.a; path = "../iOSPorts/ports/security/cyrus-sasl/build/Release-iphoneos/libsasl2.a"; sourceTree = "<group>"; };
 		6920D5C0180BD857004566FF /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../iOSPorts/ports/security/openssl/build/Release-iphoneos/libssl.a"; sourceTree = "<group>"; };
@@ -3639,6 +3663,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				69176852187BE02500A56983 /* Emo */,
 				69AE6FDF186BEDF100E2279D /* incall_background.png */,
 				698E198C1867F0A8000153BE /* Favorites-button-disabled.png */,
 				698E198D1867F0A8000153BE /* Favorites-button-over.png */,
@@ -4229,6 +4254,25 @@
 				3AD5B1E01807D8CD0098FA30 /* alertHandler.m */,
 			);
 			name = "Alert Window";
+			sourceTree = "<group>";
+		};
+		69176852187BE02500A56983 /* Emo */ = {
+			isa = PBXGroup;
+			children = (
+				69176853187BE02500A56983 /* emo_angry.PNG */,
+				69176854187BE02500A56983 /* emo_blush.PNG */,
+				69176855187BE02500A56983 /* emo_confused.PNG */,
+				69176856187BE02500A56983 /* emo_cool.PNG */,
+				69176857187BE02500A56983 /* emo_cry.PNG */,
+				69176858187BE02500A56983 /* emo_laugh.PNG */,
+				69176859187BE02500A56983 /* emo_love.PNG */,
+				6917685A187BE02500A56983 /* emo_sad.PNG */,
+				6917685B187BE02500A56983 /* emo_shock.PNG */,
+				6917685C187BE02500A56983 /* emo_smile.PNG */,
+				6917685D187BE02500A56983 /* emo_sweat.PNG */,
+				6917685E187BE02500A56983 /* emo_tired.PNG */,
+			);
+			path = Emo;
 			sourceTree = "<group>";
 		};
 		6992E4101839F76A007B0595 /* Products */ = {
@@ -4879,6 +4923,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69176860187BE02500A56983 /* emo_angry.PNG in Resources */,
 				22F254811073D99800AC9B3F /* ringback.wav in Resources */,
 				2237D4091084D7A9001383EE /* ring.wav in Resources */,
 				22E0A823111C44E100B04932 /* ConsoleViewController.xib in Resources */,
@@ -4904,6 +4949,7 @@
 				D3F83F14158205A100336684 /* pause_off_default.png in Resources */,
 				D3F83F16158205A100336684 /* pause_off_over.png in Resources */,
 				D3F83F18158205A100336684 /* hangup_default.png in Resources */,
+				69176868187BE02500A56983 /* emo_shock.PNG in Resources */,
 				D3F83F1A158205A100336684 /* hangup_over.png in Resources */,
 				D3F83F1C158205A100336684 /* speaker_off_default.png in Resources */,
 				D3F83F1E158205A100336684 /* speaker_off_over.png in Resources */,
@@ -4956,6 +5002,7 @@
 				D3ED3E9815872EF1006C0DE4 /* history_all_selected.png in Resources */,
 				D3ED3E9A15872EF1006C0DE4 /* history_all_default.png in Resources */,
 				D3ED3E9C15872EF1006C0DE4 /* history_edit_default.png in Resources */,
+				6917686A187BE02500A56983 /* emo_sweat.PNG in Resources */,
 				D3ED3E9E15872EF1006C0DE4 /* history_edit_over.png in Resources */,
 				D3ED3EA015872EF1006C0DE4 /* history_missed_selected.png in Resources */,
 				D3ED3EA215872EF1006C0DE4 /* history_missed_default.png in Resources */,
@@ -5028,9 +5075,11 @@
 				D3D6A3B1159B0EFE005F692C /* options_default.png in Resources */,
 				D3D6A3B3159B0EFE005F692C /* options_disabled.png in Resources */,
 				D3D6A3B5159B0EFE005F692C /* options_over.png in Resources */,
+				6917686B187BE02500A56983 /* emo_tired.PNG in Resources */,
 				D31AAF63159B5B6F002C6B02 /* conference_default.png in Resources */,
 				D31AAF65159B5B6F002C6B02 /* conference_over.png in Resources */,
 				D31AAF6E159B65E1002C6B02 /* call_state_ringing_default.png in Resources */,
+				69176869187BE02500A56983 /* emo_smile.PNG in Resources */,
 				D3211BA6159C3D410098460B /* call_state_outgoing_default.png in Resources */,
 				D38187F015FE354000C3EDCA /* UIConferenceHeader.xib in Resources */,
 				D3211BB9159C8A820098460B /* cell_call_first.png in Resources */,
@@ -5039,6 +5088,7 @@
 				D3211BC2159CBFD70098460B /* back_over.png in Resources */,
 				D3C714B3159DB84400705B8E /* hold.wav in Resources */,
 				D377BBFA15A19DA6002B696B /* video_on_disabled.png in Resources */,
+				69176866187BE02500A56983 /* emo_love.PNG in Resources */,
 				D37B96B715A1A6F20005CCD2 /* call_state_delete_default.png in Resources */,
 				D37B96B915A1A6F20005CCD2 /* call_state_delete_over.png in Resources */,
 				D3C2814B15A2D38D0098AA42 /* dialer_selected.png in Resources */,
@@ -5083,6 +5133,7 @@
 				698E19911867F0A8000153BE /* Favorites-button.png in Resources */,
 				D3D14E7C15A711700074A527 /* avatar_shadow_small.png in Resources */,
 				D38187B915FE342200C3EDCA /* ContactDetailsViewController.xib in Resources */,
+				69176867187BE02500A56983 /* emo_sad.PNG in Resources */,
 				D3128FEF15AABE4E00A2147A /* contact_back_default.png in Resources */,
 				D3128FF115AABE4E00A2147A /* contact_back_over.png in Resources */,
 				D3128FF315AABE4E00A2147A /* contact_edit_default.png in Resources */,
@@ -5233,6 +5284,8 @@
 				D3A74F3A15C69392001500B9 /* speaker_off_default~ipad.png in Resources */,
 				D3A74F3C15C69392001500B9 /* speaker_off_disabled~ipad.png in Resources */,
 				D3A74F3E15C69392001500B9 /* speaker_off_over~ipad.png in Resources */,
+				69176862187BE02500A56983 /* emo_confused.PNG in Resources */,
+				69176864187BE02500A56983 /* emo_cry.PNG in Resources */,
 				D3A74F4015C69392001500B9 /* speaker_on_default~ipad.png in Resources */,
 				D3A74F4215C69392001500B9 /* speaker_on_disabled~ipad.png in Resources */,
 				D3A74F4415C69392001500B9 /* speaker_on_over~ipad.png in Resources */,
@@ -5292,6 +5345,7 @@
 				D339890615C6E16F00CAF1E4 /* dialer_alt_back_default_landscape~ipad.png in Resources */,
 				D339890815C6E16F00CAF1E4 /* dialer_alt_back_over_landscape~ipad.png in Resources */,
 				D33CF34A15D3A03400CD4B85 /* linphone_icon_57@2x.png in Resources */,
+				69176861187BE02500A56983 /* emo_blush.PNG in Resources */,
 				D33CF34C15D3A03400CD4B85 /* linphone_icon_72@2x.png in Resources */,
 				D30BBD1815D402A7000F93DD /* contact_ok_disabled.png in Resources */,
 				D3804E6015D92A57008072A5 /* msg.caf in Resources */,
@@ -5334,6 +5388,7 @@
 				D3F5F92B1609A86700D3DA1A /* setup_welcome_logo~ipad.png in Resources */,
 				D3F5F987160B1A0900D3DA1A /* chat_progressbar_background.png in Resources */,
 				D3F5F989160B1A0900D3DA1A /* setup_back_default_landscape~ipad.png in Resources */,
+				69176863187BE02500A56983 /* emo_cool.PNG in Resources */,
 				D3F5F98B160B1A0900D3DA1A /* setup_back_default~ipad.png in Resources */,
 				D3F5F98D160B1A0900D3DA1A /* setup_back_disabled_landscape~ipad.png in Resources */,
 				D3D5124E160B213900946DF8 /* setup_cancel_default~ipad.png in Resources */,
@@ -5383,6 +5438,7 @@
 				15AF3C7416F37A4A00FC52EC /* route_phone_on_default.png in Resources */,
 				15AF3C8416F37A5500FC52EC /* route_speaker_off_default.png in Resources */,
 				15AF3C8616F37A5500FC52EC /* route_speaker_off_disabled.png in Resources */,
+				69176865187BE02500A56983 /* emo_laugh.PNG in Resources */,
 				15AF3C8816F37A5500FC52EC /* route_speaker_off_over.png in Resources */,
 				15AF3C8C16F37A5500FC52EC /* route_speaker_on_default.png in Resources */,
 				15AF3C9816F37A5D00FC52EC /* routes_default.png in Resources */,
