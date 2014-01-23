@@ -14,6 +14,7 @@
 #include <Foundation/Foundation.h>
 #import "ConstantDefinition.h"
 
+static const char *MY_LDAP_URI;
 void test_all_ldap(const char * caFile)
 {
    int err;
@@ -681,6 +682,7 @@ NSArray * get_ou_list( int version, const char * ldapURI, const char * bindDN,
     servercredp     = NULL;
     dn              = "cn=Directory Manager";
     
+    
     InfoLog(@"attempting %s bind:", (caFile ? "TLS simple" : "simple"));
     ldapURI = ldapURI ? ldapURI : "ldap://127.0.0.1";
     DebugLog(@"   initialzing LDAP (%s)...", ldapURI);
@@ -831,6 +833,12 @@ NSArray * get_ou_list( int version, const char * ldapURI, const char * bindDN,
 
 NSArray * get_data_from_server(const char * caFile)
 {
+
+    
+    NSUserDefaults *serverName = [NSUserDefaults standardUserDefaults];
+    NSString *myString = [NSString stringWithFormat:@"ldap://%@/",[serverName stringForKey:@"serverName"]];
+  //  NSLog(@"mystring = %@", myString);
+    MY_LDAP_URI = [myString UTF8String];
 
     NSArray *temp;
     float i=0;
