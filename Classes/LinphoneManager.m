@@ -568,6 +568,10 @@ static void linphone_iphone_transfer_state_changed(LinphoneCore* lc, LinphoneCal
                 
                 NSString *info = [NSString stringWithFormat:@"%@|%@|%@", username, password, server];
                 
+                NSUserDefaults *serverName = [NSUserDefaults standardUserDefaults];
+                [serverName setObject:server forKey:@"serverName"];
+                [serverName synchronize];
+                
                 [appDelegate connect:info];
                 //end xmpp connect
             }
