@@ -554,23 +554,26 @@ static void linphone_iphone_transfer_state_changed(LinphoneCore* lc, LinphoneCal
     {
 		[LinphoneManager instance]->stopWaitingRegisters=TRUE;
     
+        LinphoneAddress* linphoneAddress = linphone_address_new(linphone_core_get_identity([LinphoneManager getLc]));
+        NSString *server = [NSString stringWithUTF8String:linphone_address_get_domain(linphoneAddress)];
+        NSUserDefaults *serverName = [NSUserDefaults standardUserDefaults];
+        [serverName setObject:server forKey:@"serverName"];
+        [serverName synchronize];
+        
         //   XMPP connect
         if (![appDelegate.xmppStream isConnected]){
-
+            //get server
+            
+            
             LinphoneAuthInfo *ai;
             const MSList *elem=linphone_core_get_auth_info_list([LinphoneManager getLc]);
             if (elem && (ai=(LinphoneAuthInfo*)elem->data)){
                 NSString *username = [NSString stringWithUTF8String:linphone_auth_info_get_username(ai)];
                 NSString *password = [NSString stringWithUTF8String:linphone_auth_info_get_passwd(ai)];
                 
-                LinphoneAddress* linphoneAddress = linphone_address_new(linphone_core_get_identity([LinphoneManager getLc]));
-                NSString *server = [NSString stringWithUTF8String:linphone_address_get_domain(linphoneAddress)];
                 
                 NSString *info = [NSString stringWithFormat:@"%@|%@|%@", username, password, server];
                 
-                NSUserDefaults *serverName = [NSUserDefaults standardUserDefaults];
-                [serverName setObject:server forKey:@"serverName"];
-                [serverName synchronize];
                 
                 [appDelegate connect:info];
                 //end xmpp connect
@@ -1344,7 +1347,7 @@ static void audioRouteChangeListenerCallback (
 		linphone_proxy_config_normalize_number(proxyCfg,[address cStringUsingEncoding:[NSString defaultCStringEncoding]],normalizedUserName,sizeof(normalizedUserName));
         linphone_address_set_username(linphoneAddress, normalizedUserName);
         
-        displayName = [[self appDelegate]._contactDelegate getUserDataDict: normalizedUserName];
+        displayName = [[self appDelegate]._contactDelegate getUserDataDict: normalizedUserName][@"name"];
 /*
         NSString* address = nil;
         if(linphoneAddress != NULL) {
@@ -1599,15 +1602,6 @@ static void audioRouteChangeListenerCallback (
 }
 
 #pragma mark contactList
--(void) userNumberAndName: (char *) number{
-    
-    [[self appDelegate]._contactDelegate getUserDataDict: number];
- //   LinphoneAppDelegate *appDelegate = (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
-    
- //   NSMutableDictionary *userInfo = tableController.userArray;
-//    NSLog(@"user info = %@", userInfo);
-
-}
 
 - (LinphoneAppDelegate *)appDelegate {
 	return (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];

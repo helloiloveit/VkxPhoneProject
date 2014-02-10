@@ -559,6 +559,8 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
 
     
     headerController.contactName.text = self.userManipulatedData[@"cn"][@"name"];
+    headerController.titleLabel.text = self.userManipulatedData[@"title"][@"title"];
+    headerController.avatarImage.image = [UIImage imageWithData:self.userManipulatedData[@"photo"]];
     UIEditableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
     if (cell == nil) {
         cell = [[[UIEditableTableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:kCellId] autorelease];

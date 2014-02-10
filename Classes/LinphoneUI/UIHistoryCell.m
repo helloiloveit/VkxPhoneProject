@@ -125,8 +125,17 @@
             const char* lUserName = linphone_address_get_username(addr);
             if (lDisplayName) 
                 address = [NSString stringWithUTF8String:lDisplayName];
-            else if(lUserName) 
-                address = [NSString stringWithUTF8String:lUserName];
+            else if(lUserName){
+                if ([[self appDelegate]._contactDelegate getUserDataDict: (char *)lUserName][@"name"] != [NSNull null])
+                {
+                    address = [[self appDelegate]._contactDelegate getUserDataDict: (char *)lUserName][@"name"];
+                }
+                else{
+                    address = [NSString stringWithUTF8String:lUserName];
+                }
+
+            //    address = [NSString stringWithUTF8String:lUserName];
+            }
         }
     }
     if(address == nil) {
@@ -158,4 +167,7 @@
     }
 }
 
+- (LinphoneAppDelegate *)appDelegate {
+	return (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
 @end

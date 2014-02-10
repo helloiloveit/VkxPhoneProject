@@ -400,6 +400,24 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
                 };
                 ldap_memfree(attribute);
                 attribute = ldap_next_attribute(ld, entry, ber);
+            } else if(!strcmp(attribute, "title")){
+                DebugLog(@"title ");
+                if ((vals = ldap_get_values_len(ld, entry, attribute)))
+                {
+                    
+                    
+                    for(i = 0; vals[i]; i++){
+                        NSString* data_str = [NSString stringWithFormat:@"%s" , vals[i]->bv_val];
+                        //[ou_list addObject:data_str];
+                        [user_dict setObject:data_str forKey:@"title"];
+                        // DebugLog(@"ou_list = %@",ou_list);
+                        
+                        
+                    }
+                    ldap_value_free_len(vals);
+                };
+                ldap_memfree(attribute);
+                attribute = ldap_next_attribute(ld, entry, ber);
             } else if(!strcmp(attribute, "mail")){
                 DebugLog(@"mail ");
                 if ((vals = ldap_get_values_len(ld, entry, attribute)))
@@ -413,6 +431,34 @@ NSArray * get_user_list( int version, const char * ldapURI, const char * bindDN,
                         // DebugLog(@"ou_list = %@",ou_list);
                         
                         
+                    }
+                    ldap_value_free_len(vals);
+                };
+                ldap_memfree(attribute);
+                attribute = ldap_next_attribute(ld, entry, ber);
+            }else if(!strcmp(attribute, "mobile")){
+                DebugLog(@"mobile ");
+                if ((vals = ldap_get_values_len(ld, entry, attribute)))
+                {
+                    for(i = 0; vals[i]; i++){
+                        NSString* data_str = [NSString stringWithFormat:@"%s" , vals[i]->bv_val];
+                        [user_dict setObject:data_str forKey:@"mobile"];
+                    }
+                    ldap_value_free_len(vals);
+                };
+                ldap_memfree(attribute);
+                attribute = ldap_next_attribute(ld, entry, ber);
+            }
+            
+            else if(!strcmp(attribute, "photo")){
+                
+                DebugLog(@"photo ");
+                if ((vals = ldap_get_values_len(ld, entry, attribute)))
+                {
+                   
+                    for(i = 0; vals[i]; i++){
+                        NSData *data = [NSData dataWithBytes:vals[0]->bv_val length:vals[i]->bv_len];
+                        [user_dict setObject:data forKey:@"photo"];
                     }
                     ldap_value_free_len(vals);
                 };
@@ -720,7 +766,8 @@ NSArray * get_ou_list( int version, const char * ldapURI, const char * bindDN,
     
     DebugLog(@"   Bind Data:");
     DebugLog(@"      Mech:    Simple");
-    DebugLog(@"      DN:      %s", bindDN ? bindDN : "(NULL)");
+    //DebugLog(@"      DN:      %s", bindDN ? bindDN : "(NULL)");
+    DebugLog(@"      DN:      Uid=admin,ou=system");
     DebugLog(@"      Passwd:  %s", bindPW ? bindPW : "(NULL)");
     
     DebugLog(@"   binding to LDAP server...");

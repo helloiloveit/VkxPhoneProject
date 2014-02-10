@@ -30,6 +30,7 @@
 //@synthesize contact;
 @synthesize dataArray;
 @synthesize callButton;
+@synthesize statusLight;
 
 #pragma mark - Lifecycle Functions
 

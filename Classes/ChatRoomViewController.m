@@ -90,6 +90,7 @@
     [waitView release];
     
     [buttonEdit release];
+    [emoticonView release];
     [super dealloc];
 }
 
@@ -140,6 +141,9 @@ static UICompositeViewDescription *compositeDescription = nil;
     
     [tableController.tableView setBackgroundColor:[UIColor clearColor]]; // Can't do it in Xib: issue with ios4
     [tableController.tableView setBackgroundView:nil];
+    
+    emoticonView.hidden = TRUE;
+    [self loadEmoticons];
 }
 
 
@@ -178,10 +182,14 @@ static UICompositeViewDescription *compositeDescription = nil;
     [messageBackgroundImage setImage:[TUNinePatchCache imageOfSize:[messageBackgroundImage bounds].size
                                                forNinePatchNamed:@"chat_message_background"]];
     
-	BOOL fileSharingEnabled = [[LinphoneManager instance] lpConfigStringForKey:@"sharing_server_preference"] != NULL 
-								&& [[[LinphoneManager instance] lpConfigStringForKey:@"sharing_server_preference"] length]>0;
-    [pictureButton setEnabled:fileSharingEnabled];
+//	BOOL fileSharingEnabled = [[LinphoneManager instance] lpConfigStringForKey:@"sharing_server_preference"] != NULL
+//								&& [[[LinphoneManager instance] lpConfigStringForKey:@"sharing_server_preference"] length]>0;
+ //   [pictureButton setEnabled:fileSharingEnabled];
     [waitView setHidden:TRUE];
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped)];
+    tapRecognizer.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:tapRecognizer];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -301,7 +309,7 @@ static UICompositeViewDescription *compositeDescription = nil;
     
     // Display name
     
-    displayName = [[self appDelegate]._contactDelegate getUserDataDict:(char *)linphone_address_get_username(linphoneAddress)];
+    displayName = [[self appDelegate]._contactDelegate getUserDataDict:(char *)linphone_address_get_username(linphoneAddress)][@"name"];
    
     if(displayName == nil) {
         displayName = [NSString stringWithUTF8String:linphone_address_get_username(linphoneAddress)];
@@ -309,6 +317,10 @@ static UICompositeViewDescription *compositeDescription = nil;
     [addressLabel setText:displayName];
     
     // Avatar
+    
+    if ([[self appDelegate]._contactDelegate getUserDataDict:(char *)linphone_address_get_username(linphoneAddress)][@"photo"] != [NSNull null]) {
+        image = [UIImage imageWithData:[[self appDelegate]._contactDelegate getUserDataDict:(char *)linphone_address_get_username(linphoneAddress)][@"photo"]];
+    }
     if(image == nil) {
         image = [UIImage imageNamed:@"avatar_unknown_small.png"];
     }
@@ -561,6 +573,8 @@ static void message_status(LinphoneChatMessage* msg,LinphoneChatMessageState sta
 - (IBAction)onPictureClick:(id)event {
 	[messageField resignFirstResponder];
     
+    emoticonView.hidden = !emoticonView.hidden;
+    /*
     void (^block)(UIImagePickerControllerSourceType) = ^(UIImagePickerControllerSourceType type) {
         UICompositeViewDescription *description = [ImagePickerViewController compositeViewDescription];
         ImagePickerViewController *controller;
@@ -601,7 +615,7 @@ static void message_status(LinphoneChatMessage* msg,LinphoneChatMessageState sta
 	}
     [sheet addCancelButtonWithTitle:NSLocalizedString(@"Cancel",nil) block:nil];
     
-    [sheet showInView:[PhoneMainView instance].view];
+    [sheet showInView:[PhoneMainView instance].view];*/
 }
 
 - (IBAction)onTransferCancelClick:(id)event {
@@ -832,15 +846,72 @@ static void message_status(LinphoneChatMessage* msg,LinphoneChatMessageState sta
                                                      animated:TRUE];
         }
     }
+    [self backgroundTapped];
     [UIView commitAnimations];
 }
 
 - (void)viewDidUnload {
     [self setButtonEdit:nil];
+    [self setEmoticonView:nil];
     [super viewDidUnload];
 }
 
 - (LinphoneAppDelegate *)appDelegate {
 	return (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
+
+#pragma mark - Emoticon section
+
+@synthesize emoticonView;
+
+- (void) loadEmoticons{
+   
+    NSDictionary *emoticonsArray = @{
+                                    @"x(" : @"emo_angry.PNG",
+                                    @":>" : @"emo_blush.PNG",
+                                    @":-/" : @"emo_confused.PNG",
+                                    @"B-)" : @"emo_cool.PNG",
+                                    @":((" : @"emo_cry.PNG",
+                                    @":))" : @"emo_laugh.PNG",
+                                    @":x" :  @"emo_love.PNG",
+                                    @":("  : @"emo_sad.PNG",
+                                    @":-o" : @"emo_shock.PNG",
+                                    @":)"  : @"emo_smile.PNG",
+                                    @":h"  : @"emo_sweat.PNG",
+                                    @":s"  : @"emo_tired.PNG",
+                                    };
+    
+    emoticonView.backgroundColor = [UIColor grayColor];
+    
+   // NSArray *emoticonsArray = [[NSArray alloc] initWithObjects: @"emo_angry.PNG", @"emo_blush.PNG", @"emo_confused.PNG", @"emo_cool.PNG", @"emo_cry.PNG", @"emo_laugh.PNG",  @"emo_love.PNG",  @"emo_sad.PNG", @"emo_shock.PNG", @"emo_smile.PNG", @"emo_sweat.PNG", @"emo_tired.PNG", nil];
+    int i = 0;
+    int a = emoticonView.frame.size.width / 50  ;
+    for (id key in emoticonsArray){
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        button.frame = CGRectMake((i%a)*50, 10+50*(i/a), 45, 45);
+        
+        button.titleLabel.text = (NSString *) key;
+        button.titleLabel.hidden = TRUE;
+        
+        [button setBackgroundImage:[UIImage imageNamed: [emoticonsArray objectForKey:key]] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(emoticonPress:) forControlEvents:UIControlEventTouchDown];
+        [emoticonView addSubview:button];
+        i++;
+    }
+    
+}
+
+- (IBAction)emoticonPress: (id)sender{
+      if([self sendMessage:((UIButton*) sender).titleLabel.text withExterlBodyUrl:nil withInternalUrl:nil]) {
+        [self onMessageChange:nil];
+    }
+    emoticonView.hidden = TRUE;
+}
+
+- (void) backgroundTapped{
+    if (emoticonView.hidden == FALSE) emoticonView.hidden = TRUE;
+}
+
+//end emoticon section
 @end

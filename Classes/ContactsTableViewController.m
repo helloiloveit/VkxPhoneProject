@@ -67,7 +67,10 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 
 -(void) viewDidLoad{
     [super viewDidLoad];
+    onlineBuddies = [[NSMutableArray alloc] init];
+    searchResult = [[NSMutableArray alloc] init];
     [self appDelegate]._contactDelegate = self;
+    [self appDelegate]._chatDelegate = self;
 }
 
 - (void)dealloc {
@@ -212,16 +215,69 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
         DebugLog(@"l2");
     }
 
-    NSString *cellValue = [ConvertionHandler returnUserRecord:dataArray atIndexPath:indexPath][@"cn"];
-    DebugLog(@"cellValue = %@", cellValue);
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        NSString *name = [ConvertionHandler returnUserRecord:searchResult atIndexPath:indexPath][@"cn"];
+        
+        NSDictionary *userRecord = [ConvertionHandler returnUserRecord:searchResult
+                                                           atIndexPath:[NSIndexPath indexPathForRow:indexPath.row
+                                                                                          inSection:indexPath.section]];
+        NSDictionary *temp = [ContactInfoHandler manipulateResultFromServer:userRecord];
+
     
-    cell.firstNameLabel.text = cellValue;
+        cell.firstNameLabel.text = name;
+        [cell.callButton addTarget:self action:@selector(onCallClick:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.callButton setTitle:userRecord[@"cn"] forState:UIControlStateNormal];
+        [cell.callButton setTitle:[temp[@"Phone"] objectAtIndex:0][@"mobile"] forState:UIControlStateSelected];
+        cell.callButton.titleLabel.hidden = true;
+    }
+    else{
+        NSString *cellValue = [ConvertionHandler returnUserRecord:dataArray atIndexPath:indexPath][@"cn"];
+    
+        NSDictionary *userRecord = [ConvertionHandler returnUserRecord:dataArray
+                                                           atIndexPath:[NSIndexPath indexPathForRow:indexPath.row
+                                                                                          inSection:indexPath.section]];
+        NSDictionary *temp = [ContactInfoHandler manipulateResultFromServer:userRecord];
+        
+        cell.firstNameLabel.text = cellValue;
+        [cell.callButton addTarget:self action:@selector(onCallClick:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.callButton setTitle:userRecord[@"cn"] forState:UIControlStateNormal];
+        [cell.callButton setTitle:[temp[@"Phone"] objectAtIndex:0][@"mobile"] forState:UIControlStateSelected];
+        cell.callButton.titleLabel.hidden = true;
+   //     NSString *photo = temp[@"photo"];
+        if (temp[@"photo"] != [NSNull null]){
+            
+           // NSLog(@"cellValue %@ photo = %@", cellValue, [UIImage imageWithCIImage:temp[@"photo"]]);
+          //      NSData *data = [[NSData alloc] initWithBase64EncodedString:temp[@"photo"] options:NSDataBase64DecodingIgnoreUnknownCharacters];
+            
+            NSData *data = temp[@"photo"];
+                            //dataUsingEncoding:NSUTF8StringEncoding];
+            //   data = [data subdataWithRange:NSMakeRange(0, [data length] - 1)];
+            cell.avatarImage.image = [UIImage imageWithData:data];
+                                      //temp[@"photo"]];
+            //temp[@"photo"];
+        }
+        else
+        {
+            cell.avatarImage.image = [UIImage imageNamed:@"avatar.png"];
+        }
+    }
+    
     cell.lastNameLabel.text = nil;
-    cell.avatarImage.image = [UIImage imageNamed:@"avatar.png"];
     
-    [cell.callButton addTarget:self action:@selector(onCallClick:) forControlEvents:UIControlEventTouchUpInside];
-    cell.callButton.tag = indexPath.section;
-    cell.callButton.titleLabel.tag = indexPath.row;
+ //   cell.avatarImage.image = [UIImage imageNamed:@"avatar.png"];
+    
+    for (int i = 0; i < onlineBuddies.count; i++){
+     //   NSLog(@"check online name = %@",[onlineBuddies objectAtIndex:i]);
+        
+        if ([[cell.callButton titleForState:UIControlStateSelected] isEqualToString:(NSString *)[onlineBuddies objectAtIndex:i]]){
+            cell.statusLight.image = [UIImage imageNamed:@"led_connected.png"];
+            break;
+        }
+        else {
+            cell.statusLight.image = [UIImage imageNamed:@"led_disconnected.png"];
+        }
+    }
     
    // [cell setDataArray: dataArray];
     return cell;
@@ -313,19 +369,27 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Go to Contact details view
-    DebugLog(@"flag linphone_address = %d", LINPHONE_ADDRESS);
-    ContactDetailsViewController *controller = DYNAMIC_CAST([[PhoneMainView instance] changeCurrentView:[ContactDetailsViewController compositeViewDescription] push:TRUE], ContactDetailsViewController);
-    if(controller != nil) {
-        DebugLog(@"");
-        
-        // set value for ContactDetailViewController accordingly
-        NSDictionary *userRecord = [ConvertionHandler returnUserRecord:dataArray atIndexPath:indexPath];
-        controller.userRecord = userRecord;
-        DebugLog(@"user record = %@", controller.userRecord);
-
+    if ([ContactSelection getSelectionMode] == ContactSelectionModeMessage){
+        ChatRoomViewController *controller = DYNAMIC_CAST([[PhoneMainView instance] changeCurrentView:[ChatRoomViewController compositeViewDescription] push:TRUE], ChatRoomViewController);
+        if(controller != nil) {
+             NSDictionary *userRecord = [ConvertionHandler returnUserRecord:dataArray atIndexPath:indexPath];
+            [controller setRemoteAddress:userRecord[@"cn"]];
+        }
     }
-    
+    else{
+        // Go to Contact details view
+        DebugLog(@"flag linphone_address = %d", LINPHONE_ADDRESS);
+        ContactDetailsViewController *controller = DYNAMIC_CAST([[PhoneMainView instance] changeCurrentView:[ContactDetailsViewController compositeViewDescription] push:TRUE], ContactDetailsViewController);
+        if(controller != nil) {
+            DebugLog(@"");
+            
+            // set value for ContactDetailViewController accordingly
+            NSDictionary *userRecord = [ConvertionHandler returnUserRecord:dataArray atIndexPath:indexPath];
+            controller.userRecord = userRecord;
+            DebugLog(@"user record = %@", controller.userRecord);
+            
+        }
+    }
 }
 #else
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -355,22 +419,35 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 
 - (void) onCallClick: (id) sender{
     UIButton *button = (UIButton *) sender;
-    NSDictionary *userRecord = [ConvertionHandler returnUserRecord:dataArray
+   /* NSDictionary *userRecord = [ConvertionHandler returnUserRecord:dataArray
                                                        atIndexPath:[NSIndexPath indexPathForRow:button.titleLabel.tag
                                                                                 inSection:button.tag]];
     NSDictionary *temp = [ContactInfoHandler manipulateResultFromServer:userRecord];
     NSLog(@"calling FMC number %@  contact = %@", [temp[@"Phone"] objectAtIndex:0][@"mobile"],
                                                         userRecord[@"cn"]);
-
-    [[LinphoneManager instance] call:[temp[@"Phone"] objectAtIndex:0][@"mobile"]
-                                displayName:userRecord[@"cn"]
-                                transfer:NO];
+*/
+    NSString *name = [button titleForState:UIControlStateNormal];
+    NSString *phone = [button  titleForState:UIControlStateSelected];
+    
+    //[[LinphoneManager instance] call:[temp[@"Phone"] objectAtIndex:0][@"mobile"]
+    //                            displayName:userRecord[@"cn"]
+    //                            transfer:NO];
+    [[LinphoneManager instance] call:phone displayName:name transfer:NO];
 }
 
--(NSString *) getUserDataDict: (char *) number{
+-(NSDictionary *) getUserDataDict: (char *) number{
+    
+    
     NSString *userNumber = [NSString stringWithUTF8String: number];
-    NSMutableDictionary *phoneRecord = [[NSMutableDictionary alloc] init];
-    if (dataArray == nil) return userNumber;
+    
+    NSDictionary *result =[[NSDictionary alloc] initWithObjectsAndKeys:
+                           userNumber , @"phone",
+                           nil      ,   @"name",
+                           nil      ,   @"photo",
+                           nil];
+    
+   // if (dataArray == nil) return userNumber;
+    if (dataArray == nil) return result;
     int section = [dataArray count];
     
     for (int i = 0; i < section; i++){
@@ -388,15 +465,14 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
             NSDictionary *userRecord = [nameArray objectAtIndex:j];
             NSDictionary *temp = [self manipulateResultFromServer:userRecord];
             
-            [phoneRecord setValue:temp[@"Phone"] forKey:userRecord[@"cn"]];
-            
             if ( [[temp[@"Phone"] objectAtIndex:0] [@"mobile"] isEqualToString:userNumber]
-                || [[temp[@"Phone"] objectAtIndex:1] [@"home"] isEqualToString:userNumber]) {
-               return userRecord[@"cn"];
+                || [[temp[@"Phone"] objectAtIndex:1] [@"home"] isEqualToString:userNumber])
+            {
+                return temp;
             }
         }
     }
-   return userNumber;
+    return result;
 }
 
 - (NSDictionary *)manipulateResultFromServer: (NSDictionary *) resultFromServer{
@@ -417,13 +493,13 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
         [dict2 setObject:resultFromServer[@"homePhone"] forKey:@"home"];
     }
     @catch (NSException *exception) {
-        [dict2 setObject:@"043 8511432" forKey:@"home"];
+        [dict2 setObject:@"" forKey:@"home"];
     }
     @finally {
     }
 
     
-    
+    /*
     NSMutableDictionary *dict_name = [NSMutableDictionary dictionary];
     
     @try {
@@ -435,22 +511,126 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     }
     @finally {
     }
+    */
+    
+    NSString *dict_name = [[NSString alloc] init];
+    @try {
+        dict_name = resultFromServer[@"cn"] ;
+    }
+    @catch (NSException *exception) {
+    }
+    @finally {
+    }
     
     NSArray  * myArray1 = [NSArray arrayWithObjects:dict1, dict2, nil];
     
     
     
+    NSObject *photo_string;
+    
+    @try{
+        photo_string = resultFromServer[@"photo"];
+    }
+    @catch (NSException *exception) {
+        photo_string = nil;
+    }
+    @finally {
+    }
+    
     NSDictionary * result = [[NSDictionary alloc] initWithObjectsAndKeys:
                              myArray1 ?: [NSNull null], @"Phone",
-                             dict_name ?: [NSNull null], @"cn",
+                             dict_name ?: [NSNull null], @"name",
+                             photo_string ?: [NSNull null], @"photo",
                              nil];
-    
     
     return result;
 }
-
+#pragma mark - XMPP Presence
 - (LinphoneAppDelegate *)appDelegate {
 	return (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+- (void)newBuddyOnline:(NSString *)buddyName{
+    NSUserDefaults *serverName = [NSUserDefaults standardUserDefaults];
+    buddyName = [buddyName stringByReplacingOccurrencesOfString:   [NSString stringWithFormat:@"@%@",[serverName stringForKey:@"serverName"]]
+                                        withString:@""];
+  //  NSLog(@"buddy name = %@", buddyName);
+    if (![onlineBuddies containsObject:buddyName]){
+        [onlineBuddies addObject:buddyName];
+        [self.tableView reloadData];
+    }
+}
+
+- (void) buddyWentOffline: (NSString *) buddyName{
+    [onlineBuddies removeObject:buddyName];
+    [self.tableView reloadData];
+}
+
+- (void) didDisconnect{
+    [onlineBuddies removeAllObjects];
+    [self.tableView reloadData];
+    
+}
+
+#pragma mark - Search
+
+- (void) filterContentForSearchText:(NSString *)searchText{
+    [searchResult removeAllObjects];
+    searchResult = [self searchUserData:searchText];
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString];
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
+
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
+
+-(NSMutableArray *) searchUserData: (NSString *) searchString{
+    
+    NSMutableArray *resultArray = [[NSMutableArray alloc] init];
+    NSMutableArray *userArray = [[NSMutableArray alloc] init];
+    
+    if (!dataArray) return nil;
+    int section = [dataArray count];
+    
+    for (int i = 0; i < section; i++){
+        
+        NSDictionary *dict = [dataArray objectAtIndex:i];
+        NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
+        NSArray *nameArray;
+        NSString *keyw = [[NSString alloc] init];
+        
+        for (id key in dict){
+            nameArray = [dict objectForKey:key];
+            keyw = key;
+        }
+        int row =[nameArray count];
+        
+        for (int j = 0; j <row; j++)
+        {
+            NSDictionary *userRecord = [nameArray objectAtIndex:j];
+            NSDictionary *temp = [self manipulateResultFromServer:userRecord];
+            
+            if ( [[temp[@"Phone"] objectAtIndex:0] [@"mobile"] containsObject:searchString]
+                    || [[temp[@"Phone"] objectAtIndex:1] [@"home"] containsObject:searchString]
+                        || [userRecord[@"cn"] containsObject:searchString])
+            {
+                [userArray addObject:userRecord];
+            }
+        }
+        [tempDict setObject:userArray forKey:keyw];
+        [resultArray addObject:tempDict];
+    }
+    return resultArray;
 }
 
 @end

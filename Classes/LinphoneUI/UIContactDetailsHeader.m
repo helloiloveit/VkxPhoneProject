@@ -36,6 +36,7 @@
 @synthesize editView;
 @synthesize tableView;
 @synthesize contactDetailsDelegate;
+@synthesize titleLabel;
 
 #pragma mark - Lifecycle Functions
 
@@ -81,6 +82,7 @@
     [propertyList release];
     
     [_contactName release];
+    [titleLabel release];
     [super dealloc];
 }
 
@@ -363,6 +365,7 @@
 
 - (void)viewDidUnload {
     [self setContactName:nil];
+    [self setTitleLabel:nil];
     [super viewDidUnload];
 }
 @end

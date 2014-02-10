@@ -165,7 +165,7 @@
             [[PhoneMainView instance] startUp];
             
             // reporting GPS location
-             dispatch_queue_t locationQueue = dispatch_queue_create("locationQueue", NULL);
+        /*     dispatch_queue_t locationQueue = dispatch_queue_create("locationQueue", NULL);
              dispatch_async(locationQueue, ^{
                 while(1){
                     locationManager = [[CLLocationManager alloc] init];
@@ -194,7 +194,7 @@
                     [locationManager stopUpdatingLocation];
                     
                 }
-             });
+             });*/
             //end reporting GPS location
         }
     }
@@ -395,7 +395,7 @@
 
 - (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error{
     if (error!=nil){
-        NSLog(@"error =   %@",[error localizedDescription]);
+   //     NSLog(@"error =   %@",[error localizedDescription]);
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"XMPP server"
                                                             message:[error localizedDescription]
                                                            delegate:nil cancelButtonTitle:@"OK"
@@ -422,8 +422,21 @@
     }
 }
 
--(void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence{
+@synthesize _chatDelegate;
 
+-(void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence{
+    NSString *presenceType = [presence type];
+    NSString *myUsername = [[sender myJID] user];
+    NSString *presenceFromUser = [[presence from] user];
+    if (![presenceFromUser isEqualToString:myUsername]);
+    {
+        if ([presenceType isEqualToString:@"available"]){
+            [_chatDelegate newBuddyOnline:[NSString stringWithFormat:@"%@@%@", presenceFromUser, xmppStream.hostName]];
+        }
+        else if ([presenceType isEqualToString:@"unavailable"]){
+            [_chatDelegate buddyWentOffline:[NSString stringWithFormat:@"%@@%@", presenceFromUser, xmppStream.hostName]];
+        }
+    }
 }
 
 - (void)xmppStream:(XMPPStream *)sender willSecureWithSettings:(NSMutableDictionary *)settings

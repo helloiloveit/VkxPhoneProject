@@ -74,6 +74,11 @@
         if(useLinphoneAddress) {
             const char* lDisplayName = linphone_address_get_display_name(addr);
             const char* lUserName = linphone_address_get_username(addr);
+            
+            if (lUserName){
+                [self setImage:[UIImage imageWithData:[[self appDelegate]._contactDelegate getUserDataDict: (char *)lUserName][@"photo"]]];
+            }
+            
             if (lDisplayName)
                 self.address = [NSString stringWithUTF8String:lDisplayName];
             else if(lUserName)
@@ -82,6 +87,9 @@
     }
 }
 
+- (LinphoneAppDelegate *)appDelegate {
+	return (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
 
 @end
 

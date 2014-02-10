@@ -11,7 +11,6 @@
 #import <objc/runtime.h>
 #import "SMMessageDelegate.h"
 #import "XMPP.h"
-#import "LocationRequestDelegate.h"
 #import "LinphoneAppDelegate.h"
 
 @interface LocationFunctionsTest : XCTestCase

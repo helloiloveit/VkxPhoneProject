@@ -130,12 +130,12 @@ static UICompositeViewDescription *compositeDescription = nil;
   
     [sendIndicator startAnimating];
     sendIndicator.hidden =NO;
-    
+  /*
     NSLog(@"from account = %@", account);
     NSLog(@"from passw = %@", password);
     NSLog(@"type = %@", mailServer);
     NSLog(@"to account = %@", toAccount);
-    
+  */
     MCOSMTPSession *session = [[MCOSMTPSession alloc] init];
     [session setHostname:mailServer];
     [session setPort:465];
@@ -202,7 +202,7 @@ static UICompositeViewDescription *compositeDescription = nil;
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
         if([title isEqualToString:@"Cancel"])
         {
-            NSLog(@"Sending canceled");
+           // NSLog(@"Sending canceled");
         }
         else if([title isEqualToString:@"OK"])
         {

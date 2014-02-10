@@ -481,8 +481,8 @@ static UICompositeViewDescription *compositeDescription = nil;
     else{
         receivedLocation = [[CLLocation alloc] initWithLatitude:[[receivedDataArray objectAtIndex:3] doubleValue] longitude:[[receivedDataArray objectAtIndex:4] doubleValue]];
         
-        NSLog(@"latitude: %f", receivedLocation.coordinate.latitude);
-        NSLog(@"longtitude: %f", receivedLocation.coordinate.longitude);
+     //   NSLog(@"latitude: %f", receivedLocation.coordinate.latitude);
+     //   NSLog(@"longtitude: %f", receivedLocation.coordinate.longitude);
         
     }
     
@@ -493,7 +493,7 @@ static UICompositeViewDescription *compositeDescription = nil;
 }
 
 -(void) showLocation{
-    NSLog(@"Showing location");
+  //  NSLog(@"Showing location");
     mapBack = TRUE;
     [[tableController tableView] setHidden:YES];
     [mapView setHidden: NO];

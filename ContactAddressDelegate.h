@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @protocol ContactAddressDelegate <NSObject>
--(NSString *) getUserDataDict: (char *) number;
+-(NSDictionary *) getUserDataDict: (char *) number;
 @end

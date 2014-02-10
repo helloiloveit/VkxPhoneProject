@@ -67,4 +67,5 @@
 - (IBAction)onTransferCancelClick:(id)event;
 - (IBAction)onListTap:(id)sender;
 
+@property (retain, nonatomic) IBOutlet UIView *emoticonView;
 @end

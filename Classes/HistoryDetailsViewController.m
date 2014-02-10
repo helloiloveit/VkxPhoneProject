@@ -222,10 +222,23 @@ static UICompositeViewDescription *compositeDescription = nil;
         if(useLinphoneAddress) {
             const char* lDisplayName = linphone_address_get_display_name(addr);
             const char* lUserName = linphone_address_get_username(addr);
+            
+            if (lUserName){
+                image = [UIImage imageWithData:[[self appDelegate]._contactDelegate getUserDataDict: (char *)lUserName][@"photo"]];
+            }
+            
             if (lDisplayName) 
                 address = [NSString stringWithUTF8String:lDisplayName];
-            else if(lUserName) 
-                address = [NSString stringWithUTF8String:lUserName];
+            else if(lUserName)
+            {
+                if ([[self appDelegate]._contactDelegate getUserDataDict: (char *)lUserName][@"name"] != [NSNull null])
+                {
+                    address = [[self appDelegate]._contactDelegate getUserDataDict: (char *)lUserName][@"name"];
+                }
+                else{
+                    address = [NSString stringWithUTF8String:lUserName];
+                }
+            }
         }
     }
     
@@ -400,6 +413,10 @@ static UICompositeViewDescription *compositeDescription = nil;
         [controller setRemoteAddress:[NSString stringWithUTF8String:lAddress]];
     }
     ms_free(lAddress);
+}
+
+- (LinphoneAppDelegate *)appDelegate {
+	return (LinphoneAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 @end

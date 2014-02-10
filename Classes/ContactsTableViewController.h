@@ -23,11 +23,14 @@
 #import "OrderedDictionary.h"
 #import "alertHandler.h"
 #import "ContactAddressDelegate.h"
+#import "SMChatDelegate.h"
 
-@interface ContactsTableViewController : UITableViewController <ContactAddressDelegate>{
+@interface ContactsTableViewController : UITableViewController <ContactAddressDelegate, SMChatDelegate, UISearchDisplayDelegate, UISearchBarDelegate>{
     @private
     OrderedDictionary* addressBookMap;
     NSMutableDictionary* avatarMap;
+    NSMutableArray* onlineBuddies;
+    NSMutableArray* searchResult;
     
     ABAddressBookRef addressBook;
     

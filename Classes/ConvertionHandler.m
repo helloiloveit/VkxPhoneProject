@@ -14,12 +14,12 @@
 
 + (NSDictionary *) returnUserRecord :(NSArray *) usersData atIndexPath: (NSIndexPath *) indexPath {
     NSDictionary *dict = [usersData objectAtIndex:indexPath.section ];
-    InfoLog(@"dict = %@",[dict description]);
+//    InfoLog(@"dict = %@",[dict description]);
     NSArray *nameArray;
     for (id key in dict)
         nameArray = [dict objectForKey:key];
     
-    InfoLog(@"nameArray = %@", nameArray);
+//   InfoLog(@"nameArray = %@", nameArray);
     NSDictionary *userRecord = [nameArray objectAtIndex:indexPath.row];
     return userRecord;
 }

@@ -39,6 +39,7 @@
 @property (nonatomic, retain) IBOutlet UIView *editView;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet id<ContactDetailsDelegate> contactDetailsDelegate;
+@property (retain, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property(nonatomic,getter=isEditing) BOOL editing;
 

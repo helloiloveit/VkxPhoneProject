@@ -32,6 +32,7 @@
 //Add for Ldap protocol
 @property (nonatomic, unsafe_unretained) NSArray *dataArray;
 @property (retain, nonatomic) IBOutlet UIButton *callButton;
+@property (retain, nonatomic) IBOutlet UIImageView *statusLight;
 
 - (id)initWithIdentifier:(NSString*)identifier;
 

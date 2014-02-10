@@ -42,10 +42,10 @@
     
     NSMutableDictionary *dict2 = [NSMutableDictionary dictionary];
     @try {
-        [dict2 setObject:resultFromServer[@"homePhone"] forKey:@"home"];
+        [dict2 setObject:resultFromServer[@"mobile"] forKey:@"home"];
     }
     @catch (NSException *exception) {
-        [dict2 setObject:@"043 8511432" forKey:@"home"];
+        [dict2 setObject:@"" forKey:@"home"];
     }
     @finally {
     }
@@ -56,6 +56,16 @@
     }
     @catch (NSException *exception) {
         [dict3 setObject:@"" forKey:@"mail"];
+    }
+    @finally {
+    }
+    
+    NSMutableDictionary *dict4 = [NSMutableDictionary dictionary];
+    @try {
+        [dict4 setObject:resultFromServer[@"title"] forKey:@"title"];
+    }
+    @catch (NSException *exception) {
+        [dict4 setObject:@"" forKey:@"title"];
     }
     @finally {
     }
@@ -77,12 +87,36 @@
     
     NSArray  * myArray2 = [NSArray arrayWithObjects:dict3, nil];
     
+    NSObject *photo_string;
+    
+    @try{
+        photo_string = resultFromServer[@"photo"];
+    }
+    @catch (NSException *exception) {
+        photo_string = nil;
+    }
+    @finally {
+    }
+    /*
+    NSMutableDictionary *photo_data = [NSMutableDictionary dictionary];
+    @try {
+        [photo_data setObject:resultFromServer[@"photo"] forKey:@"photo"];
+    }
+    @catch (NSException *exception) {
+        
+        [photo_data setObject:@"" forKey:@"photo"];
+    }
+    @finally {
+    }
+    */
     
     
     NSDictionary * result = [[NSDictionary alloc] initWithObjectsAndKeys:
                              myArray1 ?: [NSNull null], @"Phone",
                              myArray2 ?: [NSNull null], @"email",
+                             dict4 ?: [NSNull null], @"title",
                              dict_name ?: [NSNull null], @"cn",
+                             photo_string ?: [NSNull null], @"photo",
                              nil];
     
     

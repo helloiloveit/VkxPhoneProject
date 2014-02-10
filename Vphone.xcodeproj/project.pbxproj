@@ -2007,10 +2007,10 @@
 		6947B5C71872C7B100812321 /* ContactAddressDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ContactAddressDelegate.h; path = ../ContactAddressDelegate.h; sourceTree = "<group>"; };
 		6957B32018238E7C001BCF21 /* button_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_about.png; path = Resources/button_about.png; sourceTree = SOURCE_ROOT; };
 		698C3FD91812251B00F69AEF /* LocationFunctionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationFunctionsTest.m; sourceTree = "<group>"; };
-		698C692618151EB4005DFA71 /* LocationRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationRequestDelegate.h; sourceTree = "<group>"; };
 		698E198C1867F0A8000153BE /* Favorites-button-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Favorites-button-disabled.png"; path = "Resources/Favorites-button-disabled.png"; sourceTree = "<group>"; };
 		698E198D1867F0A8000153BE /* Favorites-button-over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Favorites-button-over.png"; path = "Resources/Favorites-button-over.png"; sourceTree = "<group>"; };
 		698E198E1867F0A8000153BE /* Favorites-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Favorites-button.png"; path = "Resources/Favorites-button.png"; sourceTree = "<group>"; };
+		698E436C1884CB1B0096F2F2 /* SMChatDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMChatDelegate.h; sourceTree = "<group>"; };
 		6990A9F31828C7FE00818F2E /* folder_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = folder_icon.png; path = Resources/folder_icon.png; sourceTree = SOURCE_ROOT; };
 		6992CEC71830E665009F9665 /* CallNMessagesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallNMessagesTest.m; sourceTree = "<group>"; };
 		6992E40F1839F76A007B0595 /* mailcore2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mailcore2.xcodeproj; path = "submodules/mailcore2/build-mac/mailcore2.xcodeproj"; sourceTree = SOURCE_ROOT; };
@@ -3021,6 +3021,7 @@
 				D38187E015FE348A00C3EDCA /* WizardViewController.xib */,
 				D3D5126E160B3AD400946DF8 /* WizardViewController~ipad.xib */,
 				D3D5126A160B3A8E00946DF8 /* WizardViews.xib */,
+				69932D67188F78D100D8ABB5 /* AdditionalDelegates */,
 				69B404A1181A12E200F3B4E6 /* MailFunction */,
 				69C8E601180BF45B007C4B3F /* Map */,
 				69C8E56C180BE762007C4B3F /* XMPPFramework */,
@@ -4287,6 +4288,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		69932D67188F78D100D8ABB5 /* AdditionalDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				6947B5C71872C7B100812321 /* ContactAddressDelegate.h */,
+				69C8E607180BFA14007C4B3F /* SMMessageDelegate.h */,
+				698E436C1884CB1B0096F2F2 /* SMChatDelegate.h */,
+			);
+			name = AdditionalDelegates;
+			sourceTree = "<group>";
+		};
 		69B404A1181A12E200F3B4E6 /* MailFunction */ = {
 			isa = PBXGroup;
 			children = (
@@ -4535,9 +4546,6 @@
 			children = (
 				69C8E608180BFC9B007C4B3F /* CoreLocation.framework */,
 				69C8E605180BF720007C4B3F /* MapKit.framework */,
-				6947B5C71872C7B100812321 /* ContactAddressDelegate.h */,
-				698C692618151EB4005DFA71 /* LocationRequestDelegate.h */,
-				69C8E607180BFA14007C4B3F /* SMMessageDelegate.h */,
 				69C8E602180BF481007C4B3F /* MapAnnotation.h */,
 				69C8E603180BF481007C4B3F /* MapAnnotation.m */,
 			);
