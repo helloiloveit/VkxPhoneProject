@@ -39,6 +39,7 @@
 }
 
 
+@property (retain, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, retain) NSArray *dataArray;
 - (void)loadData;
 - (NSString *) getUserDataDict: (char *) number;

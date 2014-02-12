@@ -947,7 +947,7 @@ NSArray * get_data_from_server(const char * caFile)
         [user_dict setObject:user_info forKey:ou_str];
         [result_array addObject:user_dict];
     }
-    DebugLog(@"result_array = %@", result_array );
+  //  DebugLog(@"result_array = %@", result_array );
     return result_array;
 }
 

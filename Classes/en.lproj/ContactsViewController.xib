@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1072" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
@@ -64,7 +63,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="69" userLabel="tableView">
-                    <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                    <rect key="frame" x="0.0" y="88" width="320" height="372"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
@@ -75,6 +74,14 @@
                         <outlet property="delegate" destination="76" id="82"/>
                     </connections>
                 </tableView>
+                <searchBar contentMode="redraw" id="6l5-gn-u4c">
+                    <rect key="frame" x="0.0" y="44" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="76" id="tgP-Tz-Rge"/>
+                    </connections>
+                </searchBar>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
         </view>
@@ -86,9 +93,20 @@
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <nil key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="searchBar" destination="6l5-gn-u4c" id="zGC-Xg-JCv"/>
+                <outlet property="searchDisplayController" destination="HLa-Q2-Rxp" id="8vl-or-ggW"/>
                 <outlet property="view" destination="69" id="80"/>
             </connections>
         </tableViewController>
+        <searchDisplayController id="HLa-Q2-Rxp">
+            <connections>
+                <outlet property="delegate" destination="76" id="MEB-rK-IN7"/>
+                <outlet property="searchBar" destination="6l5-gn-u4c" id="Rde-b1-OjN"/>
+                <outlet property="searchContentsController" destination="76" id="Fgq-Wn-epr"/>
+                <outlet property="searchResultsDataSource" destination="76" id="iXG-bT-YHU"/>
+                <outlet property="searchResultsDelegate" destination="76" id="nGK-SL-C4d"/>
+            </connections>
+        </searchDisplayController>
     </objects>
     <resources>
         <image name="toolsbar_background.png" width="320" height="88"/>

@@ -37,6 +37,7 @@
 
 static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef info, void *context);
 @synthesize dataArray;
+@synthesize searchBar;
 
 #pragma mark - Lifecycle Functions
 
@@ -78,6 +79,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     CFRelease(addressBook);
     [addressBookMap release];
     [avatarMap release];
+    [searchBar release];
     [super dealloc];
 }
 
@@ -165,7 +167,13 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     InfoLog(@"");
     DebugLog(@"count = %d", [dataArray count]);
-    return [dataArray count];
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return [searchResult count];
+    }else
+    {
+        return [dataArray count];
+    }
 }
 /*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -177,12 +185,18 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 #ifdef LINPHONE_ADDRESS
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     InfoLog(@"");
-    
-
-    
-    NSDictionary *dict = [dataArray objectAtIndex:section ];
+    NSDictionary *dict;
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        dict = [searchResult objectAtIndex:section];
+    }
+    else
+    {
+    //NSDictionary
+        dict = [dataArray objectAtIndex:section ];
+    }
     NSArray *nameArray;
-    DebugLog(@"dict = %@", dict);
+  //  DebugLog(@"dict = %@", dict);
     for (id key in dict)
 
         nameArray = [dict objectForKey:key];
@@ -230,6 +244,16 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
         [cell.callButton setTitle:userRecord[@"cn"] forState:UIControlStateNormal];
         [cell.callButton setTitle:[temp[@"Phone"] objectAtIndex:0][@"mobile"] forState:UIControlStateSelected];
         cell.callButton.titleLabel.hidden = true;
+        
+        if (temp[@"photo"] != [NSNull null]){
+            NSData *data = temp[@"photo"];
+            cell.avatarImage.image = [UIImage imageWithData:data];
+        }
+        else
+        {
+            cell.avatarImage.image = [UIImage imageNamed:@"avatar.png"];
+        }
+
     }
     else{
         NSString *cellValue = [ConvertionHandler returnUserRecord:dataArray atIndexPath:indexPath][@"cn"];
@@ -382,12 +406,19 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
         ContactDetailsViewController *controller = DYNAMIC_CAST([[PhoneMainView instance] changeCurrentView:[ContactDetailsViewController compositeViewDescription] push:TRUE], ContactDetailsViewController);
         if(controller != nil) {
             DebugLog(@"");
-            
+            if (tableView == self.searchDisplayController.searchResultsTableView)
+            {
+                NSDictionary *userRecord = [ConvertionHandler returnUserRecord:searchResult atIndexPath:indexPath];
+                controller.userRecord = userRecord;
+                DebugLog(@"user record = %@", controller.userRecord);
+
+            }
+            else{
             // set value for ContactDetailViewController accordingly
-            NSDictionary *userRecord = [ConvertionHandler returnUserRecord:dataArray atIndexPath:indexPath];
-            controller.userRecord = userRecord;
-            DebugLog(@"user record = %@", controller.userRecord);
-            
+                NSDictionary *userRecord = [ConvertionHandler returnUserRecord:dataArray atIndexPath:indexPath];
+                controller.userRecord = userRecord;
+                DebugLog(@"user record = %@", controller.userRecord);
+            }
         }
     }
 }
@@ -597,13 +628,13 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 -(NSMutableArray *) searchUserData: (NSString *) searchString{
     
     NSMutableArray *resultArray = [[NSMutableArray alloc] init];
-    NSMutableArray *userArray = [[NSMutableArray alloc] init];
+    searchString = [searchString uppercaseString];
     
     if (!dataArray) return nil;
     int section = [dataArray count];
     
     for (int i = 0; i < section; i++){
-        
+        NSMutableArray *userArray = [[NSMutableArray alloc] init];
         NSDictionary *dict = [dataArray objectAtIndex:i];
         NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
         NSArray *nameArray;
@@ -620,9 +651,10 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
             NSDictionary *userRecord = [nameArray objectAtIndex:j];
             NSDictionary *temp = [self manipulateResultFromServer:userRecord];
             
-            if ( [[temp[@"Phone"] objectAtIndex:0] [@"mobile"] containsObject:searchString]
-                    || [[temp[@"Phone"] objectAtIndex:1] [@"home"] containsObject:searchString]
-                        || [userRecord[@"cn"] containsObject:searchString])
+            if (([[[temp[@"Phone"] objectAtIndex:0] [@"mobile"] uppercaseString] rangeOfString:searchString].location != NSNotFound)
+                    || ([[[temp[@"Phone"] objectAtIndex:1] [@"home"] uppercaseString] rangeOfString:searchString].location != NSNotFound)
+                        || ([[userRecord[@"cn"] uppercaseString] rangeOfString:searchString].location != NSNotFound ))
+
             {
                 [userArray addObject:userRecord];
             }
@@ -633,4 +665,7 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
     return resultArray;
 }
 
+- (void) searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self.searchBar setText:@""];
+}
 @end
