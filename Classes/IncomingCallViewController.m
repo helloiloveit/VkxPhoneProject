@@ -141,7 +141,14 @@ static UICompositeViewDescription *compositeDescription = nil;
             const char* lUserName = linphone_address_get_username(addr);
             
             if (lUserName){
-                [avatarImage setImage:[UIImage imageWithData:[[self appDelegate]._contactDelegate getUserDataDict: (char *)lUserName][@"photo"]]];
+                @try{
+                    [avatarImage setImage:[UIImage imageWithData:[[self appDelegate]._contactDelegate getUserDataDict: (char *)lUserName][@"photo"]]];
+                }
+                @catch (NSException *exception) {
+                    [avatarImage setImage:[UIImage imageNamed:@"avatar_unknown.png"]];
+                     }
+                @finally {
+                }
             }
             
             if (lDisplayName) 

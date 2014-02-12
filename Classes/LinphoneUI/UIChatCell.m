@@ -93,10 +93,17 @@
     [addressLabel setText:displayName];
     
     // Avatar
-    image = [UIImage imageWithData:[[self appDelegate]._contactDelegate getUserDataDict: (char *)linphone_address_get_username(linphoneAddress)][@"photo"]];
-    if(image == nil) {
+    @try{
+        image = [UIImage imageWithData:[[self appDelegate]._contactDelegate getUserDataDict: (char *)linphone_address_get_username(linphoneAddress)][@"photo"]];
+    }
+    @catch (NSException *exception) {
         image = [UIImage imageNamed:@"avatar_unknown_small.png"];
     }
+    @finally {
+    }
+ /*   if(image == nil) {
+        image = [UIImage imageNamed:@"avatar_unknown_small.png"];
+    }*/
     [avatarImage setImage:image];
     
     // Message

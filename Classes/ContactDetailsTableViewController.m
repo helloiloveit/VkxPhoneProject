@@ -554,13 +554,15 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath  {
 
     static NSString *kCellId = @"ContactDetailsCell";
-    DebugLog(@" user data = %@", self.userManipulatedData);
+  //  DebugLog(@" user data = %@", self.userManipulatedData);
     
 
     
     headerController.contactName.text = self.userManipulatedData[@"cn"][@"name"];
     headerController.titleLabel.text = self.userManipulatedData[@"title"][@"title"];
-    headerController.avatarImage.image = [UIImage imageWithData:self.userManipulatedData[@"photo"]];
+    if (self.userManipulatedData[@"photo"] != [NSNull null])
+        headerController.avatarImage.image = [UIImage imageWithData:self.userManipulatedData[@"photo"]];
+    else headerController.avatarImage.image = [UIImage imageNamed:@"avatar_unknown.png"];
     UIEditableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
     if (cell == nil) {
         cell = [[[UIEditableTableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:kCellId] autorelease];
@@ -580,10 +582,10 @@ static const int contactSections[ContactSections_MAX] = {ContactSections_None, C
     if (indexPath.section == 0) {
         NSArray *nameArray = self.userManipulatedData[@"Phone"] ;
         
-        InfoLog(@"nameArray = %@", nameArray);
+   //     InfoLog(@"nameArray = %@", nameArray);
         
         NSDictionary *dic_info = [nameArray objectAtIndex:indexPath.row];
-        InfoLog(@"dic_info = %@ with row %d", dic_info,indexPath.row  );
+  //      InfoLog(@"dic_info = %@ with row %d", dic_info,indexPath.row  );
         NSString * data;
         
         for(id key in dic_info){

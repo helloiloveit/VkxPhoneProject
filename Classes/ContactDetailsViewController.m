@@ -240,10 +240,10 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 
 - (void)setUserRecord:(NSDictionary *)data{
     DebugLog(@"");
-    DebugLog(@"user record = %@", data);
+  //  DebugLog(@"user record = %@", data);
    // self.userRecord = data;
 //    self.userRecord = data;
-        DebugLog(@"user record = %@", userRecord);
+  //      DebugLog(@"user record = %@", userRecord);
     NSDictionary *temp = [ContactInfoHandler manipulateResultFromServer:data];
     [tableController setUserManipulatedData:temp];
     [tableController locationRequest:temp];

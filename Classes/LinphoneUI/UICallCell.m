@@ -76,7 +76,14 @@
             const char* lUserName = linphone_address_get_username(addr);
             
             if (lUserName){
-                [self setImage:[UIImage imageWithData:[[self appDelegate]._contactDelegate getUserDataDict: (char *)lUserName][@"photo"]]];
+                @try{
+                    [self setImage:[UIImage imageWithData:[[self appDelegate]._contactDelegate getUserDataDict: (char *)lUserName][@"photo"]]];
+                }
+                @catch (NSException *exception) {
+                    [self setImage:[UIImage imageNamed:@"avatar_unknown.png"]];
+                }
+                @finally {
+                }
             }
             
             if (lDisplayName)

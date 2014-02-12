@@ -33,7 +33,7 @@
     NSMutableArray* searchResult;
     
     ABAddressBookRef addressBook;
-    
+    BOOL hasContactList;
  //   NSArray *dataArray;
 
 }

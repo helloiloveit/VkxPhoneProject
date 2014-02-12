@@ -122,13 +122,13 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
 
 
 - (void)loadData{
-    InfoLog(@"");
-
+    InfoLog(@"%hhd", hasContactList);
+ //   if (!hasContactList){
     dispatch_queue_t fetchQ = dispatch_queue_create("Flickr Fetch", NULL);
     dispatch_async(fetchQ, ^{
         @try {
-            
             self.dataArray = get_data_from_server(NULL);
+   //         hasContactList = YES;
         }
         @catch (NSException * e) {
             NSLog(@"Exception: %@", e);
@@ -136,10 +136,12 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
         }
 
         dispatch_async(dispatch_get_main_queue(), ^{
-           [self.tableView reloadData];     
+           [self.tableView reloadData];
         });
         
     });
+    
+ //   }
 }
 
  
@@ -268,18 +270,9 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
         [cell.callButton setTitle:userRecord[@"cn"] forState:UIControlStateNormal];
         [cell.callButton setTitle:[temp[@"Phone"] objectAtIndex:0][@"mobile"] forState:UIControlStateSelected];
         cell.callButton.titleLabel.hidden = true;
-   //     NSString *photo = temp[@"photo"];
         if (temp[@"photo"] != [NSNull null]){
-            
-           // NSLog(@"cellValue %@ photo = %@", cellValue, [UIImage imageWithCIImage:temp[@"photo"]]);
-          //      NSData *data = [[NSData alloc] initWithBase64EncodedString:temp[@"photo"] options:NSDataBase64DecodingIgnoreUnknownCharacters];
-            
             NSData *data = temp[@"photo"];
-                            //dataUsingEncoding:NSUTF8StringEncoding];
-            //   data = [data subdataWithRange:NSMakeRange(0, [data length] - 1)];
             cell.avatarImage.image = [UIImage imageWithData:data];
-                                      //temp[@"photo"]];
-            //temp[@"photo"];
         }
         else
         {
@@ -410,14 +403,14 @@ static void sync_address_book (ABAddressBookRef addressBook, CFDictionaryRef inf
             {
                 NSDictionary *userRecord = [ConvertionHandler returnUserRecord:searchResult atIndexPath:indexPath];
                 controller.userRecord = userRecord;
-                DebugLog(@"user record = %@", controller.userRecord);
+           //     DebugLog(@"user record = %@", controller.userRecord);
 
             }
             else{
             // set value for ContactDetailViewController accordingly
                 NSDictionary *userRecord = [ConvertionHandler returnUserRecord:dataArray atIndexPath:indexPath];
                 controller.userRecord = userRecord;
-                DebugLog(@"user record = %@", controller.userRecord);
+           //     DebugLog(@"user record = %@", controller.userRecord);
             }
         }
     }
